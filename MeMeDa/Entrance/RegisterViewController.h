@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RegisterViewController.h
 //  MeMeDa
 //
 //  Created by 镓洲 王 on 5/3/18.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface RegisterViewController : UIViewController
 
 @end
-

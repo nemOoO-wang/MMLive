@@ -1,0 +1,18 @@
+//
+//  PrefixHeader.pch
+//  MeMeDa
+//
+//  Created by 镓洲 王 on 5/3/18.
+//  Copyright © 2018 镓洲 王. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+#import <SVProgressHUD.h>
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
+#endif /* PrefixHeader_pch */

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <IQKeyboardManager.h>
 
 @interface AppDelegate ()
 
@@ -16,7 +17,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // IQKeyboard
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    
     return YES;
 }
 
