@@ -7,7 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BA945D95209AEDF8001BE9E1 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945D94209AEDF8001BE9E1 /* RegisterViewController.m */; };
+		BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */; };
+		BA945D9A209AF9C9001BE9E1 /* NMBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945D99209AF9C9001BE9E1 /* NMBlurView.m */; };
+		BA945DA7209AFC70001BE9E1 /* BeeNetCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945D9D209AFC70001BE9E1 /* BeeNetCallback.m */; };
+		BA945DA8209AFC70001BE9E1 /* BeeNet.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945D9E209AFC70001BE9E1 /* BeeNet.m */; };
+		BA945DA9209AFC70001BE9E1 /* MD5Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945DA1209AFC70001BE9E1 /* MD5Utils.m */; };
+		BA945DAA209AFC70001BE9E1 /* UIColor+BeeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945DA4209AFC70001BE9E1 /* UIColor+BeeColor.m */; };
+		BA945DAB209AFC70001BE9E1 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945DA6209AFC70001BE9E1 /* FileUtils.m */; };
+		BAA69EE9209C3FAA005138EA /* FemaleRuleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA69EE8209C3FAA005138EA /* FemaleRuleVC.m */; };
+		BAA69EEC209C42A2005138EA /* IdentifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA69EEB209C42A2005138EA /* IdentifyVC.m */; };
+		BAA69EEF209C5744005138EA /* FemaleRuleSelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA69EEE209C5744005138EA /* FemaleRuleSelVC.m */; };
+		BAA69EF2209C6D06005138EA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA69EF1209C6D06005138EA /* LoginViewController.m */; };
+		BAA69EF8209C6DB1005138EA /* DatePickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA69EF7209C6DB1005138EA /* DatePickerVC.m */; };
+		BAA69EFB209C6DC2005138EA /* CityPickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA69EFA209C6DC2005138EA /* CityPickerVC.m */; };
+		BAB0F784209B07BE00E8CCC7 /* NMRegTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB0F783209B07BE00E8CCC7 /* NMRegTextField.m */; };
+		BAB0F788209B0D2D00E8CCC7 /* NMLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB0F787209B0D2D00E8CCC7 /* NMLoginButton.m */; };
+		BAB0F790209B193600E8CCC7 /* UINavigationBar+CustomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB0F78F209B193600E8CCC7 /* UINavigationBar+CustomBar.m */; };
 		BAC1839B209AE0EC00209CCD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC1839A209AE0EC00209CCD /* AppDelegate.m */; };
 		BAC183A1209AE0EC00209CCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAC1839F209AE0EC00209CCD /* Main.storyboard */; };
 		BAC183A3209AE0ED00209CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAC183A2209AE0ED00209CCD /* Assets.xcassets */; };
@@ -19,9 +34,39 @@
 /* Begin PBXFileReference section */
 		50F29EB7810A38620C992E5A /* libPods-MeMeDa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MeMeDa.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63CE5D31645DCA1716B36334 /* Pods-MeMeDa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeMeDa.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa.release.xcconfig"; sourceTree = "<group>"; };
+		BA270764209B29D000220B23 /* NMBigImgTitleBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMBigImgTitleBtn.h; sourceTree = "<group>"; };
+		BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMBigImgTitleBtn.m; sourceTree = "<group>"; };
 		BA945D91209AEC3A001BE9E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		BA945D93209AEDF8001BE9E1 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		BA945D94209AEDF8001BE9E1 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		BA945D98209AF9C9001BE9E1 /* NMBlurView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMBlurView.h; sourceTree = "<group>"; };
+		BA945D99209AF9C9001BE9E1 /* NMBlurView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMBlurView.m; sourceTree = "<group>"; };
+		BA945D9D209AFC70001BE9E1 /* BeeNetCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeNetCallback.m; sourceTree = "<group>"; };
+		BA945D9E209AFC70001BE9E1 /* BeeNet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeeNet.m; sourceTree = "<group>"; };
+		BA945D9F209AFC70001BE9E1 /* BeeNetCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeNetCallback.h; sourceTree = "<group>"; };
+		BA945DA0209AFC70001BE9E1 /* BeeNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeeNet.h; sourceTree = "<group>"; };
+		BA945DA1209AFC70001BE9E1 /* MD5Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Utils.m; sourceTree = "<group>"; };
+		BA945DA2209AFC70001BE9E1 /* UIColor+BeeColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BeeColor.h"; sourceTree = "<group>"; };
+		BA945DA3209AFC70001BE9E1 /* MD5Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Utils.h; sourceTree = "<group>"; };
+		BA945DA4209AFC70001BE9E1 /* UIColor+BeeColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BeeColor.m"; sourceTree = "<group>"; };
+		BA945DA5209AFC70001BE9E1 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
+		BA945DA6209AFC70001BE9E1 /* FileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtils.m; sourceTree = "<group>"; };
+		BAA69EE7209C3FAA005138EA /* FemaleRuleVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FemaleRuleVC.h; sourceTree = "<group>"; };
+		BAA69EE8209C3FAA005138EA /* FemaleRuleVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FemaleRuleVC.m; sourceTree = "<group>"; };
+		BAA69EEA209C42A2005138EA /* IdentifyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdentifyVC.h; sourceTree = "<group>"; };
+		BAA69EEB209C42A2005138EA /* IdentifyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IdentifyVC.m; sourceTree = "<group>"; };
+		BAA69EED209C5744005138EA /* FemaleRuleSelVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FemaleRuleSelVC.h; sourceTree = "<group>"; };
+		BAA69EEE209C5744005138EA /* FemaleRuleSelVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FemaleRuleSelVC.m; sourceTree = "<group>"; };
+		BAA69EF0209C6D06005138EA /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		BAA69EF1209C6D06005138EA /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		BAA69EF6209C6DB1005138EA /* DatePickerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatePickerVC.h; sourceTree = "<group>"; };
+		BAA69EF7209C6DB1005138EA /* DatePickerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatePickerVC.m; sourceTree = "<group>"; };
+		BAA69EF9209C6DC2005138EA /* CityPickerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityPickerVC.h; sourceTree = "<group>"; };
+		BAA69EFA209C6DC2005138EA /* CityPickerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityPickerVC.m; sourceTree = "<group>"; };
+		BAB0F782209B07BE00E8CCC7 /* NMRegTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMRegTextField.h; sourceTree = "<group>"; };
+		BAB0F783209B07BE00E8CCC7 /* NMRegTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMRegTextField.m; sourceTree = "<group>"; };
+		BAB0F786209B0D2D00E8CCC7 /* NMLoginButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMLoginButton.h; sourceTree = "<group>"; };
+		BAB0F787209B0D2D00E8CCC7 /* NMLoginButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMLoginButton.m; sourceTree = "<group>"; };
+		BAB0F78E209B193600E8CCC7 /* UINavigationBar+CustomBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CustomBar.h"; sourceTree = "<group>"; };
+		BAB0F78F209B193600E8CCC7 /* UINavigationBar+CustomBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomBar.m"; sourceTree = "<group>"; };
 		BAC18396209AE0EB00209CCD /* MeMeDa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeMeDa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAC18399209AE0EC00209CCD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BAC1839A209AE0EC00209CCD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -60,10 +105,127 @@
 		BA945D92209AEDCF001BE9E1 /* Entrance */ = {
 			isa = PBXGroup;
 			children = (
-				BA945D93209AEDF8001BE9E1 /* RegisterViewController.h */,
-				BA945D94209AEDF8001BE9E1 /* RegisterViewController.m */,
+				BAA69EE5209C3F0A005138EA /* Login */,
 			);
 			path = Entrance;
+			sourceTree = "<group>";
+		};
+		BA945D96209AF98C001BE9E1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BA945D9B209AFBFC001BE9E1 /* Tools */,
+				BA945D97209AF999001BE9E1 /* Views */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		BA945D97209AF999001BE9E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BAB0F791209B1E2700E8CCC7 /* Public */,
+				BAB0F785209B0CF200E8CCC7 /* Explicit Views */,
+				BAB0F78E209B193600E8CCC7 /* UINavigationBar+CustomBar.h */,
+				BAB0F78F209B193600E8CCC7 /* UINavigationBar+CustomBar.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BA945D9B209AFBFC001BE9E1 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				BA945D9C209AFC70001BE9E1 /* BeeNet */,
+				BA945DA5209AFC70001BE9E1 /* FileUtils.h */,
+				BA945DA6209AFC70001BE9E1 /* FileUtils.m */,
+				BA945DA3209AFC70001BE9E1 /* MD5Utils.h */,
+				BA945DA1209AFC70001BE9E1 /* MD5Utils.m */,
+				BA945DA2209AFC70001BE9E1 /* UIColor+BeeColor.h */,
+				BA945DA4209AFC70001BE9E1 /* UIColor+BeeColor.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		BA945D9C209AFC70001BE9E1 /* BeeNet */ = {
+			isa = PBXGroup;
+			children = (
+				BA945D9D209AFC70001BE9E1 /* BeeNetCallback.m */,
+				BA945D9E209AFC70001BE9E1 /* BeeNet.m */,
+				BA945D9F209AFC70001BE9E1 /* BeeNetCallback.h */,
+				BA945DA0209AFC70001BE9E1 /* BeeNet.h */,
+			);
+			path = BeeNet;
+			sourceTree = "<group>";
+		};
+		BAA69EE5209C3F0A005138EA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BAA69EF3209C6D6D005138EA /* Register */,
+				BAA69EF0209C6D06005138EA /* LoginViewController.h */,
+				BAA69EF1209C6D06005138EA /* LoginViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BAA69EE6209C3F6D005138EA /* Female Only */ = {
+			isa = PBXGroup;
+			children = (
+				BAA69EE7209C3FAA005138EA /* FemaleRuleVC.h */,
+				BAA69EE8209C3FAA005138EA /* FemaleRuleVC.m */,
+				BAA69EEA209C42A2005138EA /* IdentifyVC.h */,
+				BAA69EEB209C42A2005138EA /* IdentifyVC.m */,
+				BAA69EED209C5744005138EA /* FemaleRuleSelVC.h */,
+				BAA69EEE209C5744005138EA /* FemaleRuleSelVC.m */,
+			);
+			path = "Female Only";
+			sourceTree = "<group>";
+		};
+		BAA69EF3209C6D6D005138EA /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				BAA69EF4209C6D82005138EA /* Infomation */,
+				BAA69EE6209C3F6D005138EA /* Female Only */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		BAA69EF4209C6D82005138EA /* Infomation */ = {
+			isa = PBXGroup;
+			children = (
+				BAA69EF5209C6D97005138EA /* Picker */,
+			);
+			path = Infomation;
+			sourceTree = "<group>";
+		};
+		BAA69EF5209C6D97005138EA /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				BAA69EF6209C6DB1005138EA /* DatePickerVC.h */,
+				BAA69EF7209C6DB1005138EA /* DatePickerVC.m */,
+				BAA69EF9209C6DC2005138EA /* CityPickerVC.h */,
+				BAA69EFA209C6DC2005138EA /* CityPickerVC.m */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
+		BAB0F785209B0CF200E8CCC7 /* Explicit Views */ = {
+			isa = PBXGroup;
+			children = (
+				BAB0F786209B0D2D00E8CCC7 /* NMLoginButton.h */,
+				BAB0F787209B0D2D00E8CCC7 /* NMLoginButton.m */,
+				BA270764209B29D000220B23 /* NMBigImgTitleBtn.h */,
+				BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */,
+			);
+			path = "Explicit Views";
+			sourceTree = "<group>";
+		};
+		BAB0F791209B1E2700E8CCC7 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				BA945D98209AF9C9001BE9E1 /* NMBlurView.h */,
+				BA945D99209AF9C9001BE9E1 /* NMBlurView.m */,
+				BAB0F782209B07BE00E8CCC7 /* NMRegTextField.h */,
+				BAB0F783209B07BE00E8CCC7 /* NMRegTextField.m */,
+			);
+			path = Public;
 			sourceTree = "<group>";
 		};
 		BAC1838D209AE0EB00209CCD = {
@@ -87,6 +249,7 @@
 		BAC18398209AE0EB00209CCD /* MeMeDa */ = {
 			isa = PBXGroup;
 			children = (
+				BA945D96209AF98C001BE9E1 /* Utils */,
 				BA945D92209AEDCF001BE9E1 /* Entrance */,
 				BA945D90209AEC13001BE9E1 /* Profiles */,
 				BAC1839F209AE0EC00209CCD /* Main.storyboard */,
@@ -226,9 +389,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA69EF8209C6DB1005138EA /* DatePickerVC.m in Sources */,
+				BAA69EFB209C6DC2005138EA /* CityPickerVC.m in Sources */,
+				BA945DAA209AFC70001BE9E1 /* UIColor+BeeColor.m in Sources */,
 				BAC183A9209AE0ED00209CCD /* main.m in Sources */,
+				BA945DA9209AFC70001BE9E1 /* MD5Utils.m in Sources */,
+				BAA69EEC209C42A2005138EA /* IdentifyVC.m in Sources */,
+				BA945DAB209AFC70001BE9E1 /* FileUtils.m in Sources */,
+				BAB0F790209B193600E8CCC7 /* UINavigationBar+CustomBar.m in Sources */,
 				BAC1839B209AE0EC00209CCD /* AppDelegate.m in Sources */,
-				BA945D95209AEDF8001BE9E1 /* RegisterViewController.m in Sources */,
+				BAA69EF2209C6D06005138EA /* LoginViewController.m in Sources */,
+				BAA69EE9209C3FAA005138EA /* FemaleRuleVC.m in Sources */,
+				BA945DA8209AFC70001BE9E1 /* BeeNet.m in Sources */,
+				BA945DA7209AFC70001BE9E1 /* BeeNetCallback.m in Sources */,
+				BAB0F784209B07BE00E8CCC7 /* NMRegTextField.m in Sources */,
+				BAA69EEF209C5744005138EA /* FemaleRuleSelVC.m in Sources */,
+				BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */,
+				BA945D9A209AF9C9001BE9E1 /* NMBlurView.m in Sources */,
+				BAB0F788209B0D2D00E8CCC7 /* NMLoginButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +483,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -357,7 +535,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
