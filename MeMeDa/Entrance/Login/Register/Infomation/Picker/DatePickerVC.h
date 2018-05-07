@@ -10,4 +10,7 @@
 
 @interface DatePickerVC : UIViewController
 
+@property (nonatomic,strong) void(^pickDate) (NSDate *date);
+@property (nonatomic,strong) NSDate *oldDate;
+
 @end

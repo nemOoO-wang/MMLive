@@ -10,4 +10,7 @@
 
 @interface CityPickerVC : UIViewController
 
+@property (nonatomic,strong) NSString *province;
+@property (nonatomic,strong) NSString *city;
+
 @end

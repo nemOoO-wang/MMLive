@@ -9,6 +9,7 @@
 #import "DatePickerVC.h"
 
 @interface DatePickerVC ()
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @end
 
@@ -16,9 +17,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    if (!self.oldDate) {
+        self.oldDate = [[NSDate alloc] init];
+    }
+    [self.datePicker setDate:self.oldDate];
 }
 
+- (IBAction)clickConfirm:(id)sender {
+    self.pickDate(self.datePicker.date);
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 - (IBAction)clickCancel:(id)sender {
@@ -27,14 +35,9 @@
     }];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-*/
 
 @end

@@ -14,6 +14,9 @@
 		BA945DA9209AFC70001BE9E1 /* MD5Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945DA1209AFC70001BE9E1 /* MD5Utils.m */; };
 		BA945DAA209AFC70001BE9E1 /* UIColor+BeeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945DA4209AFC70001BE9E1 /* UIColor+BeeColor.m */; };
 		BA945DAB209AFC70001BE9E1 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945DA6209AFC70001BE9E1 /* FileUtils.m */; };
+		BA97C777209FFA9200F61694 /* RegistInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA97C776209FFA9200F61694 /* RegistInfoVC.m */; };
+		BA97C77B20A02C2000F61694 /* HomeTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA97C77A20A02C2000F61694 /* HomeTabbarController.m */; };
+		BA97C78220A0530B00F61694 /* SquareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA97C78120A0530B00F61694 /* SquareVC.m */; };
 		BAA69EE9209C3FAA005138EA /* FemaleRuleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA69EE8209C3FAA005138EA /* FemaleRuleVC.m */; };
 		BAA69EEC209C42A2005138EA /* IdentifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA69EEB209C42A2005138EA /* IdentifyVC.m */; };
 		BAA69EEF209C5744005138EA /* FemaleRuleSelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA69EEE209C5744005138EA /* FemaleRuleSelVC.m */; };
@@ -49,6 +52,12 @@
 		BA945DA4209AFC70001BE9E1 /* UIColor+BeeColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BeeColor.m"; sourceTree = "<group>"; };
 		BA945DA5209AFC70001BE9E1 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
 		BA945DA6209AFC70001BE9E1 /* FileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtils.m; sourceTree = "<group>"; };
+		BA97C775209FFA9200F61694 /* RegistInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistInfoVC.h; sourceTree = "<group>"; };
+		BA97C776209FFA9200F61694 /* RegistInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistInfoVC.m; sourceTree = "<group>"; };
+		BA97C77920A02C2000F61694 /* HomeTabbarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTabbarController.h; sourceTree = "<group>"; };
+		BA97C77A20A02C2000F61694 /* HomeTabbarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTabbarController.m; sourceTree = "<group>"; };
+		BA97C78020A0530B00F61694 /* SquareVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareVC.h; sourceTree = "<group>"; };
+		BA97C78120A0530B00F61694 /* SquareVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareVC.m; sourceTree = "<group>"; };
 		BAA69EE7209C3FAA005138EA /* FemaleRuleVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FemaleRuleVC.h; sourceTree = "<group>"; };
 		BAA69EE8209C3FAA005138EA /* FemaleRuleVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FemaleRuleVC.m; sourceTree = "<group>"; };
 		BAA69EEA209C42A2005138EA /* IdentifyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdentifyVC.h; sourceTree = "<group>"; };
@@ -105,6 +114,7 @@
 		BA945D92209AEDCF001BE9E1 /* Entrance */ = {
 			isa = PBXGroup;
 			children = (
+				BA97C77820A02BE000F61694 /* Home */,
 				BAA69EE5209C3F0A005138EA /* Login */,
 			);
 			path = Entrance;
@@ -155,6 +165,25 @@
 			path = BeeNet;
 			sourceTree = "<group>";
 		};
+		BA97C77820A02BE000F61694 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BA97C77C20A0438C00F61694 /* Square */,
+				BA97C77920A02C2000F61694 /* HomeTabbarController.h */,
+				BA97C77A20A02C2000F61694 /* HomeTabbarController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BA97C77C20A0438C00F61694 /* Square */ = {
+			isa = PBXGroup;
+			children = (
+				BA97C78020A0530B00F61694 /* SquareVC.h */,
+				BA97C78120A0530B00F61694 /* SquareVC.m */,
+			);
+			path = Square;
+			sourceTree = "<group>";
+		};
 		BAA69EE5209C3F0A005138EA /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				BAA69EF5209C6D97005138EA /* Picker */,
+				BA97C775209FFA9200F61694 /* RegistInfoVC.h */,
+				BA97C776209FFA9200F61694 /* RegistInfoVC.m */,
 			);
 			path = Infomation;
 			sourceTree = "<group>";
@@ -394,6 +425,7 @@
 				BA945DAA209AFC70001BE9E1 /* UIColor+BeeColor.m in Sources */,
 				BAC183A9209AE0ED00209CCD /* main.m in Sources */,
 				BA945DA9209AFC70001BE9E1 /* MD5Utils.m in Sources */,
+				BA97C777209FFA9200F61694 /* RegistInfoVC.m in Sources */,
 				BAA69EEC209C42A2005138EA /* IdentifyVC.m in Sources */,
 				BA945DAB209AFC70001BE9E1 /* FileUtils.m in Sources */,
 				BAB0F790209B193600E8CCC7 /* UINavigationBar+CustomBar.m in Sources */,
@@ -401,11 +433,13 @@
 				BAA69EF2209C6D06005138EA /* LoginViewController.m in Sources */,
 				BAA69EE9209C3FAA005138EA /* FemaleRuleVC.m in Sources */,
 				BA945DA8209AFC70001BE9E1 /* BeeNet.m in Sources */,
+				BA97C78220A0530B00F61694 /* SquareVC.m in Sources */,
 				BA945DA7209AFC70001BE9E1 /* BeeNetCallback.m in Sources */,
 				BAB0F784209B07BE00E8CCC7 /* NMRegTextField.m in Sources */,
 				BAA69EEF209C5744005138EA /* FemaleRuleSelVC.m in Sources */,
 				BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */,
 				BA945D9A209AF9C9001BE9E1 /* NMBlurView.m in Sources */,
+				BA97C77B20A02C2000F61694 /* HomeTabbarController.m in Sources */,
 				BAB0F788209B0D2D00E8CCC7 /* NMLoginButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
