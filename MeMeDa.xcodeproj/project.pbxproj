@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */; };
+		BA86CA0C20A1402600F21980 /* SquareHeaderCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA0B20A1402600F21980 /* SquareHeaderCarousel.m */; };
+		BA86CA0F20A1636D00F21980 /* SquareHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA0E20A1636D00F21980 /* SquareHeaderCell.m */; };
+		BA86CA1220A1638B00F21980 /* SquareListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA1120A1638B00F21980 /* SquareListCell.m */; };
+		BA86CA1620A1712600F21980 /* SquareSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA1520A1712600F21980 /* SquareSearchVC.m */; };
 		BA945D9A209AF9C9001BE9E1 /* NMBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945D99209AF9C9001BE9E1 /* NMBlurView.m */; };
 		BA945DA7209AFC70001BE9E1 /* BeeNetCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945D9D209AFC70001BE9E1 /* BeeNetCallback.m */; };
 		BA945DA8209AFC70001BE9E1 /* BeeNet.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945D9E209AFC70001BE9E1 /* BeeNet.m */; };
@@ -39,6 +43,14 @@
 		63CE5D31645DCA1716B36334 /* Pods-MeMeDa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeMeDa.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa.release.xcconfig"; sourceTree = "<group>"; };
 		BA270764209B29D000220B23 /* NMBigImgTitleBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMBigImgTitleBtn.h; sourceTree = "<group>"; };
 		BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMBigImgTitleBtn.m; sourceTree = "<group>"; };
+		BA86CA0A20A1402600F21980 /* SquareHeaderCarousel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareHeaderCarousel.h; sourceTree = "<group>"; };
+		BA86CA0B20A1402600F21980 /* SquareHeaderCarousel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareHeaderCarousel.m; sourceTree = "<group>"; };
+		BA86CA0D20A1636D00F21980 /* SquareHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareHeaderCell.h; sourceTree = "<group>"; };
+		BA86CA0E20A1636D00F21980 /* SquareHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareHeaderCell.m; sourceTree = "<group>"; };
+		BA86CA1020A1638B00F21980 /* SquareListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareListCell.h; sourceTree = "<group>"; };
+		BA86CA1120A1638B00F21980 /* SquareListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareListCell.m; sourceTree = "<group>"; };
+		BA86CA1420A1712600F21980 /* SquareSearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareSearchVC.h; sourceTree = "<group>"; };
+		BA86CA1520A1712600F21980 /* SquareSearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareSearchVC.m; sourceTree = "<group>"; };
 		BA945D91209AEC3A001BE9E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BA945D98209AF9C9001BE9E1 /* NMBlurView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMBlurView.h; sourceTree = "<group>"; };
 		BA945D99209AF9C9001BE9E1 /* NMBlurView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMBlurView.m; sourceTree = "<group>"; };
@@ -99,6 +111,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA86CA0920A13FED00F21980 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				BA86CA0A20A1402600F21980 /* SquareHeaderCarousel.h */,
+				BA86CA0B20A1402600F21980 /* SquareHeaderCarousel.m */,
+				BA86CA0D20A1636D00F21980 /* SquareHeaderCell.h */,
+				BA86CA0E20A1636D00F21980 /* SquareHeaderCell.m */,
+				BA86CA1020A1638B00F21980 /* SquareListCell.h */,
+				BA86CA1120A1638B00F21980 /* SquareListCell.m */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		BA86CA1320A1711000F21980 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BA86CA1420A1712600F21980 /* SquareSearchVC.h */,
+				BA86CA1520A1712600F21980 /* SquareSearchVC.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		BA945D90209AEC13001BE9E1 /* Profiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +212,8 @@
 		BA97C77C20A0438C00F61694 /* Square */ = {
 			isa = PBXGroup;
 			children = (
+				BA86CA1320A1711000F21980 /* Search */,
+				BA86CA0920A13FED00F21980 /* cells */,
 				BA97C78020A0530B00F61694 /* SquareVC.h */,
 				BA97C78120A0530B00F61694 /* SquareVC.m */,
 			);
@@ -431,16 +467,20 @@
 				BAB0F790209B193600E8CCC7 /* UINavigationBar+CustomBar.m in Sources */,
 				BAC1839B209AE0EC00209CCD /* AppDelegate.m in Sources */,
 				BAA69EF2209C6D06005138EA /* LoginViewController.m in Sources */,
+				BA86CA0C20A1402600F21980 /* SquareHeaderCarousel.m in Sources */,
 				BAA69EE9209C3FAA005138EA /* FemaleRuleVC.m in Sources */,
 				BA945DA8209AFC70001BE9E1 /* BeeNet.m in Sources */,
 				BA97C78220A0530B00F61694 /* SquareVC.m in Sources */,
 				BA945DA7209AFC70001BE9E1 /* BeeNetCallback.m in Sources */,
+				BA86CA1220A1638B00F21980 /* SquareListCell.m in Sources */,
 				BAB0F784209B07BE00E8CCC7 /* NMRegTextField.m in Sources */,
 				BAA69EEF209C5744005138EA /* FemaleRuleSelVC.m in Sources */,
+				BA86CA0F20A1636D00F21980 /* SquareHeaderCell.m in Sources */,
 				BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */,
 				BA945D9A209AF9C9001BE9E1 /* NMBlurView.m in Sources */,
 				BA97C77B20A02C2000F61694 /* HomeTabbarController.m in Sources */,
 				BAB0F788209B0D2D00E8CCC7 /* NMLoginButton.m in Sources */,
+				BA86CA1620A1712600F21980 /* SquareSearchVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
