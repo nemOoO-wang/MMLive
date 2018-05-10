@@ -35,6 +35,13 @@
 		BAC183A3209AE0ED00209CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAC183A2209AE0ED00209CCD /* Assets.xcassets */; };
 		BAC183A6209AE0ED00209CCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAC183A4209AE0ED00209CCD /* LaunchScreen.storyboard */; };
 		BAC183A9209AE0ED00209CCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC183A8209AE0ED00209CCD /* main.m */; };
+		BAEE7FBB20A2D3C3000EA5E4 /* BorderAndTransLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE7FBA20A2D3C3000EA5E4 /* BorderAndTransLabel.m */; };
+		BAEE7FBF20A2D5C5000EA5E4 /* SquareListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE7FBE20A2D5C5000EA5E4 /* SquareListVC.m */; };
+		BAEE7FC320A2D61B000EA5E4 /* SquareListGirlsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE7FC220A2D61B000EA5E4 /* SquareListGirlsCell.m */; };
+		BAEE7FC620A2D9DF000EA5E4 /* SearchTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE7FC520A2D9DF000EA5E4 /* SearchTextField.m */; };
+		BAEE7FCA20A2DD85000EA5E4 /* SquareSearchHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE7FC920A2DD85000EA5E4 /* SquareSearchHistoryCell.m */; };
+		BAEE7FD020A2E1A3000EA5E4 /* SquareSearchGenderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE7FCF20A2E1A3000EA5E4 /* SquareSearchGenderButton.m */; };
+		BAEE7FD420A2E798000EA5E4 /* SquareSearchChooseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE7FD320A2E798000EA5E4 /* SquareSearchChooseVC.m */; };
 		CEE16743979C1BDA74CDF782 /* libPods-MeMeDa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F29EB7810A38620C992E5A /* libPods-MeMeDa.a */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +103,20 @@
 		BAC183A5209AE0ED00209CCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAC183A7209AE0ED00209CCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAC183A8209AE0ED00209CCD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BAEE7FB920A2D3C3000EA5E4 /* BorderAndTransLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorderAndTransLabel.h; sourceTree = "<group>"; };
+		BAEE7FBA20A2D3C3000EA5E4 /* BorderAndTransLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorderAndTransLabel.m; sourceTree = "<group>"; };
+		BAEE7FBD20A2D5C5000EA5E4 /* SquareListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareListVC.h; sourceTree = "<group>"; };
+		BAEE7FBE20A2D5C5000EA5E4 /* SquareListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareListVC.m; sourceTree = "<group>"; };
+		BAEE7FC120A2D61B000EA5E4 /* SquareListGirlsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareListGirlsCell.h; sourceTree = "<group>"; };
+		BAEE7FC220A2D61B000EA5E4 /* SquareListGirlsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareListGirlsCell.m; sourceTree = "<group>"; };
+		BAEE7FC420A2D9DF000EA5E4 /* SearchTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTextField.h; sourceTree = "<group>"; };
+		BAEE7FC520A2D9DF000EA5E4 /* SearchTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTextField.m; sourceTree = "<group>"; };
+		BAEE7FC820A2DD85000EA5E4 /* SquareSearchHistoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareSearchHistoryCell.h; sourceTree = "<group>"; };
+		BAEE7FC920A2DD85000EA5E4 /* SquareSearchHistoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareSearchHistoryCell.m; sourceTree = "<group>"; };
+		BAEE7FCE20A2E1A3000EA5E4 /* SquareSearchGenderButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareSearchGenderButton.h; sourceTree = "<group>"; };
+		BAEE7FCF20A2E1A3000EA5E4 /* SquareSearchGenderButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareSearchGenderButton.m; sourceTree = "<group>"; };
+		BAEE7FD220A2E798000EA5E4 /* SquareSearchChooseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareSearchChooseVC.h; sourceTree = "<group>"; };
+		BAEE7FD320A2E798000EA5E4 /* SquareSearchChooseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareSearchChooseVC.m; sourceTree = "<group>"; };
 		C54FB2756480206C342E0AEE /* Pods-MeMeDa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeMeDa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +148,8 @@
 		BA86CA1320A1711000F21980 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				BAEE7FD120A2E776000EA5E4 /* Choose */,
+				BAEE7FC720A2DD69000EA5E4 /* cells */,
 				BA86CA1420A1712600F21980 /* SquareSearchVC.h */,
 				BA86CA1520A1712600F21980 /* SquareSearchVC.m */,
 			);
@@ -212,6 +235,7 @@
 		BA97C77C20A0438C00F61694 /* Square */ = {
 			isa = PBXGroup;
 			children = (
+				BAEE7FBC20A2D5A9000EA5E4 /* List */,
 				BA86CA1320A1711000F21980 /* Search */,
 				BA86CA0920A13FED00F21980 /* cells */,
 				BA97C78020A0530B00F61694 /* SquareVC.h */,
@@ -280,6 +304,12 @@
 				BAB0F787209B0D2D00E8CCC7 /* NMLoginButton.m */,
 				BA270764209B29D000220B23 /* NMBigImgTitleBtn.h */,
 				BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */,
+				BAEE7FB920A2D3C3000EA5E4 /* BorderAndTransLabel.h */,
+				BAEE7FBA20A2D3C3000EA5E4 /* BorderAndTransLabel.m */,
+				BAEE7FC420A2D9DF000EA5E4 /* SearchTextField.h */,
+				BAEE7FC520A2D9DF000EA5E4 /* SearchTextField.m */,
+				BAEE7FCE20A2E1A3000EA5E4 /* SquareSearchGenderButton.h */,
+				BAEE7FCF20A2E1A3000EA5E4 /* SquareSearchGenderButton.m */,
 			);
 			path = "Explicit Views";
 			sourceTree = "<group>";
@@ -324,6 +354,43 @@
 				BAC183A4209AE0ED00209CCD /* LaunchScreen.storyboard */,
 			);
 			path = MeMeDa;
+			sourceTree = "<group>";
+		};
+		BAEE7FBC20A2D5A9000EA5E4 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				BAEE7FC020A2D5E6000EA5E4 /* cells */,
+				BAEE7FBD20A2D5C5000EA5E4 /* SquareListVC.h */,
+				BAEE7FBE20A2D5C5000EA5E4 /* SquareListVC.m */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		BAEE7FC020A2D5E6000EA5E4 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				BAEE7FC120A2D61B000EA5E4 /* SquareListGirlsCell.h */,
+				BAEE7FC220A2D61B000EA5E4 /* SquareListGirlsCell.m */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		BAEE7FC720A2DD69000EA5E4 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				BAEE7FC820A2DD85000EA5E4 /* SquareSearchHistoryCell.h */,
+				BAEE7FC920A2DD85000EA5E4 /* SquareSearchHistoryCell.m */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		BAEE7FD120A2E776000EA5E4 /* Choose */ = {
+			isa = PBXGroup;
+			children = (
+				BAEE7FD220A2E798000EA5E4 /* SquareSearchChooseVC.h */,
+				BAEE7FD320A2E798000EA5E4 /* SquareSearchChooseVC.m */,
+			);
+			path = Choose;
 			sourceTree = "<group>";
 		};
 		BEFF11BBAFA04AD84552D84D /* Pods */ = {
@@ -466,17 +533,24 @@
 				BA945DAB209AFC70001BE9E1 /* FileUtils.m in Sources */,
 				BAB0F790209B193600E8CCC7 /* UINavigationBar+CustomBar.m in Sources */,
 				BAC1839B209AE0EC00209CCD /* AppDelegate.m in Sources */,
+				BAEE7FD020A2E1A3000EA5E4 /* SquareSearchGenderButton.m in Sources */,
+				BAEE7FC320A2D61B000EA5E4 /* SquareListGirlsCell.m in Sources */,
+				BAEE7FCA20A2DD85000EA5E4 /* SquareSearchHistoryCell.m in Sources */,
 				BAA69EF2209C6D06005138EA /* LoginViewController.m in Sources */,
 				BA86CA0C20A1402600F21980 /* SquareHeaderCarousel.m in Sources */,
 				BAA69EE9209C3FAA005138EA /* FemaleRuleVC.m in Sources */,
 				BA945DA8209AFC70001BE9E1 /* BeeNet.m in Sources */,
 				BA97C78220A0530B00F61694 /* SquareVC.m in Sources */,
+				BAEE7FD420A2E798000EA5E4 /* SquareSearchChooseVC.m in Sources */,
+				BAEE7FBF20A2D5C5000EA5E4 /* SquareListVC.m in Sources */,
 				BA945DA7209AFC70001BE9E1 /* BeeNetCallback.m in Sources */,
 				BA86CA1220A1638B00F21980 /* SquareListCell.m in Sources */,
 				BAB0F784209B07BE00E8CCC7 /* NMRegTextField.m in Sources */,
 				BAA69EEF209C5744005138EA /* FemaleRuleSelVC.m in Sources */,
 				BA86CA0F20A1636D00F21980 /* SquareHeaderCell.m in Sources */,
 				BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */,
+				BAEE7FC620A2D9DF000EA5E4 /* SearchTextField.m in Sources */,
+				BAEE7FBB20A2D3C3000EA5E4 /* BorderAndTransLabel.m in Sources */,
 				BA945D9A209AF9C9001BE9E1 /* NMBlurView.m in Sources */,
 				BA97C77B20A02C2000F61694 /* HomeTabbarController.m in Sources */,
 				BAB0F788209B0D2D00E8CCC7 /* NMLoginButton.m in Sources */,

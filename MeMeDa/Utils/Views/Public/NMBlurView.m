@@ -23,7 +23,7 @@ IB_DESIGNABLE
     
     // blur effect
     if (!UIAccessibilityIsReduceTransparencyEnabled()) {
-        self.layer.backgroundColor = [UIColor clearColor].CGColor;
+        self.backgroundColor = [UIColor clearColor];
         UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
         UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         //always fill the view

@@ -8,6 +8,7 @@ target 'MeMeDa' do
   pod 'SDWebImage'
   pod 'IQKeyboardManager'
   pod 'SVProgressHUD'
+  pod 'UICollectionViewLeftAlignedLayout'
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
