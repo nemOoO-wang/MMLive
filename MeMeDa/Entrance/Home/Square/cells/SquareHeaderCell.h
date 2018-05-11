@@ -11,7 +11,6 @@
 
 typedef enum : NSUInteger {
     SquareHeaderTypeShuRen,
-    SquareHeaderTypeNanRen,
     SquareHeaderTypeReMen,
     SquareHeaderTypeHuoDong,
     SquareHeaderTypeGuanZhu,

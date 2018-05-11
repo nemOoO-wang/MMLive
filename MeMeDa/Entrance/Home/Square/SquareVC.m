@@ -30,8 +30,27 @@
 
 # pragma mark - <UICollectionViewDataSource>
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section != 0 && indexPath.row == 0) {
+    if (indexPath.row == 0) {
         SquareHeaderCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"header" forIndexPath:indexPath];
+        switch (indexPath.section) {
+            case 0:
+                cell.type = SquareHeaderTypeGuanZhu;
+                break;
+            case 1:
+                cell.type = SquareHeaderTypeHuoDong;
+                break;
+            case 2:
+                cell.type = SquareHeaderTypeReMen;
+                break;
+            case 3:
+                cell.type = SquareHeaderTypeShuRen;
+                break;
+            case 4:
+                cell.type = SquareHeaderTypeTuJian;
+                break;                
+            default:
+                break;
+        }
         return cell;
     }else{
         SquareListCell *listCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"list" forIndexPath:indexPath];
@@ -51,9 +70,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    if (section == 0) {
-        return 0;
-    }
+    // 1 header + 4 cell
     return 5;
 }
 
