@@ -12,7 +12,8 @@
 #import "SquareListCell.h"
 
 
-@interface SquareVC ()<UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface SquareVC ()<UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource,UINavigationControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *onlineBtn;
 
 @end
 
@@ -20,12 +21,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.navigationController.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+# pragma mark - <UICollectionViewDelegate>
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        // list
+        [self performSegueWithIdentifier:@"list" sender:nil];
+    }else{
+        // user detail
+        [self performSegueWithIdentifier:@"userDetail" sender:nil];        
+    }
 }
 
 # pragma mark - <UICollectionViewDataSource>
@@ -104,5 +116,19 @@
     return CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH/2.68);
 }
 
+# pragma mark - <navi delegate>
+-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    if (viewController == self) {
+        self.navigationController.navigationBar.hidden = YES;
+    }else{
+        self.navigationController.navigationBar.hidden = NO;
+    }
+}
+
+# pragma mark - click
+- (IBAction)clickOnline:(id)sender {
+    BOOL on = !self.onlineBtn.selected;
+    self.onlineBtn.selected = on;
+}
 
 @end

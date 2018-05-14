@@ -47,6 +47,11 @@
 		BAEE7FCA20A2DD85000EA5E4 /* SquareSearchHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE7FC920A2DD85000EA5E4 /* SquareSearchHistoryCell.m */; };
 		BAEE7FD020A2E1A3000EA5E4 /* SquareSearchGenderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE7FCF20A2E1A3000EA5E4 /* SquareSearchGenderButton.m */; };
 		BAEE7FD420A2E798000EA5E4 /* SquareSearchChooseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE7FD320A2E798000EA5E4 /* SquareSearchChooseVC.m */; };
+		BAF2828520A9309100625CF3 /* UserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF2828420A9309100625CF3 /* UserInfoVC.m */; };
+		BAF2828820A93ED600625CF3 /* UserInfoPopMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF2828720A93ED600625CF3 /* UserInfoPopMenuVC.m */; };
+		BAF2828C20A96D4900625CF3 /* MessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF2828B20A96D4900625CF3 /* MessageVC.m */; };
+		BAF2829020A96D7600625CF3 /* MessageListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF2828F20A96D7600625CF3 /* MessageListTVC.m */; };
+		BAF2829520A9876800625CF3 /* UserInfoScrollBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF2829420A9876800625CF3 /* UserInfoScrollBannerView.m */; };
 		CEE16743979C1BDA74CDF782 /* libPods-MeMeDa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F29EB7810A38620C992E5A /* libPods-MeMeDa.a */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +136,16 @@
 		BAEE7FCF20A2E1A3000EA5E4 /* SquareSearchGenderButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareSearchGenderButton.m; sourceTree = "<group>"; };
 		BAEE7FD220A2E798000EA5E4 /* SquareSearchChooseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareSearchChooseVC.h; sourceTree = "<group>"; };
 		BAEE7FD320A2E798000EA5E4 /* SquareSearchChooseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareSearchChooseVC.m; sourceTree = "<group>"; };
+		BAF2828320A9309100625CF3 /* UserInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoVC.h; sourceTree = "<group>"; };
+		BAF2828420A9309100625CF3 /* UserInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoVC.m; sourceTree = "<group>"; };
+		BAF2828620A93ED600625CF3 /* UserInfoPopMenuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoPopMenuVC.h; sourceTree = "<group>"; };
+		BAF2828720A93ED600625CF3 /* UserInfoPopMenuVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoPopMenuVC.m; sourceTree = "<group>"; };
+		BAF2828A20A96D4900625CF3 /* MessageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageVC.h; sourceTree = "<group>"; };
+		BAF2828B20A96D4900625CF3 /* MessageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageVC.m; sourceTree = "<group>"; };
+		BAF2828E20A96D7600625CF3 /* MessageListTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageListTVC.h; sourceTree = "<group>"; };
+		BAF2828F20A96D7600625CF3 /* MessageListTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageListTVC.m; sourceTree = "<group>"; };
+		BAF2829320A9876800625CF3 /* UserInfoScrollBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoScrollBannerView.h; sourceTree = "<group>"; };
+		BAF2829420A9876800625CF3 /* UserInfoScrollBannerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoScrollBannerView.m; sourceTree = "<group>"; };
 		C54FB2756480206C342E0AEE /* Pods-MeMeDa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeMeDa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -287,6 +302,7 @@
 		BA97C77820A02BE000F61694 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				BAF2828920A96D3700625CF3 /* Message */,
 				BA36518220A41963002B6C62 /* Rank */,
 				BA97C77C20A0438C00F61694 /* Square */,
 				BA97C77920A02C2000F61694 /* HomeTabbarController.h */,
@@ -298,6 +314,7 @@
 		BA97C77C20A0438C00F61694 /* Square */ = {
 			isa = PBXGroup;
 			children = (
+				BAF2828220A9306900625CF3 /* User Detail */,
 				BAEE7FBC20A2D5A9000EA5E4 /* List */,
 				BA86CA1320A1711000F21980 /* Search */,
 				BA86CA0920A13FED00F21980 /* cells */,
@@ -456,6 +473,54 @@
 			path = Choose;
 			sourceTree = "<group>";
 		};
+		BAF2828220A9306900625CF3 /* User Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BAF2829220A9871A00625CF3 /* scrollBanner */,
+				BAF2829120A9870F00625CF3 /* Group */,
+				BAF2828320A9309100625CF3 /* UserInfoVC.h */,
+				BAF2828420A9309100625CF3 /* UserInfoVC.m */,
+			);
+			path = "User Detail";
+			sourceTree = "<group>";
+		};
+		BAF2828920A96D3700625CF3 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				BAF2828D20A96D5E00625CF3 /* List */,
+				BAF2828A20A96D4900625CF3 /* MessageVC.h */,
+				BAF2828B20A96D4900625CF3 /* MessageVC.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		BAF2828D20A96D5E00625CF3 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				BAF2828E20A96D7600625CF3 /* MessageListTVC.h */,
+				BAF2828F20A96D7600625CF3 /* MessageListTVC.m */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		BAF2829120A9870F00625CF3 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				BAF2828620A93ED600625CF3 /* UserInfoPopMenuVC.h */,
+				BAF2828720A93ED600625CF3 /* UserInfoPopMenuVC.m */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		BAF2829220A9871A00625CF3 /* scrollBanner */ = {
+			isa = PBXGroup;
+			children = (
+				BAF2829320A9876800625CF3 /* UserInfoScrollBannerView.h */,
+				BAF2829420A9876800625CF3 /* UserInfoScrollBannerView.m */,
+			);
+			path = scrollBanner;
+			sourceTree = "<group>";
+		};
 		BEFF11BBAFA04AD84552D84D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -588,13 +653,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA36519420A43462002B6C62 /* RankPicCollectVC.m in Sources */,
+				BAF2829020A96D7600625CF3 /* MessageListTVC.m in Sources */,
+				BAF2829520A9876800625CF3 /* UserInfoScrollBannerView.m in Sources */,
 				BAA69EF8209C6DB1005138EA /* DatePickerVC.m in Sources */,
 				BAA69EFB209C6DC2005138EA /* CityPickerVC.m in Sources */,
 				BA945DAA209AFC70001BE9E1 /* UIColor+BeeColor.m in Sources */,
 				BAC183A9209AE0ED00209CCD /* main.m in Sources */,
+				BAF2828C20A96D4900625CF3 /* MessageVC.m in Sources */,
 				BA945DA9209AFC70001BE9E1 /* MD5Utils.m in Sources */,
 				BA97C777209FFA9200F61694 /* RegistInfoVC.m in Sources */,
 				BA36518C20A42C0E002B6C62 /* RankPresentVC.m in Sources */,
+				BAF2828820A93ED600625CF3 /* UserInfoPopMenuVC.m in Sources */,
 				BAA69EEC209C42A2005138EA /* IdentifyVC.m in Sources */,
 				BA945DAB209AFC70001BE9E1 /* FileUtils.m in Sources */,
 				BAB0F790209B193600E8CCC7 /* UINavigationBar+CustomBar.m in Sources */,
@@ -608,6 +677,7 @@
 				BAA69EE9209C3FAA005138EA /* FemaleRuleVC.m in Sources */,
 				BA945DA8209AFC70001BE9E1 /* BeeNet.m in Sources */,
 				BA97C78220A0530B00F61694 /* SquareVC.m in Sources */,
+				BAF2828520A9309100625CF3 /* UserInfoVC.m in Sources */,
 				BAEE7FD420A2E798000EA5E4 /* SquareSearchChooseVC.m in Sources */,
 				BA36519020A43408002B6C62 /* RankPicCollectionCell.m in Sources */,
 				BAEE7FBF20A2D5C5000EA5E4 /* SquareListVC.m in Sources */,

@@ -30,13 +30,13 @@
     CGSize barSize = self.tabBar.frame.size;
     CGFloat offset = defautImg.size.height - barSize.height;
     CGPoint center = self.tabBar.center;
-    center.y = center.y - offset/2;
+    center.y = (barSize.height)/2 - offset;
     self.addBtn.center = center;
     // self.addBtn event
     [self.addBtn addTarget:self action:@selector(clickAddBtn) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.addBtn];
-    
+    [self.tabBar addSubview:self.addBtn];
 }
+
 
 - (void)clickAddBtn{
     if ([self.addBtn isSelected]) {
@@ -48,14 +48,5 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
