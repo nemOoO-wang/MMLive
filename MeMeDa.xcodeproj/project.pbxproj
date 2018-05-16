@@ -13,6 +13,11 @@
 		BA36518C20A42C0E002B6C62 /* RankPresentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA36518B20A42C0E002B6C62 /* RankPresentVC.m */; };
 		BA36519020A43408002B6C62 /* RankPicCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA36518F20A43408002B6C62 /* RankPicCollectionCell.m */; };
 		BA36519420A43462002B6C62 /* RankPicCollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA36519320A43462002B6C62 /* RankPicCollectVC.m */; };
+		BA39ACF120AC1FD8001EC158 /* MeCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA39ACF020AC1FD8001EC158 /* MeCenterViewController.m */; };
+		BA39ACF520AC22C8001EC158 /* MeThemeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA39ACF420AC22C8001EC158 /* MeThemeVC.m */; };
+		BA39ACF920AC2F9C001EC158 /* MeMomentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA39ACF820AC2F9C001EC158 /* MeMomentVC.m */; };
+		BA39ACFC20AC3083001EC158 /* MeMommentCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA39ACFB20AC3083001EC158 /* MeMommentCollectionCell.m */; };
+		BA39AD0120AC3882001EC158 /* NewMomentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA39AD0020AC3882001EC158 /* NewMomentVC.m */; };
 		BA86CA0C20A1402600F21980 /* SquareHeaderCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA0B20A1402600F21980 /* SquareHeaderCarousel.m */; };
 		BA86CA0F20A1636D00F21980 /* SquareHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA0E20A1636D00F21980 /* SquareHeaderCell.m */; };
 		BA86CA1220A1638B00F21980 /* SquareListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA1120A1638B00F21980 /* SquareListCell.m */; };
@@ -69,6 +74,16 @@
 		BA36518F20A43408002B6C62 /* RankPicCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankPicCollectionCell.m; sourceTree = "<group>"; };
 		BA36519220A43462002B6C62 /* RankPicCollectVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankPicCollectVC.h; sourceTree = "<group>"; };
 		BA36519320A43462002B6C62 /* RankPicCollectVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankPicCollectVC.m; sourceTree = "<group>"; };
+		BA39ACEF20AC1FD8001EC158 /* MeCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeCenterViewController.h; sourceTree = "<group>"; };
+		BA39ACF020AC1FD8001EC158 /* MeCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeCenterViewController.m; sourceTree = "<group>"; };
+		BA39ACF320AC22C8001EC158 /* MeThemeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeThemeVC.h; sourceTree = "<group>"; };
+		BA39ACF420AC22C8001EC158 /* MeThemeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeThemeVC.m; sourceTree = "<group>"; };
+		BA39ACF720AC2F9C001EC158 /* MeMomentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeMomentVC.h; sourceTree = "<group>"; };
+		BA39ACF820AC2F9C001EC158 /* MeMomentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeMomentVC.m; sourceTree = "<group>"; };
+		BA39ACFA20AC3083001EC158 /* MeMommentCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeMommentCollectionCell.h; sourceTree = "<group>"; };
+		BA39ACFB20AC3083001EC158 /* MeMommentCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeMommentCollectionCell.m; sourceTree = "<group>"; };
+		BA39ACFF20AC3882001EC158 /* NewMomentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewMomentVC.h; sourceTree = "<group>"; };
+		BA39AD0020AC3882001EC158 /* NewMomentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewMomentVC.m; sourceTree = "<group>"; };
 		BA86CA0A20A1402600F21980 /* SquareHeaderCarousel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareHeaderCarousel.h; sourceTree = "<group>"; };
 		BA86CA0B20A1402600F21980 /* SquareHeaderCarousel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareHeaderCarousel.m; sourceTree = "<group>"; };
 		BA86CA0D20A1636D00F21980 /* SquareHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareHeaderCell.h; sourceTree = "<group>"; };
@@ -208,6 +223,55 @@
 			path = NMRank;
 			sourceTree = "<group>";
 		};
+		BA39ACEE20AC1FC2001EC158 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				BA39ACF620AC2F89001EC158 /* Moment */,
+				BA39ACF220AC22B0001EC158 /* Theme */,
+				BA39ACEF20AC1FD8001EC158 /* MeCenterViewController.h */,
+				BA39ACF020AC1FD8001EC158 /* MeCenterViewController.m */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		BA39ACF220AC22B0001EC158 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				BA39ACF320AC22C8001EC158 /* MeThemeVC.h */,
+				BA39ACF420AC22C8001EC158 /* MeThemeVC.m */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		BA39ACF620AC2F89001EC158 /* Moment */ = {
+			isa = PBXGroup;
+			children = (
+				BA39ACFE20AC386F001EC158 /* New Moment */,
+				BA39ACFD20AC34E6001EC158 /* cell */,
+				BA39ACF720AC2F9C001EC158 /* MeMomentVC.h */,
+				BA39ACF820AC2F9C001EC158 /* MeMomentVC.m */,
+			);
+			path = Moment;
+			sourceTree = "<group>";
+		};
+		BA39ACFD20AC34E6001EC158 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				BA39ACFA20AC3083001EC158 /* MeMommentCollectionCell.h */,
+				BA39ACFB20AC3083001EC158 /* MeMommentCollectionCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		BA39ACFE20AC386F001EC158 /* New Moment */ = {
+			isa = PBXGroup;
+			children = (
+				BA39ACFF20AC3882001EC158 /* NewMomentVC.h */,
+				BA39AD0020AC3882001EC158 /* NewMomentVC.m */,
+			);
+			path = "New Moment";
+			sourceTree = "<group>";
+		};
 		BA86CA0920A13FED00F21980 /* cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +366,7 @@
 		BA97C77820A02BE000F61694 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				BA39ACEE20AC1FC2001EC158 /* Me */,
 				BAF2828920A96D3700625CF3 /* Message */,
 				BA36518220A41963002B6C62 /* Rank */,
 				BA97C77C20A0438C00F61694 /* Square */,
@@ -663,6 +728,7 @@
 				BA945DA9209AFC70001BE9E1 /* MD5Utils.m in Sources */,
 				BA97C777209FFA9200F61694 /* RegistInfoVC.m in Sources */,
 				BA36518C20A42C0E002B6C62 /* RankPresentVC.m in Sources */,
+				BA39AD0120AC3882001EC158 /* NewMomentVC.m in Sources */,
 				BAF2828820A93ED600625CF3 /* UserInfoPopMenuVC.m in Sources */,
 				BAA69EEC209C42A2005138EA /* IdentifyVC.m in Sources */,
 				BA945DAB209AFC70001BE9E1 /* FileUtils.m in Sources */,
@@ -670,7 +736,9 @@
 				BAC1839B209AE0EC00209CCD /* AppDelegate.m in Sources */,
 				BAEE7FD020A2E1A3000EA5E4 /* SquareSearchGenderButton.m in Sources */,
 				BAEE7FC320A2D61B000EA5E4 /* SquareListGirlsCell.m in Sources */,
+				BA39ACF920AC2F9C001EC158 /* MeMomentVC.m in Sources */,
 				BAEE7FCA20A2DD85000EA5E4 /* SquareSearchHistoryCell.m in Sources */,
+				BA39ACF520AC22C8001EC158 /* MeThemeVC.m in Sources */,
 				BA36518520A41987002B6C62 /* HomeSNSVC.m in Sources */,
 				BAA69EF2209C6D06005138EA /* LoginViewController.m in Sources */,
 				BA86CA0C20A1402600F21980 /* SquareHeaderCarousel.m in Sources */,
@@ -681,12 +749,14 @@
 				BAEE7FD420A2E798000EA5E4 /* SquareSearchChooseVC.m in Sources */,
 				BA36519020A43408002B6C62 /* RankPicCollectionCell.m in Sources */,
 				BAEE7FBF20A2D5C5000EA5E4 /* SquareListVC.m in Sources */,
+				BA39ACFC20AC3083001EC158 /* MeMommentCollectionCell.m in Sources */,
 				BA945DA7209AFC70001BE9E1 /* BeeNetCallback.m in Sources */,
 				BA86CA1220A1638B00F21980 /* SquareListCell.m in Sources */,
 				BAB0F784209B07BE00E8CCC7 /* NMRegTextField.m in Sources */,
 				BAA69EEF209C5744005138EA /* FemaleRuleSelVC.m in Sources */,
 				BA86CA0F20A1636D00F21980 /* SquareHeaderCell.m in Sources */,
 				BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */,
+				BA39ACF120AC1FD8001EC158 /* MeCenterViewController.m in Sources */,
 				BAEE7FC620A2D9DF000EA5E4 /* SearchTextField.m in Sources */,
 				BAEE7FBB20A2D3C3000EA5E4 /* BorderAndTransLabel.m in Sources */,
 				BA945D9A209AF9C9001BE9E1 /* NMBlurView.m in Sources */,
