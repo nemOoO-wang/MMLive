@@ -116,14 +116,14 @@
     return CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH/2.68);
 }
 
-# pragma mark - <navi delegate>
--(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
-    if (viewController == self) {
-        self.navigationController.navigationBar.hidden = YES;
-    }else{
-        self.navigationController.navigationBar.hidden = NO;
-    }
-}
+//# pragma mark - <navi delegate>
+//-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+//    if (viewController == self) {
+//        self.navigationController.navigationBar.hidden = YES;
+//    }else{
+//        self.navigationController.navigationBar.hidden = NO;
+//    }
+//}
 
 # pragma mark - click
 - (IBAction)clickOnline:(id)sender {

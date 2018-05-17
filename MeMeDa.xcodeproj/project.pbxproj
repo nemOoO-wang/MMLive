@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA1E2CF520AD26A50060E91C /* ThemeUserListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2CF420AD26A50060E91C /* ThemeUserListVC.m */; };
+		BA1E2CFA20AD2B880060E91C /* MyFollowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2CF920AD2B880060E91C /* MyFollowVC.m */; };
+		BA1E2CFE20AD5DC20060E91C /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2CFD20AD5DC20060E91C /* SettingTableViewController.m */; };
+		BA1E2D0120AD6CD20060E91C /* HittestView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2D0020AD6CD20060E91C /* HittestView.m */; };
+		BA1E2D0420AD6FD90060E91C /* NMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2D0320AD6FD90060E91C /* NMTextView.m */; };
+		BA1E2D0820AD72FF0060E91C /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2D0720AD72FF0060E91C /* ContactUsViewController.m */; };
+		BA1E2D0C20AD7A680060E91C /* PacketHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2D0B20AD7A680060E91C /* PacketHistoryVC.m */; };
+		BA1E2D0F20AD7A740060E91C /* PacketVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2D0E20AD7A740060E91C /* PacketVC.m */; };
+		BA1E2D1420AD7FA60060E91C /* BuyCoinVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2D1320AD7FA60060E91C /* BuyCoinVC.m */; };
 		BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */; };
 		BA36518520A41987002B6C62 /* HomeSNSVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA36518420A41987002B6C62 /* HomeSNSVC.m */; };
 		BA36518820A42705002B6C62 /* Baoli-SC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA36518720A42702002B6C62 /* Baoli-SC-Regular.ttf */; };
@@ -63,6 +72,24 @@
 /* Begin PBXFileReference section */
 		50F29EB7810A38620C992E5A /* libPods-MeMeDa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MeMeDa.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63CE5D31645DCA1716B36334 /* Pods-MeMeDa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeMeDa.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa.release.xcconfig"; sourceTree = "<group>"; };
+		BA1E2CF320AD26A50060E91C /* ThemeUserListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeUserListVC.h; sourceTree = "<group>"; };
+		BA1E2CF420AD26A50060E91C /* ThemeUserListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeUserListVC.m; sourceTree = "<group>"; };
+		BA1E2CF820AD2B880060E91C /* MyFollowVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyFollowVC.h; sourceTree = "<group>"; };
+		BA1E2CF920AD2B880060E91C /* MyFollowVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyFollowVC.m; sourceTree = "<group>"; };
+		BA1E2CFC20AD5DC20060E91C /* SettingTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
+		BA1E2CFD20AD5DC20060E91C /* SettingTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
+		BA1E2CFF20AD6CD20060E91C /* HittestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HittestView.h; sourceTree = "<group>"; };
+		BA1E2D0020AD6CD20060E91C /* HittestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HittestView.m; sourceTree = "<group>"; };
+		BA1E2D0220AD6FD90060E91C /* NMTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMTextView.h; sourceTree = "<group>"; };
+		BA1E2D0320AD6FD90060E91C /* NMTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMTextView.m; sourceTree = "<group>"; };
+		BA1E2D0620AD72FF0060E91C /* ContactUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
+		BA1E2D0720AD72FF0060E91C /* ContactUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactUsViewController.m; sourceTree = "<group>"; };
+		BA1E2D0A20AD7A680060E91C /* PacketHistoryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PacketHistoryVC.h; sourceTree = "<group>"; };
+		BA1E2D0B20AD7A680060E91C /* PacketHistoryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PacketHistoryVC.m; sourceTree = "<group>"; };
+		BA1E2D0D20AD7A740060E91C /* PacketVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PacketVC.h; sourceTree = "<group>"; };
+		BA1E2D0E20AD7A740060E91C /* PacketVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PacketVC.m; sourceTree = "<group>"; };
+		BA1E2D1220AD7FA60060E91C /* BuyCoinVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuyCoinVC.h; sourceTree = "<group>"; };
+		BA1E2D1320AD7FA60060E91C /* BuyCoinVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuyCoinVC.m; sourceTree = "<group>"; };
 		BA270764209B29D000220B23 /* NMBigImgTitleBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMBigImgTitleBtn.h; sourceTree = "<group>"; };
 		BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMBigImgTitleBtn.m; sourceTree = "<group>"; };
 		BA36518320A41987002B6C62 /* HomeSNSVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSNSVC.h; sourceTree = "<group>"; };
@@ -176,6 +203,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA1E2CEF20AD23BD0060E91C /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				BA1E2CF320AD26A50060E91C /* ThemeUserListVC.h */,
+				BA1E2CF420AD26A50060E91C /* ThemeUserListVC.m */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		BA1E2CF720AD2B730060E91C /* Follower */ = {
+			isa = PBXGroup;
+			children = (
+				BA1E2CF820AD2B880060E91C /* MyFollowVC.h */,
+				BA1E2CF920AD2B880060E91C /* MyFollowVC.m */,
+			);
+			path = Follower;
+			sourceTree = "<group>";
+		};
+		BA1E2CFB20AD5DB50060E91C /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				BA1E2D0520AD72DD0060E91C /* Contact Us */,
+				BA1E2CFC20AD5DC20060E91C /* SettingTableViewController.h */,
+				BA1E2CFD20AD5DC20060E91C /* SettingTableViewController.m */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		BA1E2D0520AD72DD0060E91C /* Contact Us */ = {
+			isa = PBXGroup;
+			children = (
+				BA1E2D0620AD72FF0060E91C /* ContactUsViewController.h */,
+				BA1E2D0720AD72FF0060E91C /* ContactUsViewController.m */,
+			);
+			path = "Contact Us";
+			sourceTree = "<group>";
+		};
+		BA1E2D0920AD7A440060E91C /* Packet */ = {
+			isa = PBXGroup;
+			children = (
+				BA1E2D1120AD7F830060E91C /* PutUp */,
+				BA1E2D1020AD7A7A0060E91C /* History */,
+				BA1E2D0D20AD7A740060E91C /* PacketVC.h */,
+				BA1E2D0E20AD7A740060E91C /* PacketVC.m */,
+			);
+			path = Packet;
+			sourceTree = "<group>";
+		};
+		BA1E2D1020AD7A7A0060E91C /* History */ = {
+			isa = PBXGroup;
+			children = (
+				BA1E2D0A20AD7A680060E91C /* PacketHistoryVC.h */,
+				BA1E2D0B20AD7A680060E91C /* PacketHistoryVC.m */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		BA1E2D1120AD7F830060E91C /* PutUp */ = {
+			isa = PBXGroup;
+			children = (
+				BA1E2D1220AD7FA60060E91C /* BuyCoinVC.h */,
+				BA1E2D1320AD7FA60060E91C /* BuyCoinVC.m */,
+			);
+			path = PutUp;
+			sourceTree = "<group>";
+		};
 		BA36518220A41963002B6C62 /* Rank */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +319,9 @@
 		BA39ACEE20AC1FC2001EC158 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				BA1E2D0920AD7A440060E91C /* Packet */,
+				BA1E2CFB20AD5DB50060E91C /* Setting */,
+				BA1E2CF720AD2B730060E91C /* Follower */,
 				BA39ACF620AC2F89001EC158 /* Moment */,
 				BA39ACF220AC22B0001EC158 /* Theme */,
 				BA39ACEF20AC1FD8001EC158 /* MeCenterViewController.h */,
@@ -237,6 +333,7 @@
 		BA39ACF220AC22B0001EC158 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				BA1E2CEF20AD23BD0060E91C /* UserList */,
 				BA39ACF320AC22C8001EC158 /* MeThemeVC.h */,
 				BA39ACF420AC22C8001EC158 /* MeThemeVC.m */,
 			);
@@ -466,6 +563,10 @@
 				BA945D99209AF9C9001BE9E1 /* NMBlurView.m */,
 				BAB0F782209B07BE00E8CCC7 /* NMRegTextField.h */,
 				BAB0F783209B07BE00E8CCC7 /* NMRegTextField.m */,
+				BA1E2CFF20AD6CD20060E91C /* HittestView.h */,
+				BA1E2D0020AD6CD20060E91C /* HittestView.m */,
+				BA1E2D0220AD6FD90060E91C /* NMTextView.h */,
+				BA1E2D0320AD6FD90060E91C /* NMTextView.m */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -717,20 +818,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA1E2D0120AD6CD20060E91C /* HittestView.m in Sources */,
 				BA36519420A43462002B6C62 /* RankPicCollectVC.m in Sources */,
 				BAF2829020A96D7600625CF3 /* MessageListTVC.m in Sources */,
 				BAF2829520A9876800625CF3 /* UserInfoScrollBannerView.m in Sources */,
 				BAA69EF8209C6DB1005138EA /* DatePickerVC.m in Sources */,
+				BA1E2CF520AD26A50060E91C /* ThemeUserListVC.m in Sources */,
 				BAA69EFB209C6DC2005138EA /* CityPickerVC.m in Sources */,
+				BA1E2D0820AD72FF0060E91C /* ContactUsViewController.m in Sources */,
 				BA945DAA209AFC70001BE9E1 /* UIColor+BeeColor.m in Sources */,
 				BAC183A9209AE0ED00209CCD /* main.m in Sources */,
 				BAF2828C20A96D4900625CF3 /* MessageVC.m in Sources */,
+				BA1E2CFA20AD2B880060E91C /* MyFollowVC.m in Sources */,
 				BA945DA9209AFC70001BE9E1 /* MD5Utils.m in Sources */,
 				BA97C777209FFA9200F61694 /* RegistInfoVC.m in Sources */,
 				BA36518C20A42C0E002B6C62 /* RankPresentVC.m in Sources */,
 				BA39AD0120AC3882001EC158 /* NewMomentVC.m in Sources */,
 				BAF2828820A93ED600625CF3 /* UserInfoPopMenuVC.m in Sources */,
+				BA1E2D0C20AD7A680060E91C /* PacketHistoryVC.m in Sources */,
 				BAA69EEC209C42A2005138EA /* IdentifyVC.m in Sources */,
+				BA1E2CFE20AD5DC20060E91C /* SettingTableViewController.m in Sources */,
 				BA945DAB209AFC70001BE9E1 /* FileUtils.m in Sources */,
 				BAB0F790209B193600E8CCC7 /* UINavigationBar+CustomBar.m in Sources */,
 				BAC1839B209AE0EC00209CCD /* AppDelegate.m in Sources */,
@@ -753,14 +860,17 @@
 				BA945DA7209AFC70001BE9E1 /* BeeNetCallback.m in Sources */,
 				BA86CA1220A1638B00F21980 /* SquareListCell.m in Sources */,
 				BAB0F784209B07BE00E8CCC7 /* NMRegTextField.m in Sources */,
+				BA1E2D0F20AD7A740060E91C /* PacketVC.m in Sources */,
 				BAA69EEF209C5744005138EA /* FemaleRuleSelVC.m in Sources */,
 				BA86CA0F20A1636D00F21980 /* SquareHeaderCell.m in Sources */,
 				BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */,
 				BA39ACF120AC1FD8001EC158 /* MeCenterViewController.m in Sources */,
+				BA1E2D0420AD6FD90060E91C /* NMTextView.m in Sources */,
 				BAEE7FC620A2D9DF000EA5E4 /* SearchTextField.m in Sources */,
 				BAEE7FBB20A2D3C3000EA5E4 /* BorderAndTransLabel.m in Sources */,
 				BA945D9A209AF9C9001BE9E1 /* NMBlurView.m in Sources */,
 				BA97C77B20A02C2000F61694 /* HomeTabbarController.m in Sources */,
+				BA1E2D1420AD7FA60060E91C /* BuyCoinVC.m in Sources */,
 				BAB0F788209B0D2D00E8CCC7 /* NMLoginButton.m in Sources */,
 				BA86CA1620A1712600F21980 /* SquareSearchVC.m in Sources */,
 			);

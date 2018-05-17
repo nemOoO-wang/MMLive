@@ -7,21 +7,31 @@
 //
 
 #import "MeCenterViewController.h"
+#import "HittestView.h"
 
 @interface MeCenterViewController ()
+@property (nonatomic,strong) HittestView *hittestView;
+
+@property (weak, nonatomic) IBOutlet UIButton *ComposeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *settingBtn;
 
 @end
 
 @implementation MeCenterViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [super viewDidLoad];    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewDidDisappear:(BOOL)animated{
+    [self.hittestView removeFromSuperview];
+}
+-(void)viewDidAppear:(BOOL)animated{
+    self.hittestView = [[HittestView alloc] init];
+    self.hittestView.views = @[self.ComposeBtn, self.settingBtn];
+    self.hittestView.backgroundColor = [UIColor clearColor];
+    self.hittestView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 64);
+    [self.navigationController.view addSubview:self.hittestView];
 }
 
 /*
@@ -44,9 +54,6 @@
             [self performSegueWithIdentifier:@"Theme" sender:nil];
             break;
         case 4:
-            [self performSegueWithIdentifier:@"Moment" sender:nil];
-            break;
-        case 5:
             [self performSegueWithIdentifier:@"new moment" sender:nil];
             break;
             
@@ -54,5 +61,21 @@
             break;
     }
 }
+- (IBAction)clickFollow:(id)sender {
+    UIGestureRecognizer *rcg = sender;
+    UIView *view = rcg.view;
+    switch (view.tag) {
+        case 10:
+            [self performSegueWithIdentifier:@"follower" sender:nil];
+            break;
+        case 11:
+            [self performSegueWithIdentifier:@"follower" sender:nil];
+            break;
+            
+        default:
+            break;
+    }
+}
+
 
 @end

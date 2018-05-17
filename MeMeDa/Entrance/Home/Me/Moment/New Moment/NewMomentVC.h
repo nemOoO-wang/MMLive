@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef NS_ENUM(NSInteger, NMMomentShowType) {
+    NMMomentShowTypeNone,
+    NMMomentShowTypeRow1,
+    NMMomentShowTypeRow2,
+    NMMomentShowTypeRow3,
+    NMMomentShowTypeVedio
+};
+
+
 @interface NewMomentVC : UIViewController
 
 @end

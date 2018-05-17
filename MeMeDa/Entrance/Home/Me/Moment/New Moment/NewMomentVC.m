@@ -22,6 +22,20 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *hideConstraint1;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *hideConstraint2;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *hideConstraint3;
+// pic constraint
+// show
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *row1Show;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *row2Show;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *row3Show;
+// hide
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *row1Hide;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *row2Hide;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *row3Hide;
+// margin   13/0
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *row12Margin;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *row23Margin;
+// vedio view
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *vedioHeigt;
 
 @end
 
@@ -42,6 +56,8 @@
     self.albumBtn.alpha = 0;
     self.vedioBtn.alpha = 0;
     self.takePhotoBtn.alpha = 0;
+    // set pic&vedio
+    [self setShowType:NMMomentShowTypeVedio];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,4 +129,68 @@
     }
     [textView resignFirstResponder];
 }
+
+// pic & vedio setting
+-(void)setShowType:(NMMomentShowType)type{
+    switch (type) {
+        case NMMomentShowTypeNone:
+            self.row1Show.priority = 800;
+            self.row1Hide.priority = 900;
+            self.row2Show.priority = 800;
+            self.row2Hide.priority = 900;
+            self.row3Show.priority = 800;
+            self.row3Hide.priority = 900;
+            self.row12Margin.constant = 0;
+            self.row23Margin.constant = 0;
+            self.vedioHeigt.constant = 0;
+            break;
+        case NMMomentShowTypeRow1:
+            self.row1Show.priority = 900;
+            self.row1Hide.priority = 800;
+            self.row2Show.priority = 800;
+            self.row2Hide.priority = 900;
+            self.row3Show.priority = 800;
+            self.row3Hide.priority = 900;
+            self.row12Margin.constant = 0;
+            self.row23Margin.constant = 0;
+            self.vedioHeigt.constant = 0;
+            break;
+        case NMMomentShowTypeRow2:
+            self.row1Show.priority = 900;
+            self.row1Hide.priority = 800;
+            self.row2Show.priority = 900;
+            self.row2Hide.priority = 800;
+            self.row3Show.priority = 800;
+            self.row3Hide.priority = 900;
+            self.row12Margin.constant = 13;
+            self.row23Margin.constant = 0;
+            self.vedioHeigt.constant = 0;
+            break;
+        case NMMomentShowTypeRow3:
+            self.row1Show.priority = 900;
+            self.row1Hide.priority = 800;
+            self.row2Show.priority = 900;
+            self.row2Hide.priority = 800;
+            self.row3Show.priority = 900;
+            self.row3Hide.priority = 800;
+            self.row12Margin.constant = 13;
+            self.row23Margin.constant = 13;
+            self.vedioHeigt.constant = 0;
+            break;
+        case NMMomentShowTypeVedio:
+            self.row1Show.priority = 800;
+            self.row1Hide.priority = 900;
+            self.row2Show.priority = 800;
+            self.row2Hide.priority = 900;
+            self.row3Show.priority = 800;
+            self.row3Hide.priority = 900;
+            self.row12Margin.constant = 0;
+            self.row23Margin.constant = 0;
+            self.vedioHeigt.constant = 60;
+            break;
+        default:
+            break;
+    }
+}
+
 @end
