@@ -10,6 +10,35 @@
 
 @implementation HittestView
 
+-(instancetype)init{
+    if (self = [super init]) {
+        self.backgroundColor = [UIColor clearColor];
+        self.frame = CGRectMake(0, 0, SCREEN_WIDTH, 64);
+        return self;
+    }else{
+        NSLog(@"navi custom cover init failed");
+        return nil;
+    }
+}
+
+-(instancetype)initInController:(UINavigationController *)controller{
+    if (self = [self init]) {
+        self.mainController = controller;
+        controller.navigationController.delegate = self;
+        [controller.navigationController.view addSubview:self];
+    }
+    return self;
+}
+
+// <UINavigationControllerDelegate>
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    if (viewController == self.mainController) {
+        return;
+    }else{
+        [self removeFromSuperview];
+    }
+}
+
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     
     for (UIView *aView in self.views) {

@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HittestView : UIView
+
+/**
+ 在 viewDidAppear 中 init 并且赋值需要传递的 views 数组
+ */
+@interface HittestView : UIView<UINavigationControllerDelegate>
 
 @property (nonatomic,strong) NSArray *views;
+@property (nonatomic,strong) UIViewController *mainController;
 
+/**
+ 在 viewDidAppear 中 init 并且赋值需要传递的 views 数组
+ */
+-(instancetype)initInController:(UIViewController *)controller;
 
 @end

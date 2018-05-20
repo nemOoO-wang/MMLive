@@ -27,11 +27,8 @@
     [self.hittestView removeFromSuperview];
 }
 -(void)viewDidAppear:(BOOL)animated{
-    self.hittestView = [[HittestView alloc] init];
+    self.hittestView = [[HittestView alloc] initInController:self];
     self.hittestView.views = @[self.ComposeBtn, self.settingBtn];
-    self.hittestView.backgroundColor = [UIColor clearColor];
-    self.hittestView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 64);
-    [self.navigationController.view addSubview:self.hittestView];
 }
 
 /*

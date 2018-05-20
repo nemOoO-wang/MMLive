@@ -10,10 +10,13 @@
 #import "SquareHeaderCarousel.h"
 #import "SquareHeaderCell.h"
 #import "SquareListCell.h"
+#import "HittestView.h"
 
 
 @interface SquareVC ()<UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *onlineBtn;
+@property (weak, nonatomic) IBOutlet UIView *searchBtn;
+@property (weak, nonatomic) IBOutlet UIButton *momentBtn;
 
 @end
 
@@ -21,12 +24,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.delegate = self;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewDidAppear:(BOOL)animated{
+    HittestView *coverView = [[HittestView alloc] initInController:self];
+    coverView.views = @[self.momentBtn, self.searchBtn, self.onlineBtn];
 }
 
 # pragma mark - <UICollectionViewDelegate>
@@ -116,14 +118,6 @@
     return CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH/2.68);
 }
 
-//# pragma mark - <navi delegate>
-//-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
-//    if (viewController == self) {
-//        self.navigationController.navigationBar.hidden = YES;
-//    }else{
-//        self.navigationController.navigationBar.hidden = NO;
-//    }
-//}
 
 # pragma mark - click
 - (IBAction)clickOnline:(id)sender {
