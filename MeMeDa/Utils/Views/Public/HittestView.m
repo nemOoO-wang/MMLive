@@ -30,6 +30,12 @@
     return self;
 }
 
++(instancetype)hitInController:(UIViewController *)controller with:(NSArray *)views{
+    HittestView *view = [[HittestView alloc] initInController:controller];
+    view.views = views;
+    return view;
+}
+
 // <UINavigationControllerDelegate>
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
     if (viewController == self.mainController) {

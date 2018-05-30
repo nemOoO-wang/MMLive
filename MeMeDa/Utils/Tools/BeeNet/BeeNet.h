@@ -20,6 +20,8 @@ typedef NS_ENUM(NSInteger,RequestType){
 
 +(instancetype)sharedInstance;
 
+-(void)requestWithType:(RequestType)requestType andUrl:(NSString *)url andParam:(id)params andSuccess:(void (^)(id data))success;
+
 -(void)requestWithType:(RequestType)requestType andUrl:(NSString*)url andParam:(id)params andHeader:(NSDictionary*)header andRequestSerializer:(id)requestSer andResponseSerializer:(id)responseSer andSuccess:(void(^)(id data))success andFailed:(void(^)(NSString* str))failed;
 
 -(void)requestWithType:(RequestType)requestType andUrl:(NSString*)url andParam:(id)params andHeader:(NSDictionary*)header andSuccess:(void(^)(id data))success andFailed:(void(^)(NSString* str))failed;

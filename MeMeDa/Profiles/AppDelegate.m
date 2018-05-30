@@ -8,6 +8,14 @@
 
 #import "AppDelegate.h"
 #import <IQKeyboardManager.h>
+// ShareSDK
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+//腾讯开放平台（对应QQ和QQ空间）SDK头文件
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+//微信SDK头文件
+#import "WXApi.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +27,39 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // IQKeyboard
     [[IQKeyboardManager sharedManager] setEnable:YES];
-    
+    // ShareSDK
+    [ShareSDK registerActivePlatforms:@[@(SSDKPlatformTypeWechat),
+                                        @(SSDKPlatformTypeQQ)]
+                             onImport:^(SSDKPlatformType platformType){
+         switch (platformType)
+         {
+             case SSDKPlatformTypeWechat:
+                 [ShareSDKConnector connectWeChat:[WXApi class]];
+                 break;
+             case SSDKPlatformTypeQQ:
+                 [ShareSDKConnector connectQQ:[QQApiInterface class] tencentOAuthClass:[TencentOAuth class]];
+                 break;
+             default:
+                 break;
+         }
+     }
+                      onConfiguration:^(SSDKPlatformType platformType, NSMutableDictionary *appInfo)
+     {
+         switch (platformType)
+         {
+             case SSDKPlatformTypeWechat:
+                 [appInfo SSDKSetupWeChatByAppId:@"17318062756@163.com"
+                                       appSecret:@"sz17318062756"];
+                 break;
+             case SSDKPlatformTypeQQ:
+                 [appInfo SSDKSetupQQByAppId:@"1106817451"
+                                      appKey:@"CBLKB8aZ4Q17oxeu"
+                                    authType:SSDKAuthTypeSSO];
+                 break;
+             default:
+                   break;
+                   }
+    }];
     return YES;
 }
 

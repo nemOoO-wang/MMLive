@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SquareListCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
 @end

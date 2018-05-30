@@ -10,6 +10,7 @@
 #import "SquareHeaderCarousel.h"
 #import "SquareHeaderCell.h"
 #import "SquareListCell.h"
+#import "SquareListVC.h"
 #import "HittestView.h"
 
 
@@ -17,6 +18,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *onlineBtn;
 @property (weak, nonatomic) IBOutlet UIView *searchBtn;
 @property (weak, nonatomic) IBOutlet UIButton *momentBtn;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionVIew;
+@property (nonatomic,strong) NSArray *urlTupleArr;
+
+
+@property (nonatomic,strong) NSArray *listDataArr;
+
 
 @end
 
@@ -24,6 +31,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // init tuple
+    self.urlTupleArr = @[@[@"关注列表",@"/chat/user/getRecommend"],
+                         @[@"活动主题",@"/chat/user/getActivityList"],
+                         @[@"热门列表",@"/chat/statistical/getlist"],
+                         @[@"素人列表",@"/chat/user/vegetarian"],
+                         @[@"推荐列表",@"/chat/user/getRecommandList"]];
+    // 首页数据
+    [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/getAll" andParam:nil andSuccess:^(id data) {
+        self.listDataArr = data[@"data"];
+        [self.collectionVIew reloadData];
+    }];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -35,7 +53,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
         // list
-        [self performSegueWithIdentifier:@"list" sender:nil];
+        [self performSegueWithIdentifier:@"list" sender:self.urlTupleArr[indexPath.section]];
     }else{
         // user detail
         [self performSegueWithIdentifier:@"userDetail" sender:nil];        
@@ -68,6 +86,30 @@
         return cell;
     }else{
         SquareListCell *listCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"list" forIndexPath:indexPath];
+        NSInteger dataIndex = 0;
+        if (indexPath.section == 0) {
+            dataIndex = 2;
+        }else if (indexPath.section == 1){
+            dataIndex = 3;
+        }else if (indexPath.section == 2){
+            dataIndex = 1;
+        }else if (indexPath.section == 3){
+            dataIndex = 6;
+        }else{
+            dataIndex = 3;
+        }
+        NSArray *users = self.listDataArr[dataIndex-1][@"user"];
+        if (indexPath.row<=users.count) {
+            NSString *url = @"";
+            NSDictionary *dic = users[indexPath.row-1];
+            NSArray *imgArr;
+            if ([dic objectForKey:@"imgs"]) {
+                NSData *jsonData = [dic[@"imgs"] dataUsingEncoding:NSUTF8StringEncoding];
+                imgArr = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves error:nil];
+                url = imgArr[0];
+            }
+            [listCell.imgView sd_setImageWithURL:[NSURL URLWithString:url]];
+        }
         return listCell;
     }
 }
@@ -123,6 +165,15 @@
 - (IBAction)clickOnline:(id)sender {
     BOOL on = !self.onlineBtn.selected;
     self.onlineBtn.selected = on;
+}
+
+# pragma mark - segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"list"]) {
+        SquareListVC *vc = segue.destinationViewController;
+        [vc setTitle:sender[0]];
+        vc.searchUrl = sender[1];
+    }
 }
 
 @end

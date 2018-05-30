@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BorderAndTransLabel.h"
+
 
 @interface SquareListGirlsCell : UICollectionViewCell
+
+@property (weak, nonatomic) IBOutlet BorderAndTransLabel *onlineLabel;
+@property (weak, nonatomic) IBOutlet BorderAndTransLabel *occupationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *feeLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *usrImgView;
 
 @end

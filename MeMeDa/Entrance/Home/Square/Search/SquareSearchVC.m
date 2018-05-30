@@ -11,6 +11,9 @@
 #import "SquareSearchGenderButton.h"
 #import "SquareSearchHistoryCell.h"
 #import "UICollectionViewLeftAlignedLayout.h"
+#import "SearchTextField.h"
+#import "NSMutableArray+NMReverse.h"
+#import "MessageListTVC.h"
 
 
 @interface SquareSearchVC ()<UICollectionViewDataSource, UICollectionViewDelegateLeftAlignedLayout>
@@ -24,6 +27,9 @@
 @property (weak, nonatomic) IBOutlet SquareSearchGenderButton *womenBtn;
 @property (weak, nonatomic) IBOutlet SquareSearchGenderButton *allGenderBtn;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet SearchTextField *searchTextField;
+@property (weak, nonatomic) IBOutlet UIButton *searchBtn;
+@property (weak, nonatomic) IBOutlet UIButton *quitBtn;
 
 @end
 
@@ -41,16 +47,26 @@
     self.manBtn.on = YES;
     self.genderBtnIndex = 0;
     // init history
-    self.historyArr = @[@"teststs", @"dfdfd", @"teststs",
-                        @"dfdfd", @"teststs", @"dfdfd", @"teststs",
-                        @"dfdfd", @"teststs", @"dfdfd", @"teststs", @"dfdfd"];
-    UICollectionViewLeftAlignedLayout  *layout = [[UICollectionViewLeftAlignedLayout alloc] init];
+    [self refreshHistory];
+    UICollectionViewLeftAlignedLayout *layout = [[UICollectionViewLeftAlignedLayout alloc] init];
     [self.collectionView setCollectionViewLayout:layout];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewDidAppear:(BOOL)animated{
+    HittestView *hit = [[HittestView alloc] initInController:self];
+    hit.views = @[self.searchBtn, self.searchTextField, self.quitBtn];
+//    [HittestView hitInController:self with:@[self.searchBtn, self.searchTextField, self.quitBtn]];
+}
+
+-(void)refreshHistory{
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Search History"] isKindOfClass:[NSArray class]]) {
+        NSMutableArray *tmpArr = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Search History"] mutableCopy];
+        [tmpArr reverse];
+        self.historyArr = [tmpArr copy];
+        [self.collectionView reloadData];
+    }else{
+        self.historyArr = @[];
+    }
 }
 
 
@@ -129,7 +145,39 @@
     [self performSegueWithIdentifier:@"choose" sender:@{@"dataArr":dataArr}];
 }
 
+- (IBAction)clickQuit:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)clickClearHistory:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:@[] forKey:@"Search History"];
+    [self refreshHistory];
+}
+
+- (IBAction)clickSearch:(id)sender {
+    // Add to History
+    if (![self.searchTextField.text isEqualToString:@""]) {
+        if([[NSUserDefaults standardUserDefaults] objectForKey:@"Search History"]){
+            NSMutableArray *tmpArr = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Search History"]mutableCopy];
+            NSString *searchStr = self.searchTextField.text;
+            if ([tmpArr containsObject:searchStr]) {
+                [tmpArr removeObject:searchStr];
+            }
+            [tmpArr addObject:self.searchTextField.text];
+            [[NSUserDefaults standardUserDefaults] setObject:[tmpArr copy] forKey:@"Search History"];
+        }else{
+            NSArray *tmpArr = @[self.searchTextField.text];
+            [[NSUserDefaults standardUserDefaults] setObject:tmpArr forKey:@"Search History"];
+        }
+        [self refreshHistory];
+        [self performSegueWithIdentifier:@"result" sender:nil];
+    }
+}
+
+
+# pragma mark - segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // menu
     if([segue.identifier isEqualToString:@"choose"]){
         // vc
         SquareSearchChooseVC *vc = segue.destinationViewController;
@@ -141,11 +189,11 @@
         vc.dataArr = [sender objectForKey:@"dataArr"];
         vc.subDataArr = [sender objectForKey:@"subDataArr"];
     }
-}
-
-
-- (IBAction)clickQuit:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    // result
+    if ([segue.identifier isEqualToString:@"result"]) {
+        MessageListTVC *vc = segue.destinationViewController;
+        [vc setTitle:@"搜索结果"];
+    }
 }
 
 @end

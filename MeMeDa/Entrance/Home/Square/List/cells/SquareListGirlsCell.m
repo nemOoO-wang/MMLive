@@ -10,7 +10,6 @@
 
 
 @interface SquareListGirlsCell()
-@property (weak, nonatomic) IBOutlet UIImageView *usrImgView;
 
 @end
 

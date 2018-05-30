@@ -10,8 +10,9 @@
 
 @interface CityPickerVC ()<UIPickerViewDelegate, UIPickerViewDataSource>
 
-@property (nonatomic,assign) NSInteger lastGroup;
-@property (nonatomic,assign) NSInteger lastIndex;
+@property (nonatomic,strong) NSDictionary *dataDic;
+@property (nonatomic,strong) NSArray *provinceArr;
+@property (nonatomic,strong) NSArray *cityArr;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 
@@ -22,15 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // init lastGroup、index here!
-    
-    if (self.lastGroup >= 0) {
-        [self.pickerView selectRow:self.lastGroup inComponent:0 animated:NO];
-        [self.pickerView selectRow:self.lastIndex inComponent:1 animated:NO];
-    }else{
-        self.lastGroup = 0;
-        self.lastIndex = 0;
-    }
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"city" ofType:@"json"];
+    NSData *jsonData = [NSData dataWithContentsOfFile:path options:NSDataReadingUncached error:nil];
+    self.dataDic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+    self.provinceArr = self.dataDic[@"province"];
+    self.cityArr = self.provinceArr[0][@"city"];
 }
 
 # pragma mark - <UIPickerViewDataSource>
@@ -39,28 +36,48 @@
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return 10;
+    switch (component) {
+        case 0:
+            return self.provinceArr.count;
+            break;
+        case 1:
+            return self.cityArr.count;
+            break;
+        default:
+            return self.provinceArr.count;
+            break;
+    }
 }
 
 # pragma mark - <UIPickerViewDelegate>
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return @"test";
+    if (component == 0) {
+        return self.provinceArr[row][@"name"];
+    }else{
+        return self.cityArr[row][@"name"];
+    }
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    if (component == 0 && row != self.lastGroup) {
-        // proviince
-        self.lastGroup = row;
+    if (component == 0) {
+        // province
+        self.cityArr = self.provinceArr[row][@"city"];
+        [self.pickerView reloadComponent:1];
         [self.pickerView selectRow:0 inComponent:1 animated:YES];
-    }
-    if (component == 1) {
+        self.province = self.provinceArr[row][@"name"];
+        self.city = self.cityArr[0][@"name"];
+    }else{
         // city
-        self.lastIndex = row;
+        self.city = self.cityArr[row][@"name"];
     }
+    
 }
 
-
 - (IBAction)clickCancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)clickConfirm:(id)sender {
+    self.pickLocation([NSString stringWithFormat:@"%@%@",self.province,self.city]);
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

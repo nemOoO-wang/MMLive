@@ -7,10 +7,13 @@
 //
 
 #import "IdentifyVC.h"
+#import "NMRegTextField.h"
 
 
 @interface IdentifyVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *myPicImageView;
+@property (weak, nonatomic) IBOutlet NMRegTextField *realNameTextField;
+@property (weak, nonatomic) IBOutlet NMRegTextField *idTextField;
 
 @property (nonatomic,strong) UIImage *meImage;
 
@@ -67,6 +70,9 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)clickSubmitBtn:(id)sender {
+    // /chat/user/realName
+}
 
 /*
 #pragma mark - Navigation

@@ -10,7 +10,7 @@
 #import <AFNetworking.h>
 
 // 云端
-#define BASE_URL @"http://app.gzmc.ltd/mingya/mingya/"
+#define BASE_URL @"http://192.168.3.124:8999"
 // 本地
 //#define BASE_URL @"http://192.168.3.124:8081/mingya/"
 
@@ -41,12 +41,13 @@
 
 
 -(BOOL)isRespSuccess:(id)data{
-    if ([data[@"ret"] boolValue]) {
+    if ([data[@"code"] integerValue] == 200) {
         if (data[@"data"] == [NSNull null]) {
             return NO;
         }
         return YES;
     }else{
+        [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"状态码:%@\n%@",data[@"code"],data[@"message"]]];
         if ([data[@"forUser"] isEqualToString:@"登陆无效请重新登录"]) {
             [SVProgressHUD showErrorWithStatus:data[@"forUser"]];
             [SVProgressHUD dismissWithDelay:2 completion:^{
@@ -77,6 +78,19 @@
 
 
 /**
+ 带 token 查询
+ */
+-(void)requestWithType:(RequestType)requestType andUrl:(NSString *)url andParam:(id)params andSuccess:(void (^)(id data))success{
+    NSDictionary *header = @{@"token":[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"token"]]};
+    [self requestWithType:requestType andUrl:url andParam:params
+                andHeader:header
+               andSuccess:^(id data) {
+        success(data);
+    } andFailed:nil];
+}
+
+
+/**
  默认查询
  */
 -(void)requestWithType:(RequestType)requestType andUrl:(NSString *)url andParam:(id)params andHeader:(NSDictionary *)header andSuccess:(void (^)(id data))success andFailed:(void (^)(NSString * str))failed{
@@ -91,17 +105,14 @@
     }
     
     if (LogShow == 1) {
-        NSLog(@"*********%@*********",url);
-        NSLog(@"params:%@",params);
-        NSLog(@"*****************");
-        NSLog(@"header:%@",header);
-        NSLog(@"*****************");
+        NSLog(@"\n\n*********%@*********\nparams:%@\nheader:%@",url,params,header);
     }
     
     if (requestType == Request_GET) {
         [self.manager GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             if (LogShow == 1) {
                 NSLog(@"%@-%@",params,responseObject);
+                NSLog(@"\n\n---------------------------");
             }
             
             if ([self isRespSuccess:responseObject]) {

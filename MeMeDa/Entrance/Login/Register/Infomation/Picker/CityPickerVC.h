@@ -13,4 +13,8 @@
 @property (nonatomic,strong) NSString *province;
 @property (nonatomic,strong) NSString *city;
 
+@property (nonatomic,strong) void(^pickLocation) (NSString *location);
+@property (nonatomic,strong) NSArray *indexsArr;
+
+
 @end

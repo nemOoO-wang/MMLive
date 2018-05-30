@@ -30,11 +30,24 @@
 
 @implementation SquareHeaderCarousel
 
-// init
--(void)layoutSubviews{
-    [super layoutSubviews];
-    NSLog(@"init");
+-(void)didMoveToSuperview{
+    [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/getBunner" andParam:nil andSuccess:^(id data) {
+        NSArray *imgArr = data[@"data"];
+        [self.img0 sd_setImageWithURL:[NSURL URLWithString:imgArr[0]] forState:UIControlStateNormal];
+        [self.img1 sd_setImageWithURL:[NSURL URLWithString:imgArr[1]] forState:UIControlStateNormal];
+        if (imgArr.count>4) {
+            [self.img4 sd_setImageWithURL:[NSURL URLWithString:imgArr[4]] forState:UIControlStateNormal];
+            [self.img3 sd_setImageWithURL:[NSURL URLWithString:imgArr[3]] forState:UIControlStateNormal];
+            [self.img2 sd_setImageWithURL:[NSURL URLWithString:imgArr[2]] forState:UIControlStateNormal];
+        }else if (imgArr.count>3){
+            [self.img3 sd_setImageWithURL:[NSURL URLWithString:imgArr[3]] forState:UIControlStateNormal];
+            [self.img2 sd_setImageWithURL:[NSURL URLWithString:imgArr[2]] forState:UIControlStateNormal];
+        }else if (imgArr.count>2){
+            [self.img2 sd_setImageWithURL:[NSURL URLWithString:imgArr[2]] forState:UIControlStateNormal];
+        }
+    }];
 }
+
 
 - (IBAction)clickImg:(id)sender {
     NSLog(@"click");
