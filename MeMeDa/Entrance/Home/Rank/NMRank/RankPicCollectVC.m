@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIButton *dailyBtn;
 @property (weak, nonatomic) IBOutlet UIButton *weeklyBtn;
+@property (nonatomic,assign) NSInteger requestDayIndex;
+@property (nonatomic,assign) NSInteger requestWeekIndex;
 
 @end
 
@@ -22,10 +24,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (self.VCType == RankViewTypeTuHao) {
+        self.requestDayIndex = 3;
+        self.requestWeekIndex = 4;
         self.collectionView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
     }else{
+        self.requestDayIndex = 1;
+        self.requestWeekIndex = 2;
         self.collectionView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     }
+    // request
+    [SVProgressHUD show];
+    // day
+    NSDictionary *paramDic = @{@"type":@(self.requestDayIndex)};
+    [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/statistical/getlist" andParam:paramDic andSuccess:^(id data) {
+    }];
+    // week
+    NSDictionary *paramDic2 = @{@"type":@(self.requestWeekIndex)};
+    [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/statistical/getlist" andParam:paramDic2 andSuccess:^(id data) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,6 +93,7 @@
         }
     }else{
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell4" forIndexPath:indexPath];
+        cell.rankNumLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row+1];
     }
     return cell;
 }

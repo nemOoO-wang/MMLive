@@ -17,7 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // request
+    NSDictionary *paramDic = @{@"type":@6};
+    [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/statistical/getlist" andParam:paramDic andSuccess:^(id data) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -10,4 +10,7 @@
 
 @interface UserInfoVC : UIViewController
 
+@property (nonatomic,strong) NSNumber *userId;
+
+
 @end

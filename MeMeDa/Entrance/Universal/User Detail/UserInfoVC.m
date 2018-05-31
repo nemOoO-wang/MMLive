@@ -25,11 +25,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setAutomaticallyAdjustsScrollViewInsets:NO];
-    NSArray *tmp = @[[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"]];
+    NSArray *tmp = @[[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"]];
     [self addToScrollViewWithImgs:tmp];
     // vedio:
 //    https://stackoverflow.com/questions/32368751/implementing-video-view-in-the-storyboard
     [self.bannerScrollViedw setImgArr:tmp];
+    //request
+    if (self.userId) {
+        [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/userDetail" andParam:@{@"userId":self.userId} andSuccess:^(id data) {
+            
+        }];
+    }
 }
 
 

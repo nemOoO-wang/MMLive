@@ -10,6 +10,7 @@
 #import "SquareListGirlsCell.h"
 #import "NMFlowLayout.h"
 #import <MJRefresh.h>
+#import "UserInfoVC.h"
 
 
 @interface SquareListVC ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -86,7 +87,8 @@
 
 # pragma mark - <UICollectionViewDelegate>
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"userDetail" sender:nil];
+    UserInfoVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"user detail"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

@@ -22,6 +22,9 @@
 }
 
 -(instancetype)initInController:(UINavigationController *)controller{
+    if (controller.navigationController.view.subviews.count>2) {
+        return nil;
+    }
     if (self = [self init]) {
         self.mainController = controller;
         controller.navigationController.delegate = self;
@@ -36,7 +39,7 @@
     return view;
 }
 
-// <UINavigationControllerDelegate>
+# pragma mark - <UINavigationControllerDelegate>
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
     if (viewController == self.mainController) {
         return;

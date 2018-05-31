@@ -41,6 +41,7 @@
 
 
 -(BOOL)isRespSuccess:(id)data{
+            [SVProgressHUD dismissWithDelay:1];
     if ([data[@"code"] integerValue] == 200) {
         if (data[@"data"] == [NSNull null]) {
             return NO;

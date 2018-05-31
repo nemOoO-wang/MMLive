@@ -18,6 +18,10 @@
 		BA1E2D1420AD7FA60060E91C /* BuyCoinVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2D1320AD7FA60060E91C /* BuyCoinVC.m */; };
 		BA1E570520B69C5600C61E21 /* ChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E570420B69C5600C61E21 /* ChatVC.m */; };
 		BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */; };
+		BA2D846D20BF9DE80027F905 /* HomeTabMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D846C20BF9DE80027F905 /* HomeTabMenuVC.m */; };
+		BA2D847420C0020D0027F905 /* NOSTokenUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D847320C0020D0027F905 /* NOSTokenUtils.m */; };
+		BA2D847720C0051C0027F905 /* test163ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D847620C0051C0027F905 /* test163ViewController.m */; };
+		BA2D847920C006650027F905 /* nipple.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA2D847820C0065F0027F905 /* nipple.jpg */; };
 		BA36518520A41987002B6C62 /* HomeSNSVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA36518420A41987002B6C62 /* HomeSNSVC.m */; };
 		BA36518820A42705002B6C62 /* Baoli-SC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA36518720A42702002B6C62 /* Baoli-SC-Regular.ttf */; };
 		BA36518C20A42C0E002B6C62 /* RankPresentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA36518B20A42C0E002B6C62 /* RankPresentVC.m */; };
@@ -158,6 +162,13 @@
 		BA1E570420B69C5600C61E21 /* ChatVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatVC.m; sourceTree = "<group>"; };
 		BA270764209B29D000220B23 /* NMBigImgTitleBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMBigImgTitleBtn.h; sourceTree = "<group>"; };
 		BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMBigImgTitleBtn.m; sourceTree = "<group>"; };
+		BA2D846B20BF9DE80027F905 /* HomeTabMenuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTabMenuVC.h; sourceTree = "<group>"; };
+		BA2D846C20BF9DE80027F905 /* HomeTabMenuVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTabMenuVC.m; sourceTree = "<group>"; };
+		BA2D847220C0020C0027F905 /* NOSTokenUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NOSTokenUtils.h; sourceTree = "<group>"; };
+		BA2D847320C0020D0027F905 /* NOSTokenUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NOSTokenUtils.m; sourceTree = "<group>"; };
+		BA2D847520C0051C0027F905 /* test163ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test163ViewController.h; sourceTree = "<group>"; };
+		BA2D847620C0051C0027F905 /* test163ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test163ViewController.m; sourceTree = "<group>"; };
+		BA2D847820C0065F0027F905 /* nipple.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nipple.jpg; sourceTree = "<group>"; };
 		BA36518320A41987002B6C62 /* HomeSNSVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSNSVC.h; sourceTree = "<group>"; };
 		BA36518420A41987002B6C62 /* HomeSNSVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSNSVC.m; sourceTree = "<group>"; };
 		BA36518720A42702002B6C62 /* Baoli-SC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baoli-SC-Regular.ttf"; sourceTree = "<group>"; };
@@ -476,6 +487,38 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		BA2D846A20BF9DB90027F905 /* Home TabControl */ = {
+			isa = PBXGroup;
+			children = (
+				BA97C77920A02C2000F61694 /* HomeTabbarController.h */,
+				BA97C77A20A02C2000F61694 /* HomeTabbarController.m */,
+				BA2D846B20BF9DE80027F905 /* HomeTabMenuVC.h */,
+				BA2D846C20BF9DE80027F905 /* HomeTabMenuVC.m */,
+			);
+			path = "Home TabControl";
+			sourceTree = "<group>";
+		};
+		BA2D846E20BFE00B0027F905 /* Universal */ = {
+			isa = PBXGroup;
+			children = (
+				BAF2828220A9306900625CF3 /* User Detail */,
+			);
+			path = Universal;
+			sourceTree = "<group>";
+		};
+		BA2D847120C001FA0027F905 /* NetEase */ = {
+			isa = PBXGroup;
+			children = (
+				BA2D847220C0020C0027F905 /* NOSTokenUtils.h */,
+				BA2D847320C0020D0027F905 /* NOSTokenUtils.m */,
+				BAE9EC5320BCF16A006FEC19 /* NetEaseOSS.h */,
+				BAE9EC5420BCF16A006FEC19 /* NetEaseOSS.m */,
+				BA2D847520C0051C0027F905 /* test163ViewController.h */,
+				BA2D847620C0051C0027F905 /* test163ViewController.m */,
+			);
+			path = NetEase;
+			sourceTree = "<group>";
+		};
 		BA36518220A41963002B6C62 /* Rank */ = {
 			isa = PBXGroup;
 			children = (
@@ -616,6 +659,8 @@
 		BA945D92209AEDCF001BE9E1 /* Entrance */ = {
 			isa = PBXGroup;
 			children = (
+				BA2D846E20BFE00B0027F905 /* Universal */,
+				BA2D846A20BF9DB90027F905 /* Home TabControl */,
 				BA97C77820A02BE000F61694 /* Home */,
 				BAA69EE5209C3F0A005138EA /* Login */,
 			);
@@ -677,8 +722,6 @@
 				BAF2828920A96D3700625CF3 /* Message */,
 				BA36518220A41963002B6C62 /* Rank */,
 				BA97C77C20A0438C00F61694 /* Square */,
-				BA97C77920A02C2000F61694 /* HomeTabbarController.h */,
-				BA97C77A20A02C2000F61694 /* HomeTabbarController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -687,7 +730,6 @@
 			isa = PBXGroup;
 			children = (
 				BA1E570220B69C4600C61E21 /* Chat */,
-				BAF2828220A9306900625CF3 /* User Detail */,
 				BAEE7FBC20A2D5A9000EA5E4 /* List */,
 				BA86CA1320A1711000F21980 /* Search */,
 				BA86CA0920A13FED00F21980 /* cells */,
@@ -1083,6 +1125,7 @@
 		BAC18398209AE0EB00209CCD /* MeMeDa */ = {
 			isa = PBXGroup;
 			children = (
+				BA2D847820C0065F0027F905 /* nipple.jpg */,
 				BA945D96209AF98C001BE9E1 /* Utils */,
 				BA945D92209AEDCF001BE9E1 /* Entrance */,
 				BA945D90209AEC13001BE9E1 /* Profiles */,
@@ -1105,8 +1148,7 @@
 		BAE9EC5220BCF139006FEC19 /* SDKs */ = {
 			isa = PBXGroup;
 			children = (
-				BAE9EC5320BCF16A006FEC19 /* NetEaseOSS.h */,
-				BAE9EC5420BCF16A006FEC19 /* NetEaseOSS.m */,
+				BA2D847120C001FA0027F905 /* NetEase */,
 			);
 			path = SDKs;
 			sourceTree = "<group>";
@@ -1328,6 +1370,7 @@
 				BAB725E720BCFCF500CD9A15 /* ShareSDKUI.bundle in Resources */,
 				BAB725EB20BCFCF500CD9A15 /* ShareSDKConfigFile.bundle in Resources */,
 				BAC183A1209AE0EC00209CCD /* Main.storyboard in Resources */,
+				BA2D847920C006650027F905 /* nipple.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1452,6 +1495,7 @@
 				BAEE7FD420A2E798000EA5E4 /* SquareSearchChooseVC.m in Sources */,
 				BAB725A820BCF34700CD9A15 /* NOSTimeUtils.m in Sources */,
 				BAB725FC20BD5CBF00CD9A15 /* NMFlowLayout.m in Sources */,
+				BA2D846D20BF9DE80027F905 /* HomeTabMenuVC.m in Sources */,
 				BA36519020A43408002B6C62 /* RankPicCollectionCell.m in Sources */,
 				BAEE7FBF20A2D5C5000EA5E4 /* SquareListVC.m in Sources */,
 				BAB725B820BCF34700CD9A15 /* NOSAFHTTPSessionManager.m in Sources */,
@@ -1485,7 +1529,9 @@
 				BA1E2D1420AD7FA60060E91C /* BuyCoinVC.m in Sources */,
 				BAB0F788209B0D2D00E8CCC7 /* NMLoginButton.m in Sources */,
 				BA86CA1620A1712600F21980 /* SquareSearchVC.m in Sources */,
+				BA2D847720C0051C0027F905 /* test163ViewController.m in Sources */,
 				BAB725B720BCF34700CD9A15 /* NOSAFURLSessionManager.m in Sources */,
+				BA2D847420C0020D0027F905 /* NOSTokenUtils.m in Sources */,
 				BAE9EC5520BCF16A006FEC19 /* NetEaseOSS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1641,7 +1687,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MeMeDa/Profiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/MeMeDa/Profiles/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShareSDK4.1.2/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
@@ -1675,7 +1724,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MeMeDa/Profiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/MeMeDa/Profiles/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShareSDK4.1.2/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",

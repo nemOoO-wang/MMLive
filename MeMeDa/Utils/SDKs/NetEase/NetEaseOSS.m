@@ -8,6 +8,7 @@
 // https://www.163yun.com/help/documents/15665140818739200
 
 #import "NetEaseOSS.h"
+#import "NOSTokenUtils.h"
 
 
 @implementation NetEaseOSS
@@ -21,20 +22,26 @@
         sharedInstance = [NetEaseOSS sharedInstanceWithRecorder:nil recorderKeyGenerator:nil];
         NOSConfig *conf = [[NOSConfig alloc] init];
         [NOSUploadManager setGlobalConf:conf];
-        sharedInstance.token = @"从应用服务端获取";
     });
     return sharedInstance;
 }
 
 /**
- 封装实现版本
+ Nemo 封装实现版本
  */
--(void)putFile:(NSString *)path withKey:(NSString *)key result:(NOSUpCompletionHandler)handler{
+-(void)putFile:(NSString *)path withKey:(NSString *)fileKey result:(NOSUpCompletionHandler)handler{
+    // gen token
+    NSString *token = [NOSTokenUtils genTokenWithBucket:@"asset"
+                              withKey:fileKey
+                           withElipse:1000
+                        withAccessKey:@"2a7c38e666cf4079a0dd0ffe66e3dfb5"
+                        withSecretKey:@"d2299bf5e9584583ab4a52c216f2f78a"];
+    
     // 使用http上传，如果用htts，使用putFileByHttps函数即可
     [self putFileByHttp: @"filePath"
-                      bucket: @"mybucket"
-                         key: @"exclusiveName.jpg"
-                       token: self.token
+                      bucket: @"asset"
+                         key: fileKey
+                       token: token
                     complete: ^(NOSResponseInfo *info, NSString *key, NSDictionary *resp) {
                         NSLog(@"%@", info); // 请求的响应信息、是否出错保存在info中
                         NSLog(@"%@", resp); // 请求的响应返回的json保存在resp中，用户一般无需此信息

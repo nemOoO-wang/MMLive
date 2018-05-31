@@ -11,10 +11,8 @@
 
 @interface NetEaseOSS : NOSUploadManager
 
-@property (nonatomic,strong) NSString *token;
-
 + (instancetype)sharedInstance;
 
-
+-(void)putFile:(NSString *)path withKey:(NSString *)fileKey result:(NOSUpCompletionHandler)handler;
 
 @end

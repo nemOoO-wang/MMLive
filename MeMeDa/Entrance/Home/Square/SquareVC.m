@@ -12,6 +12,7 @@
 #import "SquareListCell.h"
 #import "SquareListVC.h"
 #import "HittestView.h"
+#import "UserInfoVC.h"
 
 
 @interface SquareVC ()<UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource,UINavigationControllerDelegate>
@@ -42,11 +43,39 @@
         self.listDataArr = data[@"data"];
         [self.collectionVIew reloadData];
     }];
+    // 在线状态
+    NSDictionary *uDic = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"];
+    if([uDic[@"imState"] integerValue] == 1){
+        // 在线
+        [self.onlineBtn setSelected:NO];
+    }else{
+        [self.onlineBtn setSelected:YES];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     HittestView *coverView = [[HittestView alloc] initInController:self];
     coverView.views = @[self.momentBtn, self.searchBtn, self.onlineBtn];
+}
+
+-(NSDictionary *)getUserAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger dataIndex = 0;
+    if (indexPath.section == 0) {
+        dataIndex = 2;
+    }else if (indexPath.section == 1){
+        dataIndex = 3;
+    }else if (indexPath.section == 2){
+        dataIndex = 1;
+    }else if (indexPath.section == 3){
+        dataIndex = 6;
+    }else{
+        dataIndex = 3;
+    }
+    NSArray *users = self.listDataArr[dataIndex-1][@"user"];
+    if (indexPath.row<=users.count) {
+        return users[indexPath.row-1];
+    }
+    return nil;
 }
 
 # pragma mark - <UICollectionViewDelegate>
@@ -56,7 +85,12 @@
         [self performSegueWithIdentifier:@"list" sender:self.urlTupleArr[indexPath.section]];
     }else{
         // user detail
-        [self performSegueWithIdentifier:@"userDetail" sender:nil];        
+        UserInfoVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"user detail"];
+        NSDictionary *userDic = [self getUserAtIndexPath:indexPath];
+        if (userDic) {
+            vc.userId = userDic[@"id"];
+        }
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
@@ -86,25 +120,13 @@
         return cell;
     }else{
         SquareListCell *listCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"list" forIndexPath:indexPath];
-        NSInteger dataIndex = 0;
-        if (indexPath.section == 0) {
-            dataIndex = 2;
-        }else if (indexPath.section == 1){
-            dataIndex = 3;
-        }else if (indexPath.section == 2){
-            dataIndex = 1;
-        }else if (indexPath.section == 3){
-            dataIndex = 6;
-        }else{
-            dataIndex = 3;
-        }
-        NSArray *users = self.listDataArr[dataIndex-1][@"user"];
-        if (indexPath.row<=users.count) {
+        
+        NSDictionary *userDic = [self getUserAtIndexPath:indexPath];
+        if (userDic) {
             NSString *url = @"";
-            NSDictionary *dic = users[indexPath.row-1];
             NSArray *imgArr;
-            if ([dic objectForKey:@"imgs"]) {
-                NSData *jsonData = [dic[@"imgs"] dataUsingEncoding:NSUTF8StringEncoding];
+            if ([userDic objectForKey:@"imgs"]) {
+                NSData *jsonData = [userDic[@"imgs"] dataUsingEncoding:NSUTF8StringEncoding];
                 imgArr = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves error:nil];
                 url = imgArr[0];
             }
@@ -164,7 +186,12 @@
 # pragma mark - click
 - (IBAction)clickOnline:(id)sender {
     BOOL on = !self.onlineBtn.selected;
-    self.onlineBtn.selected = on;
+    NSNumber *onNum = on? @1: @2;
+    [SVProgressHUD show];
+    [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/editOnlineState" andParam:@{@"onlineState":onNum} andSuccess:^(id data) {
+        [SVProgressHUD showSuccessWithStatus:@"更改状态成功"];
+        self.onlineBtn.selected = on;
+    }];
 }
 
 # pragma mark - segue
