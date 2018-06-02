@@ -20,8 +20,6 @@
 		BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */; };
 		BA2D846D20BF9DE80027F905 /* HomeTabMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D846C20BF9DE80027F905 /* HomeTabMenuVC.m */; };
 		BA2D847420C0020D0027F905 /* NOSTokenUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D847320C0020D0027F905 /* NOSTokenUtils.m */; };
-		BA2D847720C0051C0027F905 /* test163ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D847620C0051C0027F905 /* test163ViewController.m */; };
-		BA2D847920C006650027F905 /* nipple.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA2D847820C0065F0027F905 /* nipple.jpg */; };
 		BA36518520A41987002B6C62 /* HomeSNSVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA36518420A41987002B6C62 /* HomeSNSVC.m */; };
 		BA36518820A42705002B6C62 /* Baoli-SC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA36518720A42702002B6C62 /* Baoli-SC-Regular.ttf */; };
 		BA36518C20A42C0E002B6C62 /* RankPresentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA36518B20A42C0E002B6C62 /* RankPresentVC.m */; };
@@ -166,9 +164,6 @@
 		BA2D846C20BF9DE80027F905 /* HomeTabMenuVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTabMenuVC.m; sourceTree = "<group>"; };
 		BA2D847220C0020C0027F905 /* NOSTokenUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NOSTokenUtils.h; sourceTree = "<group>"; };
 		BA2D847320C0020D0027F905 /* NOSTokenUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NOSTokenUtils.m; sourceTree = "<group>"; };
-		BA2D847520C0051C0027F905 /* test163ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test163ViewController.h; sourceTree = "<group>"; };
-		BA2D847620C0051C0027F905 /* test163ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test163ViewController.m; sourceTree = "<group>"; };
-		BA2D847820C0065F0027F905 /* nipple.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nipple.jpg; sourceTree = "<group>"; };
 		BA36518320A41987002B6C62 /* HomeSNSVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSNSVC.h; sourceTree = "<group>"; };
 		BA36518420A41987002B6C62 /* HomeSNSVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSNSVC.m; sourceTree = "<group>"; };
 		BA36518720A42702002B6C62 /* Baoli-SC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baoli-SC-Regular.ttf"; sourceTree = "<group>"; };
@@ -501,6 +496,7 @@
 		BA2D846E20BFE00B0027F905 /* Universal */ = {
 			isa = PBXGroup;
 			children = (
+				BA39ACF620AC2F89001EC158 /* Moment */,
 				BAF2828220A9306900625CF3 /* User Detail */,
 			);
 			path = Universal;
@@ -513,8 +509,6 @@
 				BA2D847320C0020D0027F905 /* NOSTokenUtils.m */,
 				BAE9EC5320BCF16A006FEC19 /* NetEaseOSS.h */,
 				BAE9EC5420BCF16A006FEC19 /* NetEaseOSS.m */,
-				BA2D847520C0051C0027F905 /* test163ViewController.h */,
-				BA2D847620C0051C0027F905 /* test163ViewController.m */,
 			);
 			path = NetEase;
 			sourceTree = "<group>";
@@ -572,7 +566,6 @@
 				BA1E2D0920AD7A440060E91C /* Packet */,
 				BA1E2CFB20AD5DB50060E91C /* Setting */,
 				BA1E2CF720AD2B730060E91C /* Follower */,
-				BA39ACF620AC2F89001EC158 /* Moment */,
 				BA39ACF220AC22B0001EC158 /* Theme */,
 				BA39ACEF20AC1FD8001EC158 /* MeCenterViewController.h */,
 				BA39ACF020AC1FD8001EC158 /* MeCenterViewController.m */,
@@ -1125,7 +1118,6 @@
 		BAC18398209AE0EB00209CCD /* MeMeDa */ = {
 			isa = PBXGroup;
 			children = (
-				BA2D847820C0065F0027F905 /* nipple.jpg */,
 				BA945D96209AF98C001BE9E1 /* Utils */,
 				BA945D92209AEDCF001BE9E1 /* Entrance */,
 				BA945D90209AEC13001BE9E1 /* Profiles */,
@@ -1370,7 +1362,6 @@
 				BAB725E720BCFCF500CD9A15 /* ShareSDKUI.bundle in Resources */,
 				BAB725EB20BCFCF500CD9A15 /* ShareSDKConfigFile.bundle in Resources */,
 				BAC183A1209AE0EC00209CCD /* Main.storyboard in Resources */,
-				BA2D847920C006650027F905 /* nipple.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1404,6 +1395,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj",
@@ -1415,6 +1407,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RongCloud.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
@@ -1529,7 +1522,6 @@
 				BA1E2D1420AD7FA60060E91C /* BuyCoinVC.m in Sources */,
 				BAB0F788209B0D2D00E8CCC7 /* NMLoginButton.m in Sources */,
 				BA86CA1620A1712600F21980 /* SquareSearchVC.m in Sources */,
-				BA2D847720C0051C0027F905 /* test163ViewController.m in Sources */,
 				BAB725B720BCF34700CD9A15 /* NOSAFURLSessionManager.m in Sources */,
 				BA2D847420C0020D0027F905 /* NOSTokenUtils.m in Sources */,
 				BAE9EC5520BCF16A006FEC19 /* NetEaseOSS.m in Sources */,
@@ -1687,10 +1679,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MeMeDa/Profiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/MeMeDa/Profiles/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShareSDK4.1.2/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
@@ -1724,10 +1713,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MeMeDa/Profiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/MeMeDa/Profiles/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShareSDK4.1.2/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",

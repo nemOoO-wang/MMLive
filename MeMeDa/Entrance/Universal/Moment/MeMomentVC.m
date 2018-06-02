@@ -23,11 +23,8 @@
     [super viewDidLoad];
     self.cellWidth = SCREEN_WIDTH-24;
     self.imgCellWidth = (self.cellWidth-66)/3;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    
 }
 
 /*

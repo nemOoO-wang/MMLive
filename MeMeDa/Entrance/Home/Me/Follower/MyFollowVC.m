@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *underFollowing;
 @property (weak, nonatomic) IBOutlet UIButton *folowingBtn;
 @property (weak, nonatomic) IBOutlet UIButton *followerBtn;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -20,7 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fixSelectionTo:0];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self scrollToType:self.type];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,11 +51,33 @@
 }
 
 - (IBAction)clickFollowing:(id)sender {
-    [self fixSelectionTo:0];
+    [self scrollToType:NMFollowerTypeMyFollow];
 }
 
 - (IBAction)clickFoller:(id)sender {
-    [self fixSelectionTo:1];
+    [self scrollToType:NMFollowerTypeFollower];
+}
+
+-(void)scrollToType:(NMFollowerType)type{
+    CGSize sSize = self.scrollView.bounds.size;
+    if (type == NMFollowerTypeMyFollow) {
+        [self.scrollView scrollRectToVisible:CGRectMake(0, 0, sSize.width, sSize.height) animated:YES];
+        [self fixSelectionTo:0];
+    }else{
+        [self.scrollView scrollRectToVisible:CGRectMake(SCREEN_WIDTH, 0, sSize.width, sSize.height) animated:YES];
+        [self fixSelectionTo:1];
+    }
+}
+
+-(void)scrollToTypeWithoutAni:(NMFollowerType)type{
+    CGSize sSize = self.scrollView.bounds.size;
+    if (type == NMFollowerTypeMyFollow) {
+        [self.scrollView scrollRectToVisible:CGRectMake(0, 0, sSize.width, sSize.height) animated:NO];
+        [self fixSelectionTo:0];
+    }else{
+        [self.scrollView scrollRectToVisible:CGRectMake(SCREEN_WIDTH, 0, sSize.width, sSize.height) animated:NO];
+        [self fixSelectionTo:1];
+    }
 }
 
 -(void)fixSelectionTo:(NSInteger)index{

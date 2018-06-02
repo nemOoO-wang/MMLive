@@ -10,6 +10,7 @@ target 'MeMeDa' do
   pod 'SVProgressHUD'
   pod 'Masonry'
   pod 'MJRefresh'
+  pod "QBImagePickerController"
   pod 'UICollectionViewLeftAlignedLayout'
   # 网易云
   pod 'AGAsyncTestHelper/Shorthand'

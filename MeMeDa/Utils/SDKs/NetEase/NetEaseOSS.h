@@ -9,10 +9,31 @@
 #import <Foundation/Foundation.h>
 #import "NOSSDK.h"
 
+typedef void (^NetEaseSuccess)(NSString *urlPath);
+typedef void (^NetEaseSuccessArr)(NSArray *urlArr);
+
 @interface NetEaseOSS : NOSUploadManager
 
 + (instancetype)sharedInstance;
 
--(void)putFile:(NSString *)path withKey:(NSString *)fileKey result:(NOSUpCompletionHandler)handler;
+/**
+ Nemo: 封装实现版本
+ */
+-(void)putFile:(NSString *)path withUrlPath:(NSString *)urlPath result:(NetEaseSuccess)success;
+
+/**
+ Nemo: 传一张图
+ */
+-(void)putImage:(UIImage *)img result:(NetEaseSuccess)success;
+
+/**
+ Nemo: 传多张图
+ */
+-(void)putImages:(NSArray *)imgArr result:(NetEaseSuccessArr)success;
+
+/**
+ Nemo: 传视频
+ */
+-(void)putMOV:(NSURL *)contentUrl result:(NetEaseSuccess)success;
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Pn9-Vp-0qN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aW9-He-J7O">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -4387,6 +4387,9 @@
                                                 <constraint firstAttribute="height" constant="50" id="RjN-Ig-MK0"/>
                                             </constraints>
                                             <state key="normal" image="add_dongtai"/>
+                                            <connections>
+                                                <action selector="clickTakePhoto:" destination="6eb-Jd-rLZ" eventType="touchUpInside" id="EhF-n6-8Xo"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JrB-Ru-6tI">
                                             <rect key="frame" x="146" y="162" width="50" height="50"/>
@@ -4395,6 +4398,9 @@
                                                 <constraint firstAttribute="height" constant="50" id="lmq-45-UV9"/>
                                             </constraints>
                                             <state key="normal" image="add_xiangce"/>
+                                            <connections>
+                                                <action selector="clickAlbum:" destination="6eb-Jd-rLZ" eventType="touchUpInside" id="qrb-bP-k3g"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iuK-gO-pmy">
                                             <rect key="frame" x="216" y="162" width="50" height="50"/>
@@ -4404,6 +4410,9 @@
                                             </constraints>
                                             <state key="normal" image="add_duanshipin"/>
                                             <state key="selected" image="add_duanshipin"/>
+                                            <connections>
+                                                <action selector="clickVedio:" destination="6eb-Jd-rLZ" eventType="touchUpInside" id="5VL-xx-RVO"/>
+                                            </connections>
                                         </button>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rMw-VF-Ajb">
                                             <rect key="frame" x="20" y="5" width="311" height="147"/>
@@ -4450,11 +4459,11 @@
                                             <rect key="frame" x="236" y="443" width="95" height="95"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vwy-gh-LBy">
-                                            <rect key="frame" x="20" y="538" width="248" height="61"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <rect key="frame" x="20" y="538" width="188" height="250"/>
+                                            <color key="backgroundColor" red="1" green="0.46666666670000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="61" id="EtB-4f-gVh"/>
-                                                <constraint firstAttribute="width" constant="248" id="K14-zW-aJo"/>
+                                                <constraint firstAttribute="width" secondItem="Vwy-gh-LBy" secondAttribute="height" multiplier="3:4" id="7md-KY-2Z9"/>
+                                                <constraint firstAttribute="height" constant="250" id="EtB-4f-gVh"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -4535,7 +4544,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="发布动态" id="mhX-F2-3lH">
-                        <barButtonItem key="rightBarButtonItem" title="发布" id="FNq-cA-Kv7"/>
+                        <barButtonItem key="rightBarButtonItem" title="发布" id="FNq-cA-Kv7">
+                            <connections>
+                                <action selector="post:" destination="6eb-Jd-rLZ" id="XdJ-Of-Kom"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addBtn" destination="LSI-7F-Yi8" id="ZO4-ki-l5F"/>
@@ -4543,6 +4556,15 @@
                         <outlet property="hideConstraint1" destination="tZt-sP-hzc" id="P9Y-4b-tbQ"/>
                         <outlet property="hideConstraint2" destination="XsF-4L-Y92" id="biK-4E-xPy"/>
                         <outlet property="hideConstraint3" destination="z5M-aO-OwE" id="Tbr-Io-QAk"/>
+                        <outlet property="imgView1" destination="9yj-xz-SnH" id="WiH-pZ-5cV"/>
+                        <outlet property="imgView2" destination="QNp-ne-bDl" id="gNS-PH-al2"/>
+                        <outlet property="imgView3" destination="QYd-La-vMx" id="xCv-rq-kFq"/>
+                        <outlet property="imgView4" destination="f6i-x6-gta" id="dSU-1H-Qk4"/>
+                        <outlet property="imgView5" destination="TQR-p8-zPi" id="pOu-aQ-mhf"/>
+                        <outlet property="imgView6" destination="1Cm-5a-23W" id="ty7-z4-Bby"/>
+                        <outlet property="imgView7" destination="v1o-hB-SAn" id="g4W-as-Nm5"/>
+                        <outlet property="imgView8" destination="1kW-Y5-2GE" id="F89-Cf-8nw"/>
+                        <outlet property="imgView9" destination="Iva-ab-FFn" id="vT1-LK-utw"/>
                         <outlet property="row12Margin" destination="Nqy-cN-2PW" id="8Xo-Qx-JZv"/>
                         <outlet property="row1Hide" destination="a8S-CZ-8Dx" id="fMf-1C-pWa"/>
                         <outlet property="row1Show" destination="TdG-bR-quf" id="ch2-65-DvN"/>
@@ -4558,11 +4580,12 @@
                         <outlet property="textView" destination="rMw-VF-Ajb" id="XrT-Yt-RML"/>
                         <outlet property="vedioBtn" destination="iuK-gO-pmy" id="BTP-VP-8qT"/>
                         <outlet property="vedioHeigt" destination="EtB-4f-gVh" id="UxK-dZ-zBp"/>
+                        <outlet property="vedioView" destination="Vwy-gh-LBy" id="mTJ-ZJ-Urv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yZl-Nn-XmI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-455" y="8808"/>
+            <point key="canvasLocation" x="-580" y="8832"/>
         </scene>
         <!--Me Center View Controller-->
         <scene sceneID="EwM-P2-v3O">
@@ -4917,6 +4940,11 @@
                     <navigationItem key="navigationItem" id="kGa-6f-4Go"/>
                     <connections>
                         <outlet property="ComposeBtn" destination="dKj-CH-Cii" id="Sbq-S5-oba"/>
+                        <outlet property="authState" destination="dRp-DJ-dgx" id="Fcp-P8-ozk"/>
+                        <outlet property="myBalanceLabel" destination="oxo-a5-8iG" id="Yff-wE-6pS"/>
+                        <outlet property="myFansCountLabel" destination="fTv-9m-M3x" id="b20-Dp-O1i"/>
+                        <outlet property="myFollowCountLabel" destination="kbU-gB-JnA" id="LSE-Ww-yn5"/>
+                        <outlet property="nickNameLabel" destination="Gzi-20-jvh" id="hOH-bU-guO"/>
                         <outlet property="settingBtn" destination="tqs-gf-wxa" id="hUb-3v-JNB"/>
                         <segue destination="a8C-f4-kgu" kind="show" identifier="Theme" id="FY5-QR-Nfg"/>
                         <segue destination="6eb-Jd-rLZ" kind="show" identifier="new moment" id="xCO-fa-qJP"/>
@@ -7420,6 +7448,7 @@
                     <connections>
                         <outlet property="followerBtn" destination="6MP-pQ-Vjb" id="NoE-5B-xah"/>
                         <outlet property="folowingBtn" destination="XbT-NN-MEj" id="0pV-3W-JPu"/>
+                        <outlet property="scrollView" destination="fX7-5N-Mzt" id="0g1-D6-ZUF"/>
                         <outlet property="underFollower" destination="fyU-yS-UEv" id="IUv-52-sTB"/>
                         <outlet property="underFollowing" destination="JXO-It-IAh" id="VIO-5d-3eL"/>
                     </connections>
@@ -9313,34 +9342,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z43-SK-Ie8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5950" y="7751"/>
-        </scene>
-        <!--Test163 View Controller-->
-        <scene sceneID="YdR-Hp-baE">
-            <objects>
-                <viewController id="Pn9-Vp-0qN" customClass="test163ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hmg-2q-Nqm"/>
-                        <viewControllerLayoutGuide type="bottom" id="HcS-Ir-JuS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="aNA-n8-kB7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNO-50-elP">
-                                <rect key="frame" x="164" y="283" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="clickddd:" destination="Pn9-Vp-0qN" eventType="touchUpInside" id="wXt-qW-G8x"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zP1-ei-0Ru" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4245" y="8310"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="8xA-Rg-jFj">

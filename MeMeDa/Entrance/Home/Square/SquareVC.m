@@ -185,13 +185,17 @@
 
 # pragma mark - click
 - (IBAction)clickOnline:(id)sender {
-    BOOL on = !self.onlineBtn.selected;
-    NSNumber *onNum = on? @1: @2;
+    BOOL offline = !self.onlineBtn.selected;
+    NSNumber *onNum = offline? @2: @1;
     [SVProgressHUD show];
     [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/editOnlineState" andParam:@{@"onlineState":onNum} andSuccess:^(id data) {
         [SVProgressHUD showSuccessWithStatus:@"更改状态成功"];
-        self.onlineBtn.selected = on;
+        self.onlineBtn.selected = offline;
     }];
+    // update DB
+    NSMutableDictionary *userDic = [[[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"] mutableCopy];
+    userDic[@"imState"] = onNum;
+    [[NSUserDefaults standardUserDefaults] setObject:[userDic copy] forKey:@"UserData"];
 }
 
 # pragma mark - segue

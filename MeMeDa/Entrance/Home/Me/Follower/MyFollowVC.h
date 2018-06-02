@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, NMFollowerType) {
+    NMFollowerTypeFollower,
+    NMFollowerTypeMyFollow,
+};
+
 @interface MyFollowVC : UIViewController
+
+@property (nonatomic,assign) NMFollowerType type;
 
 @end
