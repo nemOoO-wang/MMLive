@@ -22,9 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.cellWidth = SCREEN_WIDTH-24;
-    self.imgCellWidth = (self.cellWidth-66)/3;
-    
-    
+    self.imgCellWidth = (self.cellWidth-66)/3;    
 }
 
 /*

@@ -7,6 +7,8 @@
 //
 
 #import "MeMommentCollectionCell.h"
+#import "NMPicsBlowser.h"
+
 
 @interface MeMommentCollectionCell()
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
@@ -14,15 +16,15 @@
 @property (weak, nonatomic) IBOutlet UITextView *contextField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contextFieldHeightConstraint;
 // 9 pics
-@property (weak, nonatomic) IBOutlet UIImageView *pic1;
-@property (weak, nonatomic) IBOutlet UIImageView *pic2;
-@property (weak, nonatomic) IBOutlet UIImageView *pic3;
-@property (weak, nonatomic) IBOutlet UIImageView *pic4;
-@property (weak, nonatomic) IBOutlet UIImageView *pic5;
-@property (weak, nonatomic) IBOutlet UIImageView *pic6;
-@property (weak, nonatomic) IBOutlet UIImageView *pic7;
-@property (weak, nonatomic) IBOutlet UIImageView *pic8;
-@property (weak, nonatomic) IBOutlet UIImageView *pic9;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *pic1;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *pic2;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *pic3;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *pic4;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *pic5;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *pic6;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *pic7;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *pic8;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *pic9;
 
 // Constraints
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *row1Ratio;
@@ -49,36 +51,42 @@
 -(void)setImgArr:(NSArray<UIImage *> *)imgArr{
     _imgArr = imgArr;
     [imgArr enumerateObjectsUsingBlock:^(UIImage * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        switch (idx) {
-            case 0:
-                [self.pic1 setImage:imgArr[idx]];
-                break;
-            case 1:
-                [self.pic2 setImage:imgArr[idx]];
-                break;
-            case 2:
-                [self.pic3 setImage:imgArr[idx]];
-                break;
-            case 3:
-                [self.pic4 setImage:imgArr[idx]];
-                break;
-            case 4:
-                [self.pic5 setImage:imgArr[idx]];
-                break;
-            case 5:
-                [self.pic6 setImage:imgArr[idx]];
-                break;
-            case 6:
-                [self.pic7 setImage:imgArr[idx]];
-                break;
-            case 7:
-                [self.pic8 setImage:imgArr[idx]];
-                break;
-            case 8:
-                [self.pic9 setImage:imgArr[idx]];
-                break;
-            default:
-                break;
+        if (idx == 0) {
+            [self.pic1 setImg:imgArr[idx] withBrowser:^(NMPicsBlowser *obj) {
+                obj.imgArr = imgArr;
+            } delete:nil];
+        }else if (idx == 1){
+            [self.pic2 setImg:imgArr[idx] withBrowser:^(NMPicsBlowser *obj) {
+                obj.imgArr = imgArr;
+            } delete:nil];
+        }else if (idx == 2){
+            [self.pic3 setImg:imgArr[idx] withBrowser:^(NMPicsBlowser *obj) {
+                obj.imgArr = imgArr;
+            } delete:nil];
+        }else if (idx == 3){
+            [self.pic4 setImg:imgArr[idx] withBrowser:^(NMPicsBlowser *obj) {
+                obj.imgArr = imgArr;
+            } delete:nil];
+        }else if (idx == 4){
+            [self.pic5 setImg:imgArr[idx] withBrowser:^(NMPicsBlowser *obj) {
+                obj.imgArr = imgArr;
+            } delete:nil];
+        }else if (idx == 5){
+            [self.pic6 setImg:imgArr[idx] withBrowser:^(NMPicsBlowser *obj) {
+                obj.imgArr = imgArr;
+            } delete:nil];
+        }else if (idx == 6){
+            [self.pic7 setImg:imgArr[idx] withBrowser:^(NMPicsBlowser *obj) {
+                obj.imgArr = imgArr;
+            } delete:nil];
+        }else if (idx == 7){
+            [self.pic8 setImg:imgArr[idx] withBrowser:^(NMPicsBlowser *obj) {
+                obj.imgArr = imgArr;
+            } delete:nil];
+        }else if (idx == 8){
+            [self.pic9 setImg:imgArr[idx] withBrowser:^(NMPicsBlowser *obj) {
+                obj.imgArr = imgArr;
+            } delete:nil];
         }
     }];
 }
