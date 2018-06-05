@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, ImgType) {
+    ImgTypeImg,
+    ImgTypeUrl,
+};
+
 @interface NMImgBroser : UIPageViewController
 
 @property (nonatomic,strong) NSArray *imgArr;
-@property (nonatomic,strong) UIImage *current;
-@property (nonatomic,strong) UIImage *enterImg;
+@property (nonatomic,assign) NSInteger index;
 
-
+@property (nonatomic,assign) ImgType arrType;
 
 @end

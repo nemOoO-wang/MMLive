@@ -10,7 +10,9 @@
 
 @interface MeMommentCollectionCell : UICollectionViewCell
 
-@property (nonatomic,strong) NSArray<UIImage *> *imgArr;
+@property (nonatomic,strong) NSArray<NSString *> *imgArr;
 @property (nonatomic,strong) NSString *context;
+@property (nonatomic,strong) NSDictionary *dataDic;
+
 
 @end

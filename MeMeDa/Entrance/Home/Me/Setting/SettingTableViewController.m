@@ -32,6 +32,76 @@
     [self.blurView removeFromSuperview];
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.row) {
+        // 新访客
+        case 1:
+            
+            break;
+        case 2:
+            
+            break;
+        case 3:
+            
+            break;
+            
+        // 文字通讯
+        case 6:
+            
+            break;
+        case 7:
+            
+            break;
+        case 8:
+            
+            break;
+            
+        // 语音通话
+        case 11:
+            
+            break;
+        case 12:
+            
+            break;
+        case 13:
+            
+            break;
+            
+        // 视频通话
+        case 16:
+            
+            break;
+        case 17:
+            
+            break;
+        case 18:
+            
+            break;
+            
+        // other
+        case 20:
+            
+            break;
+        case 21:
+            
+            break;
+        case 22:
+            
+            break;
+            
+        case 24:
+            
+            break;
+        case 25:
+            // 退出
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+}
 
 
 /*

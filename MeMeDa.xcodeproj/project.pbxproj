@@ -135,6 +135,8 @@
 		BAF2828C20A96D4900625CF3 /* MessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF2828B20A96D4900625CF3 /* MessageVC.m */; };
 		BAF2829020A96D7600625CF3 /* MessageListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF2828F20A96D7600625CF3 /* MessageListTVC.m */; };
 		BAF2829520A9876800625CF3 /* UserInfoScrollBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF2829420A9876800625CF3 /* UserInfoScrollBannerView.m */; };
+		BAFF8E7E20C62E2A0076762F /* ImageOnlyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF8E7D20C62E2A0076762F /* ImageOnlyController.m */; };
+		BAFF8E8420C65E330076762F /* NMClickVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF8E8320C65E330076762F /* NMClickVideoView.m */; };
 		CEE16743979C1BDA74CDF782 /* libPods-MeMeDa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F29EB7810A38620C992E5A /* libPods-MeMeDa.a */; };
 /* End PBXBuildFile section */
 
@@ -384,6 +386,10 @@
 		BAF2828F20A96D7600625CF3 /* MessageListTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageListTVC.m; sourceTree = "<group>"; };
 		BAF2829320A9876800625CF3 /* UserInfoScrollBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoScrollBannerView.h; sourceTree = "<group>"; };
 		BAF2829420A9876800625CF3 /* UserInfoScrollBannerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoScrollBannerView.m; sourceTree = "<group>"; };
+		BAFF8E7C20C62E2A0076762F /* ImageOnlyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageOnlyController.h; sourceTree = "<group>"; };
+		BAFF8E7D20C62E2A0076762F /* ImageOnlyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageOnlyController.m; sourceTree = "<group>"; };
+		BAFF8E8220C65E330076762F /* NMClickVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMClickVideoView.h; sourceTree = "<group>"; };
+		BAFF8E8320C65E330076762F /* NMClickVideoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMClickVideoView.m; sourceTree = "<group>"; };
 		C54FB2756480206C342E0AEE /* Pods-MeMeDa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeMeDa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -621,15 +627,14 @@
 			path = "New Moment";
 			sourceTree = "<group>";
 		};
-		BA55F51A20C3E32F00F024FE /* Test */ = {
+		BA55F51A20C3E32F00F024FE /* ImgBroser */ = {
 			isa = PBXGroup;
 			children = (
 				BA55F51B20C3E35E00F024FE /* NMPicsBlowser.h */,
 				BA55F51C20C3E35E00F024FE /* NMPicsBlowser.m */,
-				BA55F52420C41A8500F024FE /* NMImgBroser.h */,
-				BA55F52520C41A8500F024FE /* NMImgBroser.m */,
+				BAFF8E8020C63EFB0076762F /* browserAndImgOnly */,
 			);
-			path = Test;
+			path = ImgBroser;
 			sourceTree = "<group>";
 		};
 		BA86CA0920A13FED00F21980 /* cells */ = {
@@ -694,7 +699,8 @@
 		BA945D97209AF999001BE9E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BA55F51A20C3E32F00F024FE /* Test */,
+				BAFF8E8120C65E090076762F /* AVPlayerView */,
+				BA55F51A20C3E32F00F024FE /* ImgBroser */,
 				BAB0F791209B1E2700E8CCC7 /* Public */,
 				BAB0F785209B0CF200E8CCC7 /* Explicit Views */,
 				BAB0F78E209B193600E8CCC7 /* UINavigationBar+CustomBar.h */,
@@ -1294,6 +1300,26 @@
 			path = scrollBanner;
 			sourceTree = "<group>";
 		};
+		BAFF8E8020C63EFB0076762F /* browserAndImgOnly */ = {
+			isa = PBXGroup;
+			children = (
+				BA55F52420C41A8500F024FE /* NMImgBroser.h */,
+				BA55F52520C41A8500F024FE /* NMImgBroser.m */,
+				BAFF8E7C20C62E2A0076762F /* ImageOnlyController.h */,
+				BAFF8E7D20C62E2A0076762F /* ImageOnlyController.m */,
+			);
+			path = browserAndImgOnly;
+			sourceTree = "<group>";
+		};
+		BAFF8E8120C65E090076762F /* AVPlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				BAFF8E8220C65E330076762F /* NMClickVideoView.h */,
+				BAFF8E8320C65E330076762F /* NMClickVideoView.m */,
+			);
+			path = AVPlayerView;
+			sourceTree = "<group>";
+		};
 		BEFF11BBAFA04AD84552D84D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1460,6 +1486,7 @@
 				BA1E2CF520AD26A50060E91C /* ThemeUserListVC.m in Sources */,
 				BAA69EFB209C6DC2005138EA /* CityPickerVC.m in Sources */,
 				BA1E2D0820AD72FF0060E91C /* ContactUsViewController.m in Sources */,
+				BAFF8E8420C65E330076762F /* NMClickVideoView.m in Sources */,
 				BA945DAA209AFC70001BE9E1 /* UIColor+BeeColor.m in Sources */,
 				BAB725AF20BCF34700CD9A15 /* NOSHttpManager.m in Sources */,
 				BAC183A9209AE0ED00209CCD /* main.m in Sources */,
@@ -1473,6 +1500,7 @@
 				BA97C777209FFA9200F61694 /* RegistInfoVC.m in Sources */,
 				BA36518C20A42C0E002B6C62 /* RankPresentVC.m in Sources */,
 				BA39AD0120AC3882001EC158 /* NewMomentVC.m in Sources */,
+				BAFF8E7E20C62E2A0076762F /* ImageOnlyController.m in Sources */,
 				BAB725A920BCF34700CD9A15 /* NOSConfig.m in Sources */,
 				BAB725A020BCF34700CD9A15 /* NOSUploadOption.m in Sources */,
 				BAB725A520BCF34700CD9A15 /* NOSIPUtils.m in Sources */,

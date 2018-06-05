@@ -14,7 +14,8 @@ typedef NS_ENUM(NSInteger, NMMomentShowType) {
     NMMomentShowTypeRow1,
     NMMomentShowTypeRow2,
     NMMomentShowTypeRow3,
-    NMMomentShowTypeVedio
+    NMMomentShowTypeVedio,
+    NMMomentShowTypeVedioHorizon
 };
 
 

@@ -8,6 +8,7 @@
 
 #import "NMPicsBlowser.h"
 #import "UIWindow+NMCurrent.h"
+#import "NMImgBroser.h"
 
 
 @interface NMPicsBlowser()
@@ -17,16 +18,18 @@
 
 @implementation NMPicsBlowser
 
--(void)setImgArr:(NSArray *)imgArr{
-    _imgArr = imgArr;
-    if ([imgArr containsObject:self.image]) {
-        // call out
-//        [[[UIApplication sharedApplication] keyWindow] rootViewController]
+-(void)setUpWith:(NSArray *)imgArr and:(NSInteger)index{
+    if (imgArr) {
         UIViewController *vc = [[[UIApplication sharedApplication] keyWindow] getCurrentViewController];
-        UIViewController *pre = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"test"];
+        NSDictionary *option = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:10] forKey:UIPageViewControllerOptionInterPageSpacingKey];
+        NMImgBroser *pre = [[NMImgBroser alloc]initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:option];
+        pre.imgArr = imgArr;
+        pre.index = index;
+        pre.arrType = ImgTypeUrl;
         [vc.navigationController pushViewController:pre animated:YES];
     }
 }
+
 
 -(void)layoutSubviews{
     self.userInteractionEnabled = YES;
@@ -36,7 +39,7 @@
     [self addGestureRecognizer:tap];
     // long press
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(deleteThis:)];
-    longPress.minimumPressDuration = 1.0;
+    longPress.minimumPressDuration = 0.5;
     [self addGestureRecognizer:longPress];
 }
 
@@ -60,8 +63,22 @@
     }
 }
 
--(void)setImg:(UIImage *)img withBrowser:(void (^)(NMPicsBlowser *obj))browser delete:(void (^)(void))deletion{
+-(void)setRawImg:(UIImage *)img withBrowser:(void (^)(NMPicsBlowser *obj))browser delete:(void (^)(void))deletion{
     [super setImage:img];
+    __weak typeof(self) weakSelf = self;
+    self.browser = ^{
+        browser(weakSelf);
+    };
+    self.deletion = ^{
+        if (deletion) {
+            deletion();
+        }
+    };
+}
+
+-(void)setImg:(NSString *)img withBrowser:(void (^)(NMPicsBlowser *obj))browser delete:(void (^)(void))deletion{
+    NSURL *url = [NSURL URLWithString:img];
+    [self sd_setImageWithURL:url];
     __weak typeof(self) weakSelf = self;
     self.browser = ^{
         browser(weakSelf);

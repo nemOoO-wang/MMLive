@@ -9,11 +9,17 @@
 #import "MeMomentVC.h"
 #import "MeMommentCollectionCell.h"
 
+#define PageSize @20
+
 
 @interface MeMomentVC ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (nonatomic,assign) NSInteger imgCellWidth;
 @property (nonatomic,assign) NSInteger cellWidth;
+@property (nonatomic,assign) NSInteger pageIndex;
+@property (nonatomic,strong) NSMutableArray *dataArr;
+
 
 @end
 
@@ -22,29 +28,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.cellWidth = SCREEN_WIDTH-24;
-    self.imgCellWidth = (self.cellWidth-66)/3;    
+    self.imgCellWidth = (self.cellWidth-66)/3;
+    [self refreshMoment];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+// refresh moment
+-(void)refreshMoment{
+    self.pageIndex = 0;
+    NSDictionary *paramDic = @{@"page":[NSString stringWithFormat:@"%ld",self.pageIndex],
+                               @"size":PageSize
+                               };
+    [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/getFriendTrends" andParam:paramDic andSuccess:^(id data) {
+        self.dataArr = [data[@"data"] mutableCopy];
+        [self.collectionView reloadData];
+    }];
 }
-*/
 
 # pragma mark - <UICollectionViewDataSource>
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MeMommentCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.imgArr = @[[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"],[UIImage imageNamed:@"gakki"]];
-    cell.context = @"活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍";
+    cell.dataDic = self.dataArr[indexPath.row];
     return cell;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 10;
+    return self.dataArr.count;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -53,11 +61,22 @@
 
 # pragma mark - <UICollectionViewDelegateFlowLayout>
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *context = @"活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍活动介绍";
+    // text height
+    NSString *context = self.dataArr[indexPath.row][@"text"];
     NSStringDrawingContext *drawContext = [[NSStringDrawingContext alloc] init];
     CGSize textSize = [context boundingRectWithSize:CGSizeMake(self.cellWidth, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16]} context:drawContext].size;
-    NSInteger imgHeight = self.imgCellWidth * 1;
-    return CGSizeMake(self.cellWidth, textSize.height+130+imgHeight);
+    // img height
+    NSString *jsonStr = self.dataArr[indexPath.row][@"imgs"];
+    NSArray *tArr = [NSJSONSerialization JSONObjectWithData:[jsonStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+    NSInteger imgRow = (tArr.count+2)/3;
+    NSInteger imgHeight = self.imgCellWidth * imgRow;
+    // video height
+    NSInteger videoHeight = 0;
+    NSString *tmpStr = self.dataArr[indexPath.row][@"vedioImg"];
+    if ([tmpStr length]>0) {
+        videoHeight = 150;
+    }
+    return CGSizeMake(self.cellWidth, textSize.height+130+imgHeight+videoHeight);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{

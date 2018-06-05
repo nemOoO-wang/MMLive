@@ -9,6 +9,8 @@
 #import "NewMomentVC.h"
 #import <QBImagePickerController/QBImagePickerController.h>
 #import "NetEaseOSS.h"
+#import "NMClickVideoView.h"
+#import "NMPicsBlowser.h"
 #import <AVKit/AVKit.h>
 
 
@@ -19,17 +21,17 @@
 @property (weak, nonatomic) IBOutlet UIButton *vedioBtn;
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;
 // img views
-@property (weak, nonatomic) IBOutlet UIImageView *imgView1;
-@property (weak, nonatomic) IBOutlet UIImageView *imgView2;
-@property (weak, nonatomic) IBOutlet UIImageView *imgView3;
-@property (weak, nonatomic) IBOutlet UIImageView *imgView4;
-@property (weak, nonatomic) IBOutlet UIImageView *imgView5;
-@property (weak, nonatomic) IBOutlet UIImageView *imgView6;
-@property (weak, nonatomic) IBOutlet UIImageView *imgView7;
-@property (weak, nonatomic) IBOutlet UIImageView *imgView8;
-@property (weak, nonatomic) IBOutlet UIImageView *imgView9;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *imgView1;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *imgView2;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *imgView3;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *imgView4;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *imgView5;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *imgView6;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *imgView7;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *imgView8;
+@property (weak, nonatomic) IBOutlet NMPicsBlowser *imgView9;
 // vedio view
-@property (weak, nonatomic) IBOutlet UIView *vedioView;
+@property (weak, nonatomic) IBOutlet NMClickVideoView *vedioView;
 
 // show constraint
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *showConstraint1;
@@ -53,6 +55,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *row23Margin;
 // vedio view
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *vedioHeigt;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *videoWidth;
 
 @property (nonatomic,strong) NSArray *imgarr;
 @property (nonatomic,assign) BOOL canShowImg;
@@ -212,31 +215,69 @@
     for (int i=0; i<self.imgarr.count; i++) {
         switch (i) {
             case 0:
-                [self.imgView1 setImage:self.imgarr[i]];
+//                [self.imgView1 setImage:self.imgarr[i]];
+                [self.imgView1 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                    NSLog(@"未设置");
+                } delete:^{
+                    NSLog(@"删除");
+                }];
                 break;
             case 1:
-                [self.imgView2 setImage:self.imgarr[i]];
+//                [self.imgView2 setImage:self.imgarr[i]];
+                [self.imgView2 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                    NSLog(@"未设置");
+                } delete:^{
+                    NSLog(@"删除");
+                }];
                 break;
             case 2:
-                [self.imgView3 setImage:self.imgarr[i]];
+                [self.imgView3 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                    NSLog(@"未设置");
+                } delete:^{
+                    NSLog(@"删除");
+                }];
                 break;
             case 3:
-                [self.imgView4 setImage:self.imgarr[i]];
+                [self.imgView4 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                    NSLog(@"未设置");
+                } delete:^{
+                    NSLog(@"删除");
+                }];
                 break;
             case 4:
-                [self.imgView5 setImage:self.imgarr[i]];
+                [self.imgView5 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                    NSLog(@"未设置");
+                } delete:^{
+                    NSLog(@"删除");
+                }];
                 break;
             case 5:
-                [self.imgView6 setImage:self.imgarr[i]];
+                [self.imgView6 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                    NSLog(@"未设置");
+                } delete:^{
+                    NSLog(@"删除");
+                }];
                 break;
             case 6:
-                [self.imgView7 setImage:self.imgarr[i]];
+                [self.imgView7 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                    NSLog(@"未设置");
+                } delete:^{
+                    NSLog(@"删除");
+                }];
                 break;
             case 7:
-                [self.imgView8 setImage:self.imgarr[i]];
+                [self.imgView8 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                    NSLog(@"未设置");
+                } delete:^{
+                    NSLog(@"删除");
+                }];
                 break;
             case 8:
-                [self.imgView9 setImage:self.imgarr[i]];
+                [self.imgView9 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                    NSLog(@"未设置");
+                } delete:^{
+                    NSLog(@"删除");
+                }];
                 break;
                 
             default:
@@ -264,7 +305,7 @@
     }
 }
 - (IBAction)post:(id)sender {
-    NSInteger kinds = 0;
+    __block NSInteger kinds = 0;
     NSString *textContent = @"";
     __block NSString *imgArrJsonStr = @"";
     __block NSString *vedioUrlStr = @"";
@@ -274,49 +315,51 @@
         textContent = self.textView.text;
         kinds++;
     }
-    // GCD
-    dispatch_queue_t queue = dispatch_queue_create("push_moment_queue", DISPATCH_QUEUE_CONCURRENT);
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
-    dispatch_sync(queue, ^{
-        // img
-        if (self.imgarr.count>0) {
-            dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 5*NSEC_PER_SEC));
-            [[NetEaseOSS sharedInstance] putImages:self.imgarr result:^(NSArray *urlArr) {
-                NSArray *imgUrlArr = urlArr;
-                // imgs arr json
-                NSData *arrData = [NSJSONSerialization dataWithJSONObject:imgUrlArr options:NSJSONWritingPrettyPrinted error:nil];
-                vedioUrlStr = [[NSString alloc] initWithData:arrData encoding:NSUTF8StringEncoding];
-                dispatch_semaphore_signal(semaphore);
-            }];
-        }
-        // vedio
-        if (self.vedioUrl) {
-            // write vedio
-            dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 5*NSEC_PER_SEC));
-            [[NetEaseOSS sharedInstance] putMOV:self.vedioUrl result:^(NSString *urlPath) {
-                vedioUrlStr = urlPath;
-                dispatch_semaphore_signal(semaphore);
-            }];
-            // write vImg
-            dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 5*NSEC_PER_SEC));
-            [[NetEaseOSS sharedInstance] putImage:self.vImg result:^(NSString *urlPath) {
-                vedioShoot = urlPath;
-                dispatch_semaphore_signal(semaphore);
-            }];
-            
-        }
-        // push
+    // group
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+    dispatch_group_t group = dispatch_group_create();
+//     img
+    if (self.imgarr.count>0) {
+        dispatch_group_enter(group);
+        [[NetEaseOSS sharedInstance] putImages:self.imgarr result:^(NSArray *urlArr) {
+            NSArray *imgUrlArr = urlArr;
+            // imgs arr json
+            NSData *arrData = [NSJSONSerialization dataWithJSONObject:imgUrlArr options:NSJSONWritingPrettyPrinted error:nil];
+            imgArrJsonStr = [[NSString alloc] initWithData:arrData encoding:NSUTF8StringEncoding];
+            kinds++;
+            dispatch_group_leave(group);
+        }];
+    }
+    // vedio
+    if (self.vedioUrl) {
+        // write vedio
+        dispatch_group_enter(group);
+        [[NetEaseOSS sharedInstance] putMOV:self.vedioUrl result:^(NSString *urlPath) {
+            vedioUrlStr = urlPath;
+            dispatch_group_leave(group);
+        }];
+        // write vImg
+        dispatch_group_enter(group);
+        [[NetEaseOSS sharedInstance] putImage:self.vImg result:^(NSString *urlPath) {
+            vedioShoot = urlPath;
+            kinds++;
+            dispatch_group_leave(group);
+        }];
+    }
+    // push
+    dispatch_group_notify(group, queue, ^{
         if (kinds <= 0) {
             [SVProgressHUD showErrorWithStatus:@"请先编辑内容"];
         }else{
             NSDictionary *paramDic = @{@"text":textContent, @"video":vedioUrlStr, @"vedioImg":vedioShoot, @"imgs":imgArrJsonStr};
             
             [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/insertTrends" andParam:paramDic andSuccess:^(id data) {
-                
+                [self.navigationController popViewControllerAnimated:YES];
+                [SVProgressHUD showSuccessWithStatus:@"发布成功！"];
             }];
         }
+        
     });
-//    NSInteger gcdValue = 0;
 }
 
 # pragma mark - <UIImagePickerControllerDelegate>
@@ -333,12 +376,6 @@
         AVPlayer *player = [[AVPlayer alloc] initWithURL:vedioUrl];
         player.muted = YES;
         self.avPlayer = player;
-        player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:[player currentItem]];
-        AVPlayerLayer *avLayer = [AVPlayerLayer playerLayerWithPlayer:player];
-        avLayer.frame = self.vedioView.bounds;
-        [self.vedioView.layer addSublayer:avLayer];
-        [player play];
         // vImg
         AVAsset *asset = [AVAsset assetWithURL:vedioUrl];
         AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:asset];
@@ -347,6 +384,19 @@
         CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
         self.vImg = [UIImage imageWithCGImage:imageRef];
         CGImageRelease(imageRef);
+        // other setting
+        self.vedioView.videoUrl = vedioUrl;
+        if (self.vImg.size.width>self.vImg.size.height) {
+            [self setShowType:NMMomentShowTypeVedioHorizon];
+        }
+        // add player layer
+        player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:[player currentItem]];
+        AVPlayerLayer *avLayer = [AVPlayerLayer playerLayerWithPlayer:player];
+        avLayer.frame = self.vedioView.bounds;
+        self.vedioView.layer.sublayers = nil;
+        [self.vedioView.layer addSublayer:avLayer];
+        [player play];
         
     }else{
         // 单图
@@ -456,6 +506,19 @@
             self.row12Margin.constant = 0;
             self.row23Margin.constant = 0;
             self.vedioHeigt.constant = 250;
+            self.videoWidth.constant = 187;
+            break;
+        case NMMomentShowTypeVedioHorizon:
+            self.row1Show.priority = 800;
+            self.row1Hide.priority = 900;
+            self.row2Show.priority = 800;
+            self.row2Hide.priority = 900;
+            self.row3Show.priority = 800;
+            self.row3Hide.priority = 900;
+            self.row12Margin.constant = 0;
+            self.row23Margin.constant = 0;
+            self.vedioHeigt.constant = 187;
+            self.videoWidth.constant = 250;
             break;
         default:
             break;

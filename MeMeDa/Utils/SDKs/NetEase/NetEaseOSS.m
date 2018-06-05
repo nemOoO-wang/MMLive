@@ -97,7 +97,7 @@
         [[NetEaseOSS sharedInstance] putFile:path withUrlPath:urlPath result:^(NSString *urlPath) {
             [urlArr addObject:urlPath];
             if (urlArr.count == imgArr.count) {
-                success([urlPath copy]);
+                success([urlArr copy]);
             }
         }];
     }
