@@ -94,7 +94,7 @@
             break;
         case 25:
             // 退出
-            
+            NSLog(@"22");
             break;
             
         default:

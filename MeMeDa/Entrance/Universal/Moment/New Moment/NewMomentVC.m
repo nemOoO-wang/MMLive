@@ -7,9 +7,9 @@
 //
 
 #import "NewMomentVC.h"
-#import <QBImagePickerController/QBImagePickerController.h>
 #import "NetEaseOSS.h"
 #import "NMClickVideoView.h"
+#import <QBImagePickerController/QBImagePickerController.h>
 #import "NMPicsBlowser.h"
 #import <AVKit/AVKit.h>
 
@@ -153,10 +153,10 @@
         UIImagePickerController *imgPicker = [[UIImagePickerController alloc] init];
         imgPicker.delegate = self;
         //    imgPicker.allowsEditing = YES;
-        imgPicker.navigationBar.tintColor = [UIColor darkGrayColor];
-        imgPicker.navigationBar.tintColor = [UIColor darkGrayColor];
         imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:imgPicker animated:YES completion:^{}];
+        [self presentViewController:imgPicker animated:YES completion:^{
+            imgPicker.navigationBar.backgroundColor = [UIColor darkGrayColor];
+        }];
     }
 }
 
@@ -177,9 +177,11 @@
         imagePickerController.maximumNumberOfSelection = 9-self.imgarr.count;
         imagePickerController.showsNumberOfSelectedAssets = YES;
         imagePickerController.delegate = self;
-        imagePickerController.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
-        imagePickerController.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
-        [self presentViewController:imagePickerController animated:YES completion:NULL];
+        // gray bar
+        UINavigationController *tmp = [imagePickerController.childViewControllers firstObject];
+        tmp.navigationBar.backgroundColor = [UIColor grayColor];
+        [self presentViewController:imagePickerController animated:YES completion:^{
+        }];
     }
 }
 
@@ -191,7 +193,7 @@
     UIImagePickerController *imgPicker = [[UIImagePickerController alloc] init];
     imgPicker.delegate = self;
     //    imgPicker.allowsEditing = YES;
-    imgPicker.navigationBar.tintColor = [UIColor darkGrayColor];
+    imgPicker.navigationBar.backgroundColor = [UIColor darkGrayColor];
     imgPicker.navigationBar.tintColor = [UIColor darkGrayColor];
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
         imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -428,6 +430,7 @@
 - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController{
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
 
 # pragma mark - Fix Views
 // text view setting

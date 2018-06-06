@@ -17,6 +17,8 @@
 		BA1E2D0F20AD7A740060E91C /* PacketVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2D0E20AD7A740060E91C /* PacketVC.m */; };
 		BA1E2D1420AD7FA60060E91C /* BuyCoinVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2D1320AD7FA60060E91C /* BuyCoinVC.m */; };
 		BA1E570520B69C5600C61E21 /* ChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E570420B69C5600C61E21 /* ChatVC.m */; };
+		BA1FAB8F20C77B2C00F386F9 /* EditMeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1FAB8E20C77B2C00F386F9 /* EditMeVC.m */; };
+		BA1FAB9320C7C3CA00F386F9 /* EditMeRecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1FAB9220C7C3CA00F386F9 /* EditMeRecordAudio.m */; };
 		BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */; };
 		BA2D846D20BF9DE80027F905 /* HomeTabMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D846C20BF9DE80027F905 /* HomeTabMenuVC.m */; };
 		BA2D847420C0020D0027F905 /* NOSTokenUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D847320C0020D0027F905 /* NOSTokenUtils.m */; };
@@ -163,6 +165,10 @@
 		BA1E2D1320AD7FA60060E91C /* BuyCoinVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuyCoinVC.m; sourceTree = "<group>"; };
 		BA1E570320B69C5600C61E21 /* ChatVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatVC.h; sourceTree = "<group>"; };
 		BA1E570420B69C5600C61E21 /* ChatVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatVC.m; sourceTree = "<group>"; };
+		BA1FAB8D20C77B2C00F386F9 /* EditMeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditMeVC.h; sourceTree = "<group>"; };
+		BA1FAB8E20C77B2C00F386F9 /* EditMeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMeVC.m; sourceTree = "<group>"; };
+		BA1FAB9120C7C3CA00F386F9 /* EditMeRecordAudio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditMeRecordAudio.h; sourceTree = "<group>"; };
+		BA1FAB9220C7C3CA00F386F9 /* EditMeRecordAudio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMeRecordAudio.m; sourceTree = "<group>"; };
 		BA270764209B29D000220B23 /* NMBigImgTitleBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMBigImgTitleBtn.h; sourceTree = "<group>"; };
 		BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMBigImgTitleBtn.m; sourceTree = "<group>"; };
 		BA2D846B20BF9DE80027F905 /* HomeTabMenuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTabMenuVC.h; sourceTree = "<group>"; };
@@ -497,6 +503,25 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		BA1FAB8C20C77B1C00F386F9 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				BA1FAB9020C7C3B300F386F9 /* Audio */,
+				BA1FAB8D20C77B2C00F386F9 /* EditMeVC.h */,
+				BA1FAB8E20C77B2C00F386F9 /* EditMeVC.m */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		BA1FAB9020C7C3B300F386F9 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				BA1FAB9120C7C3CA00F386F9 /* EditMeRecordAudio.h */,
+				BA1FAB9220C7C3CA00F386F9 /* EditMeRecordAudio.m */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		BA2D846A20BF9DB90027F905 /* Home TabControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,6 +603,7 @@
 		BA39ACEE20AC1FC2001EC158 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				BA1FAB8C20C77B1C00F386F9 /* Edit */,
 				BA1E2D0920AD7A440060E91C /* Packet */,
 				BA1E2CFB20AD5DB50060E91C /* Setting */,
 				BA1E2CF720AD2B730060E91C /* Follower */,
@@ -1506,6 +1532,7 @@
 				BAB725A520BCF34700CD9A15 /* NOSIPUtils.m in Sources */,
 				BAEE152520BBE47100B1219B /* RegistNewPhoneVC.m in Sources */,
 				BAF2828820A93ED600625CF3 /* UserInfoPopMenuVC.m in Sources */,
+				BA1FAB8F20C77B2C00F386F9 /* EditMeVC.m in Sources */,
 				BA1E2D0C20AD7A680060E91C /* PacketHistoryVC.m in Sources */,
 				BAB725BA20BCF34700CD9A15 /* NOSAFURLConnectionOperation.m in Sources */,
 				BAB725BD20BCF34700CD9A15 /* NOSAFURLResponseSerialization.m in Sources */,
@@ -1517,6 +1544,7 @@
 				BAB0F790209B193600E8CCC7 /* UINavigationBar+CustomBar.m in Sources */,
 				BAC1839B209AE0EC00209CCD /* AppDelegate.m in Sources */,
 				BAEE7FD020A2E1A3000EA5E4 /* SquareSearchGenderButton.m in Sources */,
+				BA1FAB9320C7C3CA00F386F9 /* EditMeRecordAudio.m in Sources */,
 				BAB725A120BCF34700CD9A15 /* NOSHmacSha1.m in Sources */,
 				BAEE7FC320A2D61B000EA5E4 /* SquareListGirlsCell.m in Sources */,
 				BA39ACF920AC2F9C001EC158 /* MeMomentVC.m in Sources */,

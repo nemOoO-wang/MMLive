@@ -128,7 +128,9 @@
             if ([userDic objectForKey:@"imgs"]) {
                 NSData *jsonData = [userDic[@"imgs"] dataUsingEncoding:NSUTF8StringEncoding];
                 imgArr = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves error:nil];
-                url = imgArr[0];
+                if ([imgArr count]>0) {
+                    url = imgArr[0];
+                }
             }
             [listCell.imgView sd_setImageWithURL:[NSURL URLWithString:url]];
         }
