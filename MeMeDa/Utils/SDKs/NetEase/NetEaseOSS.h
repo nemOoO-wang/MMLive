@@ -36,4 +36,9 @@ typedef void (^NetEaseSuccessArr)(NSArray *urlArr);
  */
 -(void)putMOV:(NSURL *)contentUrl result:(NetEaseSuccess)success;
 
+/**
+ Nemo: 传音频
+ */
+-(void)putM4A:(NSURL *)contentUrl result:(NetEaseSuccess)success;
+
 @end

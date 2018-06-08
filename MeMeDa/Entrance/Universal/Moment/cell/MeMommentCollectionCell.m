@@ -9,9 +9,11 @@
 #import "MeMommentCollectionCell.h"
 #import "NMPicsBlowser.h"
 #import "NMClickVideoView.h"
+#import <UIImageView+WebCache.h>
 
 
 @interface MeMommentCollectionCell()
+// head
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *contextField;
@@ -55,9 +57,15 @@
     _dataDic = dataDic;
     // name
     self.nameLabel.text = dataDic[@"userId"][@"nickname"];
+    // head
+    NSString *head = dataDic[@"userId"][@"headImg"];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:head]];
     // img
     NSString *jsonStr = dataDic[@"imgs"];
-    self.imgArr = [NSJSONSerialization JSONObjectWithData:[jsonStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+    if (jsonStr) {
+        self.imgArr = [NSJSONSerialization JSONObjectWithData:[jsonStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+    }
+    // context
     self.context = self.dataDic[@"text"];
     // video
     self.videoImgUrl = self.dataDic[@"vedioImg"];
@@ -72,6 +80,8 @@
             [self.likeBtn setSelected:YES];
         }
     }];
+    // clear views
+    [self updateType];
 }
 
 -(void)setContext:(NSString *)context{
@@ -126,8 +136,22 @@
     }];
 }
 
--(void)drawRect:(CGRect)rect{
-    [self.contextField setTextContainerInset:UIEdgeInsetsZero];
+-(void)prepareForReuse{
+    [self clearImgs];    
+}
+
+-(void)clearImgs{
+    [self.pic1 clearSetting];
+    [self.pic2 clearSetting];
+    [self.pic3 clearSetting];
+    [self.pic4 clearSetting];
+    [self.pic5 clearSetting];
+    [self.pic6 clearSetting];
+    [self.pic7 clearSetting];
+    [self.pic8 clearSetting];
+    [self.pic9 clearSetting];
+}
+-(void)updateType{
     // hide img
     if (!self.imgArr || self.imgArr.count == 0 ) {
         self.row1Ratio.priority = 800;
@@ -182,6 +206,10 @@
         self.row23Height.constant = 0;
         self.videoHeight.constant = 150;
     }
+}
+
+-(void)drawRect:(CGRect)rect{
+    [self.contextField setTextContainerInset:UIEdgeInsetsZero];
     [super drawRect:rect];
 }
 - (IBAction)clickLike:(id)sender {

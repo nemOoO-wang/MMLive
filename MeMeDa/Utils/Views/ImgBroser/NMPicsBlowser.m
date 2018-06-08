@@ -81,13 +81,19 @@
     [self sd_setImageWithURL:url];
     __weak typeof(self) weakSelf = self;
     self.browser = ^{
-        browser(weakSelf);
+        if (browser) {
+            browser(weakSelf);
+        }
     };
     self.deletion = ^{
         if (deletion) {
             deletion();
         }
     };
+}
+
+-(void)clearSetting{
+    [self setImg:nil withBrowser:nil delete:nil];
 }
 
 @end

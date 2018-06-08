@@ -8,12 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol NMTextViewDelegate
+
+@optional
+- (void)nm_textViewDidEndEditing:(UITextView *)textView;
+
+@end
+
 @interface NMTextView : UITextView<UITextViewDelegate>
 
 @property (nonatomic, strong) IBInspectable NSString *placeHolder;
 @property (nonatomic,strong) IBInspectable UIColor *placeColor;
 @property (nonatomic,strong) IBInspectable UIColor *textColor;
 @property (nonatomic,assign) IBInspectable BOOL noEdge;
+@property (nonatomic,weak) NSObject<NMTextViewDelegate> *nm_delegate;
 
 
 @end

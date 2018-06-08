@@ -15,10 +15,11 @@
 #import "NMPicsBlowser.h"
 #import "EditMeRecordAudio.h"
 #import <AVKit/AVKit.h>
+#import "NetEaseOSS.h"
 #import <AVFoundation/AVFoundation.h>
 
 
-@interface EditMeVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,QBImagePickerControllerDelegate>
+@interface EditMeVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,QBImagePickerControllerDelegate,UITextFieldDelegate,NMTextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nickname;
 @property (weak, nonatomic) IBOutlet UILabel *birthdayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
@@ -52,6 +53,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.imgarr = @[];
+    self.signTF.nm_delegate = self;
+    self.psTF.nm_delegate = self;
     // layout text view
     self.signTF.layer.borderColor = [UIColor colorWithHexString:@"A3A3A3"].CGColor;
     self.signTF.layer.borderWidth = 1;
@@ -59,21 +62,91 @@
     self.psTF.layer.borderColor = [UIColor colorWithHexString:@"A3A3A3"].CGColor;
     self.psTF.layer.borderWidth = 1;
     self.psTF.layer.cornerRadius = 5;
-    // video
-    self.videoExist.hidden = YES;
-    // audio
-    self.audioPlayBtn.hidden = YES;
+    // update data
+    // 用户字典
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"];
+    self.nickname.text = userDic[@"nickname"];
+    self.birthdayLabel.text = userDic[@"birthday"];
+    self.locationLabel.text = userDic[@"cityName"];
+    self.signTF.text = userDic[@"introduction"];
+        // head
+    [self.headImg sd_setImageWithURL:[NSURL URLWithString:userDic[@"headImg"]]];
+        // video
+    self.vedioUrl = [NSURL URLWithString:userDic[@"video"]];
+    if (self.vedioUrl) {
+        self.videoExist.hidden = NO;
+        self.vedioView.videoUrl = self.vedioUrl;
+    }else{
+        self.videoExist.hidden = YES;
+    }
+        // audio
+    self.audioUrl = [NSURL URLWithString:userDic[@"voice"]];
+    if (self.audioUrl) {
+        self.audioPlayBtn.hidden = NO;
+    }else{
+        self.audioPlayBtn.hidden = YES;
+    }
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    // 用户字典
+    NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"];
+    self.jobTF.text = userDic[@"profession"];
+    self.psTF.text = userDic[@"mark"];
+}
+
+# pragma mark - upload
+-(void)uploadData{
+     NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"];
+    [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/saveEdit" andParam:userDic andSuccess:^(id data) {
+        [SVProgressHUD showSuccessWithStatus:@"更改成功"];
+    }];
+}
+
+-(void)smartUpadeData:(id)obj with:(NSString *)key{
+    // 用户字典
+    NSMutableDictionary *userDic = [[[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"] mutableCopy];
+    userDic[key] = obj;
+    [[NSUserDefaults standardUserDefaults] setObject:[userDic copy] forKey:@"UserData"];
+    [self uploadData];
+}
+
+# pragma mark - click
 - (IBAction)clickHeadImg:(id)sender {
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil
                                                                    message:nil
                                                             preferredStyle:UIAlertControllerStyleActionSheet];
     
-    UIAlertAction* shootAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {}];
-    UIAlertAction* albumAction = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {}];
+    UIAlertAction* shootAction = [UIAlertAction actionWithTitle:@"拍照"
+        style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            // select from camera
+            if([UIImagePickerController isSourceTypeAvailable:
+                UIImagePickerControllerSourceTypeCamera]){
+                // init imgPicker
+                UIImagePickerController *imgPicker = [[UIImagePickerController alloc] init];
+                imgPicker.delegate = self;
+                //    imgPicker.allowsEditing = YES;
+                imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                [self presentViewController:imgPicker animated:YES completion:^{
+                    imgPicker.navigationBar.backgroundColor = [UIColor darkGrayColor];
+                }];
+            }
+          }];
+    UIAlertAction* albumAction = [UIAlertAction actionWithTitle:@"相册"
+          style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+              // select from camera
+              if([UIImagePickerController isSourceTypeAvailable:
+                  UIImagePickerControllerSourceTypePhotoLibrary]){
+                  // init imgPicker
+                  UIImagePickerController *imgPicker = [[UIImagePickerController alloc] init];
+                  imgPicker.delegate = self;
+                  //    imgPicker.allowsEditing = YES;
+                  imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                  [self presentViewController:imgPicker animated:YES completion:^{
+                      imgPicker.navigationBar.backgroundColor = [UIColor darkGrayColor];
+                  }];
+              }
+          }];
     UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style: UIAlertActionStyleCancel
                                                           handler:^(UIAlertAction * action) {}];
     
@@ -90,7 +163,13 @@
     NSDate *date = [fm dateFromString:self.birthdayLabel.text];
     vc.oldDate = date;
     vc.pickDate = ^(NSDate *date) {
-        self.birthdayLabel.text = [fm stringFromDate:date];
+        NSString *dateStr = [fm stringFromDate:date];
+        self.birthdayLabel.text = dateStr;
+        // 用户字典
+        NSMutableDictionary *userDic = [[[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"] mutableCopy];
+        userDic[@"birthday"] = dateStr;
+        [[NSUserDefaults standardUserDefaults] setObject:[userDic copy] forKey:@"UserData"];
+        [self uploadData];
     };
     [vc setModalPresentationStyle:UIModalPresentationOverCurrentContext];
     [self presentViewController:vc animated:YES completion:^{
@@ -102,6 +181,11 @@
     CityPickerVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"CityPicker"];
     vc.pickLocation = ^(NSString *location) {
         self.locationLabel.text = location;
+        // 用户字典
+        NSMutableDictionary *userDic = [[[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"] mutableCopy];
+        userDic[@"cityName"] = location;
+        [[NSUserDefaults standardUserDefaults] setObject:[userDic copy] forKey:@"UserData"];
+        [self uploadData];
     };
     [vc setModalPresentationStyle:UIModalPresentationOverCurrentContext];
     [self presentViewController:vc animated:YES completion:^{
@@ -151,6 +235,27 @@
     [self.audioPlayer play];
 }
 
+# pragma mark - text view delegate
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    if (textField.tag == 1) {
+        // nickname
+        [self smartUpadeData:textField.text with:@"nickname"];
+    }else{
+        // job
+        [self smartUpadeData:textField.text with:@"profession"];
+    }
+}
+
+- (void)nm_textViewDidEndEditing:(UITextView *)textView{
+    if (textView.tag == 1) {
+        // sign
+        [self smartUpadeData:textView.text with:@"introduction"];
+    }else{
+        // ps
+        [self smartUpadeData:textView.text with:@"mark"];
+    }
+}
+
 # pragma mark - <UIImagePickerControllerDelegate>
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     //    self.meImage = info[UIImagePickerControllerOriginalImage];
@@ -158,7 +263,10 @@
     if ([info[@"UIImagePickerControllerMediaType"] isEqualToString:@"public.movie"]) {
         // 视频
         NSURL *vedioUrl = info[@"UIImagePickerControllerMediaURL"];
-        self.vedioUrl = vedioUrl;
+        [[NetEaseOSS sharedInstance] putMOV:vedioUrl result:^(NSString *urlPath) {
+            self.vedioUrl = [NSURL URLWithString:urlPath];
+            [self smartUpadeData:urlPath with:@"video"];
+        }];
         // vImg
         AVAsset *asset = [AVAsset assetWithURL:vedioUrl];
         AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:asset];
@@ -174,6 +282,9 @@
         // 单图
         UIImage *img = info[@"UIImagePickerControllerOriginalImage"];
         self.headImg.image = img;
+        [[NetEaseOSS sharedInstance] putImage:img result:^(NSString *urlPath) {
+            [self smartUpadeData:urlPath with:@"headImg"];
+        }];
     }
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
@@ -234,6 +345,9 @@
         vc.recorded = ^(NSURL *url) {
             self.audioUrl = url;
             self.audioPlayBtn.hidden = NO;
+            [[NetEaseOSS sharedInstance] putM4A:url result:^(NSString *urlPath) {
+                [self smartUpadeData:[url absoluteString] with:@"voice"];
+            }];
         };
     }
 }

@@ -39,6 +39,9 @@ IB_DESIGNABLE
         textView.text = self.placeHolder;
         textView.textColor = self.placeColor;
     }
+    if ([self.nm_delegate respondsToSelector:@selector(nm_textViewDidEndEditing:)]) {
+        [_nm_delegate nm_textViewDidEndEditing:self];
+    }
     [textView resignFirstResponder];
 }
 

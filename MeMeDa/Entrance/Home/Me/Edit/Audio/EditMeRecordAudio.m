@@ -37,7 +37,6 @@
         NSLog(@"创建录音机对象时发生错误，错误信息：%@",err.localizedDescription);
     }
     self.recoder.delegate = self;
-    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioUrl error:nil];
     // play btn
     UIButton *playBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     [playBtn setTitle:@"▷" forState:UIControlStateNormal];
@@ -53,6 +52,7 @@
 }
 
 -(void)playLogVideo{
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioUrl error:nil];
     [self.player play];
 }
 
@@ -82,6 +82,7 @@
         if (self.recorded) {
             self.recorded(self.audioUrl);
         }
+        
     }
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

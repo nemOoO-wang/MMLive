@@ -18,5 +18,6 @@
 -(void)setUpWith:(NSArray *)imgArr and:(NSInteger)index;
 -(void)setImg:(NSString *)img withBrowser:(void (^)(NMPicsBlowser *obj))browser delete:(void (^)(void))deletion;
 -(void)setRawImg:(NSString *)img withBrowser:(void (^)(NMPicsBlowser *obj))browser delete:(void (^)(void))deletion;
+-(void)clearSetting;
 
 @end

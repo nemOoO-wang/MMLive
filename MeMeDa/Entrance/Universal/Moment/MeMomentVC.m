@@ -66,10 +66,13 @@
     NSStringDrawingContext *drawContext = [[NSStringDrawingContext alloc] init];
     CGSize textSize = [context boundingRectWithSize:CGSizeMake(self.cellWidth, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16]} context:drawContext].size;
     // img height
+    NSInteger imgHeight = 0;
     NSString *jsonStr = self.dataArr[indexPath.row][@"imgs"];
-    NSArray *tArr = [NSJSONSerialization JSONObjectWithData:[jsonStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-    NSInteger imgRow = (tArr.count+2)/3;
-    NSInteger imgHeight = self.imgCellWidth * imgRow;
+    if (jsonStr) {
+        NSArray *tArr = [NSJSONSerialization JSONObjectWithData:[jsonStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        NSInteger imgRow = (tArr.count+2)/3;
+        imgHeight = self.imgCellWidth * imgRow;
+    }
     // video height
     NSInteger videoHeight = 0;
     NSString *tmpStr = self.dataArr[indexPath.row][@"vedioImg"];
