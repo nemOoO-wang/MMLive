@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <IQKeyboardManager.h>
+// RCCloud
+#import <RongCloudIM/RongIMLib/RongIMLib.h>
 // ShareSDK
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
@@ -27,6 +29,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // IQKeyboard
     [[IQKeyboardManager sharedManager] setEnable:YES];
+    // 融云
+    [[RCIMClient sharedRCIMClient] initWithAppKey:RCAPPKey];
+    //注册推送, iOS 8
+    if ([application
+         respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        //注册推送, iOS 8
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings
+                                                settingsForTypes:(UIUserNotificationTypeBadge |
+                                                                  UIUserNotificationTypeSound |
+                                                                  UIUserNotificationTypeAlert)
+                                                categories:nil];
+        [application registerUserNotificationSettings:settings];
+    }
+    [[NSNotificationCenter defaultCenter] addObserver:self
+     selector:@selector(didReceiveMessageNotification:)
+     name:RCLibDispatchReadReceiptNotification
+     object:nil];
     // ShareSDK
     [ShareSDK registerActivePlatforms:@[@(SSDKPlatformTypeWechat),
                                         @(SSDKPlatformTypeQQ)]
@@ -63,6 +82,66 @@
     return YES;
 }
 
+/**
+ * 推送处理2
+ */
+//注册用户通知设置
+- (void)application:(UIApplication *)application
+didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    // register to receive notifications
+    [application registerForRemoteNotifications];
+}
+/**
+ *  将得到的devicetoken 传给融云用于离线状态接收push ，您的app后台要上传推送证书
+ *  推送处理3
+ */
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSString *token =
+    [[[[deviceToken description] stringByReplacingOccurrencesOfString:@"<"
+                                                           withString:@""]
+      stringByReplacingOccurrencesOfString:@">"
+      withString:@""]
+     stringByReplacingOccurrencesOfString:@" "
+     withString:@""];
+    
+    [[RCIMClient sharedRCIMClient] setDeviceToken:token];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    // 请检查App的APNs的权限设置，更多内容可以参考文档
+    // http://www.rongcloud.cn/docs/ios_push.html。
+    NSLog(@"获取DeviceToken失败！！！");
+    NSLog(@"ERROR：%@", error);
+}
+
+- (void)didReceiveMessageNotification:(NSNotification *)notification {
+    [UIApplication sharedApplication].applicationIconBadgeNumber =
+    [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
+}
+
+/**
+ * 推送处理4
+ * userInfo内容请参考官网文档
+ */
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    /**
+     * 统计推送打开率2
+     */
+    [[RCIMClient sharedRCIMClient] recordRemoteNotificationEvent:userInfo];
+    /**
+     * 获取融云推送服务扩展字段2
+     */
+    NSDictionary *pushServiceData = [[RCIMClient sharedRCIMClient] getPushExtraFromRemoteNotification:userInfo];
+    if (pushServiceData) {
+        NSLog(@"该远程推送包含来自融云的推送服务");
+        for (id key in [pushServiceData allKeys]) {
+            NSLog(@"key = %@, value = %@", key, pushServiceData[key]);
+        }
+    } else {
+        NSLog(@"该远程推送不包含来自融云的推送服务");
+    }
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

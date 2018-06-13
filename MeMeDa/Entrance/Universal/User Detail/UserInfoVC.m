@@ -12,6 +12,7 @@
 #import "UserInfoScrollBannerView.h"
 #import "BorderAndTransLabel.h"
 #import "NMLoginButton.h"
+#import "ChatVC.h"
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <WebKit/WebKit.h>
@@ -126,6 +127,10 @@
         [UIView animateWithDuration:0.5 animations:^{
             self.coverView.alpha = 0.5;
         }];
+    }
+    if([segue.identifier isEqualToString:@"chat"]){
+        ChatVC *vc = [segue destinationViewController];
+        vc.friendUserDic = self.dataDic;
     }
 }
 

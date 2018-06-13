@@ -10,4 +10,7 @@
 
 @interface ChatVC : UIViewController
 
+@property (nonatomic,strong) NSDictionary *friendUserDic;
+
+
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E29EB24BE0F06C24C812114 /* libPods-MeMeDa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E173A2679BB199D3B832504A /* libPods-MeMeDa.a */; };
 		BA1E2CF520AD26A50060E91C /* ThemeUserListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2CF420AD26A50060E91C /* ThemeUserListVC.m */; };
 		BA1E2CFA20AD2B880060E91C /* MyFollowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2CF920AD2B880060E91C /* MyFollowVC.m */; };
 		BA1E2CFE20AD5DC20060E91C /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2CFD20AD5DC20060E91C /* SettingTableViewController.m */; };
@@ -47,6 +48,8 @@
 		BA86CA0F20A1636D00F21980 /* SquareHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA0E20A1636D00F21980 /* SquareHeaderCell.m */; };
 		BA86CA1220A1638B00F21980 /* SquareListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA1120A1638B00F21980 /* SquareListCell.m */; };
 		BA86CA1620A1712600F21980 /* SquareSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA1520A1712600F21980 /* SquareSearchVC.m */; };
+		BA89D9A820D0F675005B8210 /* SHA1Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89D9A720D0F675005B8210 /* SHA1Utils.m */; };
+		BA89D9AC20D11F21005B8210 /* ChatTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89D9AB20D11F21005B8210 /* ChatTBCell.m */; };
 		BA945D9A209AF9C9001BE9E1 /* NMBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945D99209AF9C9001BE9E1 /* NMBlurView.m */; };
 		BA945DA7209AFC70001BE9E1 /* BeeNetCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945D9D209AFC70001BE9E1 /* BeeNetCallback.m */; };
 		BA945DA8209AFC70001BE9E1 /* BeeNet.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945D9E209AFC70001BE9E1 /* BeeNet.m */; };
@@ -142,12 +145,11 @@
 		BAF2829520A9876800625CF3 /* UserInfoScrollBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF2829420A9876800625CF3 /* UserInfoScrollBannerView.m */; };
 		BAFF8E7E20C62E2A0076762F /* ImageOnlyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF8E7D20C62E2A0076762F /* ImageOnlyController.m */; };
 		BAFF8E8420C65E330076762F /* NMClickVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF8E8320C65E330076762F /* NMClickVideoView.m */; };
-		CEE16743979C1BDA74CDF782 /* libPods-MeMeDa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F29EB7810A38620C992E5A /* libPods-MeMeDa.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		50F29EB7810A38620C992E5A /* libPods-MeMeDa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MeMeDa.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		63CE5D31645DCA1716B36334 /* Pods-MeMeDa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeMeDa.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa.release.xcconfig"; sourceTree = "<group>"; };
+		6496C5B6F19AEB9EE8AEE1AA /* Pods-MeMeDa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeMeDa.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa.release.xcconfig"; sourceTree = "<group>"; };
+		770F690336EFFB15E2145A2F /* Pods-MeMeDa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeMeDa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa.debug.xcconfig"; sourceTree = "<group>"; };
 		BA1E2CF320AD26A50060E91C /* ThemeUserListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeUserListVC.h; sourceTree = "<group>"; };
 		BA1E2CF420AD26A50060E91C /* ThemeUserListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeUserListVC.m; sourceTree = "<group>"; };
 		BA1E2CF820AD2B880060E91C /* MyFollowVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyFollowVC.h; sourceTree = "<group>"; };
@@ -222,6 +224,10 @@
 		BA86CA1120A1638B00F21980 /* SquareListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareListCell.m; sourceTree = "<group>"; };
 		BA86CA1420A1712600F21980 /* SquareSearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareSearchVC.h; sourceTree = "<group>"; };
 		BA86CA1520A1712600F21980 /* SquareSearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareSearchVC.m; sourceTree = "<group>"; };
+		BA89D9A620D0F675005B8210 /* SHA1Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHA1Utils.h; sourceTree = "<group>"; };
+		BA89D9A720D0F675005B8210 /* SHA1Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHA1Utils.m; sourceTree = "<group>"; };
+		BA89D9AA20D11F21005B8210 /* ChatTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatTBCell.h; sourceTree = "<group>"; };
+		BA89D9AB20D11F21005B8210 /* ChatTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatTBCell.m; sourceTree = "<group>"; };
 		BA945D91209AEC3A001BE9E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BA945D98209AF9C9001BE9E1 /* NMBlurView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMBlurView.h; sourceTree = "<group>"; };
 		BA945D99209AF9C9001BE9E1 /* NMBlurView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMBlurView.m; sourceTree = "<group>"; };
@@ -405,7 +411,7 @@
 		BAFF8E7D20C62E2A0076762F /* ImageOnlyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageOnlyController.m; sourceTree = "<group>"; };
 		BAFF8E8220C65E330076762F /* NMClickVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMClickVideoView.h; sourceTree = "<group>"; };
 		BAFF8E8320C65E330076762F /* NMClickVideoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMClickVideoView.m; sourceTree = "<group>"; };
-		C54FB2756480206C342E0AEE /* Pods-MeMeDa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeMeDa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa.debug.xcconfig"; sourceTree = "<group>"; };
+		E173A2679BB199D3B832504A /* libPods-MeMeDa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MeMeDa.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,13 +436,22 @@
 				BAB725EE20BCFCF500CD9A15 /* WechatConnector.framework in Frameworks */,
 				BAB725E520BCFCF500CD9A15 /* ShareSDKConnector.framework in Frameworks */,
 				BA58150420BC2FC000BDDD3A /* libicucore.tbd in Frameworks */,
-				CEE16743979C1BDA74CDF782 /* libPods-MeMeDa.a in Frameworks */,
+				9E29EB24BE0F06C24C812114 /* libPods-MeMeDa.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		73BBB9BCFF91A535D0DBA1E9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				770F690336EFFB15E2145A2F /* Pods-MeMeDa.debug.xcconfig */,
+				6496C5B6F19AEB9EE8AEE1AA /* Pods-MeMeDa.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BA1E2CEF20AD23BD0060E91C /* UserList */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +522,7 @@
 		BA1E570220B69C4600C61E21 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				BA89D9A920D11F07005B8210 /* cell */,
 				BA1E570320B69C5600C61E21 /* ChatVC.h */,
 				BA1E570420B69C5600C61E21 /* ChatVC.m */,
 			);
@@ -549,6 +565,7 @@
 				BA84B1CD20CE4FC900839A6B /* User List */,
 				BA39ACF620AC2F89001EC158 /* Moment */,
 				BAF2828220A9306900625CF3 /* User Detail */,
+				BA1E570220B69C4600C61E21 /* Chat */,
 			);
 			path = Universal;
 			sourceTree = "<group>";
@@ -737,6 +754,15 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		BA89D9A920D11F07005B8210 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				BA89D9AA20D11F21005B8210 /* ChatTBCell.h */,
+				BA89D9AB20D11F21005B8210 /* ChatTBCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		BA945D90209AEC13001BE9E1 /* Profiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -791,10 +817,6 @@
 				BA55F51F20C3FFA700F024FE /* UIWindow+NMCurrent.m */,
 				BACE61E320BE50C0001BE85D /* Cal Tools */,
 				BA945D9C209AFC70001BE9E1 /* BeeNet */,
-				BA945DA5209AFC70001BE9E1 /* FileUtils.h */,
-				BA945DA6209AFC70001BE9E1 /* FileUtils.m */,
-				BA945DA3209AFC70001BE9E1 /* MD5Utils.h */,
-				BA945DA1209AFC70001BE9E1 /* MD5Utils.m */,
 				BA945DA2209AFC70001BE9E1 /* UIColor+BeeColor.h */,
 				BA945DA4209AFC70001BE9E1 /* UIColor+BeeColor.m */,
 			);
@@ -826,7 +848,6 @@
 		BA97C77C20A0438C00F61694 /* Square */ = {
 			isa = PBXGroup;
 			children = (
-				BA1E570220B69C4600C61E21 /* Chat */,
 				BAEE7FBC20A2D5A9000EA5E4 /* List */,
 				BA86CA1320A1711000F21980 /* Search */,
 				BA86CA0920A13FED00F21980 /* cells */,
@@ -1206,8 +1227,8 @@
 				BAE9EC5620BCF2E8006FEC19 /* SDKFrameworks */,
 				BAC18398209AE0EB00209CCD /* MeMeDa */,
 				BAC18397209AE0EB00209CCD /* Products */,
-				BEFF11BBAFA04AD84552D84D /* Pods */,
 				EB5D61D2B668D0FBF80F7471 /* Frameworks */,
+				73BBB9BCFF91A535D0DBA1E9 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1235,8 +1256,14 @@
 		BACE61E320BE50C0001BE85D /* Cal Tools */ = {
 			isa = PBXGroup;
 			children = (
+				BA945DA5209AFC70001BE9E1 /* FileUtils.h */,
+				BA945DA6209AFC70001BE9E1 /* FileUtils.m */,
+				BA945DA3209AFC70001BE9E1 /* MD5Utils.h */,
+				BA945DA1209AFC70001BE9E1 /* MD5Utils.m */,
 				BACE61E420BE50DE001BE85D /* NSMutableArray+NMReverse.h */,
 				BACE61E520BE50DE001BE85D /* NSMutableArray+NMReverse.m */,
+				BA89D9A620D0F675005B8210 /* SHA1Utils.h */,
+				BA89D9A720D0F675005B8210 /* SHA1Utils.m */,
 			);
 			path = "Cal Tools";
 			sourceTree = "<group>";
@@ -1385,15 +1412,6 @@
 			path = AVPlayerView;
 			sourceTree = "<group>";
 		};
-		BEFF11BBAFA04AD84552D84D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C54FB2756480206C342E0AEE /* Pods-MeMeDa.debug.xcconfig */,
-				63CE5D31645DCA1716B36334 /* Pods-MeMeDa.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		EB5D61D2B668D0FBF80F7471 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1402,7 +1420,7 @@
 				BA58150720BC2FD400BDDD3A /* libstdc++.tbd */,
 				BA58150520BC2FC700BDDD3A /* libz.tbd */,
 				BA58150320BC2FC000BDDD3A /* libicucore.tbd */,
-				50F29EB7810A38620C992E5A /* libPods-MeMeDa.a */,
+				E173A2679BB199D3B832504A /* libPods-MeMeDa.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1414,11 +1432,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAC183AC209AE0ED00209CCD /* Build configuration list for PBXNativeTarget "MeMeDa" */;
 			buildPhases = (
-				5A8801EF229D2AA4F7A17C20 /* [CP] Check Pods Manifest.lock */,
+				0BF5D103863A440F8011D59A /* [CP] Check Pods Manifest.lock */,
 				BAC18392209AE0EB00209CCD /* Sources */,
 				BAC18393209AE0EB00209CCD /* Frameworks */,
 				BAC18394209AE0EB00209CCD /* Resources */,
-				EC9B59BAB136197084A0C846 /* [CP] Copy Pods Resources */,
+				2509C42BBE6F7AB94267DBB6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1482,7 +1500,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5A8801EF229D2AA4F7A17C20 /* [CP] Check Pods Manifest.lock */ = {
+		0BF5D103863A440F8011D59A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1500,7 +1518,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EC9B59BAB136197084A0C846 /* [CP] Copy Pods Resources */ = {
+		2509C42BBE6F7AB94267DBB6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1514,7 +1532,15 @@
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/Emoji.plist",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCColor.plist",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/JResource.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/en.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/zh-Hans.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/jrmf.cer",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/AlipaySDK/AlipaySDK.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/WalletResource.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/BQMM.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1526,7 +1552,13 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zh-Hans.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Emoji.plist",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCColor.plist",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCConfig.plist",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JResource.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/jrmf.cer",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WalletResource.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BQMM.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1546,6 +1578,7 @@
 				BA36519420A43462002B6C62 /* RankPicCollectVC.m in Sources */,
 				BAF2829020A96D7600625CF3 /* MessageListTVC.m in Sources */,
 				BAF2829520A9876800625CF3 /* UserInfoScrollBannerView.m in Sources */,
+				BA89D9AC20D11F21005B8210 /* ChatTBCell.m in Sources */,
 				BA1E570520B69C5600C61E21 /* ChatVC.m in Sources */,
 				BAA69EF8209C6DB1005138EA /* DatePickerVC.m in Sources */,
 				BA1E2CF520AD26A50060E91C /* ThemeUserListVC.m in Sources */,
@@ -1608,6 +1641,7 @@
 				BAB725FC20BD5CBF00CD9A15 /* NMFlowLayout.m in Sources */,
 				BA2D846D20BF9DE80027F905 /* HomeTabMenuVC.m in Sources */,
 				BA36519020A43408002B6C62 /* RankPicCollectionCell.m in Sources */,
+				BA89D9A820D0F675005B8210 /* SHA1Utils.m in Sources */,
 				BAEE7FBF20A2D5C5000EA5E4 /* SquareListVC.m in Sources */,
 				BA84B1C820CE160700839A6B /* NMLongPressButton.m in Sources */,
 				BAB725B820BCF34700CD9A15 /* NOSAFHTTPSessionManager.m in Sources */,
@@ -1786,7 +1820,7 @@
 		};
 		BAC183AD209AE0ED00209CCD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C54FB2756480206C342E0AEE /* Pods-MeMeDa.debug.xcconfig */;
+			baseConfigurationReference = 770F690336EFFB15E2145A2F /* Pods-MeMeDa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1823,7 +1857,7 @@
 		};
 		BAC183AE209AE0ED00209CCD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 63CE5D31645DCA1716B36334 /* Pods-MeMeDa.release.xcconfig */;
+			baseConfigurationReference = 6496C5B6F19AEB9EE8AEE1AA /* Pods-MeMeDa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

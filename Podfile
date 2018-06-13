@@ -15,8 +15,7 @@ target 'MeMeDa' do
   # 网易云
   pod 'AGAsyncTestHelper/Shorthand'
   # 融云
-  pod 'RongCloudIM/IMLib', '~> 2.8.3'
-  pod 'RongCloudIM/IMKit', '~> 2.8.3'
+  pod 'RongCloudIM', '~> 2.9.0'
   # ShareSDK
   # 主模块(必须)
   # pod 'ShareSDK3'

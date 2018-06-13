@@ -2910,7 +2910,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbp-bY-h44" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Hw6-vF-FM5">
                     <connections>
-                        <segue destination="NoT-rr-8TQ" kind="show" id="Efd-f7-uaX"/>
+                        <segue destination="NoT-rr-8TQ" kind="show" identifier="chat" id="Efd-f7-uaX"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="6IF-ma-H7t">
@@ -2950,6 +2950,9 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="NoT-rr-8TQ" id="k3B-SI-gie"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgg-h8-5m6">
                                         <rect key="frame" x="325" y="13" width="30" height="30"/>
@@ -2972,14 +2975,14 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="592"/>
                                 <color key="backgroundColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="you" rowHeight="100" id="DfL-QV-kUI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="you" rowHeight="100" id="DfL-QV-kUI" customClass="ChatTBCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DfL-QV-kUI" id="m7V-so-naY">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DfL-QV-kUI" id="m7V-so-naY">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Se-G8-cHA">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Se-G8-cHA">
                                                     <rect key="frame" x="60" y="20" width="30" height="20"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -2992,21 +2995,21 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="gakki" translatesAutoresizingMaskIntoConstraints="NO" id="Ul8-6s-IfO">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gakki" translatesAutoresizingMaskIntoConstraints="NO" id="Ul8-6s-IfO">
                                                     <rect key="frame" x="20" y="10.5" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="oIq-J9-mls"/>
                                                         <constraint firstAttribute="height" constant="40" id="pWL-06-OfW"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="qlB-44-w6S">
-                                                    <rect key="frame" x="75" y="10.5" width="207" height="100"/>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="qlB-44-w6S">
+                                                    <rect key="frame" x="75" y="10.5" width="207" height="79.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="207" id="6y1-g2-ES8"/>
-                                                        <constraint firstAttribute="height" constant="100" id="R2t-we-Y6J"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="207" id="6y1-g2-ES8"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <inset key="titleEdgeInsets" minX="5" minY="10" maxX="5" maxY="10"/>
                                                     <state key="normal" title="你好哦在吗？内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容。">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -3019,7 +3022,6 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="8Se-G8-cHA" firstAttribute="leading" secondItem="Ul8-6s-IfO" secondAttribute="trailing" id="2BW-n5-2oi"/>
-                                                <constraint firstAttribute="bottom" secondItem="qlB-44-w6S" secondAttribute="bottom" constant="10" id="7n2-tu-J3f"/>
                                                 <constraint firstItem="qlB-44-w6S" firstAttribute="top" secondItem="Ul8-6s-IfO" secondAttribute="top" id="BNm-nd-fAc"/>
                                                 <constraint firstItem="8Se-G8-cHA" firstAttribute="centerY" secondItem="Ul8-6s-IfO" secondAttribute="centerY" id="Gd2-bg-S6z"/>
                                                 <constraint firstItem="qlB-44-w6S" firstAttribute="centerY" secondItem="m7V-so-naY" secondAttribute="centerY" id="MkA-DG-xpw"/>
@@ -3029,8 +3031,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="headImgView" destination="Ul8-6s-IfO" id="nuw-yg-Egc"/>
+                                            <outlet property="textContent" destination="qlB-44-w6S" id="GIe-YC-EvY"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="me" rowHeight="100" id="9BW-6W-b57">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="me" rowHeight="100" id="9BW-6W-b57" customClass="ChatTBCell">
                                         <rect key="frame" x="0.0" y="128" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9BW-6W-b57" id="y7Q-yx-WIt">
@@ -3087,6 +3093,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="headImgView" destination="Zl5-QS-qga" id="Wf1-cP-df2"/>
+                                            <outlet property="textContent" destination="RLw-BU-WFd" id="0ra-AJ-LQF"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -3110,6 +3120,7 @@
                         <barButtonItem key="rightBarButtonItem" image="btn_liaotian_tonghua" id="wTg-ex-zsQ"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="inputTextField" destination="CLd-Ta-a2G" id="loN-52-gFc"/>
                         <outlet property="tableView" destination="MFv-Gy-eJF" id="5ER-I7-ky0"/>
                     </connections>
                 </viewController>
