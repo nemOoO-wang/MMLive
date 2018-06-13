@@ -94,7 +94,11 @@
             break;
         case 25:
             // 退出
-            NSLog(@"22");
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"UserData"];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
+            [self.tabBarController dismissViewControllerAnimated:YES completion:^{
+                
+            }];
             break;
             
         default:

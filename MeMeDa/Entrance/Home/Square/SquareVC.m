@@ -88,9 +88,11 @@
         UserInfoVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"user detail"];
         NSDictionary *userDic = [self getUserAtIndexPath:indexPath];
         if (userDic) {
-            vc.userId = userDic[@"id"];
+            vc.dataDic = userDic;
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            [SVProgressHUD showErrorWithStatus:@"用户不存在"];
         }
-        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

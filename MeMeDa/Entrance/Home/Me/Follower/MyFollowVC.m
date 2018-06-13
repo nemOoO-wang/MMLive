@@ -8,23 +8,29 @@
 
 #import "MyFollowVC.h"
 
+
 @interface MyFollowVC ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *underFollower;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *underFollowing;
 @property (weak, nonatomic) IBOutlet UIButton *folowingBtn;
 @property (weak, nonatomic) IBOutlet UIButton *followerBtn;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-
+@property (nonatomic,assign) NSInteger indexToken;
 @end
 
 @implementation MyFollowVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.indexToken = 0;
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [self scrollToType:self.type];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self scrollToType:self.type];
+    [self scrollToTypeWithoutAni:self.type];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,15 +38,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    FollowerTVC *tvc = [segue destinationViewController];
+    if (self.indexToken++ == 0) {
+//        tvc.type = self.type;
+        tvc.type = NMFollowerTypeMyFollow;
+    }else{
+//        NMFollowerType another = (self.type == NMFollowerTypeMyFollow)? NMFollowerTypeFollower: NMFollowerTypeMyFollow;
+//        tvc.type = another;
+        tvc.type = NMFollowerTypeFollower;
+    }
 }
-*/
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if (scrollView.contentOffset.x == 0) {

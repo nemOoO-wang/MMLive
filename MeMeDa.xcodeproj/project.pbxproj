@@ -40,6 +40,9 @@
 		BA58150820BC2FD400BDDD3A /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BA58150720BC2FD400BDDD3A /* libstdc++.tbd */; };
 		BA58150A20BC2FE400BDDD3A /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA58150920BC2FE400BDDD3A /* JavaScriptCore.framework */; };
 		BA58150C20BC2FF400BDDD3A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BA58150B20BC2FF400BDDD3A /* libsqlite3.tbd */; };
+		BA84B1C820CE160700839A6B /* NMLongPressButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BA84B1C720CE160700839A6B /* NMLongPressButton.m */; };
+		BA84B1CC20CE4E5D00839A6B /* FollowerTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA84B1CB20CE4E5D00839A6B /* FollowerTVC.m */; };
+		BA84B1D020CE501600839A6B /* UserListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA84B1CF20CE501600839A6B /* UserListTableViewCell.m */; };
 		BA86CA0C20A1402600F21980 /* SquareHeaderCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA0B20A1402600F21980 /* SquareHeaderCarousel.m */; };
 		BA86CA0F20A1636D00F21980 /* SquareHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA0E20A1636D00F21980 /* SquareHeaderCell.m */; };
 		BA86CA1220A1638B00F21980 /* SquareListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA1120A1638B00F21980 /* SquareListCell.m */; };
@@ -205,6 +208,12 @@
 		BA58150720BC2FD400BDDD3A /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		BA58150920BC2FE400BDDD3A /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		BA58150B20BC2FF400BDDD3A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		BA84B1C620CE160700839A6B /* NMLongPressButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMLongPressButton.h; sourceTree = "<group>"; };
+		BA84B1C720CE160700839A6B /* NMLongPressButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMLongPressButton.m; sourceTree = "<group>"; };
+		BA84B1CA20CE4E5D00839A6B /* FollowerTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FollowerTVC.h; sourceTree = "<group>"; };
+		BA84B1CB20CE4E5D00839A6B /* FollowerTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FollowerTVC.m; sourceTree = "<group>"; };
+		BA84B1CE20CE501600839A6B /* UserListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserListTableViewCell.h; sourceTree = "<group>"; };
+		BA84B1CF20CE501600839A6B /* UserListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserListTableViewCell.m; sourceTree = "<group>"; };
 		BA86CA0A20A1402600F21980 /* SquareHeaderCarousel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareHeaderCarousel.h; sourceTree = "<group>"; };
 		BA86CA0B20A1402600F21980 /* SquareHeaderCarousel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareHeaderCarousel.m; sourceTree = "<group>"; };
 		BA86CA0D20A1636D00F21980 /* SquareHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareHeaderCell.h; sourceTree = "<group>"; };
@@ -440,6 +449,7 @@
 		BA1E2CF720AD2B730060E91C /* Follower */ = {
 			isa = PBXGroup;
 			children = (
+				BA84B1C920CE4E4200839A6B /* Table */,
 				BA1E2CF820AD2B880060E91C /* MyFollowVC.h */,
 				BA1E2CF920AD2B880060E91C /* MyFollowVC.m */,
 			);
@@ -536,6 +546,7 @@
 		BA2D846E20BFE00B0027F905 /* Universal */ = {
 			isa = PBXGroup;
 			children = (
+				BA84B1CD20CE4FC900839A6B /* User List */,
 				BA39ACF620AC2F89001EC158 /* Moment */,
 				BAF2828220A9306900625CF3 /* User Detail */,
 			);
@@ -663,6 +674,45 @@
 			path = ImgBroser;
 			sourceTree = "<group>";
 		};
+		BA84B1C220CE146D00839A6B /* View Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BAB0F78E209B193600E8CCC7 /* UINavigationBar+CustomBar.h */,
+				BAB0F78F209B193600E8CCC7 /* UINavigationBar+CustomBar.m */,
+				BA84B1C620CE160700839A6B /* NMLongPressButton.h */,
+				BA84B1C720CE160700839A6B /* NMLongPressButton.m */,
+			);
+			path = "View Extension";
+			sourceTree = "<group>";
+		};
+		BA84B1C920CE4E4200839A6B /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				BA84B1CA20CE4E5D00839A6B /* FollowerTVC.h */,
+				BA84B1CB20CE4E5D00839A6B /* FollowerTVC.m */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		BA84B1CD20CE4FC900839A6B /* User List */ = {
+			isa = PBXGroup;
+			children = (
+				BAF2828E20A96D7600625CF3 /* MessageListTVC.h */,
+				BAF2828F20A96D7600625CF3 /* MessageListTVC.m */,
+				BA84B1D120CFB57600839A6B /* cell */,
+			);
+			path = "User List";
+			sourceTree = "<group>";
+		};
+		BA84B1D120CFB57600839A6B /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				BA84B1CE20CE501600839A6B /* UserListTableViewCell.h */,
+				BA84B1CF20CE501600839A6B /* UserListTableViewCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		BA86CA0920A13FED00F21980 /* cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -725,12 +775,11 @@
 		BA945D97209AF999001BE9E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BA84B1C220CE146D00839A6B /* View Extension */,
 				BAFF8E8120C65E090076762F /* AVPlayerView */,
 				BA55F51A20C3E32F00F024FE /* ImgBroser */,
 				BAB0F791209B1E2700E8CCC7 /* Public */,
 				BAB0F785209B0CF200E8CCC7 /* Explicit Views */,
-				BAB0F78E209B193600E8CCC7 /* UINavigationBar+CustomBar.h */,
-				BAB0F78F209B193600E8CCC7 /* UINavigationBar+CustomBar.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -781,8 +830,8 @@
 				BAEE7FBC20A2D5A9000EA5E4 /* List */,
 				BA86CA1320A1711000F21980 /* Search */,
 				BA86CA0920A13FED00F21980 /* cells */,
-				BA97C78020A0530B00F61694 /* SquareVC.h */,
 				BA97C78120A0530B00F61694 /* SquareVC.m */,
+				BA97C78020A0530B00F61694 /* SquareVC.h */,
 			);
 			path = Square;
 			sourceTree = "<group>";
@@ -1292,20 +1341,10 @@
 		BAF2828920A96D3700625CF3 /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				BAF2828D20A96D5E00625CF3 /* List */,
 				BAF2828A20A96D4900625CF3 /* MessageVC.h */,
 				BAF2828B20A96D4900625CF3 /* MessageVC.m */,
 			);
 			path = Message;
-			sourceTree = "<group>";
-		};
-		BAF2828D20A96D5E00625CF3 /* List */ = {
-			isa = PBXGroup;
-			children = (
-				BAF2828E20A96D7600625CF3 /* MessageListTVC.h */,
-				BAF2828F20A96D7600625CF3 /* MessageListTVC.m */,
-			);
-			path = List;
 			sourceTree = "<group>";
 		};
 		BAF2829120A9870F00625CF3 /* Group */ = {
@@ -1570,6 +1609,7 @@
 				BA2D846D20BF9DE80027F905 /* HomeTabMenuVC.m in Sources */,
 				BA36519020A43408002B6C62 /* RankPicCollectionCell.m in Sources */,
 				BAEE7FBF20A2D5C5000EA5E4 /* SquareListVC.m in Sources */,
+				BA84B1C820CE160700839A6B /* NMLongPressButton.m in Sources */,
 				BAB725B820BCF34700CD9A15 /* NOSAFHTTPSessionManager.m in Sources */,
 				BA39ACFC20AC3083001EC158 /* MeMommentCollectionCell.m in Sources */,
 				BA55F52020C3FFA700F024FE /* UIWindow+NMCurrent.m in Sources */,
@@ -1583,6 +1623,7 @@
 				BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */,
 				BAB725A320BCF34700CD9A15 /* NOSMd5.m in Sources */,
 				BAB725AE20BCF34700CD9A15 /* NOSUserAgent.m in Sources */,
+				BA84B1CC20CE4E5D00839A6B /* FollowerTVC.m in Sources */,
 				BA39ACF120AC1FD8001EC158 /* MeCenterViewController.m in Sources */,
 				BAB725B320BCF34700CD9A15 /* NOSLbsTask.m in Sources */,
 				BA1E2D0420AD6FD90060E91C /* NMTextView.m in Sources */,
@@ -1600,6 +1641,7 @@
 				BAB725B520BCF34700CD9A15 /* NOSAFNetworkReachabilityManager.m in Sources */,
 				BAB725B620BCF34700CD9A15 /* NOSAFSecurityPolicy.m in Sources */,
 				BA55F51D20C3E35E00F024FE /* NMPicsBlowser.m in Sources */,
+				BA84B1D020CE501600839A6B /* UserListTableViewCell.m in Sources */,
 				BA1E2D1420AD7FA60060E91C /* BuyCoinVC.m in Sources */,
 				BAB0F788209B0D2D00E8CCC7 /* NMLoginButton.m in Sources */,
 				BA55F52620C41A8500F024FE /* NMImgBroser.m in Sources */,

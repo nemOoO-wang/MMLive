@@ -52,7 +52,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [UIView animateWithDuration:0.4 animations:^{
-        self.homeBlurCover.alpha = 0.2;
+        self.homeBlurCover.alpha = 0.3;
     }];
 }
 

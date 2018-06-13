@@ -28,10 +28,19 @@
     }];
 }
 
+
+-(void)viewDidAppear:(BOOL)animated{
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"]) {
+        [self performSegueWithIdentifier:@"Login" sender:nil];
+    }
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

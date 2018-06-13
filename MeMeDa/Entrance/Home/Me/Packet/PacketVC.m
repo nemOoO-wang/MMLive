@@ -9,6 +9,7 @@
 #import "PacketVC.h"
 
 @interface PacketVC ()
+@property (weak, nonatomic) IBOutlet UILabel *currentLabel;
 
 @end
 
@@ -16,7 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // 余额
+    [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/getSelfBlance" andParam:nil andSuccess:^(id data) {
+        self.currentLabel.text = [NSString stringWithFormat:@"%ld",[data[@"data"] integerValue]];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

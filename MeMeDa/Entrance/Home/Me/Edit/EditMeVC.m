@@ -11,6 +11,7 @@
 #import "DatePickerVC.h"
 #import "CityPickerVC.h"
 #import "NMClickVideoView.h"
+#import "NMLongPressButton.h"
 #import <QBImagePickerController/QBImagePickerController.h>
 #import "NMPicsBlowser.h"
 #import "EditMeRecordAudio.h"
@@ -19,7 +20,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 
-@interface EditMeVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,QBImagePickerControllerDelegate,UITextFieldDelegate,NMTextViewDelegate>
+@interface EditMeVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,QBImagePickerControllerDelegate,UITextFieldDelegate,NMTextViewDelegate,NMLongPressDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nickname;
 @property (weak, nonatomic) IBOutlet UILabel *birthdayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
@@ -33,13 +34,13 @@
 @property (weak, nonatomic) IBOutlet NMClickVideoView *vedioView;
 @property (nonatomic,strong) NSURL *vedioUrl;
 // imgs
-@property (nonatomic,strong) NSArray<UIImage *> *imgarr;
-@property (weak, nonatomic) IBOutlet UIButton *img1;
-@property (weak, nonatomic) IBOutlet UIButton *img2;
-@property (weak, nonatomic) IBOutlet UIButton *img3;
-@property (weak, nonatomic) IBOutlet UIButton *img4;
-@property (weak, nonatomic) IBOutlet UIButton *img5;
-@property (weak, nonatomic) IBOutlet UIButton *img6;
+@property (nonatomic,strong) NSArray<NSString *> *imgarr;
+@property (weak, nonatomic) IBOutlet NMLongPressButton *img1;
+@property (weak, nonatomic) IBOutlet NMLongPressButton *img2;
+@property (weak, nonatomic) IBOutlet NMLongPressButton *img3;
+@property (weak, nonatomic) IBOutlet NMLongPressButton *img4;
+@property (weak, nonatomic) IBOutlet NMLongPressButton *img5;
+@property (weak, nonatomic) IBOutlet NMLongPressButton *img6;
 // audio
 @property (nonatomic,strong) NSURL *audioUrl;
 @property (weak, nonatomic) IBOutlet UIButton *audioPlayBtn;
@@ -52,7 +53,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.imgarr = @[];
     self.signTF.nm_delegate = self;
     self.psTF.nm_delegate = self;
     // layout text view
@@ -68,7 +68,6 @@
     self.nickname.text = userDic[@"nickname"];
     self.birthdayLabel.text = userDic[@"birthday"];
     self.locationLabel.text = userDic[@"cityName"];
-    self.signTF.text = userDic[@"introduction"];
         // head
     [self.headImg sd_setImageWithURL:[NSURL URLWithString:userDic[@"headImg"]]];
         // video
@@ -76,6 +75,7 @@
     if (self.vedioUrl) {
         self.videoExist.hidden = NO;
         self.vedioView.videoUrl = self.vedioUrl;
+        [self.videoCover sd_setImageWithURL:[NSURL URLWithString:userDic[@"vedioImg"]]];
     }else{
         self.videoExist.hidden = YES;
     }
@@ -86,6 +86,38 @@
     }else{
         self.audioPlayBtn.hidden = YES;
     }
+    // imgs
+    NSArray *imgArr;
+    if ([userDic objectForKey:@"imgs"]) {
+        NSData *jsonData = [userDic[@"imgs"] dataUsingEncoding:NSUTF8StringEncoding];
+        imgArr = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves error:nil];
+        for (int i=0; i<imgArr.count; i++) {
+            if (i==0) {
+                [self.img2 sd_setImageWithURL:[NSURL URLWithString:imgArr[i]] forState:UIControlStateNormal];
+            }
+            if (i==1) {
+                [self.img3 sd_setImageWithURL:[NSURL URLWithString:imgArr[i]] forState:UIControlStateNormal];
+            }
+            if (i==2) {
+                [self.img4 sd_setImageWithURL:[NSURL URLWithString:imgArr[i]] forState:UIControlStateNormal];
+            }
+            if (i==3) {
+                [self.img5 sd_setImageWithURL:[NSURL URLWithString:imgArr[i]] forState:UIControlStateNormal];
+            }
+            if (i==4) {
+                [self.img6 sd_setImageWithURL:[NSURL URLWithString:imgArr[i]] forState:UIControlStateNormal];
+            }
+        }
+        self.imgarr = imgArr;
+    }else{
+        self.imgarr = @[];
+    }
+    // init btn delegate
+    self.img2.nm_Delegate = self;
+    self.img3.nm_Delegate = self;
+    self.img4.nm_Delegate = self;
+    self.img5.nm_Delegate = self;
+    self.img6.nm_Delegate = self;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -93,6 +125,7 @@
     NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"];
     self.jobTF.text = userDic[@"profession"];
     self.psTF.text = userDic[@"mark"];
+    self.signTF.text = userDic[@"introduction"];
 }
 
 # pragma mark - upload
@@ -235,6 +268,29 @@
     [self.audioPlayer play];
 }
 
+# pragma mark - img button long press
+-(void)longPress:(UIButton *)button{
+    NSInteger tag = button.tag;
+    if (tag<self.imgarr.count) {
+        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"删除图片" message:@"确定删除这张照片吗？" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* confirmAction = [UIAlertAction
+           actionWithTitle:@"确定" style:  UIAlertActionStyleDefault
+             handler:^(UIAlertAction * action) {
+                 NSMutableArray *tmpArr = [self.imgarr mutableCopy];
+                 [tmpArr removeObjectAtIndex:tag];
+                 self.imgarr = [tmpArr copy];
+                 [self updateImgs];
+             }];
+        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style: UIAlertActionStyleCancel
+                                                             handler:^(UIAlertAction * action) {}];
+        [alertCon addAction:confirmAction];
+        [alertCon addAction:cancelAction];
+        [self presentViewController:alertCon animated:YES completion:^{
+            
+        }];
+    }
+}
+
 # pragma mark - text view delegate
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     if (textField.tag == 1) {
@@ -261,23 +317,49 @@
     //    self.meImage = info[UIImagePickerControllerOriginalImage];
     //    self.myPicImageView.image = self.meImage;
     if ([info[@"UIImagePickerControllerMediaType"] isEqualToString:@"public.movie"]) {
+        [SVProgressHUD show];
         // 视频
         NSURL *vedioUrl = info[@"UIImagePickerControllerMediaURL"];
-        [[NetEaseOSS sharedInstance] putMOV:vedioUrl result:^(NSString *urlPath) {
-            self.vedioUrl = [NSURL URLWithString:urlPath];
-            [self smartUpadeData:urlPath with:@"video"];
-        }];
         // vImg
         AVAsset *asset = [AVAsset assetWithURL:vedioUrl];
         AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:asset];
         CMTime time = CMTimeMake(1, 1);
         imageGenerator.appliesPreferredTrackTransform = YES;
         CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
-        self.videoCover.image = [UIImage imageWithCGImage:imageRef];
+        UIImage *imgCover = [UIImage imageWithCGImage:imageRef];
+        self.videoCover.image = imgCover;
         self.videoExist.hidden = NO;
         CGImageRelease(imageRef);
         // other setting
         self.vedioView.videoUrl = vedioUrl;
+        __block NSString *vUrl;
+        __block NSString *viUrl;
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+        dispatch_group_t group = dispatch_group_create();
+//        1
+        dispatch_group_enter(group);
+        [[NetEaseOSS sharedInstance] putMOV:vedioUrl result:^(NSString *urlPath) {
+            self.vedioUrl = [NSURL URLWithString:urlPath];
+//            1-
+            dispatch_group_leave(group);
+            vUrl = urlPath;
+        }];
+//        2
+        dispatch_group_enter(group);
+        [[NetEaseOSS sharedInstance] putImage:imgCover result:^(NSString *urlPath) {
+//            2-
+            dispatch_group_leave(group);
+            viUrl = urlPath;
+        }];
+//        3
+        dispatch_group_notify(group, queue, ^{
+            // 用户字典
+            NSMutableDictionary *userDic = [[[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"] mutableCopy];
+            userDic[@"video"] = vUrl;
+            userDic[@"vedioImg"] = viUrl;
+            [[NSUserDefaults standardUserDefaults] setObject:[userDic copy] forKey:@"UserData"];
+            [self uploadData];
+        });
     }else{
         // 单图
         UIImage *img = info[@"UIImagePickerControllerOriginalImage"];
@@ -300,9 +382,13 @@
             [imgArs addObject:img];
         }];
     }
-    self.imgarr = [self.imgarr arrayByAddingObjectsFromArray:imgArs];
-    [self updateImgs];
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [SVProgressHUD show];
+    [[NetEaseOSS sharedInstance] putImages:[imgArs copy] result:^(NSArray *urlArr) {
+        self.imgarr = [self.imgarr arrayByAddingObjectsFromArray:urlArr];
+        [self updateImgs];
+        [self dismissViewControllerAnimated:YES completion:NULL];
+        [SVProgressHUD dismiss];
+    }];
 }
 
 - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController{
@@ -310,27 +396,34 @@
 }
 
 -(void)updateImgs{
+    // load
+    NSData *data = [NSJSONSerialization dataWithJSONObject:self.imgarr options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *jsonStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    [self smartUpadeData:jsonStr with:@"imgs"];
+    // clear
     [self.img2 setImage:nil forState:UIControlStateNormal];
     [self.img3 setImage:nil forState:UIControlStateNormal];
     [self.img4 setImage:nil forState:UIControlStateNormal];
     [self.img5 setImage:nil forState:UIControlStateNormal];
     [self.img6 setImage:nil forState:UIControlStateNormal];
-    [self.imgarr enumerateObjectsUsingBlock:^(UIImage * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    // set imgs
+    [self.imgarr enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSURL *url = [NSURL URLWithString:obj];
         switch (idx) {
             case 0:
-                [self.img2 setImage:obj forState:UIControlStateNormal];
+                [self.img2 sd_setImageWithURL:url forState:UIControlStateNormal];
                 break;
             case 1:
-                [self.img3 setImage:obj forState:UIControlStateNormal];
+                [self.img3 sd_setImageWithURL:url forState:UIControlStateNormal];
                 break;
             case 2:
-                [self.img4 setImage:obj forState:UIControlStateNormal];
+                [self.img4 sd_setImageWithURL:url forState:UIControlStateNormal];
                 break;
             case 3:
-                [self.img5 setImage:obj forState:UIControlStateNormal];
+                [self.img5 sd_setImageWithURL:url forState:UIControlStateNormal];
                 break;
             case 4:
-                [self.img6 setImage:obj forState:UIControlStateNormal];
+                [self.img6 sd_setImageWithURL:url forState:UIControlStateNormal];
                 break;
             default:
                 break;

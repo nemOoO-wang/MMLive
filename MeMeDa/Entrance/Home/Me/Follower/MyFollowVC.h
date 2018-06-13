@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FollowerTVC.h"
 
-typedef NS_ENUM(NSInteger, NMFollowerType) {
-    NMFollowerTypeFollower,
-    NMFollowerTypeMyFollow,
-};
 
 @interface MyFollowVC : UIViewController
 

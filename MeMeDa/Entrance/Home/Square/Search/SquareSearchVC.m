@@ -16,7 +16,7 @@
 #import "MessageListTVC.h"
 
 
-@interface SquareSearchVC ()<UICollectionViewDataSource, UICollectionViewDelegateLeftAlignedLayout>
+@interface SquareSearchVC ()<UICollectionViewDataSource, UICollectionViewDelegateLeftAlignedLayout, UICollectionViewDelegate>
 
 @property (nonatomic,strong) UIVisualEffectView *coverView;
 @property (nonatomic,assign) NSInteger genderBtnIndex;
@@ -94,7 +94,10 @@
     return CGSizeMake(width + 38, 46);
 }
 
-
+# pragma mark - <UICollectionViewDelegate>
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    self.searchTextField.text = self.historyArr[indexPath.row];
+}
 
 # pragma mark - Click Gender
 - (IBAction)clickGender:(id)sender {
@@ -177,6 +180,7 @@
 
 # pragma mark - segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [self.searchTextField resignFirstResponder];
     // menu
     if([segue.identifier isEqualToString:@"choose"]){
         // vc
@@ -192,6 +196,9 @@
     // result
     if ([segue.identifier isEqualToString:@"result"]) {
         MessageListTVC *vc = segue.destinationViewController;
+        vc.listType = MessageTypeSearch;
+        NSMutableDictionary *dic = [@{@"nickname":self.searchTextField.text, @"page":@0, @"size":@20} mutableCopy];
+        vc.searchDic = [dic copy];
         [vc setTitle:@"搜索结果"];
     }
 }

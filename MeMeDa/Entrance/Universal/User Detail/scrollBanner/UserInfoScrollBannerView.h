@@ -10,6 +10,8 @@
 
 @interface UserInfoScrollBannerView : UIView
 
+@property (nonatomic,strong) NSString *videoImgUrlStr;
+@property (nonatomic,strong) NSString *videoUrlStr;
 @property (nonatomic,strong) NSArray *imgArr;
 
 @end

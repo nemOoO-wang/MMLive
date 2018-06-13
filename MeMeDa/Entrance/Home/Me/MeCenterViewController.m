@@ -9,6 +9,7 @@
 #import "MeCenterViewController.h"
 #import "HittestView.h"
 #import "MyFollowVC.h"
+#import <UIImageView+WebCache.h>
 
 
 @interface MeCenterViewController ()
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *myBalanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nickNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *authState;
+@property (weak, nonatomic) IBOutlet UIImageView *headImg;
 
 @end
 
@@ -35,7 +37,9 @@
         self.myFollowCountLabel.text = [NSString stringWithFormat:@"%ld",[data[@"data"] integerValue]];
     }];
     // 粉丝数
-    self.myFansCountLabel.text = [NSString stringWithFormat:@"%ld",[userDic[@"fans"] integerValue]];
+    [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/getFollowMeCount" andParam:nil andSuccess:^(id data) {
+        self.myFansCountLabel.text = [NSString stringWithFormat:@"%ld",[data[@"data"] integerValue]];
+    }];
     // 余额
     [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/getSelfBlance" andParam:nil andSuccess:^(id data) {
         self.myBalanceLabel.text = [NSString stringWithFormat:@"%ld",[data[@"data"] integerValue]];
@@ -61,6 +65,8 @@
         default:
             break;
     }
+    // head
+    [self.headImg sd_setImageWithURL:[NSURL URLWithString:userDic[@"headImg"]]];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

@@ -1,27 +1,37 @@
 //
-//  MessageListTVC.m
+//  FollowerTVC.m
 //  MeMeDa
 //
-//  Created by 镓洲 王 on 5/14/18.
+//  Created by 镓洲 王 on 6/11/18.
 //  Copyright © 2018 镓洲 王. All rights reserved.
 //
 
-#import "MessageListTVC.h"
+#import "FollowerTVC.h"
+#import "UserListTableViewCell.h"
+#import <MJRefresh.h>
 
-@interface MessageListTVC ()
+
+@interface FollowerTVC ()
+
+@property (nonatomic,strong) NSArray *dataArr;
+@property (nonatomic,assign) NSInteger page;
 
 @end
 
-@implementation MessageListTVC
+@implementation FollowerTVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.page = 0;
+    // refresh
+//    self.tableView.header = [mjrefresh]
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSString *baseUrl = self.type == NMFollowerTypeMyFollow? @"/chat/user/meFollowList": @"/chat/user/followMeList";
+    NSDictionary *paramDic = @{@"page":@(self.page), @"size":@20};
+    [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:baseUrl andParam:paramDic andSuccess:^(id data) {
+        self.dataArr = data[@"data"];
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,16 +46,22 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.dataArr.count;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"log" forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    // online. offLine
+    UserListTableViewCell *cell;
+    if ([self.dataArr[indexPath.row][@"onlineState"] integerValue] == 1) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"online" forIndexPath:indexPath];
+    }else{
+        cell = [tableView dequeueReusableCellWithIdentifier:@"offLine" forIndexPath:indexPath];
+    }
+    cell.dataDic = self.dataArr[indexPath.row];
     return cell;
 }
+
 
 /*
 // Override to support conditional editing of the table view.
