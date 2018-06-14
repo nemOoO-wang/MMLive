@@ -7,25 +7,43 @@
 //
 
 #import "ChatTBCell.h"
+#import "ChatContentButton.h"
 
 
 @interface ChatTBCell()
 @property (weak, nonatomic) IBOutlet UIImageView *headImgView;
-@property (weak, nonatomic) IBOutlet UIButton *textContent;
+@property (nonatomic,strong) ChatContentButton *contentBtn;
 
 @end
 
 @implementation ChatTBCell
 
+-(ChatContentButton *)contentBtn{
+    if(!_contentBtn){
+        if(self.headImgView.frame.origin.x < SCREEN_WIDTH/2){
+            // you
+            _contentBtn = [[ChatContentButton alloc] initWithType:ChaterTypeFriend];
+        }else{
+            // me
+            _contentBtn = [[ChatContentButton alloc] initWithType:ChaterTypeMe];
+        }
+        [self addSubview:_contentBtn];
+    }
+    return _contentBtn;
+}
+
 -(void)setContent:(NSString *)content{
     _content = content;
-    [self.textContent setTitle:content forState:UIControlStateNormal];
-    CGSize size = [content boundingRectWithSize:CGSizeMake(207, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
-    if(size.height <= 60){
-        CGRect frame = self.textContent.frame;
-        frame.size.width = size.width + 50;
-        self.textContent.frame = frame;
-    }
+    [self.contentBtn setTitle:content forState:UIControlStateNormal];
+}
+
+-(void)setUserDic:(NSDictionary *)userDic{
+    _userDic = userDic;
+    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:userDic[@"headImg"]]];
+}
+
+-(void)layoutSubviews{
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

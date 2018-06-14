@@ -57,7 +57,7 @@
 
 -(RCUserInfo *)myUserInfo{
     if(!_myUserInfo){
-        NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"];
+        NSDictionary *userDic = MDUserDic;
         NSInteger idInt = [[userDic objectForKey:@"id"] integerValue];
         NSString *targitId = [NSString stringWithFormat:@"%ld",idInt];
         _myUserInfo = [[RCUserInfo alloc] initWithUserId:targitId name:userDic[@"nickname"] portrait:userDic[@"headImg"]];
@@ -95,13 +95,16 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RCMessage *msg = self.dialogHistoryArr[indexPath.row];
     ChatTBCell *cell;
-//    if([msg.targetId isEqualToString:self.friendId]){
-//        // me
-//        cell = [tableView dequeueReusableCellWithIdentifier:@"me"];
-//    }else{
-//        // you
-        cell = [tableView dequeueReusableCellWithIdentifier:@"you"];
-//    }
+    if([msg.senderUserId isEqualToString:self.friendId]){
+        // you
+        cell = [tableView dequeueReusableCellWithIdentifier:@"friend"];
+        cell.userDic = self.friendUserDic;
+    }else{
+        // me
+        cell = [tableView dequeueReusableCellWithIdentifier:@"me"];
+        cell.userDic = MDUserDic;
+    }
+    // text message
     if ([msg.content isMemberOfClass:[RCTextMessage class]]) {
         RCTextMessage *testMessage = (RCTextMessage *)msg.content;
         cell.content = testMessage.content;

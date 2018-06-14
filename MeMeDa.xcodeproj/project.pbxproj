@@ -50,6 +50,7 @@
 		BA86CA1620A1712600F21980 /* SquareSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA1520A1712600F21980 /* SquareSearchVC.m */; };
 		BA89D9A820D0F675005B8210 /* SHA1Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89D9A720D0F675005B8210 /* SHA1Utils.m */; };
 		BA89D9AC20D11F21005B8210 /* ChatTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89D9AB20D11F21005B8210 /* ChatTBCell.m */; };
+		BA89D9AF20D26878005B8210 /* ChatContentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89D9AE20D26878005B8210 /* ChatContentButton.m */; };
 		BA945D9A209AF9C9001BE9E1 /* NMBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945D99209AF9C9001BE9E1 /* NMBlurView.m */; };
 		BA945DA7209AFC70001BE9E1 /* BeeNetCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945D9D209AFC70001BE9E1 /* BeeNetCallback.m */; };
 		BA945DA8209AFC70001BE9E1 /* BeeNet.m in Sources */ = {isa = PBXBuildFile; fileRef = BA945D9E209AFC70001BE9E1 /* BeeNet.m */; };
@@ -228,6 +229,8 @@
 		BA89D9A720D0F675005B8210 /* SHA1Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHA1Utils.m; sourceTree = "<group>"; };
 		BA89D9AA20D11F21005B8210 /* ChatTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatTBCell.h; sourceTree = "<group>"; };
 		BA89D9AB20D11F21005B8210 /* ChatTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatTBCell.m; sourceTree = "<group>"; };
+		BA89D9AD20D26878005B8210 /* ChatContentButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatContentButton.h; sourceTree = "<group>"; };
+		BA89D9AE20D26878005B8210 /* ChatContentButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatContentButton.m; sourceTree = "<group>"; };
 		BA945D91209AEC3A001BE9E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BA945D98209AF9C9001BE9E1 /* NMBlurView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMBlurView.h; sourceTree = "<group>"; };
 		BA945D99209AF9C9001BE9E1 /* NMBlurView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMBlurView.m; sourceTree = "<group>"; };
@@ -759,6 +762,8 @@
 			children = (
 				BA89D9AA20D11F21005B8210 /* ChatTBCell.h */,
 				BA89D9AB20D11F21005B8210 /* ChatTBCell.m */,
+				BA89D9AD20D26878005B8210 /* ChatContentButton.h */,
+				BA89D9AE20D26878005B8210 /* ChatContentButton.m */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -1602,6 +1607,7 @@
 				BAB725A920BCF34700CD9A15 /* NOSConfig.m in Sources */,
 				BAB725A020BCF34700CD9A15 /* NOSUploadOption.m in Sources */,
 				BAB725A520BCF34700CD9A15 /* NOSIPUtils.m in Sources */,
+				BA89D9AF20D26878005B8210 /* ChatContentButton.m in Sources */,
 				BAEE152520BBE47100B1219B /* RegistNewPhoneVC.m in Sources */,
 				BAF2828820A93ED600625CF3 /* UserInfoPopMenuVC.m in Sources */,
 				BA1FAB8F20C77B2C00F386F9 /* EditMeVC.m in Sources */,

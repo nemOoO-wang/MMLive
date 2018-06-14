@@ -16,6 +16,7 @@
 #define RCAPPKey @"cpj2xarlc78zn"
 #define RCAPPSecret @"HXsxYcwy88"
 #define RCUserToken ([[NSUserDefaults standardUserDefaults] objectForKey:@"RCToken"])
+#define MDUserDic ([[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"])
 // custom class
 #import "NMBlurView.h"
 #import "HittestView.h"

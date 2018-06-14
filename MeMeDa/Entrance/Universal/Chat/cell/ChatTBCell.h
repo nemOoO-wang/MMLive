@@ -11,6 +11,7 @@
 @interface ChatTBCell : UITableViewCell
 
 @property (nonatomic,strong) NSString *content;
+
 @property (nonatomic,strong) NSDictionary *userDic;
 
 
