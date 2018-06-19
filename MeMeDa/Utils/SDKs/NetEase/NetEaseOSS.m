@@ -135,4 +135,20 @@
     }];
 }
 
+-(void)putWAV:(NSURL *)contentUrl result:(NetEaseSuccess)success{
+    NSNumber *userID = [self getUID];
+    // gen img name (.jpg)
+    NSString *fileKey = [NSString stringWithFormat:@"%@.wav",[self getCurrent]];
+    // img 2 local tmp path
+    NSString *path = [[NSHomeDirectory() stringByAppendingPathComponent:@"tmp"] stringByAppendingPathComponent:fileKey];
+    NSData *movData = [NSData dataWithContentsOfURL:contentUrl];
+    [movData writeToFile:path atomically:NO];
+    // url path
+    NSString *urlPath = [NSString stringWithFormat:@"Imgs/%ld/%@",[userID integerValue], fileKey];
+    // push
+    [[NetEaseOSS sharedInstance] putFile:path withUrlPath:urlPath result:^(NSString *urlPath) {
+        success(urlPath);
+    }];
+}
+
 @end

@@ -42,6 +42,16 @@
     [self.headImgView sd_setImageWithURL:[NSURL URLWithString:userDic[@"headImg"]]];
 }
 
+-(void)setImgUrl:(NSString *)imgUrl{
+    _imgUrl = imgUrl;
+    [self.contentBtn sd_setImageWithURL:[NSURL URLWithString:imgUrl] forState:UIControlStateNormal];
+}
+
+-(void)setVoiceData:(NSData *)voiceData{
+    _voiceData = voiceData;
+    [self.contentBtn setAudioData:voiceData];
+}
+
 -(void)layoutSubviews{
     
 }

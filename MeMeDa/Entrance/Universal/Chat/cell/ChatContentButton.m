@@ -7,6 +7,17 @@
 //
 
 #import "ChatContentButton.h"
+#import "NMImgBroser.h"
+#import "UIWindow+NMCurrent.h"
+#import <AVFoundation/AVFoundation.h>
+
+
+@interface ChatContentButton()
+
+@property (nonatomic,strong) AVAudioPlayer *aPlayer;
+
+
+@end
 
 @implementation ChatContentButton
 
@@ -27,7 +38,6 @@
             [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [self.titleLabel setFont:[UIFont systemFontOfSize:14]];
             [self.titleLabel setLineBreakMode:NSLineBreakByWordWrapping];
-            //        [self.contentBtn setTitle:content forState:UIControlStateNormal];
 //            [self setImage:[UIImage imageNamed:@"gakki"] forState:UIControlStateNormal];
         }else{
             // me
@@ -44,13 +54,41 @@
             [self.titleLabel setFont:[UIFont systemFontOfSize:14]];
             [self.titleLabel setLineBreakMode:NSLineBreakByWordWrapping];
         }
+        [self addTarget:self action:@selector(cilck) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
+}
+
+-(void)setAudioData:(NSData *)audioData{
+    _audioData = audioData;
+    [super setImage:nil forState:UIControlStateNormal];
+    [super setTitle:@"🗣 🔉" forState:UIControlStateNormal];
+    self.contentType = ContentTypeAudio;
+    [self setSize:CGSizeMake(150, 50)];
+}
+
+-(void)cilck{
+    if (self.contentType == ContentTypeImg) {
+        UIViewController *vc = [[[UIApplication sharedApplication] keyWindow] getCurrentViewController];
+        NSDictionary *option = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:10] forKey:UIPageViewControllerOptionInterPageSpacingKey];
+        NMImgBroser *pre = [[NMImgBroser alloc]initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:option];
+        pre.imgArr = @[self.imageView.image];
+        pre.index = 0;
+        pre.arrType = ImgTypeImg;
+        [vc.navigationController pushViewController:pre animated:YES];
+    }
+    if (self.contentType == ContentTypeAudio) {
+        self.aPlayer = [[AVAudioPlayer alloc] initWithData:self.audioData error:nil];
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker error: nil];
+        [self.aPlayer play];
+    }
 }
 
 -(void)setTitle:(NSString *)title forState:(UIControlState)state{
     // delete image
     [self setImage:nil forState:UIControlStateNormal];
+    // contnt type
+    self.contentType = ContentTypeText;
     // update frame
     CGSize size = [title boundingRectWithSize:CGSizeMake(207, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
         // fix string size
@@ -70,8 +108,29 @@
 }
 
 -(void)setImage:(UIImage *)image forState:(UIControlState)state{
-    [super setTitle:nil forState:UIControlStateNormal];
-    [super setImage:image forState:state];
+    if (image) {
+        [super setTitle:nil forState:UIControlStateNormal];
+        [super setImage:image forState:state];
+        // contnt type
+        self.contentType = ContentTypeImg;
+        [self setSize:CGSizeMake(180/image.size.height*image.size.width, 180)];
+    }
+}
+
+-(void)setFrame:(CGRect)frame{
+    [super setFrame:frame];
+    self.maskLayer.frame = self.bounds;
+}
+
+-(void)setSize:(CGSize)size{
+    CGRect frame = self.frame;
+    if (self.chatType == ChaterTypeFriend) {
+        [self setFrame:CGRectMake(65, frame.origin.y, size.width, size.height)];
+    }else{
+        CGPoint origin = frame.origin;
+        origin.x = origin.x + frame.size.width - size.width;
+        [self setFrame:CGRectMake(origin.x, origin.y, size.width, size.height)];
+    }
 }
 
 /*

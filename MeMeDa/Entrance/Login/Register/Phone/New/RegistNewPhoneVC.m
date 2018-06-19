@@ -8,6 +8,7 @@
 
 #import "RegistNewPhoneVC.h"
 #import "NMRegTextField.h"
+#import "MD5Utils.h"
 
 
 @interface RegistNewPhoneVC ()
@@ -60,7 +61,7 @@
 
 - (IBAction)clickSubmitBtn:(id)sender {
     if ([self.pswTextField.text isEqualToString:self.psw2TextField.text]) {
-        NSDictionary *regParam = @{@"phone":self.phoneTextField.text, @"pwd":self.pswTextField.text, @"inviteCode":self.inviteCodeTextField.text, @"code":self.vericodeTextField.text};
+        NSDictionary *regParam = @{@"phone":self.phoneTextField.text, @"pwd":[MD5Utils md5WithString:self.pswTextField.text], @"inviteCode":self.inviteCodeTextField.text, @"code":self.vericodeTextField.text};
         [[NSUserDefaults standardUserDefaults] setObject:regParam forKey:@"regParam"];
         [self performSegueWithIdentifier:@"goon" sender:nil];
     }else{

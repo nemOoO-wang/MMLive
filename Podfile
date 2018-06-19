@@ -14,6 +14,8 @@ target 'MeMeDa' do
   pod 'UICollectionViewLeftAlignedLayout'
   # 网易云
   pod 'AGAsyncTestHelper/Shorthand'
+  # 网易云直播
+  pod 'NIMSDK'
   # 融云
   pod 'RongCloudIM', '~> 2.9.0'
   # ShareSDK

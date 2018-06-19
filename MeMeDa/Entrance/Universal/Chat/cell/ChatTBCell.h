@@ -11,8 +11,9 @@
 @interface ChatTBCell : UITableViewCell
 
 @property (nonatomic,strong) NSString *content;
-
+@property (nonatomic,strong) NSString *imgUrl;
 @property (nonatomic,strong) NSDictionary *userDic;
+@property (nonatomic,strong) NSData *voiceData;
 
 
 @end

@@ -14,12 +14,21 @@ typedef NS_ENUM(NSInteger, ChaterType) {
     ChaterTypeFriend,
 };
 
+typedef NS_ENUM(NSInteger, ContentType) {
+    ContentTypeText,
+    ContentTypeImg,
+    ContentTypeAudio
+};
+
 
 @interface ChatContentButton : UIButton
 
 @property (nonatomic,strong) CAShapeLayer *maskLayer;
 @property (nonatomic,assign) ChaterType chatType;
+@property (nonatomic,assign) ContentType contentType;
 
 -(instancetype)initWithType:(ChaterType)type;
+@property (nonatomic,strong) NSData *audioData;
+-(void)setSize:(CGSize)size;
 
 @end

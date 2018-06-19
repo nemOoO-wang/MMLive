@@ -8,17 +8,24 @@
 
 #import "ChatVC.h"
 #import "ChatTBCell.h"
+#import "NetEaseOSS.h"
+#import <AVFoundation/AVFoundation.h>
 #import <RongCloudIM/RongIMLib/RongIMLib.h>
 
 
 @interface ChatVC ()<UITableViewDelegate, UITableViewDataSource,
                     RCIMClientReceiveMessageDelegate,
-                    UITextFieldDelegate>
+                    UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,AVAudioRecorderDelegate>
 @property (nonatomic,strong) RCUserInfo *myUserInfo;
 @property (nonatomic,strong) NSString *friendId;
 @property (nonatomic,strong) NSArray *dialogHistoryArr;
+@property (nonatomic,strong) AVAudioRecorder *recoder;
+@property (nonatomic,strong) NSURL *audioUrl;
+@property (nonatomic,strong) UIVisualEffectView *blurView;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
+@property (weak, nonatomic) IBOutlet UIButton *audioBtn;
 
 @end
 
@@ -27,24 +34,72 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setTitle:self.friendUserDic[@"nickname"]];
     self.tableView.estimatedRowHeight = 50;
     
     [[RCIMClient sharedRCIMClient] connectWithToken:RCUserToken
-                                            success:^(NSString *userId) {
-                                                NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
-                                            } error:^(RCConnectErrorCode status) {
-                                                NSLog(@"登陆的错误码为:%ld", (long)status);
-                                            } tokenIncorrect:^{
-                                                //token过期或者不正确。
-                                                //如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
-                                                //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
-                                                NSLog(@"token错误");
-                                            }];
+        success:^(NSString *userId) {
+            NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
+        } error:^(RCConnectErrorCode status) {
+            NSLog(@"登陆的错误码为:%ld", (long)status);
+        } tokenIncorrect:^{
+            //token过期或者不正确。
+            //如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
+            //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
+            NSLog(@"token错误");
+    }];
     // 设置消息接收监听
     [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
     // 本地历史
     self.dialogHistoryArr = [[RCIMClient sharedRCIMClient] getLatestMessages:ConversationType_PRIVATE targetId:self.friendId count:20];
     // 远程历史
+    [[RCIMClient sharedRCIMClient] getRemoteHistoryMessages:ConversationType_PRIVATE targetId:self.friendId recordTime:0 count:20 success:^(NSArray *messages) {
+        //        self.dialogHistoryArr =
+    } error:^(RCErrorCode status) {
+        NSLog(@"融云远程历史出错");
+    }];
+    // audio session
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    [audioSession setActive:YES error:nil];
+    NSString *path = [[NSHomeDirectory() stringByAppendingPathComponent:@"tmp"] stringByAppendingPathComponent:@"myRecord.wav"];
+    NSURL *pathUrl = [NSURL fileURLWithPath:path];
+    self.audioUrl = pathUrl;
+    NSError *err = nil;
+    NSDictionary *settings = @{AVFormatIDKey: @(kAudioFormatLinearPCM),
+                               AVSampleRateKey: @8000.00f,
+                               AVNumberOfChannelsKey: @1,
+                               AVLinearPCMBitDepthKey: @16,
+                               AVLinearPCMIsNonInterleaved: @NO,
+                               AVLinearPCMIsFloatKey: @NO,
+                               AVLinearPCMIsBigEndianKey: @NO};
+    self.recoder = [[AVAudioRecorder alloc] initWithURL:pathUrl settings:settings error:&err];
+    if (err) {
+        NSLog(@"创建录音机对象时发生错误，错误信息：%@",err.localizedDescription);
+    }
+    self.recoder.delegate = self;
+    self.navigationController.interactivePopGestureRecognizer.delaysTouchesBegan = NO;
+    // navi bg
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    self.blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    self.blurView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 64);
+    self.blurView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.navigationController.delegate = self;
+    [self.navigationController.view insertSubview:self.blurView atIndex:1];
+    
+}
+
+# pragma mark - <navi delegate>
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    if (viewController != self) {
+        [self.blurView removeFromSuperview];
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    if (self.dialogHistoryArr.count>0) {
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.dialogHistoryArr.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
 }
 
 -(NSString *)friendId{
@@ -65,13 +120,107 @@
     return _myUserInfo;
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:9 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+# pragma mark - click
+- (IBAction)clickAddImg:(id)sender {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil
+                                                                   message:nil
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction* shootAction = [UIAlertAction actionWithTitle:@"拍照"
+          style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+              // select from camera
+              if([UIImagePickerController isSourceTypeAvailable:
+                  UIImagePickerControllerSourceTypeCamera]){
+                  // init imgPicker
+                  UIImagePickerController *imgPicker = [[UIImagePickerController alloc] init];
+                  imgPicker.delegate = self;
+                  //    imgPicker.allowsEditing = YES;
+                  imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                  [self presentViewController:imgPicker animated:YES completion:^{
+                      imgPicker.navigationBar.backgroundColor = [UIColor darkGrayColor];
+                  }];
+              }
+      }];
+    UIAlertAction* albumAction = [UIAlertAction actionWithTitle:@"相册"
+          style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+              // select from camera
+              if([UIImagePickerController isSourceTypeAvailable:
+                  UIImagePickerControllerSourceTypePhotoLibrary]){
+                  // init imgPicker
+                  UIImagePickerController *imgPicker = [[UIImagePickerController alloc] init];
+                  imgPicker.delegate = self;
+                  //    imgPicker.allowsEditing = YES;
+                  imgPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                  [self presentViewController:imgPicker animated:YES completion:^{
+                      imgPicker.navigationBar.backgroundColor = [UIColor darkGrayColor];
+                  }];
+              }
+      }];
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style: UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:shootAction];
+    [alert addAction:albumAction];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+                                               
+- (IBAction)audioClickDown:(id)sender {
+    [self.recoder prepareToRecord];
+    [self.recoder deleteRecording];
+    if (![self.recoder isRecording]){
+        [self.recoder record];
+    }
+    [SVProgressHUD showWithStatus:@"录音中。。。"];
+}
+- (IBAction)audioClickEnd:(id)sender {
+    [self.recoder stop];
+    [SVProgressHUD showSuccessWithStatus:@"发送成功"];
+}
+- (IBAction)audioClickCancel:(id)sender {
+    [SVProgressHUD showInfoWithStatus:@"取消"];
+}
+
+# pragma mark - <Delegate>
+- (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag{
+    if (flag) {
+        NSData *audioData = [NSData dataWithContentsOfURL:self.audioUrl];
+        AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithData:audioData error:nil];
+        RCVoiceMessage *msg = [RCVoiceMessage messageWithAudio:audioData duration:player.duration];
+        [[RCIMClient sharedRCIMClient] sendMediaMessage:ConversationType_PRIVATE targetId:self.friendId content:msg pushContent:nil pushData:nil progress:^(int progress, long messageId) {
+            
+        } success:^(long messageId) {
+            [self refreshMsg];
+        } error:^(RCErrorCode errorCode, long messageId) {
+            
+        } cancel:^(long messageId) {
+            
+        }];
+    }
+}
+
+# pragma mark - <UIImagePickerControllerDelegate>
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    // 单图
+    UIImage *img = info[@"UIImagePickerControllerOriginalImage"];
+    RCImageMessage *imgMsg = [RCImageMessage messageWithImage:img];
+    [[RCIMClient sharedRCIMClient] sendMediaMessage:ConversationType_PRIVATE targetId:self.friendId content:imgMsg pushContent:nil pushData:nil progress:^(int progress, long messageId) {
+    } success:^(long messageId) {
+        [self refreshMsg];
+    } error:^(RCErrorCode errorCode, long messageId) {
+        
+    } cancel:^(long messageId) {
+        
+    }];
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 # pragma mark - <text field delegate>
@@ -82,18 +231,28 @@
 //    [mContent setRawJSONData: [self.inputTextField.text dataUsingEncoding:NSUTF8StringEncoding]];
     RCTextMessage *mContent = [RCTextMessage messageWithContent:self.inputTextField.text];
     mContent.senderUserInfo = self.myUserInfo;
+    self.inputTextField.text = @"";
     [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:self.friendId content:mContent pushContent:nil pushData:nil success:^(long messageId) {
-        
+//        RCMessage *msg = [[RCMessage alloc] initWithType:ConversationType_PRIVATE targetId:self.friendId direction:MessageDirection_SEND messageId:messageId content:mContent];
+        [self refreshMsg];
     } error:^(RCErrorCode nErrorCode, long messageId) {
         
     }];
     return YES;
 }
 
+-(void)refreshMsg{
+    self.dialogHistoryArr = [[RCIMClient sharedRCIMClient] getLatestMessages:ConversationType_PRIVATE targetId:self.friendId count:20];
+    [self.tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.dialogHistoryArr.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    });
+}
+
 # pragma mark - <UITableViewDataSource>
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    RCMessage *msg = self.dialogHistoryArr[indexPath.row];
+    RCMessage *msg = self.dialogHistoryArr[self.dialogHistoryArr.count - indexPath.row - 1];
     ChatTBCell *cell;
     if([msg.senderUserId isEqualToString:self.friendId]){
         // you
@@ -108,6 +267,12 @@
     if ([msg.content isMemberOfClass:[RCTextMessage class]]) {
         RCTextMessage *testMessage = (RCTextMessage *)msg.content;
         cell.content = testMessage.content;
+    }else if([msg.content isMemberOfClass:[RCImageMessage class]]){
+        RCImageMessage *imgMsg = (RCImageMessage *)msg.content;
+        cell.imgUrl = imgMsg.imageUrl;
+    }else if([msg.content isMemberOfClass:[RCVoiceMessage class]]){
+        RCVoiceMessage *voiceMsg = (RCVoiceMessage *)msg.content;
+        cell.voiceData = voiceMsg.wavAudioData;
     }
     return cell;
 }
@@ -117,11 +282,14 @@
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    if (self.dialogHistoryArr.count == 0) {
+        return 0;
+    }
     return 1;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    RCMessage *msg = self.dialogHistoryArr[indexPath.row];
+    RCMessage *msg = self.dialogHistoryArr[self.dialogHistoryArr.count - indexPath.row - 1];
     if ([msg.content isMemberOfClass:[RCTextMessage class]]) {
         RCTextMessage *testMessage = (RCTextMessage *)msg.content;
         NSString *str = testMessage.content;
@@ -131,8 +299,12 @@
         }else{
             return size.height+20;
         }
+    }else if([msg.content isMemberOfClass:[RCImageMessage class]]){
+        return 200;
+    }else if([msg.content isMemberOfClass:[RCVoiceMessage class]]){
+        return 60;
     }
-    return 100;
+    return 60;
 }
 
 # pragma mark - <RCIMClientReceiveMessageDelegate>

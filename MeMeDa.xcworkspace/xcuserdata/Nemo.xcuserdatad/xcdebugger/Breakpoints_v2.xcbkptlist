@@ -9,22 +9,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MeMeDa/Entrance/Universal/Chat/ChatVC.m"
-            timestampString = "550670985.9513609"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MeMeDa/Profiles/AppDelegate.m"
             timestampString = "550670985.952316"
             startingColumnNumber = "9223372036854775807"
@@ -97,6 +81,54 @@
             endingLineNumber = "113"
             landmarkName = "-application:didFailToRegisterForRemoteNotificationsWithError:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MeMeDa/Entrance/Universal/Chat/ChatVC.m"
+            timestampString = "550751741.04515"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__21-[ChatVC viewDidLoad]_block_invoke_4"
+                  moduleName = "MeMeDa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Nemo/Desktop/iProjects/MD/MeMeDa/MeMeDa/Entrance/Universal/Chat/ChatVC.m"
+                  timestampString = "550740378.585606"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__21-[ChatVC viewDidLoad]_block_invoke_5"
+                  moduleName = "MeMeDa"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Nemo/Desktop/iProjects/MD/MeMeDa/MeMeDa/Entrance/Universal/Chat/ChatVC.m"
+                  timestampString = "550740378.588878"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

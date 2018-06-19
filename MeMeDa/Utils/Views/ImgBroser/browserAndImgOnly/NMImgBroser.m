@@ -11,9 +11,11 @@
 #import <UIImageView+WebCache.h>
 
 
-@interface NMImgBroser ()<UIPageViewControllerDataSource, UIPageViewControllerDelegate>
+@interface NMImgBroser ()<UIPageViewControllerDataSource, UIPageViewControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic,assign) NSInteger tmpIndex;
+@property (nonatomic,strong) UIVisualEffectView *blurView;
+
 
 @end
 
@@ -33,7 +35,24 @@
     }
     [self setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL finished) {
     }];
+    // cover
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    self.blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    //always fill the view
+    self.blurView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 64);
+    self.blurView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.navigationController.delegate = self;
+    [self.navigationController.view insertSubview:self.blurView atIndex:1];
 }
+
+
+# pragma mark - <navi delegate>
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    if (viewController != self) {
+        [self.blurView removeFromSuperview];
+    }
+}
+
 
 # pragma mark - <UIPageViewControllerDataSource>
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{

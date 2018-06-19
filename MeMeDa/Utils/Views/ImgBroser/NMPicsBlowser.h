@@ -15,6 +15,9 @@
 @property (nonatomic,strong) void (^browser)(void);
 @property (nonatomic,strong) void (^deletion)(void);
 
+/**
+ 获得一个浏览图实例
+ */
 -(void)setUpWith:(NSArray *)imgArr and:(NSInteger)index;
 -(void)setImg:(NSString *)img withBrowser:(void (^)(NMPicsBlowser *obj))browser delete:(void (^)(void))deletion;
 -(void)setRawImg:(NSString *)img withBrowser:(void (^)(NMPicsBlowser *obj))browser delete:(void (^)(void))deletion;

@@ -13,9 +13,9 @@
 @interface EditMeRecordAudio ()<AVAudioRecorderDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *btn;
 @property (nonatomic,strong) UIButton *playBtn;
-@property (nonatomic,strong) AVAudioRecorder *recoder;
 @property (nonatomic,strong) AVAudioPlayer *player;
 
+@property (nonatomic,strong) AVAudioRecorder *recoder;
 @property (nonatomic,strong) NSURL *audioUrl;
 
 @end

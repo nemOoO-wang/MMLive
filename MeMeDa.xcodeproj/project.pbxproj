@@ -139,6 +139,7 @@
 		BAEE7FCA20A2DD85000EA5E4 /* SquareSearchHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE7FC920A2DD85000EA5E4 /* SquareSearchHistoryCell.m */; };
 		BAEE7FD020A2E1A3000EA5E4 /* SquareSearchGenderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE7FCF20A2E1A3000EA5E4 /* SquareSearchGenderButton.m */; };
 		BAEE7FD420A2E798000EA5E4 /* SquareSearchChooseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE7FD320A2E798000EA5E4 /* SquareSearchChooseVC.m */; };
+		BAF201B120D3AD8300DA69D1 /* TouchDownBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF201B020D3AD8300DA69D1 /* TouchDownBtn.m */; };
 		BAF2828520A9309100625CF3 /* UserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF2828420A9309100625CF3 /* UserInfoVC.m */; };
 		BAF2828820A93ED600625CF3 /* UserInfoPopMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF2828720A93ED600625CF3 /* UserInfoPopMenuVC.m */; };
 		BAF2828C20A96D4900625CF3 /* MessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF2828B20A96D4900625CF3 /* MessageVC.m */; };
@@ -400,6 +401,8 @@
 		BAEE7FCF20A2E1A3000EA5E4 /* SquareSearchGenderButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareSearchGenderButton.m; sourceTree = "<group>"; };
 		BAEE7FD220A2E798000EA5E4 /* SquareSearchChooseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareSearchChooseVC.h; sourceTree = "<group>"; };
 		BAEE7FD320A2E798000EA5E4 /* SquareSearchChooseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareSearchChooseVC.m; sourceTree = "<group>"; };
+		BAF201AF20D3AD8300DA69D1 /* TouchDownBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchDownBtn.h; sourceTree = "<group>"; };
+		BAF201B020D3AD8300DA69D1 /* TouchDownBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchDownBtn.m; sourceTree = "<group>"; };
 		BAF2828320A9309100625CF3 /* UserInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoVC.h; sourceTree = "<group>"; };
 		BAF2828420A9309100625CF3 /* UserInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoVC.m; sourceTree = "<group>"; };
 		BAF2828620A93ED600625CF3 /* UserInfoPopMenuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoPopMenuVC.h; sourceTree = "<group>"; };
@@ -525,6 +528,7 @@
 		BA1E570220B69C4600C61E21 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				BAF201AE20D3AD6E00DA69D1 /* tmp btn */,
 				BA89D9A920D11F07005B8210 /* cell */,
 				BA1E570320B69C5600C61E21 /* ChatVC.h */,
 				BA1E570420B69C5600C61E21 /* ChatVC.m */,
@@ -1359,6 +1363,15 @@
 			path = Choose;
 			sourceTree = "<group>";
 		};
+		BAF201AE20D3AD6E00DA69D1 /* tmp btn */ = {
+			isa = PBXGroup;
+			children = (
+				BAF201AF20D3AD8300DA69D1 /* TouchDownBtn.h */,
+				BAF201B020D3AD8300DA69D1 /* TouchDownBtn.m */,
+			);
+			path = "tmp btn";
+			sourceTree = "<group>";
+		};
 		BAF2828220A9306900625CF3 /* User Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1442,6 +1455,7 @@
 				BAC18393209AE0EB00209CCD /* Frameworks */,
 				BAC18394209AE0EB00209CCD /* Resources */,
 				2509C42BBE6F7AB94267DBB6 /* [CP] Copy Pods Resources */,
+				E0712D429F35EF3056A220A6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1532,6 +1546,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/NIMSDK/NIMAVChat/Resources/NMCVideoFilter.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj",
@@ -1552,6 +1567,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NMCVideoFilter.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RongCloud.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
@@ -1569,6 +1585,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0712D429F35EF3056A220A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa-frameworks.sh",
+				"${PODS_ROOT}/NIMSDK/NIMSDK/NIMSDK.framework",
+				"${PODS_ROOT}/NIMSDK/NIMAVChat/NIMAVChat.framework",
+				"${PODS_ROOT}/NIMSDK/NIMAVChat/NVS.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIMSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIMAVChat.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVS.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1650,6 +1688,7 @@
 				BA89D9A820D0F675005B8210 /* SHA1Utils.m in Sources */,
 				BAEE7FBF20A2D5C5000EA5E4 /* SquareListVC.m in Sources */,
 				BA84B1C820CE160700839A6B /* NMLongPressButton.m in Sources */,
+				BAF201B120D3AD8300DA69D1 /* TouchDownBtn.m in Sources */,
 				BAB725B820BCF34700CD9A15 /* NOSAFHTTPSessionManager.m in Sources */,
 				BA39ACFC20AC3083001EC158 /* MeMommentCollectionCell.m in Sources */,
 				BA55F52020C3FFA700F024FE /* UIWindow+NMCurrent.m in Sources */,
@@ -1843,10 +1882,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MeMeDa/Profiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/MeMeDa/Profiles/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShareSDK4.1.2/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
@@ -1880,10 +1916,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MeMeDa/Profiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/MeMeDa/Profiles/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShareSDK4.1.2/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
