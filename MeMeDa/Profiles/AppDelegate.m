@@ -12,6 +12,7 @@
 #import <RongCloudIM/RongIMLib/RongIMLib.h>
 // ShareSDK
 #import <ShareSDK/ShareSDK.h>
+//#import <ShareSDKUI/ShareSDK+SSUI.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
 //腾讯开放平台（对应QQ和QQ空间）SDK头文件
 #import <TencentOpenAPI/TencentOAuth.h>
@@ -29,9 +30,21 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // IQKeyboard
     [[IQKeyboardManager sharedManager] setEnable:YES];
+    // 小米推送
+    [MiPushSDK registerMiPush:self type:0 connect:YES];
+    // 处理点击通知打开app的逻辑
+    NSDictionary* userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if(userInfo){//推送信息
+        NSString *messageId = [userInfo objectForKey:@"_id_"];
+        if (messageId!=nil) {
+            [MiPushSDK openAppNotify:messageId];
+        }
+    }
     // 融云
     [[RCIMClient sharedRCIMClient] initWithAppKey:RCAPPKey];
-    //注册推送, iOS 8
+    // RC远程推送的内容
+    NSDictionary *remoteNotificationUserInfo = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+    //RC注册推送, iOS 8
     if ([application
          respondsToSelector:@selector(registerUserNotificationSettings:)]) {
         //注册推送, iOS 8
@@ -67,13 +80,16 @@
          switch (platformType)
          {
              case SSDKPlatformTypeWechat:
-                 [appInfo SSDKSetupWeChatByAppId:@"17318062756@163.com"
-                                       appSecret:@"sz17318062756"];
+                 [ShareSDKConnector connectWeChat:[WXApi class]];
+                 [appInfo SSDKSetupWeChatByAppId:@"wx8d815228ae6baef5"
+                                       appSecret:@"b47f4c048d60dd44633dda8c305bcbba"];
                  break;
              case SSDKPlatformTypeQQ:
-                 [appInfo SSDKSetupQQByAppId:@"1106817451"
-                                      appKey:@"CBLKB8aZ4Q17oxeu"
+                 [ShareSDKConnector connectQQ:[QQApiInterface class] tencentOAuthClass:[TencentOAuth class]];
+                 [appInfo SSDKSetupQQByAppId:@"1106892596"
+                                      appKey:@"mvPWS5I1GJbRig7S"
                                     authType:SSDKAuthTypeSSO];
+//                 [appInfo SSDKSetupQQByAppId:@"QQ41F9D734" appKey:@"mvPWS5I1GJbRig7S" authType:SSDKAuthTypeSSO useTIM:false];
                  break;
              default:
                    break;
@@ -83,7 +99,7 @@
 }
 
 /**
- * 推送处理2
+ * RC推送处理2
  */
 //注册用户通知设置
 - (void)application:(UIApplication *)application
@@ -91,12 +107,12 @@ didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSe
     // register to receive notifications
     [application registerForRemoteNotifications];
 }
-/**
- *  将得到的devicetoken 传给融云用于离线状态接收push ，您的app后台要上传推送证书
- *  推送处理3
- */
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    /**
+     *  RC将得到的devicetoken 传给融云用于离线状态接收push ，您的app后台要上传推送证书
+     *  推送处理3
+     */
     NSString *token =
     [[[[deviceToken description] stringByReplacingOccurrencesOfString:@"<"
                                                            withString:@""]
@@ -104,8 +120,9 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
       withString:@""]
      stringByReplacingOccurrencesOfString:@" "
      withString:@""];
-    
     [[RCIMClient sharedRCIMClient] setDeviceToken:token];
+    // 小米：注册APNS成功, 注册deviceToken
+    [MiPushSDK bindDeviceToken:deviceToken];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
@@ -121,7 +138,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 }
 
 /**
- * 推送处理4
+ * RC推送处理4
  * userInfo内容请参考官网文档
  */
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
@@ -141,7 +158,49 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     } else {
         NSLog(@"该远程推送不包含来自融云的推送服务");
     }
+    // 小米：消息去重，然后通过miPushReceiveNotification:回调返回给App
+    [ MiPushSDK handleReceiveRemoteNotification :userInfo];
 }
+
+#pragma mark <MiPushSDKDelegate>
+- (void)miPushRequestSuccWithSelector:(NSString *)selector data:(NSDictionary *)data
+{
+    // 请求成功
+    // 可在此获取regId
+    if ([selector isEqualToString:@"bindDeviceToken:"]) {
+        NSLog(@"regid = %@", data[@"regid"]);
+    }
+}
+
+- (void)miPushRequestErrWithSelector:(NSString *)selector error:(int)error data:(NSDictionary *)data
+{
+    // 请求失败
+}
+
+- ( void )miPushReceiveNotification:( NSDictionary *)data
+{
+    // 长连接收到的消息。消息格式跟APNs格式一样
+}
+
+// iOS10新加入的回调方法
+// 应用在前台收到通知
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler  API_AVAILABLE(ios(10.0)){
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [MiPushSDK handleReceiveRemoteNotification:userInfo];
+    }
+    //    completionHandler(UNNotificationPresentationOptionAlert);
+}
+
+// 点击通知进入应用
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler  API_AVAILABLE(ios(10.0)){
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [MiPushSDK handleReceiveRemoteNotification:userInfo];
+    }
+    completionHandler();
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -20,9 +20,9 @@ target 'MeMeDa' do
   pod 'RongCloudIM', '~> 2.9.0'
   # ShareSDK
   # 主模块(必须)
-  # pod 'ShareSDK3'
-  # pod 'mob_sharesdk/ShareSDKPlatforms/QQ'
-  # pod 'mob_sharesdk/ShareSDKPlatforms/WeChatFull' # 微信sdk带支付的命令
+  pod 'mob_sharesdk'
+  pod 'mob_sharesdk/ShareSDKPlatforms/QQ'
+  pod 'mob_sharesdk/ShareSDKPlatforms/WeChatFull' # 微信sdk带支付的命令
   # UI模块(非必须，需要用到ShareSDK提供的分享菜单栏和分享编辑页面需要以下1行)
   # pod 'mob_sharesdk/ShareSDKUI'
   # 扩展模块（在调用可以弹出我们UI分享方法的时候是必需的）

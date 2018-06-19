@@ -23,6 +23,14 @@
 		BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */; };
 		BA2D846D20BF9DE80027F905 /* HomeTabMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D846C20BF9DE80027F905 /* HomeTabMenuVC.m */; };
 		BA2D847420C0020D0027F905 /* NOSTokenUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D847320C0020D0027F905 /* NOSTokenUtils.m */; };
+		BA311D3220D8A56800E1A58C /* SettingsBtnTblCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA311D3120D8A56800E1A58C /* SettingsBtnTblCell.m */; };
+		BA311D3820D8F70900E1A58C /* libMiPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA311D3620D8F70900E1A58C /* libMiPushSDK.a */; };
+		BA311D3B20D9050E00E1A58C /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BA311D3A20D9050D00E1A58C /* libresolv.tbd */; };
+		BA311D3D20D9052400E1A58C /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BA311D3C20D9052400E1A58C /* libxml2.tbd */; };
+		BA311D3F20D9055300E1A58C /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA311D3E20D9055300E1A58C /* UserNotifications.framework */; };
+		BA311D4120D9056100E1A58C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA311D4020D9056100E1A58C /* SystemConfiguration.framework */; };
+		BA311D4320D9056B00E1A58C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA311D4220D9056A00E1A58C /* MobileCoreServices.framework */; };
+		BA311D4520D9057900E1A58C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA311D4420D9057900E1A58C /* CoreTelephony.framework */; };
 		BA36518520A41987002B6C62 /* HomeSNSVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA36518420A41987002B6C62 /* HomeSNSVC.m */; };
 		BA36518820A42705002B6C62 /* Baoli-SC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA36518720A42702002B6C62 /* Baoli-SC-Regular.ttf */; };
 		BA36518C20A42C0E002B6C62 /* RankPresentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA36518B20A42C0E002B6C62 /* RankPresentVC.m */; };
@@ -102,23 +110,6 @@
 		BAB725BB20BCF34700CD9A15 /* NOSAFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB7259720BCF34600CD9A15 /* NOSAFHTTPRequestOperation.m */; };
 		BAB725BC20BCF34700CD9A15 /* NOSAFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB7259820BCF34600CD9A15 /* NOSAFHTTPRequestOperationManager.m */; };
 		BAB725BD20BCF34700CD9A15 /* NOSAFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB7259A20BCF34600CD9A15 /* NOSAFURLResponseSerialization.m */; };
-		BAB725E020BCFCF500CD9A15 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = BAB725C620BCFCF500CD9A15 /* README.txt */; };
-		BAB725E120BCFCF500CD9A15 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB725C820BCFCF500CD9A15 /* libWeChatSDK.a */; };
-		BAB725E220BCFCF500CD9A15 /* libAPOpenSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB725CA20BCFCF500CD9A15 /* libAPOpenSdk.a */; };
-		BAB725E320BCFCF500CD9A15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BAB725CB20BCFCF500CD9A15 /* README.md */; };
-		BAB725E420BCFCF500CD9A15 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB725CF20BCFCF500CD9A15 /* TencentOpenAPI.framework */; };
-		BAB725E520BCFCF500CD9A15 /* ShareSDKConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB725D120BCFCF500CD9A15 /* ShareSDKConnector.framework */; };
-		BAB725E620BCFCF500CD9A15 /* ShareSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAB725D220BCFCF500CD9A15 /* ShareSDK.bundle */; };
-		BAB725E720BCFCF500CD9A15 /* ShareSDKUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAB725D420BCFCF500CD9A15 /* ShareSDKUI.bundle */; };
-		BAB725E820BCFCF500CD9A15 /* ShareSDKConfigFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB725D520BCFCF500CD9A15 /* ShareSDKConfigFile.framework */; };
-		BAB725E920BCFCF500CD9A15 /* ShareSDKExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB725D620BCFCF500CD9A15 /* ShareSDKExtension.framework */; };
-		BAB725EA20BCFCF500CD9A15 /* ShareSDKUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB725D720BCFCF500CD9A15 /* ShareSDKUI.framework */; };
-		BAB725EB20BCFCF500CD9A15 /* ShareSDKConfigFile.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAB725D820BCFCF500CD9A15 /* ShareSDKConfigFile.bundle */; };
-		BAB725EC20BCFCF500CD9A15 /* QQConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB725DA20BCFCF500CD9A15 /* QQConnector.framework */; };
-		BAB725ED20BCFCF500CD9A15 /* AliPayConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB725DB20BCFCF500CD9A15 /* AliPayConnector.framework */; };
-		BAB725EE20BCFCF500CD9A15 /* WechatConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB725DC20BCFCF500CD9A15 /* WechatConnector.framework */; };
-		BAB725EF20BCFCF500CD9A15 /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB725DD20BCFCF500CD9A15 /* ShareSDK.framework */; };
-		BAB725F020BCFCF500CD9A15 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB725DF20BCFCF500CD9A15 /* MOBFoundation.framework */; };
 		BAB725F420BD012700CD9A15 /* ResetPswVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB725F320BD012700CD9A15 /* ResetPswVC.m */; };
 		BAB725F820BD3A7F00CD9A15 /* PreLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB725F720BD3A7F00CD9A15 /* PreLoginVC.m */; };
 		BAB725FC20BD5CBF00CD9A15 /* NMFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB725FB20BD5CBF00CD9A15 /* NMFlowLayout.m */; };
@@ -182,6 +173,18 @@
 		BA2D846C20BF9DE80027F905 /* HomeTabMenuVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTabMenuVC.m; sourceTree = "<group>"; };
 		BA2D847220C0020C0027F905 /* NOSTokenUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NOSTokenUtils.h; sourceTree = "<group>"; };
 		BA2D847320C0020D0027F905 /* NOSTokenUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NOSTokenUtils.m; sourceTree = "<group>"; };
+		BA311D3020D8A56800E1A58C /* SettingsBtnTblCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsBtnTblCell.h; sourceTree = "<group>"; };
+		BA311D3120D8A56800E1A58C /* SettingsBtnTblCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsBtnTblCell.m; sourceTree = "<group>"; };
+		BA311D3620D8F70900E1A58C /* libMiPushSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMiPushSDK.a; sourceTree = "<group>"; };
+		BA311D3720D8F70900E1A58C /* MiPushSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiPushSDK.h; sourceTree = "<group>"; };
+		BA311D3920D8F75700E1A58C /* MeMeDa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeMeDa.entitlements; sourceTree = "<group>"; };
+		BA311D3A20D9050D00E1A58C /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		BA311D3C20D9052400E1A58C /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		BA311D3E20D9055300E1A58C /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		BA311D4020D9056100E1A58C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BA311D4220D9056A00E1A58C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		BA311D4420D9057900E1A58C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		BA311D4620D90DC200E1A58C /* libcoretls.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcoretls.tbd; path = usr/lib/libcoretls.tbd; sourceTree = SDKROOT; };
 		BA36518320A41987002B6C62 /* HomeSNSVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSNSVC.h; sourceTree = "<group>"; };
 		BA36518420A41987002B6C62 /* HomeSNSVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSNSVC.m; sourceTree = "<group>"; };
 		BA36518720A42702002B6C62 /* Baoli-SC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baoli-SC-Regular.ttf"; sourceTree = "<group>"; };
@@ -342,28 +345,6 @@
 		BAB7259A20BCF34600CD9A15 /* NOSAFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NOSAFURLResponseSerialization.m; sourceTree = "<group>"; };
 		BAB7259B20BCF34600CD9A15 /* NOSAFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NOSAFURLSessionManager.h; sourceTree = "<group>"; };
 		BAB7259C20BCF34600CD9A15 /* NOSBucketLBSMap+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NOSBucketLBSMap+Private.h"; sourceTree = "<group>"; };
-		BAB725C420BCFCF500CD9A15 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
-		BAB725C520BCFCF500CD9A15 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
-		BAB725C620BCFCF500CD9A15 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		BAB725C720BCFCF500CD9A15 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
-		BAB725C820BCFCF500CD9A15 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
-		BAB725CA20BCFCF500CD9A15 /* libAPOpenSdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAPOpenSdk.a; sourceTree = "<group>"; };
-		BAB725CB20BCFCF500CD9A15 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		BAB725CC20BCFCF500CD9A15 /* APOpenAPIObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APOpenAPIObject.h; sourceTree = "<group>"; };
-		BAB725CD20BCFCF500CD9A15 /* APOpenAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APOpenAPI.h; sourceTree = "<group>"; };
-		BAB725CF20BCFCF500CD9A15 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
-		BAB725D120BCFCF500CD9A15 /* ShareSDKConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKConnector.framework; sourceTree = "<group>"; };
-		BAB725D220BCFCF500CD9A15 /* ShareSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDK.bundle; sourceTree = "<group>"; };
-		BAB725D420BCFCF500CD9A15 /* ShareSDKUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDKUI.bundle; sourceTree = "<group>"; };
-		BAB725D520BCFCF500CD9A15 /* ShareSDKConfigFile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKConfigFile.framework; sourceTree = "<group>"; };
-		BAB725D620BCFCF500CD9A15 /* ShareSDKExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKExtension.framework; sourceTree = "<group>"; };
-		BAB725D720BCFCF500CD9A15 /* ShareSDKUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKUI.framework; sourceTree = "<group>"; };
-		BAB725D820BCFCF500CD9A15 /* ShareSDKConfigFile.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDKConfigFile.bundle; sourceTree = "<group>"; };
-		BAB725DA20BCFCF500CD9A15 /* QQConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QQConnector.framework; sourceTree = "<group>"; };
-		BAB725DB20BCFCF500CD9A15 /* AliPayConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliPayConnector.framework; sourceTree = "<group>"; };
-		BAB725DC20BCFCF500CD9A15 /* WechatConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WechatConnector.framework; sourceTree = "<group>"; };
-		BAB725DD20BCFCF500CD9A15 /* ShareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDK.framework; sourceTree = "<group>"; };
-		BAB725DF20BCFCF500CD9A15 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
 		BAB725F220BD012700CD9A15 /* ResetPswVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResetPswVC.h; sourceTree = "<group>"; };
 		BAB725F320BD012700CD9A15 /* ResetPswVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResetPswVC.m; sourceTree = "<group>"; };
 		BAB725F620BD3A7F00CD9A15 /* PreLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreLoginVC.h; sourceTree = "<group>"; };
@@ -425,22 +406,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAB725E120BCFCF500CD9A15 /* libWeChatSDK.a in Frameworks */,
-				BAB725E820BCFCF500CD9A15 /* ShareSDKConfigFile.framework in Frameworks */,
-				BAB725ED20BCFCF500CD9A15 /* AliPayConnector.framework in Frameworks */,
-				BAB725E420BCFCF500CD9A15 /* TencentOpenAPI.framework in Frameworks */,
-				BAB725EF20BCFCF500CD9A15 /* ShareSDK.framework in Frameworks */,
-				BAB725E220BCFCF500CD9A15 /* libAPOpenSdk.a in Frameworks */,
-				BAB725F020BCFCF500CD9A15 /* MOBFoundation.framework in Frameworks */,
-				BAB725EC20BCFCF500CD9A15 /* QQConnector.framework in Frameworks */,
+				BA311D4520D9057900E1A58C /* CoreTelephony.framework in Frameworks */,
+				BA311D4320D9056B00E1A58C /* MobileCoreServices.framework in Frameworks */,
+				BA311D4120D9056100E1A58C /* SystemConfiguration.framework in Frameworks */,
+				BA311D3F20D9055300E1A58C /* UserNotifications.framework in Frameworks */,
+				BA311D3D20D9052400E1A58C /* libxml2.tbd in Frameworks */,
+				BA311D3B20D9050E00E1A58C /* libresolv.tbd in Frameworks */,
 				BA58150C20BC2FF400BDDD3A /* libsqlite3.tbd in Frameworks */,
-				BAB725E920BCFCF500CD9A15 /* ShareSDKExtension.framework in Frameworks */,
 				BA58150A20BC2FE400BDDD3A /* JavaScriptCore.framework in Frameworks */,
 				BA58150820BC2FD400BDDD3A /* libstdc++.tbd in Frameworks */,
 				BA58150620BC2FC700BDDD3A /* libz.tbd in Frameworks */,
-				BAB725EA20BCFCF500CD9A15 /* ShareSDKUI.framework in Frameworks */,
-				BAB725EE20BCFCF500CD9A15 /* WechatConnector.framework in Frameworks */,
-				BAB725E520BCFCF500CD9A15 /* ShareSDKConnector.framework in Frameworks */,
+				BA311D3820D8F70900E1A58C /* libMiPushSDK.a in Frameworks */,
 				BA58150420BC2FC000BDDD3A /* libicucore.tbd in Frameworks */,
 				9E29EB24BE0F06C24C812114 /* libPods-MeMeDa.a in Frameworks */,
 			);
@@ -480,6 +456,7 @@
 		BA1E2CFB20AD5DB50060E91C /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				BA311D2F20D8A53100E1A58C /* cell */,
 				BA1E2D0520AD72DD0060E91C /* Contact Us */,
 				BA1E2CFC20AD5DC20060E91C /* SettingTableViewController.h */,
 				BA1E2CFD20AD5DC20060E91C /* SettingTableViewController.m */,
@@ -586,6 +563,24 @@
 				BAE9EC5420BCF16A006FEC19 /* NetEaseOSS.m */,
 			);
 			path = NetEase;
+			sourceTree = "<group>";
+		};
+		BA311D2F20D8A53100E1A58C /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				BA311D3020D8A56800E1A58C /* SettingsBtnTblCell.h */,
+				BA311D3120D8A56800E1A58C /* SettingsBtnTblCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		BA311D3520D8F70900E1A58C /* MiPushSDK */ = {
+			isa = PBXGroup;
+			children = (
+				BA311D3620D8F70900E1A58C /* libMiPushSDK.a */,
+				BA311D3720D8F70900E1A58C /* MiPushSDK.h */,
+			);
+			path = MiPushSDK;
 			sourceTree = "<group>";
 		};
 		BA36518220A41963002B6C62 /* Rank */ = {
@@ -1089,118 +1084,8 @@
 		BAB725BE20BCFCF500CD9A15 /* ShareSDK4.1.2 */ = {
 			isa = PBXGroup;
 			children = (
-				BAB725BF20BCFCF500CD9A15 /* SDK */,
 			);
 			path = ShareSDK4.1.2;
-			sourceTree = "<group>";
-		};
-		BAB725BF20BCFCF500CD9A15 /* SDK */ = {
-			isa = PBXGroup;
-			children = (
-				BAB725C020BCFCF500CD9A15 /* ShareSDK */,
-				BAB725DE20BCFCF500CD9A15 /* Required */,
-			);
-			path = SDK;
-			sourceTree = "<group>";
-		};
-		BAB725C020BCFCF500CD9A15 /* ShareSDK */ = {
-			isa = PBXGroup;
-			children = (
-				BAB725C120BCFCF500CD9A15 /* Support */,
-				BAB725DD20BCFCF500CD9A15 /* ShareSDK.framework */,
-			);
-			path = ShareSDK;
-			sourceTree = "<group>";
-		};
-		BAB725C120BCFCF500CD9A15 /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				BAB725C220BCFCF500CD9A15 /* PlatformSDK */,
-				BAB725D020BCFCF500CD9A15 /* Required */,
-				BAB725D320BCFCF500CD9A15 /* Optional */,
-				BAB725D920BCFCF500CD9A15 /* PlatformConnector */,
-			);
-			path = Support;
-			sourceTree = "<group>";
-		};
-		BAB725C220BCFCF500CD9A15 /* PlatformSDK */ = {
-			isa = PBXGroup;
-			children = (
-				BAB725C320BCFCF500CD9A15 /* WeChatSDK */,
-				BAB725C920BCFCF500CD9A15 /* APSocialSDK */,
-				BAB725CE20BCFCF500CD9A15 /* QQSDK */,
-			);
-			path = PlatformSDK;
-			sourceTree = "<group>";
-		};
-		BAB725C320BCFCF500CD9A15 /* WeChatSDK */ = {
-			isa = PBXGroup;
-			children = (
-				BAB725C420BCFCF500CD9A15 /* WXApi.h */,
-				BAB725C520BCFCF500CD9A15 /* WXApiObject.h */,
-				BAB725C620BCFCF500CD9A15 /* README.txt */,
-				BAB725C720BCFCF500CD9A15 /* WechatAuthSDK.h */,
-				BAB725C820BCFCF500CD9A15 /* libWeChatSDK.a */,
-			);
-			path = WeChatSDK;
-			sourceTree = "<group>";
-		};
-		BAB725C920BCFCF500CD9A15 /* APSocialSDK */ = {
-			isa = PBXGroup;
-			children = (
-				BAB725CA20BCFCF500CD9A15 /* libAPOpenSdk.a */,
-				BAB725CB20BCFCF500CD9A15 /* README.md */,
-				BAB725CC20BCFCF500CD9A15 /* APOpenAPIObject.h */,
-				BAB725CD20BCFCF500CD9A15 /* APOpenAPI.h */,
-			);
-			path = APSocialSDK;
-			sourceTree = "<group>";
-		};
-		BAB725CE20BCFCF500CD9A15 /* QQSDK */ = {
-			isa = PBXGroup;
-			children = (
-				BAB725CF20BCFCF500CD9A15 /* TencentOpenAPI.framework */,
-			);
-			path = QQSDK;
-			sourceTree = "<group>";
-		};
-		BAB725D020BCFCF500CD9A15 /* Required */ = {
-			isa = PBXGroup;
-			children = (
-				BAB725D120BCFCF500CD9A15 /* ShareSDKConnector.framework */,
-				BAB725D220BCFCF500CD9A15 /* ShareSDK.bundle */,
-			);
-			path = Required;
-			sourceTree = "<group>";
-		};
-		BAB725D320BCFCF500CD9A15 /* Optional */ = {
-			isa = PBXGroup;
-			children = (
-				BAB725D420BCFCF500CD9A15 /* ShareSDKUI.bundle */,
-				BAB725D520BCFCF500CD9A15 /* ShareSDKConfigFile.framework */,
-				BAB725D620BCFCF500CD9A15 /* ShareSDKExtension.framework */,
-				BAB725D720BCFCF500CD9A15 /* ShareSDKUI.framework */,
-				BAB725D820BCFCF500CD9A15 /* ShareSDKConfigFile.bundle */,
-			);
-			path = Optional;
-			sourceTree = "<group>";
-		};
-		BAB725D920BCFCF500CD9A15 /* PlatformConnector */ = {
-			isa = PBXGroup;
-			children = (
-				BAB725DA20BCFCF500CD9A15 /* QQConnector.framework */,
-				BAB725DB20BCFCF500CD9A15 /* AliPayConnector.framework */,
-				BAB725DC20BCFCF500CD9A15 /* WechatConnector.framework */,
-			);
-			path = PlatformConnector;
-			sourceTree = "<group>";
-		};
-		BAB725DE20BCFCF500CD9A15 /* Required */ = {
-			isa = PBXGroup;
-			children = (
-				BAB725DF20BCFCF500CD9A15 /* MOBFoundation.framework */,
-			);
-			path = Required;
 			sourceTree = "<group>";
 		};
 		BAB725F120BD010C00CD9A15 /* Redeem */ = {
@@ -1252,6 +1137,7 @@
 		BAC18398209AE0EB00209CCD /* MeMeDa */ = {
 			isa = PBXGroup;
 			children = (
+				BA311D3920D8F75700E1A58C /* MeMeDa.entitlements */,
 				BA945D96209AF98C001BE9E1 /* Utils */,
 				BA945D92209AEDCF001BE9E1 /* Entrance */,
 				BA945D90209AEC13001BE9E1 /* Profiles */,
@@ -1288,6 +1174,7 @@
 		BAE9EC5620BCF2E8006FEC19 /* SDKFrameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA311D3520D8F70900E1A58C /* MiPushSDK */,
 				BAB725BE20BCFCF500CD9A15 /* ShareSDK4.1.2 */,
 				BAB7254C20BCF34600CD9A15 /* NOSSDK */,
 			);
@@ -1433,6 +1320,13 @@
 		EB5D61D2B668D0FBF80F7471 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA311D4620D90DC200E1A58C /* libcoretls.tbd */,
+				BA311D4420D9057900E1A58C /* CoreTelephony.framework */,
+				BA311D4220D9056A00E1A58C /* MobileCoreServices.framework */,
+				BA311D4020D9056100E1A58C /* SystemConfiguration.framework */,
+				BA311D3E20D9055300E1A58C /* UserNotifications.framework */,
+				BA311D3C20D9052400E1A58C /* libxml2.tbd */,
+				BA311D3A20D9050D00E1A58C /* libresolv.tbd */,
 				BA58150B20BC2FF400BDDD3A /* libsqlite3.tbd */,
 				BA58150920BC2FE400BDDD3A /* JavaScriptCore.framework */,
 				BA58150720BC2FD400BDDD3A /* libstdc++.tbd */,
@@ -1477,6 +1371,11 @@
 				TargetAttributes = {
 					BAC18395209AE0EB00209CCD = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1506,12 +1405,7 @@
 				BAC183A6209AE0ED00209CCD /* LaunchScreen.storyboard in Resources */,
 				BAEE152720BBEB8800B1219B /* city.json in Resources */,
 				BA36518820A42705002B6C62 /* Baoli-SC-Regular.ttf in Resources */,
-				BAB725E320BCFCF500CD9A15 /* README.md in Resources */,
-				BAB725E620BCFCF500CD9A15 /* ShareSDK.bundle in Resources */,
 				BAC183A3209AE0ED00209CCD /* Assets.xcassets in Resources */,
-				BAB725E020BCFCF500CD9A15 /* README.txt in Resources */,
-				BAB725E720BCFCF500CD9A15 /* ShareSDKUI.bundle in Resources */,
-				BAB725EB20BCFCF500CD9A15 /* ShareSDKConfigFile.bundle in Resources */,
 				BAC183A1209AE0EC00209CCD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1562,6 +1456,7 @@
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/WalletResource.bundle",
 				"${PODS_ROOT}/RongCloudIM/RongCloudIM/BQMM.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Required/ShareSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -1581,6 +1476,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WalletResource.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BQMM.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1619,6 +1515,7 @@
 				BA1E2D0120AD6CD20060E91C /* HittestView.m in Sources */,
 				BACE61E620BE50DE001BE85D /* NSMutableArray+NMReverse.m in Sources */,
 				BA36519420A43462002B6C62 /* RankPicCollectVC.m in Sources */,
+				BA311D3220D8A56800E1A58C /* SettingsBtnTblCell.m in Sources */,
 				BAF2829020A96D7600625CF3 /* MessageListTVC.m in Sources */,
 				BAF2829520A9876800625CF3 /* UserInfoScrollBannerView.m in Sources */,
 				BA89D9AC20D11F21005B8210 /* ChatTBCell.m in Sources */,
@@ -1868,8 +1765,9 @@
 			baseConfigurationReference = 770F690336EFFB15E2145A2F /* Pods-MeMeDa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MeMeDa/MeMeDa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TYMF5CRH3T;
+				DEVELOPMENT_TEAM = 7H226S4K4M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDKFrameworks/ShareSDK4.1.2/SDK/ShareSDK/Support/Required",
@@ -1882,7 +1780,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MeMeDa/Profiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/MeMeDa/Profiles/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShareSDK4.1.2/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
@@ -1890,8 +1791,10 @@
 					"$(PROJECT_DIR)/ShareSDK4.1.2/SDK/ShareSDK/Support/PlatformSDK/APSocialSDK",
 					"$(PROJECT_DIR)/SDKFrameworks/ShareSDK4.1.2/SDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/SDKFrameworks/ShareSDK4.1.2/SDK/ShareSDK/Support/PlatformSDK/APSocialSDK",
+					"$(PROJECT_DIR)/SDKFrameworks/MiPushSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nemo.MMDa.MeMeDa;
+				MiSDKRun = debug;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kunkunzhou.MeMeDa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1902,8 +1805,9 @@
 			baseConfigurationReference = 6496C5B6F19AEB9EE8AEE1AA /* Pods-MeMeDa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MeMeDa/MeMeDa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TYMF5CRH3T;
+				DEVELOPMENT_TEAM = 7H226S4K4M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDKFrameworks/ShareSDK4.1.2/SDK/ShareSDK/Support/Required",
@@ -1916,7 +1820,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MeMeDa/Profiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/MeMeDa/Profiles/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShareSDK4.1.2/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
@@ -1924,8 +1831,10 @@
 					"$(PROJECT_DIR)/ShareSDK4.1.2/SDK/ShareSDK/Support/PlatformSDK/APSocialSDK",
 					"$(PROJECT_DIR)/SDKFrameworks/ShareSDK4.1.2/SDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/SDKFrameworks/ShareSDK4.1.2/SDK/ShareSDK/Support/PlatformSDK/APSocialSDK",
+					"$(PROJECT_DIR)/SDKFrameworks/MiPushSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nemo.MMDa.MeMeDa;
+				MiSDKRun = online;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kunkunzhou.MeMeDa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

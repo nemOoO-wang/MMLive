@@ -2,6 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>weixin</string>
+		<string>wechat</string>
+		<string>timapi</string>
+		<string>mqqapi</string>
+		<string>mqq</string>
+		<string>wtloginmqq2</string>
+		<string>mqqopensdkapiV3</string>
+		<string>mqqopensdkapiV2</string>
+		<string>mqqOpensdkSSoLogin</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -23,7 +35,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>tencent1106817451</string>
+				<string>tencent1106892596</string>
 			</array>
 		</dict>
 		<dict>
@@ -31,7 +43,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wx17318062756@163.com</string>
+				<string>wx8d815228ae6baef5</string>
 			</array>
 		</dict>
 	</array>
@@ -43,6 +55,12 @@
 	<string>25fac30f9aaea</string>
 	<key>MOBAppSecret</key>
 	<string>93e3f4113160b0df47800ef538e115e0</string>
+	<key>MiSDKAppID</key>
+	<string>2882303761517816378</string>
+	<key>MiSDKAppKey</key>
+	<string>5151781632378</string>
+	<key>MiSDKRun</key>
+	<string>${MiSDKRun}</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

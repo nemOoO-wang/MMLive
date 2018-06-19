@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+// 小米推送
+#import "MiPushSDK.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <MiPushSDKDelegate,      // <--
+                                    UNUserNotificationCenterDelegate,      // <-- iOS10+
+                                    UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
