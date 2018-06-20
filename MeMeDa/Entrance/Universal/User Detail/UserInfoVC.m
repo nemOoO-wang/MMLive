@@ -124,6 +124,7 @@
     if ([segue.identifier isEqualToString:@"menu"]) {
         UserInfoPopMenuVC *vc = [segue destinationViewController];
         vc.coverView = self.coverView;
+        vc.uid = self.dataDic[@"id"];
         [UIView animateWithDuration:0.5 animations:^{
             self.coverView.alpha = 0.5;
         }];

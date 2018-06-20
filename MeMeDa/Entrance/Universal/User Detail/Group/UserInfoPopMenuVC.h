@@ -11,6 +11,6 @@
 @interface UserInfoPopMenuVC : UIViewController
 
 @property (nonatomic,strong) UIView *coverView;
-
+@property (nonatomic,strong) NSNumber *uid;
 
 @end

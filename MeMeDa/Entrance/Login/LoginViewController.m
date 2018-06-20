@@ -12,6 +12,7 @@
 //#import <ShareSDKUI/ShareSDK+SSUI.h>
 #import "MD5Utils.h"
 #import "SHA1Utils.h"
+#import "MiPushSDK.h"
 
 
 @interface LoginViewController ()
@@ -38,6 +39,8 @@
         [SVProgressHUD showSuccessWithStatus:@"登录成功"];
         [[NSUserDefaults standardUserDefaults] setObject:data[@"data"][@"token"] forKey:@"token"];
         NSDictionary *uDic = data[@"data"];
+        NSString *miAlias = [NSString stringWithFormat:@"%ld",[uDic[@"id"] integerValue]];
+        [MiPushSDK setAlias:miAlias];
         [[NSUserDefaults standardUserDefaults] setObject:uDic forKey:@"UserData"];
         [self performSegueWithIdentifier:@"home" sender:nil];
         // 融云token

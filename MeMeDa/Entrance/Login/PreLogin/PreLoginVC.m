@@ -8,6 +8,7 @@
 //
 
 #import "PreLoginVC.h"
+#import "MiPushSDK.h"
 
 @interface PreLoginVC ()
 
@@ -21,6 +22,9 @@
     NSDictionary *paramDic = @{@"token":[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"token"]]};
     [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/getAll" andParam:nil andHeader:paramDic andSuccess:^(id data) {
         [self performSegueWithIdentifier:@"Home" sender:nil];
+        NSDictionary *tmpDic = MDUserDic;
+        NSString *miAlias = [NSString stringWithFormat:@"%ld",[tmpDic[@"id"] integerValue]];
+        [MiPushSDK setAlias:miAlias];
         [SVProgressHUD dismiss];
     } andFailed:^(NSString *str) {
         [self performSegueWithIdentifier:@"Login" sender:nil];

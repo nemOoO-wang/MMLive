@@ -41,6 +41,36 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)clickLaHei:(id)sender {
+    [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/black" andParam:@{@"userId":self.uid} andSuccess:^(id data) {
+        [SVProgressHUD showSuccessWithStatus:@"操作成功"];
+    }];
+}
+
+- (IBAction)clickJuBao:(id)sender {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"举报用户" message:@"请输入举报信息" preferredStyle:UIAlertControllerStyleAlert];
+    [alertVC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        [textField setPlaceholder:@"请输入举报信息"];
+    }];
+    UIAlertAction *act1 = [UIAlertAction actionWithTitle:@"提交" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // 提交
+        NSString *str = alertVC.textFields.firstObject.text;
+        if (!str) {
+            str = @"";
+        }
+        [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/report" andParam:@{@"reason":str, @"userId":self.uid} andSuccess:^(id data) {
+            [SVProgressHUD showSuccessWithStatus:@"操作成功"];
+        }];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertVC addAction:act1];
+    [alertVC addAction:cancel];
+    [self presentViewController:alertVC animated:YES completion:nil];
+}
+
+- (IBAction)clickFenXiang:(id)sender {
+}
+
 - (IBAction)didClickCancel:(id)sender {
     [self didsmissSelf];
 }

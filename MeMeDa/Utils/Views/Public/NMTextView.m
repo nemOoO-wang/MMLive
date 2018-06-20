@@ -45,5 +45,18 @@ IB_DESIGNABLE
     [textView resignFirstResponder];
 }
 
+-(BOOL)isEdited{
+    if (self.placeHolder) {
+        if ([self.text isEqualToString:self.placeHolder]) {
+            return NO;
+        }
+        return YES;
+    }else{
+        if ([self.text isEqualToString:@""]) {
+            return NO;
+        }
+        return YES;
+    }
+}
 
 @end

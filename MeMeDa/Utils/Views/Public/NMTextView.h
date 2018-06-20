@@ -23,5 +23,6 @@
 @property (nonatomic,assign) IBInspectable BOOL noEdge;
 @property (nonatomic,weak) NSObject<NMTextViewDelegate> *nm_delegate;
 
+-(BOOL)isEdited;
 
 @end
