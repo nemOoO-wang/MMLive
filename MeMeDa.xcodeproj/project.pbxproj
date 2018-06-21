@@ -36,6 +36,7 @@
 		BA36518C20A42C0E002B6C62 /* RankPresentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA36518B20A42C0E002B6C62 /* RankPresentVC.m */; };
 		BA36519020A43408002B6C62 /* RankPicCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA36518F20A43408002B6C62 /* RankPicCollectionCell.m */; };
 		BA36519420A43462002B6C62 /* RankPicCollectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA36519320A43462002B6C62 /* RankPicCollectVC.m */; };
+		BA3780C920DBB83400521EBC /* VideoCallVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3780C820DBB83400521EBC /* VideoCallVC.m */; };
 		BA39ACF120AC1FD8001EC158 /* MeCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA39ACF020AC1FD8001EC158 /* MeCenterViewController.m */; };
 		BA39ACF520AC22C8001EC158 /* MeThemeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA39ACF420AC22C8001EC158 /* MeThemeVC.m */; };
 		BA39ACF920AC2F9C001EC158 /* MeMomentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA39ACF820AC2F9C001EC158 /* MeMomentVC.m */; };
@@ -194,6 +195,8 @@
 		BA36518F20A43408002B6C62 /* RankPicCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankPicCollectionCell.m; sourceTree = "<group>"; };
 		BA36519220A43462002B6C62 /* RankPicCollectVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankPicCollectVC.h; sourceTree = "<group>"; };
 		BA36519320A43462002B6C62 /* RankPicCollectVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankPicCollectVC.m; sourceTree = "<group>"; };
+		BA3780C720DBB83400521EBC /* VideoCallVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCallVC.h; sourceTree = "<group>"; };
+		BA3780C820DBB83400521EBC /* VideoCallVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCallVC.m; sourceTree = "<group>"; };
 		BA39ACEF20AC1FD8001EC158 /* MeCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeCenterViewController.h; sourceTree = "<group>"; };
 		BA39ACF020AC1FD8001EC158 /* MeCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeCenterViewController.m; sourceTree = "<group>"; };
 		BA39ACF320AC22C8001EC158 /* MeThemeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeThemeVC.h; sourceTree = "<group>"; };
@@ -546,6 +549,7 @@
 		BA2D846E20BFE00B0027F905 /* Universal */ = {
 			isa = PBXGroup;
 			children = (
+				BA3780C620DBB81600521EBC /* VideoCall */,
 				BA84B1CD20CE4FC900839A6B /* User List */,
 				BA39ACF620AC2F89001EC158 /* Moment */,
 				BAF2828220A9306900625CF3 /* User Detail */,
@@ -628,6 +632,15 @@
 				BA36519320A43462002B6C62 /* RankPicCollectVC.m */,
 			);
 			path = NMRank;
+			sourceTree = "<group>";
+		};
+		BA3780C620DBB81600521EBC /* VideoCall */ = {
+			isa = PBXGroup;
+			children = (
+				BA3780C720DBB83400521EBC /* VideoCallVC.h */,
+				BA3780C820DBB83400521EBC /* VideoCallVC.m */,
+			);
+			path = VideoCall;
 			sourceTree = "<group>";
 		};
 		BA39ACEE20AC1FC2001EC158 /* Me */ = {
@@ -1372,6 +1385,9 @@
 					BAC18395209AE0EB00209CCD = {
 						CreatedOnToolsVersion = 9.3;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -1572,6 +1588,7 @@
 				BAA69EE9209C3FAA005138EA /* FemaleRuleVC.m in Sources */,
 				BA945DA8209AFC70001BE9E1 /* BeeNet.m in Sources */,
 				BAB725AC20BCF34700CD9A15 /* NOSStatTimeTask.m in Sources */,
+				BA3780C920DBB83400521EBC /* VideoCallVC.m in Sources */,
 				BA97C78220A0530B00F61694 /* SquareVC.m in Sources */,
 				BAB725BB20BCF34700CD9A15 /* NOSAFHTTPRequestOperation.m in Sources */,
 				BAF2828520A9309100625CF3 /* UserInfoVC.m in Sources */,

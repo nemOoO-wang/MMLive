@@ -3245,7 +3245,96 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc8-q4-xUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5951" y="6243"/>
+            <point key="canvasLocation" x="8122" y="5598"/>
+        </scene>
+        <!--Video CallVC-->
+        <scene sceneID="q9Y-ib-QoL">
+            <objects>
+                <viewController id="5Od-9d-UsV" customClass="VideoCallVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1jB-sQ-pie"/>
+                        <viewControllerLayoutGuide type="bottom" id="Asz-iN-q49"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4PI-G4-2rK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" clipsSubviews="YES" alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXI-an-4FI">
+                                <rect key="frame" x="-26" y="40" width="193" height="53"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ypS-YF-kIm">
+                                    <rect key="frame" x="0.0" y="0.0" width="193" height="53"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_seach" translatesAutoresizingMaskIntoConstraints="NO" id="fCL-wm-r5m">
+                                            <rect key="frame" x="35" y="6.5" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="LwH-dH-4ek"/>
+                                                <constraint firstAttribute="width" constant="40" id="XZm-CV-aj5"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOR-Sb-dlN">
+                                            <rect key="frame" x="82" y="6" width="31" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目前收入 20000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzQ-uz-aQX">
+                                            <rect key="frame" x="82" y="31" width="90" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="cOR-Sb-dlN" firstAttribute="top" secondItem="fCL-wm-r5m" secondAttribute="top" id="8ge-ZX-8wd"/>
+                                        <constraint firstItem="fCL-wm-r5m" firstAttribute="leading" secondItem="ypS-YF-kIm" secondAttribute="leading" constant="35" id="H2H-Lb-emf"/>
+                                        <constraint firstItem="gzQ-uz-aQX" firstAttribute="bottom" secondItem="fCL-wm-r5m" secondAttribute="bottom" id="gRG-Zu-fgr"/>
+                                        <constraint firstItem="gzQ-uz-aQX" firstAttribute="leading" secondItem="cOR-Sb-dlN" secondAttribute="leading" id="hC0-wH-dxV"/>
+                                        <constraint firstItem="cOR-Sb-dlN" firstAttribute="leading" secondItem="fCL-wm-r5m" secondAttribute="trailing" constant="7" id="t2A-ci-uoT"/>
+                                        <constraint firstItem="fCL-wm-r5m" firstAttribute="centerY" secondItem="ypS-YF-kIm" secondAttribute="centerY" id="x1b-c2-2At"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="193" id="Aqc-ce-eox"/>
+                                    <constraint firstAttribute="height" constant="53" id="fbX-ze-mNG"/>
+                                </constraints>
+                                <blurEffect style="dark"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="26.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </visualEffectView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBA-M4-Gxs">
+                                <rect key="frame" x="15" y="597" width="345" height="55"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Lxt-pL-ao1">
+                                    <rect key="frame" x="0.0" y="0.0" width="345" height="55"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <real key="value" value="27.5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="345" id="9bJ-H7-b3e"/>
+                                    <constraint firstAttribute="height" constant="55" id="eB0-Mt-L1D"/>
+                                </constraints>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lXI-an-4FI" firstAttribute="top" secondItem="1jB-sQ-pie" secondAttribute="bottom" constant="20" id="7ks-C3-IgR"/>
+                            <constraint firstItem="Asz-iN-q49" firstAttribute="top" secondItem="qBA-M4-Gxs" secondAttribute="bottom" constant="15" id="Bwa-gp-2ra"/>
+                            <constraint firstItem="qBA-M4-Gxs" firstAttribute="centerX" secondItem="4PI-G4-2rK" secondAttribute="centerX" id="WLv-At-1Vi"/>
+                            <constraint firstItem="lXI-an-4FI" firstAttribute="leading" secondItem="4PI-G4-2rK" secondAttribute="leading" constant="-26" id="kmQ-8N-vFO"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d7W-sl-8kw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7374" y="5597"/>
         </scene>
         <!--User Info Pop MenuVC-->
         <scene sceneID="YZu-Gm-OeY">
@@ -7322,7 +7411,7 @@
                                                     <rect key="frame" x="7" y="83" width="71" height="61"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeE-rL-xnX">
-                                                    <rect key="frame" x="28.5" y="71" width="28" height="70"/>
+                                                    <rect key="frame" x="28.5" y="70.5" width="28" height="70"/>
                                                     <fontDescription key="fontDescription" name="STBaoli-SC-Regular" family="Baoli SC" pointSize="50"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -9170,7 +9259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ODl-Zh-clE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5950" y="7053"/>
+            <point key="canvasLocation" x="8122" y="6409"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="EQC-8x-nAV">
@@ -9322,7 +9411,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dId-US-fMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4242" y="6243"/>
+            <point key="canvasLocation" x="9831" y="5598"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="GLy-1b-94r">
@@ -9519,7 +9608,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tne-Gb-wwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4241" y="7053"/>
+            <point key="canvasLocation" x="9831" y="6409"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="9G3-mR-M4D">
@@ -9700,7 +9789,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z43-SK-Ie8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5950" y="7751"/>
+            <point key="canvasLocation" x="8122" y="7107"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="8xA-Rg-jFj">
@@ -9853,7 +9942,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vrn-bQ-e8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5050" y="7053"/>
+            <point key="canvasLocation" x="9023" y="6409"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ZuL-AW-bQz">
@@ -9968,7 +10057,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DgK-yM-H39" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5052" y="6243"/>
+            <point key="canvasLocation" x="9022" y="5598"/>
         </scene>
         <!--找回密码-->
         <scene sceneID="ckI-jK-Kec">

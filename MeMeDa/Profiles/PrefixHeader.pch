@@ -12,11 +12,16 @@
 // Definition
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+/// user info
+#define MDUserDic ([[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"])
 /// 融云
 #define RCAPPKey @"cpj2xarlc78zn"
 #define RCAPPSecret @"HXsxYcwy88"
 #define RCUserToken ([[NSUserDefaults standardUserDefaults] objectForKey:@"RCToken"])
-#define MDUserDic ([[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"])
+/// 网易云 IM
+#define NEAPPKey @"32dd6ad20f8b1757e1c19b499874818a"
+#define NEUserAccount ([[NSUserDefaults standardUserDefaults] objectForKey:@"NEAccount"])
+#define NEUserToken ([[NSUserDefaults standardUserDefaults] objectForKey:@"NEToken"])
 // custom class
 #import "NMBlurView.h"
 #import "HittestView.h"

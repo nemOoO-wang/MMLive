@@ -13,6 +13,7 @@
 #import "MD5Utils.h"
 #import "SHA1Utils.h"
 #import "MiPushSDK.h"
+#import <NIMSDK/NIMSDK.h>
 
 
 @interface LoginViewController ()
@@ -39,8 +40,15 @@
         [SVProgressHUD showSuccessWithStatus:@"登录成功"];
         [[NSUserDefaults standardUserDefaults] setObject:data[@"data"][@"token"] forKey:@"token"];
         NSDictionary *uDic = data[@"data"];
+        // 小米 alias
         NSString *miAlias = [NSString stringWithFormat:@"%ld",[uDic[@"id"] integerValue]];
         [MiPushSDK setAlias:miAlias];
+        // 网易 im 登录
+        [[NSUserDefaults standardUserDefaults] setObject:uDic[@"easyId"] forKey:@"NEAccount"];
+        [[NSUserDefaults standardUserDefaults] setObject:uDic[@"easyToken"] forKey:@"NEToken"];
+        [[[NIMSDK sharedSDK] loginManager] login:NEUserAccount token:NEUserToken completion:^(NSError * _Nullable error) {
+            NSLog(@"%@",error.description);
+        }];
         [[NSUserDefaults standardUserDefaults] setObject:uDic forKey:@"UserData"];
         [self performSegueWithIdentifier:@"home" sender:nil];
         // 融云token

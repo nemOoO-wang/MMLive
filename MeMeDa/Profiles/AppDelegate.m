@@ -19,6 +19,9 @@
 #import <TencentOpenAPI/QQApiInterface.h>
 //微信SDK头文件
 #import "WXApi.h"
+// 网易云直播
+#import <NIMSDK/NIMSDK.h>
+
 
 @interface AppDelegate ()
 
@@ -95,6 +98,23 @@
                    break;
                    }
     }];
+    
+    // 网易云 IM
+    NIMSDKOption *opt = [NIMSDKOption optionWithAppKey:NEAPPKey];
+#ifdef DEBUG
+    opt.apnsCername = @"DevPushCertificatesCrypt";
+#else
+    opt.apnsCername = @"StorePushCertificatesCrypt";
+#endif
+    opt.pkCername = @"MMDVoiPCertificates";
+    [[NIMSDK sharedSDK] registerWithOption:opt];
+    if (NEUserAccount) {
+        [[[NIMSDK sharedSDK] loginManager] login:NEUserAccount token:NEUserToken completion:^(NSError * _Nullable error) {
+            NSLog(@"%@",error.description);
+        }];
+    }
+    //开启控制台调试
+    [[NIMSDK sharedSDK] enableConsoleLog];
     return YES;
 }
 
@@ -123,6 +143,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [[RCIMClient sharedRCIMClient] setDeviceToken:token];
     // 小米：注册APNS成功, 注册deviceToken
     [MiPushSDK bindDeviceToken:deviceToken];
+    // 网易云 IM 注册 token
+    [[NIMSDK sharedSDK] updateApnsToken:deviceToken];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
