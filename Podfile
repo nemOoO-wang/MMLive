@@ -16,6 +16,13 @@ target 'MeMeDa' do
   pod 'AGAsyncTestHelper/Shorthand'
   # 网易云直播
   pod 'NIMSDK'
+  pod 'NMCLiveStreaming'
+  pod 'NELivePlayer', '~> 1.7.0'
+  pod 'CocoaLumberjack'
+  pod 'Toast', '~> 2.4'
+  pod 'Reachability', '~> 3.1.1'
+  pod 'M80AttributedLabel', '~> 1.3.1'
+  pod 'SSZipArchive', '~> 1.2'
   # 融云
   pod 'RongCloudIM', '~> 2.9.0'
   # ShareSDK

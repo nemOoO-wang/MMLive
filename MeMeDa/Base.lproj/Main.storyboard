@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KVd-ZQ-GvC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Od-9d-UsV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -3259,6 +3259,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RFi-f0-tMV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <visualEffectView opaque="NO" clipsSubviews="YES" alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXI-an-4FI">
                                 <rect key="frame" x="-26" y="40" width="193" height="53"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ypS-YF-kIm">
@@ -3325,12 +3329,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="RFi-f0-tMV" firstAttribute="top" secondItem="4PI-G4-2rK" secondAttribute="top" id="5zr-Pm-Q0F"/>
                             <constraint firstItem="lXI-an-4FI" firstAttribute="top" secondItem="1jB-sQ-pie" secondAttribute="bottom" constant="20" id="7ks-C3-IgR"/>
+                            <constraint firstAttribute="trailing" secondItem="RFi-f0-tMV" secondAttribute="trailing" id="A4s-rL-wZR"/>
                             <constraint firstItem="Asz-iN-q49" firstAttribute="top" secondItem="qBA-M4-Gxs" secondAttribute="bottom" constant="15" id="Bwa-gp-2ra"/>
                             <constraint firstItem="qBA-M4-Gxs" firstAttribute="centerX" secondItem="4PI-G4-2rK" secondAttribute="centerX" id="WLv-At-1Vi"/>
+                            <constraint firstItem="RFi-f0-tMV" firstAttribute="leading" secondItem="4PI-G4-2rK" secondAttribute="leading" id="kiZ-VF-3ia"/>
+                            <constraint firstItem="Asz-iN-q49" firstAttribute="top" secondItem="RFi-f0-tMV" secondAttribute="bottom" id="kjm-m0-pla"/>
                             <constraint firstItem="lXI-an-4FI" firstAttribute="leading" secondItem="4PI-G4-2rK" secondAttribute="leading" constant="-26" id="kmQ-8N-vFO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="captureView" destination="RFi-f0-tMV" id="bti-4a-kUY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d7W-sl-8kw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

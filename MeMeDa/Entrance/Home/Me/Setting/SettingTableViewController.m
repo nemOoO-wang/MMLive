@@ -8,6 +8,7 @@
 
 #import "SettingTableViewController.h"
 #import "SettingsBtnTblCell.h"
+#import <NIMSDK/NIMSDK.h>
 
 
 @interface SettingTableViewController ()
@@ -54,8 +55,9 @@
                 // 退出
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"UserData"];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
-                [self.tabBarController dismissViewControllerAnimated:YES completion:^{
-                    
+                [self.tabBarController dismissViewControllerAnimated:YES completion:^{}];
+                // log out 网易云
+                [[[NIMSDK sharedSDK] loginManager] logout:^(NSError * _Nullable error) {
                 }];
                 break;
                 

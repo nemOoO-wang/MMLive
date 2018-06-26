@@ -22,6 +22,10 @@
 #define NEAPPKey @"32dd6ad20f8b1757e1c19b499874818a"
 #define NEUserAccount ([[NSUserDefaults standardUserDefaults] objectForKey:@"NEAccount"])
 #define NEUserToken ([[NSUserDefaults standardUserDefaults] objectForKey:@"NEToken"])
+#import <NIMSDK/NIMSDK.h>
+#import <NIMAVChat/NIMAVChat.h>
+#import <CocoaLumberjack/CocoaLumberjack.h>
+#import "NTESGlobalMacro.h"
 // custom class
 #import "NMBlurView.h"
 #import "HittestView.h"
@@ -32,5 +36,11 @@
 #import <UIImageView+WebCache.h>
 #import <UIButton+WebCache.h>
 #import <SVProgressHUD.h>
+
+#ifdef DEBUG
+static DDLogLevel ddLogLevel = DDLogLevelAll;
+#else
+static DDLogLevel ddLogLevel = DDLogLevelAll;
+#endif
 
 #endif /* PrefixHeader_pch */

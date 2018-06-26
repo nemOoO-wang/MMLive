@@ -102,16 +102,18 @@
     // 网易云 IM
     NIMSDKOption *opt = [NIMSDKOption optionWithAppKey:NEAPPKey];
 #ifdef DEBUG
-    opt.apnsCername = @"DevPushCertificatesCrypt";
+    opt.apnsCername = @"DevCertificates123";
 #else
-    opt.apnsCername = @"StorePushCertificatesCrypt";
+    opt.apnsCername = @"StoreCertificates123";
 #endif
     opt.pkCername = @"MMDVoiPCertificates";
     [[NIMSDK sharedSDK] registerWithOption:opt];
     if (NEUserAccount) {
-        [[[NIMSDK sharedSDK] loginManager] login:NEUserAccount token:NEUserToken completion:^(NSError * _Nullable error) {
-            NSLog(@"%@",error.description);
-        }];
+        [[[NIMSDK sharedSDK] loginManager] autoLogin:NEUserAccount token:NEUserToken];
+//        [[[NIMSDK sharedSDK] loginManager] login:NEUserAccount token:NEUserToken completion:^(NSError * _Nullable error) {
+//            NSLog(@"%@",error.description);
+//        }];
+        
     }
     //开启控制台调试
     [[NIMSDK sharedSDK] enableConsoleLog];
