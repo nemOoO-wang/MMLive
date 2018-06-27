@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9E29EB24BE0F06C24C812114 /* libPods-MeMeDa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E173A2679BB199D3B832504A /* libPods-MeMeDa.a */; };
 		BA15FB9C20E2AD900066F0B0 /* NTESChatroomMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = BA15FB2820E2AD900066F0B0 /* NTESChatroomMaker.m */; };
-		BA15FB9E20E2AD900066F0B0 /* NTESLiveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA15FB2B20E2AD900066F0B0 /* NTESLiveManager.m */; };
 		BA15FB9F20E2AD900066F0B0 /* NTESPresent.m in Sources */ = {isa = PBXBuildFile; fileRef = BA15FB2F20E2AD900066F0B0 /* NTESPresent.m */; };
 		BA15FBA020E2AD900066F0B0 /* NTESLikeAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = BA15FB3720E2AD900066F0B0 /* NTESLikeAttachment.m */; };
 		BA15FBA120E2AD900066F0B0 /* NTESPresentAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = BA15FB3820E2AD900066F0B0 /* NTESPresentAttachment.m */; };
@@ -93,6 +92,24 @@
 		BA47FC2020E0E304002326D4 /* NTESPinyinConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA47FC0120E0E303002326D4 /* NTESPinyinConverter.m */; };
 		BA47FC2120E0E304002326D4 /* NTESSpellingCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA47FC0320E0E303002326D4 /* NTESSpellingCenter.m */; };
 		BA47FC2220E0E304002326D4 /* NTESDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA47FC0520E0E303002326D4 /* NTESDataManager.m */; };
+		BA5498F420E2EBFE00C52FF1 /* VCallVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5498F320E2EBFE00C52FF1 /* VCallVC.m */; };
+		BA5498F720E2F9CD00C52FF1 /* NTESGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5498F620E2F9CD00C52FF1 /* NTESGLView.m */; };
+		BA54991F20E2FA7500C52FF1 /* renderer_yuv444p10le.c in Sources */ = {isa = PBXBuildFile; fileRef = BA5498FD20E2FA7500C52FF1 /* renderer_yuv444p10le.c */; };
+		BA54992020E2FA7500C52FF1 /* common.c in Sources */ = {isa = PBXBuildFile; fileRef = BA5498FE20E2FA7500C52FF1 /* common.c */; };
+		BA54992120E2FA7500C52FF1 /* mvp.vsh.c in Sources */ = {isa = PBXBuildFile; fileRef = BA54990120E2FA7500C52FF1 /* mvp.vsh.c */; };
+		BA54992220E2FA7500C52FF1 /* renderer_rgb.c in Sources */ = {isa = PBXBuildFile; fileRef = BA54990220E2FA7500C52FF1 /* renderer_rgb.c */; };
+		BA54992320E2FA7500C52FF1 /* renderer_yuv420p.c in Sources */ = {isa = PBXBuildFile; fileRef = BA54990320E2FA7500C52FF1 /* renderer_yuv420p.c */; };
+		BA54992420E2FA7500C52FF1 /* renderer_yuv420sp.c in Sources */ = {isa = PBXBuildFile; fileRef = BA54990420E2FA7500C52FF1 /* renderer_yuv420sp.c */; };
+		BA54992520E2FA7500C52FF1 /* shader.c in Sources */ = {isa = PBXBuildFile; fileRef = BA54990520E2FA7500C52FF1 /* shader.c */; };
+		BA54992620E2FA7500C52FF1 /* renderer.c in Sources */ = {isa = PBXBuildFile; fileRef = BA54990620E2FA7500C52FF1 /* renderer.c */; };
+		BA54992720E2FA7500C52FF1 /* yuv444p10le.fsh.c in Sources */ = {isa = PBXBuildFile; fileRef = BA54990820E2FA7500C52FF1 /* yuv444p10le.fsh.c */; };
+		BA54992820E2FA7500C52FF1 /* yuv420p.fsh.c in Sources */ = {isa = PBXBuildFile; fileRef = BA54990920E2FA7500C52FF1 /* yuv420p.fsh.c */; };
+		BA54992920E2FA7500C52FF1 /* yuv420sp.fsh.c in Sources */ = {isa = PBXBuildFile; fileRef = BA54990A20E2FA7500C52FF1 /* yuv420sp.fsh.c */; };
+		BA54992A20E2FA7500C52FF1 /* rgb.fsh.c in Sources */ = {isa = PBXBuildFile; fileRef = BA54990B20E2FA7500C52FF1 /* rgb.fsh.c */; };
+		BA54992B20E2FA7500C52FF1 /* color.c in Sources */ = {isa = PBXBuildFile; fileRef = BA54990C20E2FA7500C52FF1 /* color.c */; };
+		BA54992C20E2FA7500C52FF1 /* IJKSDLGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA54991620E2FA7500C52FF1 /* IJKSDLGLView.m */; };
+		BA54992D20E2FA7500C52FF1 /* ijksdl_timer.c in Sources */ = {isa = PBXBuildFile; fileRef = BA54991E20E2FA7500C52FF1 /* ijksdl_timer.c */; };
+		BA54993020E2FCEE00C52FF1 /* VCallAudienceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA54992F20E2FCEE00C52FF1 /* VCallAudienceVC.m */; };
 		BA55F51D20C3E35E00F024FE /* NMPicsBlowser.m in Sources */ = {isa = PBXBuildFile; fileRef = BA55F51C20C3E35E00F024FE /* NMPicsBlowser.m */; };
 		BA55F52020C3FFA700F024FE /* UIWindow+NMCurrent.m in Sources */ = {isa = PBXBuildFile; fileRef = BA55F51F20C3FFA700F024FE /* UIWindow+NMCurrent.m */; };
 		BA55F52620C41A8500F024FE /* NMImgBroser.m in Sources */ = {isa = PBXBuildFile; fileRef = BA55F52520C41A8500F024FE /* NMImgBroser.m */; };
@@ -108,6 +125,8 @@
 		BA86CA0F20A1636D00F21980 /* SquareHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA0E20A1636D00F21980 /* SquareHeaderCell.m */; };
 		BA86CA1220A1638B00F21980 /* SquareListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA1120A1638B00F21980 /* SquareListCell.m */; };
 		BA86CA1620A1712600F21980 /* SquareSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA1520A1712600F21980 /* SquareSearchVC.m */; };
+		BA8818FD20E369A100BCDD17 /* VCCallMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8818FC20E369A100BCDD17 /* VCCallMenuView.m */; };
+		BA88190220E3726D00BCDD17 /* NMFloatView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA88190120E3726D00BCDD17 /* NMFloatView.m */; };
 		BA89D9A820D0F675005B8210 /* SHA1Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89D9A720D0F675005B8210 /* SHA1Utils.m */; };
 		BA89D9AC20D11F21005B8210 /* ChatTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89D9AB20D11F21005B8210 /* ChatTBCell.m */; };
 		BA89D9AF20D26878005B8210 /* ChatContentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89D9AE20D26878005B8210 /* ChatContentButton.m */; };
@@ -196,8 +215,6 @@
 		6496C5B6F19AEB9EE8AEE1AA /* Pods-MeMeDa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeMeDa.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa.release.xcconfig"; sourceTree = "<group>"; };
 		770F690336EFFB15E2145A2F /* Pods-MeMeDa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeMeDa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeMeDa/Pods-MeMeDa.debug.xcconfig"; sourceTree = "<group>"; };
 		BA15FB2820E2AD900066F0B0 /* NTESChatroomMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESChatroomMaker.m; sourceTree = "<group>"; };
-		BA15FB2B20E2AD900066F0B0 /* NTESLiveManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESLiveManager.m; sourceTree = "<group>"; };
-		BA15FB2C20E2AD900066F0B0 /* NTESLiveManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESLiveManager.h; sourceTree = "<group>"; };
 		BA15FB2F20E2AD900066F0B0 /* NTESPresent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESPresent.m; sourceTree = "<group>"; };
 		BA15FB3020E2AD900066F0B0 /* NTESMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESMessageModel.h; sourceTree = "<group>"; };
 		BA15FB3120E2AD900066F0B0 /* NTESSessionMsgConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESSessionMsgConverter.h; sourceTree = "<group>"; };
@@ -365,6 +382,46 @@
 		BA47FC0420E0E303002326D4 /* NTESPinyinConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESPinyinConverter.h; sourceTree = "<group>"; };
 		BA47FC0520E0E303002326D4 /* NTESDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESDataManager.m; sourceTree = "<group>"; };
 		BA47FC2420E0E867002326D4 /* NTESLiveViewDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESLiveViewDefine.h; sourceTree = "<group>"; };
+		BA5498F220E2EBFD00C52FF1 /* VCallVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCallVC.h; sourceTree = "<group>"; };
+		BA5498F320E2EBFE00C52FF1 /* VCallVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCallVC.m; sourceTree = "<group>"; };
+		BA5498F520E2F9CD00C52FF1 /* NTESGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESGLView.h; sourceTree = "<group>"; };
+		BA5498F620E2F9CD00C52FF1 /* NTESGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESGLView.m; sourceTree = "<group>"; };
+		BA5498F920E2FA7500C52FF1 /* ijksdl_gles2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_gles2.h; sourceTree = "<group>"; };
+		BA5498FA20E2FA7500C52FF1 /* ijksdl_stdinc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_stdinc.h; sourceTree = "<group>"; };
+		BA5498FB20E2FA7500C52FF1 /* ijksdl_vout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_vout.h; sourceTree = "<group>"; };
+		BA5498FD20E2FA7500C52FF1 /* renderer_yuv444p10le.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = renderer_yuv444p10le.c; sourceTree = "<group>"; };
+		BA5498FE20E2FA7500C52FF1 /* common.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = common.c; sourceTree = "<group>"; };
+		BA5498FF20E2FA7500C52FF1 /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
+		BA54990120E2FA7500C52FF1 /* mvp.vsh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mvp.vsh.c; sourceTree = "<group>"; };
+		BA54990220E2FA7500C52FF1 /* renderer_rgb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = renderer_rgb.c; sourceTree = "<group>"; };
+		BA54990320E2FA7500C52FF1 /* renderer_yuv420p.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = renderer_yuv420p.c; sourceTree = "<group>"; };
+		BA54990420E2FA7500C52FF1 /* renderer_yuv420sp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = renderer_yuv420sp.c; sourceTree = "<group>"; };
+		BA54990520E2FA7500C52FF1 /* shader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = shader.c; sourceTree = "<group>"; };
+		BA54990620E2FA7500C52FF1 /* renderer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = renderer.c; sourceTree = "<group>"; };
+		BA54990820E2FA7500C52FF1 /* yuv444p10le.fsh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yuv444p10le.fsh.c; sourceTree = "<group>"; };
+		BA54990920E2FA7500C52FF1 /* yuv420p.fsh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yuv420p.fsh.c; sourceTree = "<group>"; };
+		BA54990A20E2FA7500C52FF1 /* yuv420sp.fsh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yuv420sp.fsh.c; sourceTree = "<group>"; };
+		BA54990B20E2FA7500C52FF1 /* rgb.fsh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rgb.fsh.c; sourceTree = "<group>"; };
+		BA54990C20E2FA7500C52FF1 /* color.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = color.c; sourceTree = "<group>"; };
+		BA54990D20E2FA7500C52FF1 /* ijksdl_mutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_mutex.h; sourceTree = "<group>"; };
+		BA54990E20E2FA7500C52FF1 /* ijksdl_fourcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_fourcc.h; sourceTree = "<group>"; };
+		BA54990F20E2FA7500C52FF1 /* ijksdl_video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_video.h; sourceTree = "<group>"; };
+		BA54991020E2FA7500C52FF1 /* ijksdl_endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_endian.h; sourceTree = "<group>"; };
+		BA54991120E2FA7500C52FF1 /* ijksdl_class.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_class.h; sourceTree = "<group>"; };
+		BA54991220E2FA7500C52FF1 /* ijksdl_timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_timer.h; sourceTree = "<group>"; };
+		BA54991320E2FA7500C52FF1 /* ijksdl_inc_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_inc_internal.h; sourceTree = "<group>"; };
+		BA54991520E2FA7500C52FF1 /* ijksdl_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_ios.h; sourceTree = "<group>"; };
+		BA54991620E2FA7500C52FF1 /* IJKSDLGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJKSDLGLView.m; sourceTree = "<group>"; };
+		BA54991720E2FA7500C52FF1 /* ijksdl_vout_overlay_videotoolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_vout_overlay_videotoolbox.h; sourceTree = "<group>"; };
+		BA54991820E2FA7500C52FF1 /* IJKSDLGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKSDLGLView.h; sourceTree = "<group>"; };
+		BA54991920E2FA7500C52FF1 /* ijksdl_thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_thread.h; sourceTree = "<group>"; };
+		BA54991A20E2FA7500C52FF1 /* ijksdl_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_log.h; sourceTree = "<group>"; };
+		BA54991B20E2FA7500C52FF1 /* ijksdl_misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_misc.h; sourceTree = "<group>"; };
+		BA54991C20E2FA7500C52FF1 /* ijksdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl.h; sourceTree = "<group>"; };
+		BA54991D20E2FA7500C52FF1 /* ijksdl_error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ijksdl_error.h; sourceTree = "<group>"; };
+		BA54991E20E2FA7500C52FF1 /* ijksdl_timer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ijksdl_timer.c; sourceTree = "<group>"; };
+		BA54992E20E2FCEE00C52FF1 /* VCallAudienceVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCallAudienceVC.h; sourceTree = "<group>"; };
+		BA54992F20E2FCEE00C52FF1 /* VCallAudienceVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCallAudienceVC.m; sourceTree = "<group>"; };
 		BA55F51B20C3E35E00F024FE /* NMPicsBlowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMPicsBlowser.h; sourceTree = "<group>"; };
 		BA55F51C20C3E35E00F024FE /* NMPicsBlowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMPicsBlowser.m; sourceTree = "<group>"; };
 		BA55F51E20C3FFA700F024FE /* UIWindow+NMCurrent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWindow+NMCurrent.h"; sourceTree = "<group>"; };
@@ -390,6 +447,10 @@
 		BA86CA1120A1638B00F21980 /* SquareListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareListCell.m; sourceTree = "<group>"; };
 		BA86CA1420A1712600F21980 /* SquareSearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareSearchVC.h; sourceTree = "<group>"; };
 		BA86CA1520A1712600F21980 /* SquareSearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareSearchVC.m; sourceTree = "<group>"; };
+		BA8818FB20E369A100BCDD17 /* VCCallMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCCallMenuView.h; sourceTree = "<group>"; };
+		BA8818FC20E369A100BCDD17 /* VCCallMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCCallMenuView.m; sourceTree = "<group>"; };
+		BA88190020E3726D00BCDD17 /* NMFloatView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMFloatView.h; sourceTree = "<group>"; };
+		BA88190120E3726D00BCDD17 /* NMFloatView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMFloatView.m; sourceTree = "<group>"; };
 		BA89D9A620D0F675005B8210 /* SHA1Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHA1Utils.h; sourceTree = "<group>"; };
 		BA89D9A720D0F675005B8210 /* SHA1Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHA1Utils.m; sourceTree = "<group>"; };
 		BA89D9AA20D11F21005B8210 /* ChatTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatTBCell.h; sourceTree = "<group>"; };
@@ -603,15 +664,6 @@
 			path = LiveroomView;
 			sourceTree = "<group>";
 		};
-		BA15FB2A20E2AD900066F0B0 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				BA15FB2B20E2AD900066F0B0 /* NTESLiveManager.m */,
-				BA15FB2C20E2AD900066F0B0 /* NTESLiveManager.h */,
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
 		BA15FB2E20E2AD900066F0B0 /* Object */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,7 +741,6 @@
 				BA15FBD320E2B2930066F0B0 /* include */,
 				BA15FB2820E2AD900066F0B0 /* NTESChatroomMaker.m */,
 				BA15FB4E20E2AD900066F0B0 /* NTESChatroomMaker.h */,
-				BA15FB2A20E2AD900066F0B0 /* Manager */,
 				BA15FB2E20E2AD900066F0B0 /* Object */,
 			);
 			path = Tools;
@@ -716,6 +767,9 @@
 		BA15FC3F20E2CF2B0066F0B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BA5498F820E2FA7500C52FF1 /* ijksdl */,
+				BA5498F520E2F9CD00C52FF1 /* NTESGLView.h */,
+				BA5498F620E2F9CD00C52FF1 /* NTESGLView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -920,9 +974,9 @@
 		BA3780C620DBB81600521EBC /* VideoCall */ = {
 			isa = PBXGroup;
 			children = (
-				BA15FBD620E2B92B0066F0B0 /* View */,
-				BA3780C720DBB83400521EBC /* VideoCallVC.h */,
-				BA3780C820DBB83400521EBC /* VideoCallVC.m */,
+				BA8818FF20E3725D00BCDD17 /* float view */,
+				BA8818F920E33BBA00BCDD17 /* t */,
+				BA8818FE20E3725000BCDD17 /* Archive */,
 			);
 			path = VideoCall;
 			sourceTree = "<group>";
@@ -1112,6 +1166,88 @@
 			path = Spelling;
 			sourceTree = "<group>";
 		};
+		BA5498F120E2EBDE00C52FF1 /* Audience */ = {
+			isa = PBXGroup;
+			children = (
+				BA54992E20E2FCEE00C52FF1 /* VCallAudienceVC.h */,
+				BA54992F20E2FCEE00C52FF1 /* VCallAudienceVC.m */,
+			);
+			path = Audience;
+			sourceTree = "<group>";
+		};
+		BA5498F820E2FA7500C52FF1 /* ijksdl */ = {
+			isa = PBXGroup;
+			children = (
+				BA5498F920E2FA7500C52FF1 /* ijksdl_gles2.h */,
+				BA5498FA20E2FA7500C52FF1 /* ijksdl_stdinc.h */,
+				BA5498FB20E2FA7500C52FF1 /* ijksdl_vout.h */,
+				BA5498FC20E2FA7500C52FF1 /* gles2 */,
+				BA54990D20E2FA7500C52FF1 /* ijksdl_mutex.h */,
+				BA54990E20E2FA7500C52FF1 /* ijksdl_fourcc.h */,
+				BA54990F20E2FA7500C52FF1 /* ijksdl_video.h */,
+				BA54991020E2FA7500C52FF1 /* ijksdl_endian.h */,
+				BA54991120E2FA7500C52FF1 /* ijksdl_class.h */,
+				BA54991220E2FA7500C52FF1 /* ijksdl_timer.h */,
+				BA54991320E2FA7500C52FF1 /* ijksdl_inc_internal.h */,
+				BA54991420E2FA7500C52FF1 /* ios */,
+				BA54991920E2FA7500C52FF1 /* ijksdl_thread.h */,
+				BA54991A20E2FA7500C52FF1 /* ijksdl_log.h */,
+				BA54991B20E2FA7500C52FF1 /* ijksdl_misc.h */,
+				BA54991C20E2FA7500C52FF1 /* ijksdl.h */,
+				BA54991D20E2FA7500C52FF1 /* ijksdl_error.h */,
+				BA54991E20E2FA7500C52FF1 /* ijksdl_timer.c */,
+			);
+			path = ijksdl;
+			sourceTree = "<group>";
+		};
+		BA5498FC20E2FA7500C52FF1 /* gles2 */ = {
+			isa = PBXGroup;
+			children = (
+				BA5498FD20E2FA7500C52FF1 /* renderer_yuv444p10le.c */,
+				BA5498FE20E2FA7500C52FF1 /* common.c */,
+				BA5498FF20E2FA7500C52FF1 /* internal.h */,
+				BA54990020E2FA7500C52FF1 /* vsh */,
+				BA54990220E2FA7500C52FF1 /* renderer_rgb.c */,
+				BA54990320E2FA7500C52FF1 /* renderer_yuv420p.c */,
+				BA54990420E2FA7500C52FF1 /* renderer_yuv420sp.c */,
+				BA54990520E2FA7500C52FF1 /* shader.c */,
+				BA54990620E2FA7500C52FF1 /* renderer.c */,
+				BA54990720E2FA7500C52FF1 /* fsh */,
+				BA54990C20E2FA7500C52FF1 /* color.c */,
+			);
+			path = gles2;
+			sourceTree = "<group>";
+		};
+		BA54990020E2FA7500C52FF1 /* vsh */ = {
+			isa = PBXGroup;
+			children = (
+				BA54990120E2FA7500C52FF1 /* mvp.vsh.c */,
+			);
+			path = vsh;
+			sourceTree = "<group>";
+		};
+		BA54990720E2FA7500C52FF1 /* fsh */ = {
+			isa = PBXGroup;
+			children = (
+				BA54990820E2FA7500C52FF1 /* yuv444p10le.fsh.c */,
+				BA54990920E2FA7500C52FF1 /* yuv420p.fsh.c */,
+				BA54990A20E2FA7500C52FF1 /* yuv420sp.fsh.c */,
+				BA54990B20E2FA7500C52FF1 /* rgb.fsh.c */,
+			);
+			path = fsh;
+			sourceTree = "<group>";
+		};
+		BA54991420E2FA7500C52FF1 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				BA54991520E2FA7500C52FF1 /* ijksdl_ios.h */,
+				BA54991620E2FA7500C52FF1 /* IJKSDLGLView.m */,
+				BA54991720E2FA7500C52FF1 /* ijksdl_vout_overlay_videotoolbox.h */,
+				BA54991820E2FA7500C52FF1 /* IJKSDLGLView.h */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
 		BA55F51A20C3E32F00F024FE /* ImgBroser */ = {
 			isa = PBXGroup;
 			children = (
@@ -1183,6 +1319,45 @@
 				BA86CA1520A1712600F21980 /* SquareSearchVC.m */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		BA8818F920E33BBA00BCDD17 /* t */ = {
+			isa = PBXGroup;
+			children = (
+				BA8818FA20E3698D00BCDD17 /* MenuView */,
+				BA5498F220E2EBFD00C52FF1 /* VCallVC.h */,
+				BA5498F320E2EBFE00C52FF1 /* VCallVC.m */,
+			);
+			path = t;
+			sourceTree = "<group>";
+		};
+		BA8818FA20E3698D00BCDD17 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				BA8818FB20E369A100BCDD17 /* VCCallMenuView.h */,
+				BA8818FC20E369A100BCDD17 /* VCCallMenuView.m */,
+			);
+			path = MenuView;
+			sourceTree = "<group>";
+		};
+		BA8818FE20E3725000BCDD17 /* Archive */ = {
+			isa = PBXGroup;
+			children = (
+				BA5498F120E2EBDE00C52FF1 /* Audience */,
+				BA15FBD620E2B92B0066F0B0 /* View */,
+				BA3780C720DBB83400521EBC /* VideoCallVC.h */,
+				BA3780C820DBB83400521EBC /* VideoCallVC.m */,
+			);
+			path = Archive;
+			sourceTree = "<group>";
+		};
+		BA8818FF20E3725D00BCDD17 /* float view */ = {
+			isa = PBXGroup;
+			children = (
+				BA88190020E3726D00BCDD17 /* NMFloatView.h */,
+				BA88190120E3726D00BCDD17 /* NMFloatView.m */,
+			);
+			path = "float view";
 			sourceTree = "<group>";
 		};
 		BA89D9A920D11F07005B8210 /* cell */ = {
@@ -1955,6 +2130,7 @@
 				BA1E2D0120AD6CD20060E91C /* HittestView.m in Sources */,
 				BACE61E620BE50DE001BE85D /* NSMutableArray+NMReverse.m in Sources */,
 				BA36519420A43462002B6C62 /* RankPicCollectVC.m in Sources */,
+				BA8818FD20E369A100BCDD17 /* VCCallMenuView.m in Sources */,
 				BA311D3220D8A56800E1A58C /* SettingsBtnTblCell.m in Sources */,
 				BAF2829020A96D7600625CF3 /* MessageListTVC.m in Sources */,
 				BAF2829520A9876800625CF3 /* UserInfoScrollBannerView.m in Sources */,
@@ -1968,6 +2144,7 @@
 				BA1E2D0820AD72FF0060E91C /* ContactUsViewController.m in Sources */,
 				BA15FBA720E2AD900066F0B0 /* NTESSessionMsgConverter.m in Sources */,
 				BAFF8E8420C65E330076762F /* NMClickVideoView.m in Sources */,
+				BA54992020E2FA7500C52FF1 /* common.c in Sources */,
 				BA945DAA209AFC70001BE9E1 /* UIColor+BeeColor.m in Sources */,
 				BA47FC0D20E0E304002326D4 /* UIImage+NTES.m in Sources */,
 				BAB725AF20BCF34700CD9A15 /* NOSHttpManager.m in Sources */,
@@ -1985,16 +2162,22 @@
 				BA945DA9209AFC70001BE9E1 /* MD5Utils.m in Sources */,
 				BA97C777209FFA9200F61694 /* RegistInfoVC.m in Sources */,
 				BA36518C20A42C0E002B6C62 /* RankPresentVC.m in Sources */,
+				BA54992220E2FA7500C52FF1 /* renderer_rgb.c in Sources */,
 				BA39AD0120AC3882001EC158 /* NewMomentVC.m in Sources */,
 				BAFF8E7E20C62E2A0076762F /* ImageOnlyController.m in Sources */,
+				BA54992420E2FA7500C52FF1 /* renderer_yuv420sp.c in Sources */,
 				BA47FC1E20E0E304002326D4 /* NTESLiveUtil.m in Sources */,
+				BA88190220E3726D00BCDD17 /* NMFloatView.m in Sources */,
 				BAB725A920BCF34700CD9A15 /* NOSConfig.m in Sources */,
+				BA54992C20E2FA7500C52FF1 /* IJKSDLGLView.m in Sources */,
 				BAB725A020BCF34700CD9A15 /* NOSUploadOption.m in Sources */,
 				BA47FC0A20E0E304002326D4 /* UIActionSheet+NTESBlock.m in Sources */,
 				BAB725A520BCF34700CD9A15 /* NOSIPUtils.m in Sources */,
 				BA89D9AF20D26878005B8210 /* ChatContentButton.m in Sources */,
 				BA15FBDC20E2C4490066F0B0 /* AVAnchorContainerView.m in Sources */,
+				BA54992820E2FA7500C52FF1 /* yuv420p.fsh.c in Sources */,
 				BAEE152520BBE47100B1219B /* RegistNewPhoneVC.m in Sources */,
+				BA54992720E2FA7500C52FF1 /* yuv444p10le.fsh.c in Sources */,
 				BA47FC0B20E0E304002326D4 /* UIScrollView+NTESPullToRefresh.m in Sources */,
 				BAF2828820A93ED600625CF3 /* UserInfoPopMenuVC.m in Sources */,
 				BA1FAB8F20C77B2C00F386F9 /* EditMeVC.m in Sources */,
@@ -2019,6 +2202,7 @@
 				BAEE7FD020A2E1A3000EA5E4 /* SquareSearchGenderButton.m in Sources */,
 				BA1FAB9320C7C3CA00F386F9 /* EditMeRecordAudio.m in Sources */,
 				BAB725A120BCF34700CD9A15 /* NOSHmacSha1.m in Sources */,
+				BA54992B20E2FA7500C52FF1 /* color.c in Sources */,
 				BAEE7FC320A2D61B000EA5E4 /* SquareListGirlsCell.m in Sources */,
 				BA39ACF920AC2F9C001EC158 /* MeMomentVC.m in Sources */,
 				BAB725AD20BCF34700CD9A15 /* NOSLbsInfo.m in Sources */,
@@ -2037,6 +2221,7 @@
 				BAA69EE9209C3FAA005138EA /* FemaleRuleVC.m in Sources */,
 				BA945DA8209AFC70001BE9E1 /* BeeNet.m in Sources */,
 				BA15FBA520E2AD900066F0B0 /* NTESMicConnector.m in Sources */,
+				BA54992920E2FA7500C52FF1 /* yuv420sp.fsh.c in Sources */,
 				BAB725AC20BCF34700CD9A15 /* NOSStatTimeTask.m in Sources */,
 				BA3780C920DBB83400521EBC /* VideoCallVC.m in Sources */,
 				BA97C78220A0530B00F61694 /* SquareVC.m in Sources */,
@@ -2054,6 +2239,7 @@
 				BA47FBC220E0CA89002326D4 /* NTESLoginManager.m in Sources */,
 				BA2D846D20BF9DE80027F905 /* HomeTabMenuVC.m in Sources */,
 				BA36519020A43408002B6C62 /* RankPicCollectionCell.m in Sources */,
+				BA54992320E2FA7500C52FF1 /* renderer_yuv420p.c in Sources */,
 				BA89D9A820D0F675005B8210 /* SHA1Utils.m in Sources */,
 				BAEE7FBF20A2D5C5000EA5E4 /* SquareListVC.m in Sources */,
 				BA84B1C820CE160700839A6B /* NMLongPressButton.m in Sources */,
@@ -2062,11 +2248,14 @@
 				BAB725B820BCF34700CD9A15 /* NOSAFHTTPSessionManager.m in Sources */,
 				BA39ACFC20AC3083001EC158 /* MeMommentCollectionCell.m in Sources */,
 				BA55F52020C3FFA700F024FE /* UIWindow+NMCurrent.m in Sources */,
+				BA5498F420E2EBFE00C52FF1 /* VCallVC.m in Sources */,
 				BA47FC2220E0E304002326D4 /* NTESDataManager.m in Sources */,
 				BA945DA7209AFC70001BE9E1 /* BeeNetCallback.m in Sources */,
 				BA47FC1620E0E304002326D4 /* NTESLogViewController.m in Sources */,
+				BA54992120E2FA7500C52FF1 /* mvp.vsh.c in Sources */,
 				BA86CA1220A1638B00F21980 /* SquareListCell.m in Sources */,
 				BAB0F784209B07BE00E8CCC7 /* NMRegTextField.m in Sources */,
+				BA5498F720E2F9CD00C52FF1 /* NTESGLView.m in Sources */,
 				BA1E2D0F20AD7A740060E91C /* PacketVC.m in Sources */,
 				BAB725AA20BCF34700CD9A15 /* NOSBase64.m in Sources */,
 				BAA69EEF209C5744005138EA /* FemaleRuleSelVC.m in Sources */,
@@ -2074,9 +2263,9 @@
 				BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */,
 				BAB725A320BCF34700CD9A15 /* NOSMd5.m in Sources */,
 				BA47FC1820E0E304002326D4 /* NTESLogUploader.m in Sources */,
+				BA54992620E2FA7500C52FF1 /* renderer.c in Sources */,
 				BA47FC0C20E0E304002326D4 /* NSString+NTES.m in Sources */,
 				BAB725AE20BCF34700CD9A15 /* NOSUserAgent.m in Sources */,
-				BA15FB9E20E2AD900066F0B0 /* NTESLiveManager.m in Sources */,
 				BA84B1CC20CE4E5D00839A6B /* FollowerTVC.m in Sources */,
 				BA15FBA820E2AD900066F0B0 /* NTESLiveAnchorHandler.m in Sources */,
 				BA39ACF120AC1FD8001EC158 /* MeCenterViewController.m in Sources */,
@@ -2098,13 +2287,17 @@
 				BA945D9A209AF9C9001BE9E1 /* NMBlurView.m in Sources */,
 				BAB725B020BCF34700CD9A15 /* NOSResponseInfo.m in Sources */,
 				BA47FBC920E0E289002326D4 /* NTESLiveManager.m in Sources */,
+				BA54993020E2FCEE00C52FF1 /* VCallAudienceVC.m in Sources */,
 				BA97C77B20A02C2000F61694 /* HomeTabbarController.m in Sources */,
 				BA47FBC420E0CA89002326D4 /* NTESDemoRegisterTask.m in Sources */,
 				BAB725B520BCF34700CD9A15 /* NOSAFNetworkReachabilityManager.m in Sources */,
 				BA47FC1F20E0E304002326D4 /* NTESDemoConfig.m in Sources */,
 				BAB725B620BCF34700CD9A15 /* NOSAFSecurityPolicy.m in Sources */,
 				BA55F51D20C3E35E00F024FE /* NMPicsBlowser.m in Sources */,
+				BA54992A20E2FA7500C52FF1 /* rgb.fsh.c in Sources */,
 				BA84B1D020CE501600839A6B /* UserListTableViewCell.m in Sources */,
+				BA54991F20E2FA7500C52FF1 /* renderer_yuv444p10le.c in Sources */,
+				BA54992D20E2FA7500C52FF1 /* ijksdl_timer.c in Sources */,
 				BA1E2D1420AD7FA60060E91C /* BuyCoinVC.m in Sources */,
 				BAB0F788209B0D2D00E8CCC7 /* NMLoginButton.m in Sources */,
 				BA55F52620C41A8500F024FE /* NMImgBroser.m in Sources */,
@@ -2112,6 +2305,7 @@
 				BA47FBC120E0CA89002326D4 /* NTESNetDetectManger.m in Sources */,
 				BAB725B720BCF34700CD9A15 /* NOSAFURLSessionManager.m in Sources */,
 				BA2D847420C0020D0027F905 /* NOSTokenUtils.m in Sources */,
+				BA54992520E2FA7500C52FF1 /* shader.c in Sources */,
 				BAE9EC5520BCF16A006FEC19 /* NetEaseOSS.m in Sources */,
 				BA47FC1120E0E304002326D4 /* UIImage+NTESColor.m in Sources */,
 				BA15FB9C20E2AD900066F0B0 /* NTESChatroomMaker.m in Sources */,
@@ -2254,6 +2448,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 770F690336EFFB15E2145A2F /* Pods-MeMeDa.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MeMeDa/MeMeDa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -2269,6 +2464,31 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MeMeDa/Profiles/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/AGAsyncTestHelper\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/M80AttributedLabel\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/MOBFoundation\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/NELivePlayer\"",
+					"\"${PODS_ROOT}/Headers/Public/NIMSDK\"",
+					"\"${PODS_ROOT}/Headers/Public/NMCLiveStreaming\"",
+					"\"${PODS_ROOT}/Headers/Public/QBImagePickerController\"",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+					"\"${PODS_ROOT}/Headers/Public/RongCloudIM\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/SSZipArchive\"",
+					"\"${PODS_ROOT}/Headers/Public/SVProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/Toast\"",
+					"\"${PODS_ROOT}/Headers/Public/UICollectionViewLeftAlignedLayout\"",
+					"\"${PODS_ROOT}/Headers/Public/mob_sharesdk\"",
+					"$(SRCROOT)/SDKFrameworks/NIMSDK/View",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/MeMeDa/Profiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2294,6 +2514,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6496C5B6F19AEB9EE8AEE1AA /* Pods-MeMeDa.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MeMeDa/MeMeDa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -2309,6 +2530,31 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MeMeDa/Profiles/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/AGAsyncTestHelper\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/M80AttributedLabel\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/MOBFoundation\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/NELivePlayer\"",
+					"\"${PODS_ROOT}/Headers/Public/NIMSDK\"",
+					"\"${PODS_ROOT}/Headers/Public/NMCLiveStreaming\"",
+					"\"${PODS_ROOT}/Headers/Public/QBImagePickerController\"",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+					"\"${PODS_ROOT}/Headers/Public/RongCloudIM\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/SSZipArchive\"",
+					"\"${PODS_ROOT}/Headers/Public/SVProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/Toast\"",
+					"\"${PODS_ROOT}/Headers/Public/UICollectionViewLeftAlignedLayout\"",
+					"\"${PODS_ROOT}/Headers/Public/mob_sharesdk\"",
+					"$(SRCROOT)/SDKFrameworks/NIMSDK/View",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/MeMeDa/Profiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

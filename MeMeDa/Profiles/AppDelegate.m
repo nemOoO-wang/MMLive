@@ -23,7 +23,10 @@
 #import <NIMSDK/NIMSDK.h>
 
 
-@interface AppDelegate ()
+@interface AppDelegate ()<NIMLoginManagerDelegate>
+
+@property (nonatomic,strong) UIView *vcallView;
+
 
 @end
 
@@ -107,8 +110,12 @@
     opt.apnsCername = @"StoreCertificates123";
 #endif
     opt.pkCername = @"MMDVoiPCertificates";
-    [[NIMSDK sharedSDK] registerWithOption:opt];
+//    [[NIMSDK sharedSDK] registerWithOption:opt];
+    [[NIMSDK sharedSDK] registerWithAppID:NEAPPKey cerName:nil];
+    
+    // login
     if (NEUserAccount) {
+        [[[NIMSDK sharedSDK] loginManager] addDelegate:self];
         [[[NIMSDK sharedSDK] loginManager] autoLogin:NEUserAccount token:NEUserToken];
 //        [[[NIMSDK sharedSDK] loginManager] login:NEUserAccount token:NEUserToken completion:^(NSError * _Nullable error) {
 //            NSLog(@"%@",error.description);
@@ -117,7 +124,13 @@
     }
     //开启控制台调试
     [[NIMSDK sharedSDK] enableConsoleLog];
+    
     return YES;
+}
+
+// 网易云 IM 登录失败回调
+- (void)onAutoLoginFailed:(NSError *)error{
+    [SVProgressHUD showErrorWithStatus:@"NIM 登录失败"];
 }
 
 /**
@@ -224,6 +237,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     }
     completionHandler();
 }
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

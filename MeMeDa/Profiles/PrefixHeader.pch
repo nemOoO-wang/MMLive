@@ -9,6 +9,7 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+#ifdef __OBJC__
 // Definition
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
@@ -43,4 +44,5 @@ static DDLogLevel ddLogLevel = DDLogLevelAll;
 static DDLogLevel ddLogLevel = DDLogLevelAll;
 #endif
 
+#endif
 #endif /* PrefixHeader_pch */

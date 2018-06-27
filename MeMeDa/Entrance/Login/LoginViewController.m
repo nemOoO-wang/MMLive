@@ -14,6 +14,7 @@
 #import "SHA1Utils.h"
 #import "MiPushSDK.h"
 #import <NIMSDK/NIMSDK.h>
+#import "NMFloatView.h"
 
 
 @interface LoginViewController ()
@@ -27,6 +28,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // window float view
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    NMFloatView *vcallView = [[NMFloatView alloc] initWithFrame:CGRectMake(50, 50, 100, 100)];
+    [vcallView setBackgroundColor:[UIColor redColor]];
+    [window addSubview:vcallView];
+    [window bringSubviewToFront:vcallView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
