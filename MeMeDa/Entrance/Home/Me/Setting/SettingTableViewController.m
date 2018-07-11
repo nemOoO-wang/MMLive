@@ -56,6 +56,8 @@
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"UserData"];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
                 [self.tabBarController dismissViewControllerAnimated:YES completion:^{}];
+                [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/logout" andParam:nil andSuccess:^(id data) {
+                }];
                 // log out 网易云
                 [[[NIMSDK sharedSDK] loginManager] logout:^(NSError * _Nullable error) {
                 }];

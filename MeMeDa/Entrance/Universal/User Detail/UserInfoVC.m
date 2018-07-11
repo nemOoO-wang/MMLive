@@ -10,6 +10,7 @@
 #import "UserInfoVC.h"
 #import "UserInfoPopMenuVC.h"
 #import "UserInfoScrollBannerView.h"
+#import "StartCallVC.h"
 #import "BorderAndTransLabel.h"
 #import "NMLoginButton.h"
 #import "ChatVC.h"
@@ -74,8 +75,12 @@
     self.bannerScrollViedw.videoUrlStr = self.dataDic[@"video"];
     self.bannerScrollViedw.videoImgUrlStr = self.dataDic[@"vedioImg"];
     NSString *jsonStr = self.dataDic[@"imgs"];
-    NSArray *imgUrlArr = [NSJSONSerialization JSONObjectWithData:[jsonStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-    [self.bannerScrollViedw setImgArr:imgUrlArr];
+    if (jsonStr) {
+        NSArray *imgUrlArr = [NSJSONSerialization JSONObjectWithData:[jsonStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+        [self.bannerScrollViedw setImgArr:imgUrlArr];
+    }else{
+        [self.bannerScrollViedw setImgArr:@[]];
+    }
 }
 
 -(void)setDataDic:(NSDictionary *)dataDic{
@@ -159,4 +164,11 @@
         }];
     }
 }
+
+- (IBAction)clickCall:(id)sender {
+    StartCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"start call"];
+    vc.usrDic = self.dataDic;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 @end

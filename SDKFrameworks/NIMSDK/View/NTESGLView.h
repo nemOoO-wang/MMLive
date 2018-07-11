@@ -10,6 +10,8 @@
 
 @interface NTESGLView : NTESIJKSDLGLView
 
+- (id) initWithFrame:(CGRect)frame;
+
 - (void) render: (NSData *)yuvData
           width:(NSUInteger)width
          height:(NSUInteger)height;

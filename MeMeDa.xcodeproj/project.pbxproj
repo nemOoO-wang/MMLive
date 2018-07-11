@@ -35,6 +35,9 @@
 		BA1E570520B69C5600C61E21 /* ChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E570420B69C5600C61E21 /* ChatVC.m */; };
 		BA1FAB8F20C77B2C00F386F9 /* EditMeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1FAB8E20C77B2C00F386F9 /* EditMeVC.m */; };
 		BA1FAB9320C7C3CA00F386F9 /* EditMeRecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1FAB9220C7C3CA00F386F9 /* EditMeRecordAudio.m */; };
+		BA24A85820F33E6F0035CC31 /* ChooseRoleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24A85720F33E6F0035CC31 /* ChooseRoleVC.m */; };
+		BA24A85C20F356540035CC31 /* BeCalledVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24A85B20F356540035CC31 /* BeCalledVC.m */; };
+		BA24A86020F368FE0035CC31 /* StartCallVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24A85F20F368FE0035CC31 /* StartCallVC.m */; };
 		BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */; };
 		BA2D846D20BF9DE80027F905 /* HomeTabMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D846C20BF9DE80027F905 /* HomeTabMenuVC.m */; };
 		BA2D847420C0020D0027F905 /* NOSTokenUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D847320C0020D0027F905 /* NOSTokenUtils.m */; };
@@ -57,6 +60,7 @@
 		BA39ACF920AC2F9C001EC158 /* MeMomentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA39ACF820AC2F9C001EC158 /* MeMomentVC.m */; };
 		BA39ACFC20AC3083001EC158 /* MeMommentCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA39ACFB20AC3083001EC158 /* MeMommentCollectionCell.m */; };
 		BA39AD0120AC3882001EC158 /* NewMomentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA39AD0020AC3882001EC158 /* NewMomentVC.m */; };
+		BA41E56420F50240006FCB3B /* NMFloatWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = BA41E56320F50240006FCB3B /* NMFloatWindow.m */; };
 		BA47FBC020E0CA89002326D4 /* NTESDemoService.m in Sources */ = {isa = PBXBuildFile; fileRef = BA47FBB420E0CA88002326D4 /* NTESDemoService.m */; };
 		BA47FBC120E0CA89002326D4 /* NTESNetDetectManger.m in Sources */ = {isa = PBXBuildFile; fileRef = BA47FBB820E0CA88002326D4 /* NTESNetDetectManger.m */; };
 		BA47FBC220E0CA89002326D4 /* NTESLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA47FBB920E0CA88002326D4 /* NTESLoginManager.m */; };
@@ -272,6 +276,12 @@
 		BA1FAB8E20C77B2C00F386F9 /* EditMeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMeVC.m; sourceTree = "<group>"; };
 		BA1FAB9120C7C3CA00F386F9 /* EditMeRecordAudio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditMeRecordAudio.h; sourceTree = "<group>"; };
 		BA1FAB9220C7C3CA00F386F9 /* EditMeRecordAudio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMeRecordAudio.m; sourceTree = "<group>"; };
+		BA24A85620F33E6F0035CC31 /* ChooseRoleVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseRoleVC.h; sourceTree = "<group>"; };
+		BA24A85720F33E6F0035CC31 /* ChooseRoleVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseRoleVC.m; sourceTree = "<group>"; };
+		BA24A85A20F356540035CC31 /* BeCalledVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeCalledVC.h; sourceTree = "<group>"; };
+		BA24A85B20F356540035CC31 /* BeCalledVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeCalledVC.m; sourceTree = "<group>"; };
+		BA24A85E20F368FE0035CC31 /* StartCallVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartCallVC.h; sourceTree = "<group>"; };
+		BA24A85F20F368FE0035CC31 /* StartCallVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartCallVC.m; sourceTree = "<group>"; };
 		BA270764209B29D000220B23 /* NMBigImgTitleBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMBigImgTitleBtn.h; sourceTree = "<group>"; };
 		BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMBigImgTitleBtn.m; sourceTree = "<group>"; };
 		BA2D846B20BF9DE80027F905 /* HomeTabMenuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTabMenuVC.h; sourceTree = "<group>"; };
@@ -311,6 +321,8 @@
 		BA39ACFB20AC3083001EC158 /* MeMommentCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeMommentCollectionCell.m; sourceTree = "<group>"; };
 		BA39ACFF20AC3882001EC158 /* NewMomentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewMomentVC.h; sourceTree = "<group>"; };
 		BA39AD0020AC3882001EC158 /* NewMomentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewMomentVC.m; sourceTree = "<group>"; };
+		BA41E56220F50240006FCB3B /* NMFloatWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMFloatWindow.h; sourceTree = "<group>"; };
+		BA41E56320F50240006FCB3B /* NMFloatWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMFloatWindow.m; sourceTree = "<group>"; };
 		BA47FBB320E0CA88002326D4 /* NTESDemoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESDemoService.h; sourceTree = "<group>"; };
 		BA47FBB420E0CA88002326D4 /* NTESDemoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESDemoService.m; sourceTree = "<group>"; };
 		BA47FBB620E0CA88002326D4 /* NTESNetDetectManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESNetDetectManger.h; sourceTree = "<group>"; };
@@ -872,6 +884,24 @@
 			path = Audio;
 			sourceTree = "<group>";
 		};
+		BA24A85920F3563F0035CC31 /* Called */ = {
+			isa = PBXGroup;
+			children = (
+				BA24A85A20F356540035CC31 /* BeCalledVC.h */,
+				BA24A85B20F356540035CC31 /* BeCalledVC.m */,
+			);
+			path = Called;
+			sourceTree = "<group>";
+		};
+		BA24A85D20F368EE0035CC31 /* Calling */ = {
+			isa = PBXGroup;
+			children = (
+				BA24A85E20F368FE0035CC31 /* StartCallVC.h */,
+				BA24A85F20F368FE0035CC31 /* StartCallVC.m */,
+			);
+			path = Calling;
+			sourceTree = "<group>";
+		};
 		BA2D846A20BF9DB90027F905 /* Home TabControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -974,8 +1004,9 @@
 		BA3780C620DBB81600521EBC /* VideoCall */ = {
 			isa = PBXGroup;
 			children = (
-				BA8818FF20E3725D00BCDD17 /* float view */,
-				BA8818F920E33BBA00BCDD17 /* t */,
+				BA8818F920E33BBA00BCDD17 /* VCall */,
+				BA41E56120F50227006FCB3B /* Float Window */,
+				BA8818FF20E3725D00BCDD17 /* float view(Deprecated) */,
 				BA8818FE20E3725000BCDD17 /* Archive */,
 			);
 			path = VideoCall;
@@ -1032,6 +1063,15 @@
 				BA39AD0020AC3882001EC158 /* NewMomentVC.m */,
 			);
 			path = "New Moment";
+			sourceTree = "<group>";
+		};
+		BA41E56120F50227006FCB3B /* Float Window */ = {
+			isa = PBXGroup;
+			children = (
+				BA41E56220F50240006FCB3B /* NMFloatWindow.h */,
+				BA41E56320F50240006FCB3B /* NMFloatWindow.m */,
+			);
+			path = "Float Window";
 			sourceTree = "<group>";
 		};
 		BA47FBB120E0CA6F002326D4 /* NIMSDK */ = {
@@ -1321,14 +1361,18 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		BA8818F920E33BBA00BCDD17 /* t */ = {
+		BA8818F920E33BBA00BCDD17 /* VCall */ = {
 			isa = PBXGroup;
 			children = (
+				BA24A85D20F368EE0035CC31 /* Calling */,
+				BA24A85920F3563F0035CC31 /* Called */,
 				BA8818FA20E3698D00BCDD17 /* MenuView */,
 				BA5498F220E2EBFD00C52FF1 /* VCallVC.h */,
 				BA5498F320E2EBFE00C52FF1 /* VCallVC.m */,
+				BA24A85620F33E6F0035CC31 /* ChooseRoleVC.h */,
+				BA24A85720F33E6F0035CC31 /* ChooseRoleVC.m */,
 			);
-			path = t;
+			path = VCall;
 			sourceTree = "<group>";
 		};
 		BA8818FA20E3698D00BCDD17 /* MenuView */ = {
@@ -1351,13 +1395,13 @@
 			path = Archive;
 			sourceTree = "<group>";
 		};
-		BA8818FF20E3725D00BCDD17 /* float view */ = {
+		BA8818FF20E3725D00BCDD17 /* float view(Deprecated) */ = {
 			isa = PBXGroup;
 			children = (
 				BA88190020E3726D00BCDD17 /* NMFloatView.h */,
 				BA88190120E3726D00BCDD17 /* NMFloatView.m */,
 			);
-			path = "float view";
+			path = "float view(Deprecated)";
 			sourceTree = "<group>";
 		};
 		BA89D9A920D11F07005B8210 /* cell */ = {
@@ -2144,6 +2188,7 @@
 				BA1E2D0820AD72FF0060E91C /* ContactUsViewController.m in Sources */,
 				BA15FBA720E2AD900066F0B0 /* NTESSessionMsgConverter.m in Sources */,
 				BAFF8E8420C65E330076762F /* NMClickVideoView.m in Sources */,
+				BA24A85C20F356540035CC31 /* BeCalledVC.m in Sources */,
 				BA54992020E2FA7500C52FF1 /* common.c in Sources */,
 				BA945DAA209AFC70001BE9E1 /* UIColor+BeeColor.m in Sources */,
 				BA47FC0D20E0E304002326D4 /* UIImage+NTES.m in Sources */,
@@ -2185,6 +2230,7 @@
 				BA47FC1B20E0E304002326D4 /* NTESFileLocationHelper.m in Sources */,
 				BA15FBA220E2AD900066F0B0 /* NTESMicAttachment.m in Sources */,
 				BAB725BA20BCF34700CD9A15 /* NOSAFURLConnectionOperation.m in Sources */,
+				BA41E56420F50240006FCB3B /* NMFloatWindow.m in Sources */,
 				BA47FC1A20E0E304002326D4 /* NTESService.m in Sources */,
 				BAB725BD20BCF34700CD9A15 /* NOSAFURLResponseSerialization.m in Sources */,
 				BA15FBA920E2AD900066F0B0 /* NTESPresentItem.m in Sources */,
@@ -2227,8 +2273,10 @@
 				BA97C78220A0530B00F61694 /* SquareVC.m in Sources */,
 				BAB725BB20BCF34700CD9A15 /* NOSAFHTTPRequestOperation.m in Sources */,
 				BAF2828520A9309100625CF3 /* UserInfoVC.m in Sources */,
+				BA24A85820F33E6F0035CC31 /* ChooseRoleVC.m in Sources */,
 				BAB7259E20BCF34700CD9A15 /* NOSResumeUpload.m in Sources */,
 				BA47FC0F20E0E304002326D4 /* UIScrollView+NTESDirection.m in Sources */,
+				BA24A86020F368FE0035CC31 /* StartCallVC.m in Sources */,
 				BA47FC1520E0E304002326D4 /* NTESCADisplayLinkHolder.m in Sources */,
 				BAB725B920BCF34700CD9A15 /* NOSAFURLRequestSerialization.m in Sources */,
 				BA47FC2120E0E304002326D4 /* NTESSpellingCenter.m in Sources */,

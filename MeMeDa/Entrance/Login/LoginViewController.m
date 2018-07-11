@@ -14,12 +14,13 @@
 #import "SHA1Utils.h"
 #import "MiPushSDK.h"
 #import <NIMSDK/NIMSDK.h>
-#import "NMFloatView.h"
+#import "NMFloatWindow.h"
 
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet NMRegTextField *phoneTF;
 @property (weak, nonatomic) IBOutlet NMRegTextField *pswTF;
+@property (nonatomic,strong) UIViewController *vc;
 
 @end
 
@@ -28,14 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    // window float view
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    NMFloatView *vcallView = [[NMFloatView alloc] initWithFrame:CGRectMake(50, 50, 100, 100)];
-    [vcallView setBackgroundColor:[UIColor redColor]];
-    [window addSubview:vcallView];
-    [window bringSubviewToFront:vcallView];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,6 +42,8 @@
         [SVProgressHUD showSuccessWithStatus:@"登录成功"];
         [[NSUserDefaults standardUserDefaults] setObject:data[@"data"][@"token"] forKey:@"token"];
         NSDictionary *uDic = data[@"data"];
+        [[NSUserDefaults standardUserDefaults] setObject:uDic forKey:@"UserData"];
+        NSString *token = data[@"data"][@"token"];
         // 小米 alias
         NSString *miAlias = [NSString stringWithFormat:@"%ld",[uDic[@"id"] integerValue]];
         [MiPushSDK setAlias:miAlias];
@@ -58,8 +53,6 @@
         [[[NIMSDK sharedSDK] loginManager] login:NEUserAccount token:NEUserToken completion:^(NSError * _Nullable error) {
             NSLog(@"%@",error.description);
         }];
-        [[NSUserDefaults standardUserDefaults] setObject:uDic forKey:@"UserData"];
-        [self performSegueWithIdentifier:@"home" sender:nil];
         // 融云token
         // body
         NSDictionary *rcDic;
@@ -83,6 +76,8 @@
         } andFailed:^(NSString *str) {
             NSLog(@"融云：%@",str);
         }];
+        // 跳转
+        [self performSegueWithIdentifier:@"home" sender:nil];
     } andFailed:^(NSString *str) {
         NSLog(@"str");
     }];

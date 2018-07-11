@@ -21,6 +21,12 @@
 #import "WXApi.h"
 // 网易云直播
 #import <NIMSDK/NIMSDK.h>
+// my VC
+#import "StartCallVC.h"
+#import "BeCalledVC.h"
+#import "VCallVC.h"
+#import "NMFloatWindow.h"
+#import "UIWindow+NMCurrent.h"
 
 
 @interface AppDelegate ()<NIMLoginManagerDelegate>
@@ -217,6 +223,21 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 - ( void )miPushReceiveNotification:( NSDictionary *)data
 {
     // 长连接收到的消息。消息格式跟APNs格式一样
+    if ([data[@"code"]integerValue] == 1) {
+        BeCalledVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"be called"];
+        vc.callDataDic = data;
+        [[NMFloatWindow keyFLoatWindow] setFullScreenWithoutAni:YES];
+        [NMFloatWindow keyFLoatWindow].frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*2);;
+        [NMFloatWindow keyFLoatWindow].rootViewController = vc;
+        [[NMFloatWindow keyFLoatWindow] show];
+    }else if([data[@"code"]integerValue] == 2){
+        UIViewController *currentVC = [[[UIApplication sharedApplication]keyWindow]getCurrentViewController];
+        if ([currentVC isKindOfClass:[StartCallVC class]]) {
+            StartCallVC *vc = (StartCallVC *)currentVC;
+            vc.callDataDic = data;
+            [vc handleResponse];
+        }
+    }
 }
 
 // iOS10新加入的回调方法
@@ -237,8 +258,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     }
     completionHandler();
 }
-
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -83,10 +83,13 @@
  */
 -(void)requestWithType:(RequestType)requestType andUrl:(NSString *)url andParam:(id)params andSuccess:(void (^)(id data))success{
     NSDictionary *header = @{@"token":[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"token"]]};
+    
     [self requestWithType:requestType andUrl:url andParam:params
                 andHeader:header
                andSuccess:^(id data) {
-        success(data);
+                   if (success) {
+                       success(data);
+                   }
     } andFailed:nil];
 }
 
