@@ -12,6 +12,7 @@
 
 @interface StartCallVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *headImgView;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *clickEndGstrue;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (nonatomic,strong) NSNumber *trId;
 @end
@@ -20,18 +21,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.clickEndGstrue.enabled = NO;
     // Do any additional setup after loading the view.
     // 请求开房
     NSDictionary *paramDic = @{@"userId":self.usrDic[@"id"], @"type":@2};;
-    [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/makeCall" andParam:paramDic andSuccess:^(id data) {
-        self.trId = data[@"id"];
+    [[BeeNet sharedInstance] requestWithType:Request_POST url:@"/chat/user/makeCall" param:paramDic success:^(id data) {
+        self.trId = data[@"data"][@"id"];
+        self.clickEndGstrue.enabled = YES;
+    } fail:^(NSString *message) {
+        [SVProgressHUD showErrorWithStatus:message];
+        [self dismissViewControllerAnimated:YES completion:nil];
     }];
     // init info
     [self.headImgView sd_setImageWithURL:[NSURL URLWithString:self.usrDic[@"headImg"]]];
     self.nameLabel.text = self.usrDic[@"nickname"];
 }
 - (IBAction)clickEndCal:(id)sender {
-    NSDictionary *paramDic = @{@"trId":self.trId, @"userId":self.usrDic[@"id"]};
+    NSDictionary *paramDic = @{@"trId":self.trId?self.trId:@"", @"userId":self.usrDic[@"id"]};
     [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/hangUp" andParam:paramDic andSuccess:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -44,9 +50,11 @@
     NIMNetCallMeeting *meeting = [[NIMNetCallMeeting alloc] init];
     //指定会议名
     meeting.name = dataDic[@"roomName"];
-    meeting.actor = NO;
+//    meeting.actor = NO;
+    meeting.actor = YES;
     
     VCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"calling"];
+    vc.trId = [NSString stringWithFormat:@"%ld", [self.trId integerValue]];
     vc.meeting = meeting;
     vc.userType = CallUserDefault;
     [NMFloatWindow keyFLoatWindow].frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*2);

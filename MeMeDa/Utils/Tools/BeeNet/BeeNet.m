@@ -82,6 +82,18 @@
  带 token 查询
  */
 -(void)requestWithType:(RequestType)requestType andUrl:(NSString *)url andParam:(id)params andSuccess:(void (^)(id data))success{
+    [self requestWithType:requestType url:url param:params success:^(id data) {
+        if (!success) {
+            return;
+        }
+        success(data);
+    } fail:nil];
+}
+
+/**
+ 带 token+fail 查询
+ */
+-(void)requestWithType:(RequestType)requestType url:(NSString *)url param:(id)params success:(void (^)(id data))success fail:(void (^)(NSString *message))failMsg{
     NSDictionary *header = @{@"token":[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"token"]]};
     
     [self requestWithType:requestType andUrl:url andParam:params
@@ -90,7 +102,12 @@
                    if (success) {
                        success(data);
                    }
-    } andFailed:nil];
+               } andFailed:^(NSString *str) {
+                   if (!failMsg) {
+                       return;
+                   }
+                   failMsg(str);
+               }];
 }
 
 
@@ -125,7 +142,7 @@
                 if (failed == nil) {
                     return ;
                 }
-                failed(responseObject[@"forUser"]);
+                failed(responseObject[@"message"]);
             }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             if (failed == nil) {
@@ -146,7 +163,7 @@
                 if (failed == nil) {
                     return ;
                 }
-                failed(responseObject[@"forUser"]);
+                failed(responseObject[@"message"]);
             }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             if (failed == nil) {
@@ -167,7 +184,7 @@
                 if (failed == nil) {
                     return ;
                 }
-                failed(responseObject[@"forUser"]);
+                failed(responseObject[@"message"]);
             }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             if (failed == nil) {
@@ -188,7 +205,7 @@
                 if (failed == nil) {
                     return ;
                 }
-                failed(responseObject[@"forUser"]);
+                failed(responseObject[@"message"]);
             }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             if (failed == nil) {

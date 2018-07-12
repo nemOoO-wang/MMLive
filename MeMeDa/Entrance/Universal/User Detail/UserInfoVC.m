@@ -41,6 +41,8 @@
 // data
 @property (nonatomic,strong) NSString *audioUrlStr;
 @property (nonatomic,strong) AVAudioPlayer *audioPlayer;
+@property (nonatomic,strong) NSDictionary *usrDtlDic;
+
 
 @end
 
@@ -90,6 +92,7 @@
     NSNumber *uId = dataDic[@"id"];
     [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/userDetail" andParam:@{@"userId":uId} andSuccess:^(id data) {
         NSDictionary *tmpData = data[@"data"];
+        self.usrDtlDic = tmpData[@"user"];
         // gift
         if (tmpData[@"giftCounts"]) {
 //            self.pr1CountLabel.text = @"X0";
@@ -166,9 +169,13 @@
 }
 
 - (IBAction)clickCall:(id)sender {
-    StartCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"start call"];
-    vc.usrDic = self.dataDic;
-    [self presentViewController:vc animated:YES completion:nil];
+    if ([self.usrDtlDic[@"anchorState"] integerValue] != 2) {
+        [SVProgressHUD showWithStatus:@"主播未认证"];
+    }else{
+        StartCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"start call"];
+        vc.usrDic = self.dataDic;
+        [self presentViewController:vc animated:YES completion:nil];        
+    }
 }
 
 @end

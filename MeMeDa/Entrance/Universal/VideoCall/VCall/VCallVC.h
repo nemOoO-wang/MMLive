@@ -22,5 +22,6 @@ typedef NS_ENUM(NSInteger, CallUser) {
 @property (nonatomic,strong) NIMNetCallMeeting *meeting;
 @property (weak, nonatomic) IBOutlet AVAnchorContainerView *menuContainerView;
 @property (weak, nonatomic) IBOutlet UIView *smallVideoView;
+@property (weak, nonatomic) IBOutlet UIView *localVideoView;
 
 @end

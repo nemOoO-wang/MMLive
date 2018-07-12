@@ -63,17 +63,19 @@ static NMFloatWindow *_instance = nil;
         frame = self.defaultSmallFrame;
     }
     // enable menu
-    if (fullScreen) {
-        if ([self.rootViewController isKindOfClass:[VCallVC class]]) {
-            VCallVC *vc = (VCallVC *)self.rootViewController;
-            vc.menuContainerView.alpha = 1;
-            vc.smallVideoView.alpha = 1;
-        }
+    if ([self.rootViewController isKindOfClass:[VCallVC class]]) {
+        BOOL show = fullScreen? 1: 0;
+        VCallVC *vc = (VCallVC *)self.rootViewController;
+        vc.menuContainerView.alpha = show;
+        vc.smallVideoView.alpha = show;
     }
     [UIView animateWithDuration:0.35 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.frame = frame;
+        if ([self.rootViewController isKindOfClass:[VCallVC class]]) {
+            VCallVC *vc = (VCallVC *)self.rootViewController;
+            vc.localVideoView.subviews[0].frame = self.bounds;
+        }
     } completion:^(BOOL finished) {
-        self.rootViewController.view.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
     }];
 }
 
