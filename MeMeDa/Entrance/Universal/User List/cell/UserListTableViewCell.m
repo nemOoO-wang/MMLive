@@ -8,6 +8,8 @@
 
 #import "UserListTableViewCell.h"
 #import <UIImageView+WebCache.h>
+#import "UIWindow+NMCurrent.h"
+#import "StartCallVC.h"
 
 
 @interface UserListTableViewCell()
@@ -32,6 +34,14 @@
 }
 
 - (IBAction)clickVideoCall:(id)sender {
+    if ([self.dataDic[@"anchorState"] integerValue] != 2) {
+        [SVProgressHUD showWithStatus:@"主播未认证"];
+    }else{
+        StartCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"start call"];
+        vc.usrDic = self.dataDic;
+        UIViewController *current = [[[UIApplication sharedApplication] keyWindow] getCurrentViewController];
+        [current presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

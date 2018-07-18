@@ -9,46 +9,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MeMeDa/Entrance/Universal/Chat/ChatVC.m"
-            timestampString = "551093665.004653"
+            filePath = "MeMeDa/Profiles/AppDelegate.m"
+            timestampString = "553619586.523046"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__21-[ChatVC viewDidLoad]_block_invoke_4"
-                  moduleName = "MeMeDa"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Nemo/Desktop/iProjects/MD/MeMeDa/MeMeDa/Entrance/Universal/Chat/ChatVC.m"
-                  timestampString = "550740378.585606"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "56"
-                  endingLineNumber = "56"
-                  offsetFromSymbolStart = "56">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__21-[ChatVC viewDidLoad]_block_invoke_5"
-                  moduleName = "MeMeDa"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Nemo/Desktop/iProjects/MD/MeMeDa/MeMeDa/Entrance/Universal/Chat/ChatVC.m"
-                  timestampString = "550740378.588878"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
+            startingLineNumber = "269"
+            endingLineNumber = "269"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -57,13 +25,45 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MeMeDa/Entrance/Universal/VideoCall/VCall/VCallVC.m"
-            timestampString = "553098824.925683"
+            filePath = "MeMeDa/Entrance/Universal/Chat/ChatVC.m"
+            timestampString = "553619586.5234441"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "-onUserJoined:meeting:"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MeMeDa/Entrance/Home TabControl/HomeTabMenuVC.m"
+            timestampString = "553619586.5235161"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "-clickEavesdrop:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MeMeDa/Entrance/Universal/VideoCall/VCall/___Root___/danmu/VCallVC+Danmu.m"
+            timestampString = "553619586.523568"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "-clickSendMsg:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

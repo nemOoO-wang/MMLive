@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface BuyCoinVC : UIViewController
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *showCustomNaviConstraint;
+@property (nonatomic,assign) CGFloat customBarHeight;
 @end

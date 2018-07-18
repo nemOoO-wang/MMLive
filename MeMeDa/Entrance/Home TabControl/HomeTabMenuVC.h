@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeTabbarController.h"
+
 
 @interface HomeTabMenuVC : UIViewController
 
 @property (nonatomic,strong) UIButton *homeAddBtn;
 @property (nonatomic,strong) UIView *homeBlurCover;
+@property (nonatomic,weak) HomeTabbarController *tabVC;
 
 @end

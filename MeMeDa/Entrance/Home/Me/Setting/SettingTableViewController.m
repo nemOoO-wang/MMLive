@@ -9,6 +9,7 @@
 #import "SettingTableViewController.h"
 #import "SettingsBtnTblCell.h"
 #import <NIMSDK/NIMSDK.h>
+#import "MiPushSDK.h"
 
 
 @interface SettingTableViewController ()
@@ -52,15 +53,7 @@
                 
                 break;
             case 25:
-                // 退出
-                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"UserData"];
-                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
-                [self.tabBarController dismissViewControllerAnimated:YES completion:^{}];
-                [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/logout" andParam:nil andSuccess:^(id data) {
-                }];
-                // log out 网易云
-                [[[NIMSDK sharedSDK] loginManager] logout:^(NSError * _Nullable error) {
-                }];
+                [self quit];
                 break;
                 
             default:
@@ -138,6 +131,22 @@
     return [NSIndexPath indexPathForRow:row inSection:section];
 }
 
+-(void)quit{
+    NSDictionary *dic = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"];
+    NSString *acid = [dic[@"id"] stringValue];
+    [MiPushSDK unsetAccount:acid];
+    // 退出
+    [self.tabBarController dismissViewControllerAnimated:YES completion:^{}];
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"UserData"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"RCToken"];
+    //                [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/logout" andParam:nil andSuccess:^(id data) {
+    //                }];
+    // log out 网易云
+    [[[NIMSDK sharedSDK] loginManager] logout:^(NSError * _Nullable error) {
+    }];
+}
 
 /*
 #pragma mark - Navigation

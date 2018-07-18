@@ -35,7 +35,6 @@
 		BA1E570520B69C5600C61E21 /* ChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1E570420B69C5600C61E21 /* ChatVC.m */; };
 		BA1FAB8F20C77B2C00F386F9 /* EditMeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1FAB8E20C77B2C00F386F9 /* EditMeVC.m */; };
 		BA1FAB9320C7C3CA00F386F9 /* EditMeRecordAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1FAB9220C7C3CA00F386F9 /* EditMeRecordAudio.m */; };
-		BA24A85820F33E6F0035CC31 /* ChooseRoleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24A85720F33E6F0035CC31 /* ChooseRoleVC.m */; };
 		BA24A85C20F356540035CC31 /* BeCalledVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24A85B20F356540035CC31 /* BeCalledVC.m */; };
 		BA24A86020F368FE0035CC31 /* StartCallVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24A85F20F368FE0035CC31 /* StartCallVC.m */; };
 		BA270766209B29D000220B23 /* NMBigImgTitleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = BA270765209B29D000220B23 /* NMBigImgTitleBtn.m */; };
@@ -122,6 +121,7 @@
 		BA58150820BC2FD400BDDD3A /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BA58150720BC2FD400BDDD3A /* libstdc++.tbd */; };
 		BA58150A20BC2FE400BDDD3A /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA58150920BC2FE400BDDD3A /* JavaScriptCore.framework */; };
 		BA58150C20BC2FF400BDDD3A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BA58150B20BC2FF400BDDD3A /* libsqlite3.tbd */; };
+		BA5E331620F850470084CD1D /* VCallVC+info.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5E331520F850470084CD1D /* VCallVC+info.m */; };
 		BA84B1C820CE160700839A6B /* NMLongPressButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BA84B1C720CE160700839A6B /* NMLongPressButton.m */; };
 		BA84B1CC20CE4E5D00839A6B /* FollowerTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA84B1CB20CE4E5D00839A6B /* FollowerTVC.m */; };
 		BA84B1D020CE501600839A6B /* UserListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA84B1CF20CE501600839A6B /* UserListTableViewCell.m */; };
@@ -188,6 +188,15 @@
 		BAB725F420BD012700CD9A15 /* ResetPswVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB725F320BD012700CD9A15 /* ResetPswVC.m */; };
 		BAB725F820BD3A7F00CD9A15 /* PreLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB725F720BD3A7F00CD9A15 /* PreLoginVC.m */; };
 		BAB725FC20BD5CBF00CD9A15 /* NMFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB725FB20BD5CBF00CD9A15 /* NMFlowLayout.m */; };
+		BABDD07120FE048B005A30D9 /* AnchorEndCallVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BABDD07020FE048B005A30D9 /* AnchorEndCallVC.m */; };
+		BABDD07420FE0499005A30D9 /* UserEndCallVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BABDD07320FE0499005A30D9 /* UserEndCallVC.m */; };
+		BABDD07920FE13FB005A30D9 /* VCallVC+Danmu.m in Sources */ = {isa = PBXBuildFile; fileRef = BABDD07820FE13FB005A30D9 /* VCallVC+Danmu.m */; };
+		BABDD08020FED79F005A30D9 /* EavesdropVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BABDD07F20FED79F005A30D9 /* EavesdropVC.m */; };
+		BABDD08620FF3A13005A30D9 /* DMTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BABDD08420FF3A13005A30D9 /* DMTableCell.m */; };
+		BABDD08720FF3A13005A30D9 /* DMTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BABDD08520FF3A13005A30D9 /* DMTableCell.xib */; };
+		BABDD08A20FF3AAC005A30D9 /* DMContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BABDD08920FF3AAC005A30D9 /* DMContainerView.m */; };
+		BABDD08C20FF5647005A30D9 /* DMPresentTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BABDD08B20FF5647005A30D9 /* DMPresentTableCell.xib */; };
+		BABDD09020FF665C005A30D9 /* VCallVC+func.m in Sources */ = {isa = PBXBuildFile; fileRef = BABDD08F20FF665C005A30D9 /* VCallVC+func.m */; };
 		BAC1839B209AE0EC00209CCD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC1839A209AE0EC00209CCD /* AppDelegate.m */; };
 		BAC183A1209AE0EC00209CCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAC1839F209AE0EC00209CCD /* Main.storyboard */; };
 		BAC183A3209AE0ED00209CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAC183A2209AE0ED00209CCD /* Assets.xcassets */; };
@@ -276,8 +285,6 @@
 		BA1FAB8E20C77B2C00F386F9 /* EditMeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMeVC.m; sourceTree = "<group>"; };
 		BA1FAB9120C7C3CA00F386F9 /* EditMeRecordAudio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditMeRecordAudio.h; sourceTree = "<group>"; };
 		BA1FAB9220C7C3CA00F386F9 /* EditMeRecordAudio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditMeRecordAudio.m; sourceTree = "<group>"; };
-		BA24A85620F33E6F0035CC31 /* ChooseRoleVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseRoleVC.h; sourceTree = "<group>"; };
-		BA24A85720F33E6F0035CC31 /* ChooseRoleVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseRoleVC.m; sourceTree = "<group>"; };
 		BA24A85A20F356540035CC31 /* BeCalledVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeCalledVC.h; sourceTree = "<group>"; };
 		BA24A85B20F356540035CC31 /* BeCalledVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeCalledVC.m; sourceTree = "<group>"; };
 		BA24A85E20F368FE0035CC31 /* StartCallVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartCallVC.h; sourceTree = "<group>"; };
@@ -445,6 +452,8 @@
 		BA58150720BC2FD400BDDD3A /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		BA58150920BC2FE400BDDD3A /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		BA58150B20BC2FF400BDDD3A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		BA5E331420F850470084CD1D /* VCallVC+info.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VCallVC+info.h"; sourceTree = "<group>"; };
+		BA5E331520F850470084CD1D /* VCallVC+info.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "VCallVC+info.m"; sourceTree = "<group>"; };
 		BA84B1C620CE160700839A6B /* NMLongPressButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMLongPressButton.h; sourceTree = "<group>"; };
 		BA84B1C720CE160700839A6B /* NMLongPressButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMLongPressButton.m; sourceTree = "<group>"; };
 		BA84B1CA20CE4E5D00839A6B /* FollowerTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FollowerTVC.h; sourceTree = "<group>"; };
@@ -585,6 +594,22 @@
 		BAB725F720BD3A7F00CD9A15 /* PreLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreLoginVC.m; sourceTree = "<group>"; };
 		BAB725FA20BD5CBF00CD9A15 /* NMFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMFlowLayout.h; sourceTree = "<group>"; };
 		BAB725FB20BD5CBF00CD9A15 /* NMFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMFlowLayout.m; sourceTree = "<group>"; };
+		BABDD06F20FE048B005A30D9 /* AnchorEndCallVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnchorEndCallVC.h; sourceTree = "<group>"; };
+		BABDD07020FE048B005A30D9 /* AnchorEndCallVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnchorEndCallVC.m; sourceTree = "<group>"; };
+		BABDD07220FE0499005A30D9 /* UserEndCallVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserEndCallVC.h; sourceTree = "<group>"; };
+		BABDD07320FE0499005A30D9 /* UserEndCallVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserEndCallVC.m; sourceTree = "<group>"; };
+		BABDD07720FE13FB005A30D9 /* VCallVC+Danmu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VCallVC+Danmu.h"; sourceTree = "<group>"; };
+		BABDD07820FE13FB005A30D9 /* VCallVC+Danmu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "VCallVC+Danmu.m"; sourceTree = "<group>"; };
+		BABDD07E20FED79F005A30D9 /* EavesdropVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EavesdropVC.h; sourceTree = "<group>"; };
+		BABDD07F20FED79F005A30D9 /* EavesdropVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EavesdropVC.m; sourceTree = "<group>"; };
+		BABDD08320FF3A13005A30D9 /* DMTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMTableCell.h; sourceTree = "<group>"; };
+		BABDD08420FF3A13005A30D9 /* DMTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DMTableCell.m; sourceTree = "<group>"; };
+		BABDD08520FF3A13005A30D9 /* DMTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DMTableCell.xib; sourceTree = "<group>"; };
+		BABDD08820FF3AAC005A30D9 /* DMContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMContainerView.h; sourceTree = "<group>"; };
+		BABDD08920FF3AAC005A30D9 /* DMContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DMContainerView.m; sourceTree = "<group>"; };
+		BABDD08B20FF5647005A30D9 /* DMPresentTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DMPresentTableCell.xib; sourceTree = "<group>"; };
+		BABDD08E20FF665C005A30D9 /* VCallVC+func.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VCallVC+func.h"; sourceTree = "<group>"; };
+		BABDD08F20FF665C005A30D9 /* VCallVC+func.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "VCallVC+func.m"; sourceTree = "<group>"; };
 		BAC18396209AE0EB00209CCD /* MeMeDa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeMeDa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAC18399209AE0EC00209CCD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BAC1839A209AE0EC00209CCD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1006,7 +1031,6 @@
 			children = (
 				BA8818F920E33BBA00BCDD17 /* VCall */,
 				BA41E56120F50227006FCB3B /* Float Window */,
-				BA8818FF20E3725D00BCDD17 /* float view(Deprecated) */,
 				BA8818FE20E3725000BCDD17 /* Archive */,
 			);
 			path = VideoCall;
@@ -1298,6 +1322,17 @@
 			path = ImgBroser;
 			sourceTree = "<group>";
 		};
+		BA5E331220F84FC20084CD1D /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				BA5498F120E2EBDE00C52FF1 /* Audience */,
+				BA15FBD620E2B92B0066F0B0 /* View */,
+				BA3780C720DBB83400521EBC /* VideoCallVC.h */,
+				BA3780C820DBB83400521EBC /* VideoCallVC.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
 		BA84B1C220CE146D00839A6B /* View Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -1364,33 +1399,30 @@
 		BA8818F920E33BBA00BCDD17 /* VCall */ = {
 			isa = PBXGroup;
 			children = (
+				BABDD07520FE13A6005A30D9 /* ___Root___ */,
+				BABDD06E20FE046E005A30D9 /* End */,
 				BA24A85D20F368EE0035CC31 /* Calling */,
 				BA24A85920F3563F0035CC31 /* Called */,
-				BA8818FA20E3698D00BCDD17 /* MenuView */,
-				BA5498F220E2EBFD00C52FF1 /* VCallVC.h */,
-				BA5498F320E2EBFE00C52FF1 /* VCallVC.m */,
-				BA24A85620F33E6F0035CC31 /* ChooseRoleVC.h */,
-				BA24A85720F33E6F0035CC31 /* ChooseRoleVC.m */,
+				BABDD07D20FED780005A30D9 /* Eavesdrop */,
+				BA8818FA20E3698D00BCDD17 /* menu view */,
 			);
 			path = VCall;
 			sourceTree = "<group>";
 		};
-		BA8818FA20E3698D00BCDD17 /* MenuView */ = {
+		BA8818FA20E3698D00BCDD17 /* menu view */ = {
 			isa = PBXGroup;
 			children = (
 				BA8818FB20E369A100BCDD17 /* VCCallMenuView.h */,
 				BA8818FC20E369A100BCDD17 /* VCCallMenuView.m */,
 			);
-			path = MenuView;
+			path = "menu view";
 			sourceTree = "<group>";
 		};
 		BA8818FE20E3725000BCDD17 /* Archive */ = {
 			isa = PBXGroup;
 			children = (
-				BA5498F120E2EBDE00C52FF1 /* Audience */,
-				BA15FBD620E2B92B0066F0B0 /* View */,
-				BA3780C720DBB83400521EBC /* VideoCallVC.h */,
-				BA3780C820DBB83400521EBC /* VideoCallVC.m */,
+				BA8818FF20E3725D00BCDD17 /* float view(Deprecated) */,
+				BA5E331220F84FC20084CD1D /* VC */,
 			);
 			path = Archive;
 			sourceTree = "<group>";
@@ -1500,11 +1532,9 @@
 		BA97C77C20A0438C00F61694 /* Square */ = {
 			isa = PBXGroup;
 			children = (
+				BABDD08120FEE4F9005A30D9 /* ___Root___ */,
 				BAEE7FBC20A2D5A9000EA5E4 /* List */,
 				BA86CA1320A1711000F21980 /* Search */,
-				BA86CA0920A13FED00F21980 /* cells */,
-				BA97C78120A0530B00F61694 /* SquareVC.m */,
-				BA97C78020A0530B00F61694 /* SquareVC.h */,
 			);
 			path = Square;
 			sourceTree = "<group>";
@@ -1761,6 +1791,89 @@
 				BAB725FB20BD5CBF00CD9A15 /* NMFlowLayout.m */,
 			);
 			path = Flow;
+			sourceTree = "<group>";
+		};
+		BABDD06E20FE046E005A30D9 /* End */ = {
+			isa = PBXGroup;
+			children = (
+				BABDD06F20FE048B005A30D9 /* AnchorEndCallVC.h */,
+				BABDD07020FE048B005A30D9 /* AnchorEndCallVC.m */,
+				BABDD07220FE0499005A30D9 /* UserEndCallVC.h */,
+				BABDD07320FE0499005A30D9 /* UserEndCallVC.m */,
+			);
+			path = End;
+			sourceTree = "<group>";
+		};
+		BABDD07520FE13A6005A30D9 /* ___Root___ */ = {
+			isa = PBXGroup;
+			children = (
+				BABDD08D20FF65BE005A30D9 /* func button */,
+				BABDD09120FF6FDC005A30D9 /* info */,
+				BABDD07620FE13E9005A30D9 /* danmu */,
+				BA5498F220E2EBFD00C52FF1 /* VCallVC.h */,
+				BA5498F320E2EBFE00C52FF1 /* VCallVC.m */,
+			);
+			path = "___Root___";
+			sourceTree = "<group>";
+		};
+		BABDD07620FE13E9005A30D9 /* danmu */ = {
+			isa = PBXGroup;
+			children = (
+				BABDD08220FF398A005A30D9 /* table */,
+				BABDD07720FE13FB005A30D9 /* VCallVC+Danmu.h */,
+				BABDD07820FE13FB005A30D9 /* VCallVC+Danmu.m */,
+			);
+			path = danmu;
+			sourceTree = "<group>";
+		};
+		BABDD07D20FED780005A30D9 /* Eavesdrop */ = {
+			isa = PBXGroup;
+			children = (
+				BABDD07E20FED79F005A30D9 /* EavesdropVC.h */,
+				BABDD07F20FED79F005A30D9 /* EavesdropVC.m */,
+			);
+			path = Eavesdrop;
+			sourceTree = "<group>";
+		};
+		BABDD08120FEE4F9005A30D9 /* ___Root___ */ = {
+			isa = PBXGroup;
+			children = (
+				BA86CA0920A13FED00F21980 /* cells */,
+				BA97C78120A0530B00F61694 /* SquareVC.m */,
+				BA97C78020A0530B00F61694 /* SquareVC.h */,
+			);
+			path = "___Root___";
+			sourceTree = "<group>";
+		};
+		BABDD08220FF398A005A30D9 /* table */ = {
+			isa = PBXGroup;
+			children = (
+				BABDD08820FF3AAC005A30D9 /* DMContainerView.h */,
+				BABDD08920FF3AAC005A30D9 /* DMContainerView.m */,
+				BABDD08320FF3A13005A30D9 /* DMTableCell.h */,
+				BABDD08420FF3A13005A30D9 /* DMTableCell.m */,
+				BABDD08520FF3A13005A30D9 /* DMTableCell.xib */,
+				BABDD08B20FF5647005A30D9 /* DMPresentTableCell.xib */,
+			);
+			path = table;
+			sourceTree = "<group>";
+		};
+		BABDD08D20FF65BE005A30D9 /* func button */ = {
+			isa = PBXGroup;
+			children = (
+				BABDD08E20FF665C005A30D9 /* VCallVC+func.h */,
+				BABDD08F20FF665C005A30D9 /* VCallVC+func.m */,
+			);
+			path = "func button";
+			sourceTree = "<group>";
+		};
+		BABDD09120FF6FDC005A30D9 /* info */ = {
+			isa = PBXGroup;
+			children = (
+				BA5E331420F850470084CD1D /* VCallVC+info.h */,
+				BA5E331520F850470084CD1D /* VCallVC+info.m */,
+			);
+			path = info;
 			sourceTree = "<group>";
 		};
 		BAC1838D209AE0EB00209CCD = {
@@ -2055,8 +2168,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAC183A6209AE0ED00209CCD /* LaunchScreen.storyboard in Resources */,
+				BABDD08C20FF5647005A30D9 /* DMPresentTableCell.xib in Resources */,
 				BAEE152720BBEB8800B1219B /* city.json in Resources */,
 				BA36518820A42705002B6C62 /* Baoli-SC-Regular.ttf in Resources */,
+				BABDD08720FF3A13005A30D9 /* DMTableCell.xib in Resources */,
 				BAC183A3209AE0ED00209CCD /* Assets.xcassets in Resources */,
 				BAC183A1209AE0EC00209CCD /* Main.storyboard in Resources */,
 				BA47FC1320E0E304002326D4 /* NTESLogViewController.xib in Resources */,
@@ -2197,6 +2312,7 @@
 				BA47FBC320E0CA89002326D4 /* NTESDemoLiveroomTask.m in Sources */,
 				BA47FC1020E0E304002326D4 /* NSDictionary+NTESJson.m in Sources */,
 				BAB7259F20BCF34700CD9A15 /* NOSUploadManager.m in Sources */,
+				BABDD07920FE13FB005A30D9 /* VCallVC+Danmu.m in Sources */,
 				BAEE152120BBD6E500B1219B /* RegistPhoneVC.m in Sources */,
 				BAF2828C20A96D4900625CF3 /* MessageVC.m in Sources */,
 				BAB7259D20BCF34700CD9A15 /* NOSBucketLBSMap.m in Sources */,
@@ -2257,6 +2373,7 @@
 				BA47FC1420E0E304002326D4 /* NTESClientUtil.m in Sources */,
 				BA15FBAB20E2AD900066F0B0 /* NTESLiveAudienceHandler.m in Sources */,
 				BA15FBA620E2AD900066F0B0 /* NTESLivePlayerViewController.m in Sources */,
+				BABDD07120FE048B005A30D9 /* AnchorEndCallVC.m in Sources */,
 				BAEE7FCA20A2DD85000EA5E4 /* SquareSearchHistoryCell.m in Sources */,
 				BAB725F820BD3A7F00CD9A15 /* PreLoginVC.m in Sources */,
 				BA39ACF520AC22C8001EC158 /* MeThemeVC.m in Sources */,
@@ -2273,10 +2390,12 @@
 				BA97C78220A0530B00F61694 /* SquareVC.m in Sources */,
 				BAB725BB20BCF34700CD9A15 /* NOSAFHTTPRequestOperation.m in Sources */,
 				BAF2828520A9309100625CF3 /* UserInfoVC.m in Sources */,
-				BA24A85820F33E6F0035CC31 /* ChooseRoleVC.m in Sources */,
+				BABDD09020FF665C005A30D9 /* VCallVC+func.m in Sources */,
 				BAB7259E20BCF34700CD9A15 /* NOSResumeUpload.m in Sources */,
+				BABDD08020FED79F005A30D9 /* EavesdropVC.m in Sources */,
 				BA47FC0F20E0E304002326D4 /* UIScrollView+NTESDirection.m in Sources */,
 				BA24A86020F368FE0035CC31 /* StartCallVC.m in Sources */,
+				BA5E331620F850470084CD1D /* VCallVC+info.m in Sources */,
 				BA47FC1520E0E304002326D4 /* NTESCADisplayLinkHolder.m in Sources */,
 				BAB725B920BCF34700CD9A15 /* NOSAFURLRequestSerialization.m in Sources */,
 				BA47FC2120E0E304002326D4 /* NTESSpellingCenter.m in Sources */,
@@ -2284,6 +2403,7 @@
 				BAEE7FD420A2E798000EA5E4 /* SquareSearchChooseVC.m in Sources */,
 				BAB725A820BCF34700CD9A15 /* NOSTimeUtils.m in Sources */,
 				BAB725FC20BD5CBF00CD9A15 /* NMFlowLayout.m in Sources */,
+				BABDD08620FF3A13005A30D9 /* DMTableCell.m in Sources */,
 				BA47FBC220E0CA89002326D4 /* NTESLoginManager.m in Sources */,
 				BA2D846D20BF9DE80027F905 /* HomeTabMenuVC.m in Sources */,
 				BA36519020A43408002B6C62 /* RankPicCollectionCell.m in Sources */,
@@ -2312,6 +2432,7 @@
 				BAB725A320BCF34700CD9A15 /* NOSMd5.m in Sources */,
 				BA47FC1820E0E304002326D4 /* NTESLogUploader.m in Sources */,
 				BA54992620E2FA7500C52FF1 /* renderer.c in Sources */,
+				BABDD07420FE0499005A30D9 /* UserEndCallVC.m in Sources */,
 				BA47FC0C20E0E304002326D4 /* NSString+NTES.m in Sources */,
 				BAB725AE20BCF34700CD9A15 /* NOSUserAgent.m in Sources */,
 				BA84B1CC20CE4E5D00839A6B /* FollowerTVC.m in Sources */,
@@ -2345,6 +2466,7 @@
 				BA54992A20E2FA7500C52FF1 /* rgb.fsh.c in Sources */,
 				BA84B1D020CE501600839A6B /* UserListTableViewCell.m in Sources */,
 				BA54991F20E2FA7500C52FF1 /* renderer_yuv444p10le.c in Sources */,
+				BABDD08A20FF3AAC005A30D9 /* DMContainerView.m in Sources */,
 				BA54992D20E2FA7500C52FF1 /* ijksdl_timer.c in Sources */,
 				BA1E2D1420AD7FA60060E91C /* BuyCoinVC.m in Sources */,
 				BAB0F788209B0D2D00E8CCC7 /* NMLoginButton.m in Sources */,

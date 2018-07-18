@@ -22,6 +22,14 @@
     
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
 # pragma mark - click
 // 好友消息
 - (IBAction)clickFriends:(id)sender {

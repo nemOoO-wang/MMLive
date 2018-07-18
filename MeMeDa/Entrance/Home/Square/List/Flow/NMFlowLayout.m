@@ -62,7 +62,7 @@
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     
     //item的宽度 = (collectionView的宽度 - 内边距与列间距) / 列数
-    CGFloat itemWidth = SCREEN_WIDTH/2;
+    CGFloat itemWidth = (SCREEN_WIDTH-10)/2;
     
     CGFloat itemHeight = 0;
     //获取item的高度，由外界计算得到

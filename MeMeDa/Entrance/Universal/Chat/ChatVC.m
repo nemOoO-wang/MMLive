@@ -15,7 +15,8 @@
 
 @interface ChatVC ()<UITableViewDelegate, UITableViewDataSource,
                     RCIMClientReceiveMessageDelegate,
-                    UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,AVAudioRecorderDelegate>
+                    UITextFieldDelegate,UIImagePickerControllerDelegate,
+                    UINavigationControllerDelegate,AVAudioRecorderDelegate>
 @property (nonatomic,strong) RCUserInfo *myUserInfo;
 @property (nonatomic,strong) NSString *friendId;
 @property (nonatomic,strong) NSArray *dialogHistoryArr;
@@ -37,17 +38,6 @@
     [self setTitle:self.friendUserDic[@"nickname"]];
     self.tableView.estimatedRowHeight = 50;
     
-    [[RCIMClient sharedRCIMClient] connectWithToken:RCUserToken
-        success:^(NSString *userId) {
-            NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
-        } error:^(RCConnectErrorCode status) {
-            NSLog(@"登陆的错误码为:%ld", (long)status);
-        } tokenIncorrect:^{
-            //token过期或者不正确。
-            //如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
-            //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
-            NSLog(@"token错误");
-    }];
     // 设置消息接收监听
     [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
     // 本地历史
@@ -78,23 +68,8 @@
         NSLog(@"创建录音机对象时发生错误，错误信息：%@",err.localizedDescription);
     }
     self.recoder.delegate = self;
-    self.navigationController.interactivePopGestureRecognizer.delaysTouchesBegan = NO;
-    // navi bg
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-    self.blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    self.blurView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 64);
-    self.blurView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.navigationController.delegate = self;
-    [self.navigationController.view insertSubview:self.blurView atIndex:1];
-    
 }
 
-# pragma mark - <navi delegate>
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
-    if (viewController != self) {
-        [self.blurView removeFromSuperview];
-    }
-}
 
 -(void)viewDidAppear:(BOOL)animated{
     if (self.dialogHistoryArr.count>0) {
@@ -226,18 +201,15 @@
 # pragma mark - <text field delegate>
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     // content
-//    RCMessageContent *mContent = [[RCMessageContent alloc] init];
-//    //    mContent.mentionedInfo;
-//    [mContent setRawJSONData: [self.inputTextField.text dataUsingEncoding:NSUTF8StringEncoding]];
     RCTextMessage *mContent = [RCTextMessage messageWithContent:self.inputTextField.text];
+    NSString *rmPuthContent = [NSString stringWithFormat:@"%@: %@",self.friendUserDic[@"nickname"], self.inputTextField.text];
     mContent.senderUserInfo = self.myUserInfo;
     self.inputTextField.text = @"";
-    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:self.friendId content:mContent pushContent:nil pushData:nil success:^(long messageId) {
-//        RCMessage *msg = [[RCMessage alloc] initWithType:ConversationType_PRIVATE targetId:self.friendId direction:MessageDirection_SEND messageId:messageId content:mContent];
-        [self refreshMsg];
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:self.friendId content:mContent pushContent:rmPuthContent pushData:nil success:^(long messageId) {
     } error:^(RCErrorCode nErrorCode, long messageId) {
         
     }];
+    [self refreshMsg];
     return YES;
 }
 
@@ -254,7 +226,15 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RCMessage *msg = self.dialogHistoryArr[self.dialogHistoryArr.count - indexPath.row - 1];
     ChatTBCell *cell;
-    if([msg.senderUserId isEqualToString:self.friendId]){
+    // differ cell type
+    NSString *userId;
+    if ([msg isMemberOfClass:[RCMessage class]]) {
+        userId = msg.senderUserId;
+    }else{
+        RCTextMessage *testMessage = (RCTextMessage *)msg;
+        userId = testMessage.senderUserInfo.userId;
+    }
+    if([userId isEqualToString:self.friendId]){
         // you
         cell = [tableView dequeueReusableCellWithIdentifier:@"friend"];
         cell.userDic = self.friendUserDic;
@@ -263,16 +243,26 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"me"];
         cell.userDic = MDUserDic;
     }
-    // text message
-    if ([msg.content isMemberOfClass:[RCTextMessage class]]) {
-        RCTextMessage *testMessage = (RCTextMessage *)msg.content;
-        cell.content = testMessage.content;
-    }else if([msg.content isMemberOfClass:[RCImageMessage class]]){
-        RCImageMessage *imgMsg = (RCImageMessage *)msg.content;
-        cell.imgUrl = imgMsg.imageUrl;
-    }else if([msg.content isMemberOfClass:[RCVoiceMessage class]]){
-        RCVoiceMessage *voiceMsg = (RCVoiceMessage *)msg.content;
-        cell.voiceData = voiceMsg.wavAudioData;
+    
+    // reveived message
+    if ([msg isMemberOfClass:[RCMessage class]]) {
+        // history
+        // origin message
+        if ([msg.content isMemberOfClass:[RCTextMessage class]]) {
+            RCTextMessage *testMessage = (RCTextMessage *)msg.content;
+            cell.content = testMessage.content;
+        }
+    }else{
+        if ([msg isMemberOfClass:[RCTextMessage class]]) {
+            RCTextMessage *testMessage = (RCTextMessage *)msg;
+            cell.content = testMessage.content;
+        }else if([msg.content isMemberOfClass:[RCImageMessage class]]){
+            RCImageMessage *imgMsg = (RCImageMessage *)msg.content;
+            cell.imgUrl = imgMsg.imageUrl;
+        }else if([msg.content isMemberOfClass:[RCVoiceMessage class]]){
+            RCVoiceMessage *voiceMsg = (RCVoiceMessage *)msg.content;
+            cell.voiceData = voiceMsg.wavAudioData;
+        }
     }
     return cell;
 }
@@ -320,8 +310,16 @@
  */
 - (void)onReceived:(RCMessage *)message left:(int)nLeft object:(id)object {
     if ([message.content isMemberOfClass:[RCTextMessage class]]) {
-        RCTextMessage *testMessage = (RCTextMessage *)message.content;
-        NSLog(@"消息内容：%@", testMessage.content);
+        RCTextMessage *textMessage = (RCTextMessage *)message.content;
+        NSLog(@"消息内容：%@", textMessage.content);
+//        NSMutableArray *tmpArr = [self.dialogHistoryArr mutableCopy];
+//        [tmpArr addObject:textMessage];
+//        self.dialogHistoryArr = [tmpArr copy];
+//        dispatch_sync(dispatch_get_main_queue(), ^{
+////            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
+//            [self.tableView reloadData];
+//        });
+        [self refreshMsg];
     }
     NSLog(@"还剩余的未接收的消息数：%d", nLeft);
 }

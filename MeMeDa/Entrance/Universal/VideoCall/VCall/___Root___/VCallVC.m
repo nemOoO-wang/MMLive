@@ -9,18 +9,26 @@
 #import "VCallVC.h"
 #import <NIMSDK/NIMSDK.h>
 #import <NIMAVChat/NIMAVChat.h>
+#import "VCallVC+Danmu.h"
+#import "VCallVC+info.h"
+#import "VCallVC+func.h"
+#import "AnchorEndCallVC.h"
+#import "UserEndCallVC.h"
 // view
 #import "NTESGLView.h"
 #import "NMFloatWindow.h"
 
 
 @interface VCallVC ()<NIMNetCallManagerDelegate>
-@property (nonatomic,strong) UIView *localPreView;
 @property (strong, nonatomic) NTESGLView *glView;
 @property (nonatomic,strong) NIMNetCallVideoCaptureParam *videoParam;
-@property (nonatomic,assign) BOOL meInBig;
 @property (nonatomic,strong) NIMNetCallOption *netCallOption;
 @property (nonatomic,strong) NSString *otherManTrId;
+// views
+@property (weak, nonatomic) IBOutlet UIImageView *secondImgView;
+@property (weak, nonatomic) IBOutlet UIImageView *thirdImgView;
+@property (weak, nonatomic) IBOutlet UILabel *thirdLabel;
+@property (weak, nonatomic) IBOutlet UILabel *secondLabel;
 
 @end
 
@@ -28,6 +36,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupUI];
+    // info data
+    [self updateBalanceScheduled];
+    // Dan mu
+    [self enterDanmu];
     
     [self initLocalCam];
     self.meeting.option = self.netCallOption;
@@ -58,17 +71,25 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     //离开当前多人会议
-    [[NIMAVChatSDK sharedSDK].netCallManager leaveMeeting:self.meeting];
+//    [[NIMAVChatSDK sharedSDK].netCallManager leaveMeeting:self.meeting];
 }
 
 # pragma mark - NIMNetCallManagerDelegate
 //收到用户加入通知
 - (void)onUserJoined:(NSString *)uid meeting:(NIMNetCallMeeting *)meeting
 {
-//    //更新会议在线人数
-//    if (!self.otherManTrId) {
-//        self.otherManTrId = uid;
-//    }
+    //更新会议在线人数
+    if (!self.otherManTrId) {
+        self.otherManTrId = uid;
+    }
+}
+
+// 用户离开
+-(void)onUserLeft:(NSString *)uid meeting:(NIMNetCallMeeting *)meeting{
+    if ([uid isEqualToString:self.otherManTrId]) {
+        [SVProgressHUD showInfoWithStatus:@"对方挂断电话"];
+        [self clickEndCall:nil];
+    }
 }
 
 //会议发生错误
@@ -106,29 +127,6 @@
     }
 }
 
--(void)switchPreView{
-    self.meInBig = !self.meInBig;
-}
-
-- (IBAction)clickSmallPreview:(id)sender {
-    [self switchPreView];
-}
-
--(void)setMeInBig:(BOOL)meInBig{
-    _meInBig = meInBig;
-    UIView *big = self.meInBig? self.localPreView: self.glView;
-    UIView *small = self.meInBig? self.glView: self.localPreView;
-    [big removeFromSuperview];
-    [big setFrame:[NMFloatWindow keyFLoatWindow].bounds];
-    [self.localVideoView addSubview:big];
-    
-    [small removeFromSuperview];
-    [small setFrame:self.smallVideoView.bounds];
-    [self.smallVideoView addSubview:small];
-    
-    self.localPreView = [[NIMAVChatSDK sharedSDK].netCallManager localPreview];
-}
-
 -(void)initLocalCam{
     // 本地摄像头
     [[NIMAVChatSDK sharedSDK].netCallManager addDelegate:self];
@@ -150,9 +148,7 @@
     self.localPreView = [[NIMAVChatSDK sharedSDK].netCallManager localPreview];
     
     //开始采集
-    BOOL start = [[NIMAVChatSDK sharedSDK].netCallManager startVideoCapture:self.videoParam];
-    
-    
+    [[NIMAVChatSDK sharedSDK].netCallManager startVideoCapture:self.videoParam];  
 }
 
 -(NIMNetCallVideoCaptureParam *)videoParam{
@@ -183,6 +179,9 @@
 }
 
 -(void)beforeEndCall{
+    [self.timer invalidate];
+    [self quitDamnu];
+    [[NIMAVChatSDK sharedSDK].netCallManager leaveMeeting:self.meeting];
     NSDictionary *paramDic = @{@"trId":self.trId};
     [[BeeNet sharedInstance] requestWithType:Request_POST url:@"/chat/user/doneHangUp" param:paramDic success:^(id data) {
         
@@ -191,12 +190,28 @@
     }];
 }
 
+-(void)setupUI{
+    if (self.userType == CallUserDefault) {
+        self.secondLabel.text = @"礼物";
+        self.secondImgView.image = [UIImage imageNamed:@"liaotian_liwu"];
+        self.thirdLabel.text = @"充值";
+        self.thirdImgView.image = [UIImage imageNamed:@"liaotian_chongzhi"];
+    }
+}
+
 # pragma mark - click
 - (IBAction)clickEndCall:(id)sender {
     [self beforeEndCall];
-    [[NIMAVChatSDK sharedSDK].netCallManager leaveMeeting:self.meeting];
-    [NMFloatWindow keyFLoatWindow].rootViewController = nil;
-    [[NMFloatWindow keyFLoatWindow] dismiss];
+    if (self.userType == CallUserDefault) {
+        UserEndCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"user end"];
+        [NMFloatWindow keyFLoatWindow].rootViewController = vc;
+
+    }else{
+        AnchorEndCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"anchor end"];
+        [NMFloatWindow keyFLoatWindow].rootViewController = vc;
+        
+    }
+//    [[NMFloatWindow keyFLoatWindow] dismiss];
 }
 
 - (IBAction)clickSmallalize:(id)sender {
@@ -231,8 +246,32 @@
     [btn setBackgroundColor:bgc];
 }
 
+-(void)switchPreView{
+    self.meInBig = !self.meInBig;
+}
+
+- (IBAction)clickSmallPreview:(id)sender {
+    [self switchPreView];
+}
+
+-(void)setMeInBig:(BOOL)meInBig{
+    _meInBig = meInBig;
+    UIView *big = self.meInBig? self.localPreView: self.glView;
+    UIView *small = self.meInBig? self.glView: self.localPreView;
+    [big removeFromSuperview];
+    [big setFrame:[NMFloatWindow keyFLoatWindow].bounds];
+    [self.localVideoView addSubview:big];
+    
+    [small removeFromSuperview];
+    [small setFrame:self.smallVideoView.bounds];
+    [self.smallVideoView addSubview:small];
+    
+    self.localPreView = [[NIMAVChatSDK sharedSDK].netCallManager localPreview];
+}
+
 -(void)didReceiveMemoryWarning{
     [self beforeEndCall];
 }
+
 
 @end

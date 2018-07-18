@@ -8,12 +8,15 @@
 
 #import "HomeTabMenuVC.h"
 #import "NMLoginButton.h"
+#import "StartCallVC.h"
+#import "EavesdropVC.h"
 #import <Masonry.h>
 
 
 @interface HomeTabMenuVC ()
 @property (weak, nonatomic) IBOutlet NMLoginButton *randomBtn;
 @property (weak, nonatomic) IBOutlet NMLoginButton *eavesBtn;
+
 
 @end
 
@@ -71,6 +74,37 @@
     [self.homeAddBtn setSelected:NO];
     [self dismissViewControllerAnimated:YES completion:^{
         
+    }];
+}
+- (IBAction)clickRandomCall:(id)sender {
+    [[BeeNet sharedInstance] requestWithType:Request_GET url:@"/chat/user/randomRing" param:nil success:^(id data) {
+        NSDictionary *uDic = [data[@"data"] firstObject];
+        [self.homeAddBtn setSelected:NO];
+        [self dismissViewControllerAnimated:NO completion:^{
+            StartCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"start call"];
+            vc.usrDic = uDic;
+//            self.tabVC.selectedViewController
+            [self.tabVC presentViewController:vc animated:YES completion:nil];
+        }];
+    } fail:^(NSString *message) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+        [self.homeAddBtn setSelected:NO];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+}
+
+- (IBAction)clickEavesdrop:(id)sender {
+    [[BeeNet sharedInstance] requestWithType:Request_GET url:@"/chat/user/eavesdrop" param:nil success:^(id data) {
+        [self.homeAddBtn setSelected:NO];
+        [self dismissViewControllerAnimated:NO completion:^{
+            EavesdropVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"eavesdrop"];
+            //            vc.usrDic = uDic;
+            //            self.tabVC.selectedViewController
+            [self.tabVC presentViewController:vc animated:YES completion:nil];
+        }];
+    } fail:^(NSString *message) {
+        [self.homeAddBtn setSelected:NO];
+        [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }
 

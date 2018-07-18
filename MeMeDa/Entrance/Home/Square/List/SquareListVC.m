@@ -25,7 +25,7 @@
     // water fall
     NMFlowLayout *flow = [[NMFlowLayout alloc] init];
     [flow setItemHeightBlock:^CGFloat(CGFloat itemHeight, NSIndexPath *indexPath) {
-        CGFloat width = SCREEN_WIDTH/2;
+        CGFloat width = (SCREEN_WIDTH-15)/2;
         if (indexPath.row == 1) {
             return width*1.2;
         }

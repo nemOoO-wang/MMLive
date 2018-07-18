@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <IQKeyboardManager.h>
+#import <PushKit/PushKit.h>
 // RCCloud
 #import <RongCloudIM/RongIMLib/RongIMLib.h>
 // ShareSDK
@@ -29,7 +30,7 @@
 #import "UIWindow+NMCurrent.h"
 
 
-@interface AppDelegate ()<NIMLoginManagerDelegate>
+@interface AppDelegate ()<NIMLoginManagerDelegate, PKPushRegistryDelegate>
 
 @property (nonatomic,strong) UIView *vcallView;
 
@@ -42,6 +43,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // IQKeyboard
     [[IQKeyboardManager sharedManager] setEnable:YES];
+    [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
     // 小米推送
     [MiPushSDK registerMiPush:self type:0 connect:YES];
     // 处理点击通知打开app的逻辑
@@ -116,20 +118,23 @@
     opt.apnsCername = @"StoreCertificates123";
 #endif
     opt.pkCername = @"MMDVoiPCertificates";
-//    [[NIMSDK sharedSDK] registerWithOption:opt];
-    [[NIMSDK sharedSDK] registerWithAppID:NEAPPKey cerName:nil];
+    [[NIMSDK sharedSDK] registerWithOption:opt];
+//    [[NIMSDK sharedSDK] registerWithAppID:NEAPPKey cerName:nil];
+    
+    PKPushRegistry *pushRegistry = [[PKPushRegistry alloc] initWithQueue:dispatch_get_main_queue()];
+    pushRegistry.delegate = self;
+    pushRegistry.desiredPushTypes = [NSSet setWithObject:PKPushTypeVoIP];
     
     // login
     if (NEUserAccount) {
         [[[NIMSDK sharedSDK] loginManager] addDelegate:self];
         [[[NIMSDK sharedSDK] loginManager] autoLogin:NEUserAccount token:NEUserToken];
-//        [[[NIMSDK sharedSDK] loginManager] login:NEUserAccount token:NEUserToken completion:^(NSError * _Nullable error) {
-//            NSLog(@"%@",error.description);
-//        }];
-        
+        [[[NIMSDK sharedSDK] loginManager] login:NEUserAccount token:NEUserToken completion:^(NSError * _Nullable error) {
+            NSLog(@"%@",error.description);
+        }];
     }
     //开启控制台调试
-    [[NIMSDK sharedSDK] enableConsoleLog];
+//    [[NIMSDK sharedSDK] enableConsoleLog];
     
     return YES;
 }
@@ -248,6 +253,15 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         [MiPushSDK handleReceiveRemoteNotification:userInfo];
     }
     //    completionHandler(UNNotificationPresentationOptionAlert);
+}
+
+# pragma mark - PKPushRegistryDelegate
+- (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type
+{
+    if ([type isEqualToString:PKPushTypeVoIP])
+    {
+        [[NIMSDK sharedSDK] updatePushKitToken:credentials.token];
+    }
 }
 
 // 点击通知进入应用

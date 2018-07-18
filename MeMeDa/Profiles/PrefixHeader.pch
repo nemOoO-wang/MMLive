@@ -33,6 +33,7 @@
 #import "NMRegTextField.h"
 #import "BeeNet.h"
 #import "UIColor+BeeColor.h"
+#import "NMFloatWindow.h"
 // framworks
 #import <UIImageView+WebCache.h>
 #import <UIButton+WebCache.h>

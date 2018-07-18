@@ -33,6 +33,12 @@
     self.payWay = 1;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    if (self.customBarHeight) {
+        self.showCustomNaviConstraint.constant = self.customBarHeight;
+    }
+}
+
 -(void)setBackHighlight:(NSInteger)index{
     switch (index) {
         case 1:
@@ -119,5 +125,8 @@
     self.payWay = view.tag;
 }
 
+- (IBAction)clickQuit:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

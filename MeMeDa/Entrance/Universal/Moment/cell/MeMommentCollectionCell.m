@@ -215,13 +215,13 @@
 - (IBAction)clickLike:(id)sender {
     NSLog(@"%ld",[self.dataDic[@"id"] integerValue]);
     NSDictionary *paramDic = @{@"treId":self.dataDic[@"id"]};
-    if ([sender isSelected]) {
+    if (![sender isSelected]) {
         [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/likeTrends" andParam:paramDic andSuccess:^(id data) {
-            [sender setSelected:NO];
+            [sender setSelected:YES];
         }];
     }else{
         [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/disLikeTrends" andParam:paramDic andSuccess:^(id data) {
-            [sender setSelected:YES];
+            [sender setSelected:NO];
         }];
     }
 }

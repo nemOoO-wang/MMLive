@@ -40,6 +40,7 @@ static NMFloatWindow *_instance = nil;
         // show as alert window
         UIWindow *originWin = [[UIApplication sharedApplication] keyWindow];
         self.windowLevel = UIWindowLevelStatusBar - 1;
+        [SVProgressHUD setMaxSupportedWindowLevel:UIWindowLevelStatusBar];
         [self makeKeyAndVisible];
         [originWin makeKeyAndVisible];
     }
@@ -141,6 +142,19 @@ static NMFloatWindow *_instance = nil;
                 self.center = CGPointMake(self.frame.size.width/2, fixedY);
             } completion:nil];
         }
+    }
+}
+
+-(void)handleasKeywindow:(void (^)(void))handle{
+    // show as alert window
+    UIWindow *originWin = [[UIApplication sharedApplication] keyWindow];
+    if (handle) {
+        [self makeKeyAndVisible];
+//        [SVProgressHUD setMaxSupportedWindowLevel:UIWindowLevelStatusBar];
+        handle();
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC *3), dispatch_get_main_queue(), ^{
+            [originWin makeKeyAndVisible];
+        });
     }
 }
 /*

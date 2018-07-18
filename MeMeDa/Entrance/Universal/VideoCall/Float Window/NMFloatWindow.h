@@ -18,6 +18,7 @@
 @property (nonatomic,assign) CGRect defaultSmallFrame;
 @property (nonatomic,assign) BOOL fullScreen;
 
+-(void)handleasKeywindow:(void (^)(void))handle;
 -(void)setFullScreenWithoutAni:(BOOL)fullScreen;
 -(void)dismiss;
 -(void)show;

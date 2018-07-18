@@ -9,6 +9,7 @@
 #import "HomeTabbarController.h"
 #import "HomeTabMenuVC.h"
 
+
 @interface HomeTabbarController ()
 
 @property (nonatomic,strong) UIButton *addBtn;
@@ -26,6 +27,8 @@
         _menu = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SquareMenu"];
         _menu.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         _menu.homeAddBtn = self.addBtn;
+        __weak typeof(self) weakSelf = self;
+        _menu.tabVC = weakSelf;
         // blur cover
         UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
         UIVisualEffectView *blurCover = [[UIVisualEffectView alloc] initWithEffect:effect];
