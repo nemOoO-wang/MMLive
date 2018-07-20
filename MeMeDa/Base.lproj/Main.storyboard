@@ -1227,7 +1227,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="109" height="114"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gakki" translatesAutoresizingMaskIntoConstraints="NO" id="Em4-1I-Me0">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gakki" translatesAutoresizingMaskIntoConstraints="NO" id="Em4-1I-Me0">
                                                     <rect key="frame" x="0.0" y="0.0" width="109" height="114"/>
                                                 </imageView>
                                             </subviews>
@@ -2344,9 +2344,11 @@
                                             <constraint firstItem="8AH-Gx-Vm9" firstAttribute="top" secondItem="Ge5-zh-w7E" secondAttribute="bottom" id="AuR-dA-Tqc"/>
                                             <constraint firstAttribute="bottom" secondItem="A7R-y9-KY1" secondAttribute="bottom" constant="2.5" id="CwD-Bs-kLE"/>
                                             <constraint firstAttribute="trailing" secondItem="AU8-qD-nZ6" secondAttribute="trailing" constant="10" id="Ifr-Yw-RZi"/>
+                                            <constraint firstItem="AU8-qD-nZ6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8AH-Gx-Vm9" secondAttribute="trailing" constant="5" id="Je0-0B-2xD"/>
                                             <constraint firstItem="AU8-qD-nZ6" firstAttribute="top" secondItem="SQw-k6-dwr" secondAttribute="bottom" constant="5" id="KPI-Xr-cE1"/>
                                             <constraint firstAttribute="bottom" secondItem="AU8-qD-nZ6" secondAttribute="bottom" constant="10" id="T5d-DA-Nym"/>
                                             <constraint firstItem="AU8-qD-nZ6" firstAttribute="trailing" secondItem="SQw-k6-dwr" secondAttribute="trailing" id="Ysc-7l-2zh"/>
+                                            <constraint firstItem="SQw-k6-dwr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ge5-zh-w7E" secondAttribute="trailing" constant="5" id="d84-wH-PIY"/>
                                             <constraint firstItem="A7R-y9-KY1" firstAttribute="top" secondItem="kPa-2x-U9n" secondAttribute="top" constant="2.5" id="e3M-pw-Abv"/>
                                             <constraint firstAttribute="bottom" secondItem="8AH-Gx-Vm9" secondAttribute="bottom" constant="11" id="fJQ-LX-r9Q"/>
                                             <constraint firstItem="1Hi-FM-rW8" firstAttribute="top" secondItem="kPa-2x-U9n" secondAttribute="top" constant="5" id="g12-CK-nR8"/>
@@ -2606,43 +2608,43 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ido-5X-3f5" userLabel="LabelShadow">
-                                <rect key="frame" x="61.5" y="431.5" width="39" height="38.5"/>
+                                <rect key="frame" x="61.5" y="427.5" width="43.5" height="46.5"/>
                                 <fontDescription key="fontDescription" name="STBaoli-SC-Regular" family="Baoli SC" pointSize="33"/>
                                 <color key="textColor" red="1" green="0.46666666670000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZa-f0-GxS">
-                                <rect key="frame" x="60" y="429.5" width="39" height="38.5"/>
+                                <rect key="frame" x="60" y="425.5" width="43.5" height="46.5"/>
                                 <fontDescription key="fontDescription" name="STBaoli-SC-Regular" family="Baoli SC" pointSize="33"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pr_2" translatesAutoresizingMaskIntoConstraints="NO" id="7Ra-Rg-EC7">
-                                <rect key="frame" x="110.5" y="430" width="38" height="42"/>
+                                <rect key="frame" x="115" y="430" width="38" height="42"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEp-uw-KPa" userLabel="LabelShadow">
-                                <rect key="frame" x="155" y="431.5" width="39" height="38.5"/>
+                                <rect key="frame" x="159.5" y="427.5" width="43.5" height="46.5"/>
                                 <fontDescription key="fontDescription" name="STBaoli-SC-Regular" family="Baoli SC" pointSize="33"/>
                                 <color key="textColor" red="1" green="0.46666666670000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3G-6q-hD9">
-                                <rect key="frame" x="153.5" y="429.5" width="39" height="38.5"/>
+                                <rect key="frame" x="158" y="425.5" width="43.5" height="46.5"/>
                                 <fontDescription key="fontDescription" name="STBaoli-SC-Regular" family="Baoli SC" pointSize="33"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pr_3" translatesAutoresizingMaskIntoConstraints="NO" id="qSG-e3-tlt">
-                                <rect key="frame" x="204" y="428" width="36" height="45"/>
+                                <rect key="frame" x="213" y="428" width="36" height="45"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpN-Ly-O4z" userLabel="LabelShadow">
-                                <rect key="frame" x="246.5" y="431.5" width="39" height="38.5"/>
+                                <rect key="frame" x="255.5" y="427.5" width="43.5" height="46.5"/>
                                 <fontDescription key="fontDescription" name="STBaoli-SC-Regular" family="Baoli SC" pointSize="33"/>
                                 <color key="textColor" red="1" green="0.46666666670000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ck-Wh-75x">
-                                <rect key="frame" x="245" y="429.5" width="39" height="38.5"/>
+                                <rect key="frame" x="254" y="425.5" width="43.5" height="46.5"/>
                                 <fontDescription key="fontDescription" name="STBaoli-SC-Regular" family="Baoli SC" pointSize="33"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -3624,7 +3626,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8z-wj-n9F" userLabel="Seperator">
-                                <rect key="frame" x="0.0" y="131" width="375" height="1"/>
+                                <rect key="frame" x="20" y="131" width="355" height="1"/>
                                 <color key="backgroundColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Y7q-ol-slW"/>
@@ -3657,7 +3659,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nr-cF-hUD" userLabel="Seperator">
-                                <rect key="frame" x="0.0" y="182" width="375" height="1"/>
+                                <rect key="frame" x="20" y="182" width="355" height="1"/>
                                 <color key="backgroundColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="rh1-WJ-UBi"/>
@@ -3690,7 +3692,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUk-su-PJy" userLabel="Seperator-2">
-                                <rect key="frame" x="0.0" y="233" width="375" height="1"/>
+                                <rect key="frame" x="20" y="233" width="355" height="1"/>
                                 <color key="backgroundColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Pox-xU-dAr"/>
@@ -11271,6 +11273,6 @@
         <segue reference="sKF-o8-DUt"/>
         <segue reference="Mzg-wE-Rnn"/>
         <segue reference="1rl-Ny-3mG"/>
-        <segue reference="K0W-e5-WTP"/>
+        <segue reference="bKz-id-kMb"/>
     </inferredMetricsTieBreakers>
 </document>

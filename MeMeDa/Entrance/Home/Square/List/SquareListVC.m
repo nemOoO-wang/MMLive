@@ -70,7 +70,11 @@
     self.page = 0;
     NSDictionary *paramDic = @{@"page":@0,@"size":@20};
     [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:self.searchUrl andParam:paramDic andSuccess:^(id data) {
-        self.dataArr = data[@"data"];
+        if ([self.title isEqualToString:@"素人列表"]) {
+            self.dataArr = data[@"data"][@"content"];
+        }else{
+            self.dataArr = data[@"data"];
+        }
         [self.collectionView.mj_header endRefreshing];
         [self.collectionView reloadData];
     }];

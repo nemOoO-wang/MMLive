@@ -123,6 +123,7 @@
     if (self.listType == MessageTypeCallLog) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"log" forIndexPath:indexPath];
         cell.dataDic = self.dataArr[indexPath.row];
+        cell.dataDic = self.dataArr[indexPath.row][@"fromId"];
     }
     if (self.listType == MessageTypeLahei) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"lahei" forIndexPath:indexPath];

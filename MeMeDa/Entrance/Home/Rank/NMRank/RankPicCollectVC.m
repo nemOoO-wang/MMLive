@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *weeklyBtn;
 @property (nonatomic,assign) NSInteger requestDayIndex;
 @property (nonatomic,assign) NSInteger requestWeekIndex;
+@property (nonatomic,assign) BOOL weeklyType;
 
 @end
 
@@ -67,11 +68,14 @@
         // daily
         self.dailyBtn.alpha = 1;
         self.weeklyBtn.alpha = 0.5;
+        self.weeklyType = NO;
     }else{
         // weekly
         self.dailyBtn.alpha = 0.5;
         self.weeklyBtn.alpha = 1;
+        self.weeklyType = YES;
     }
+    [self.collectionView reloadData];
 }
 
 # pragma mark - <UICollectionViewDataSource>
@@ -94,6 +98,11 @@
     }else{
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell4" forIndexPath:indexPath];
         cell.rankNumLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row+1];
+    }
+    if (self.weeklyType) {
+        cell.imgView.image = [UIImage imageNamed:@"nipplee"];
+    }else{
+        cell.imgView.image = [UIImage imageNamed:@"gakki"];
     }
     return cell;
 }

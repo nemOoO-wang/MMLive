@@ -43,8 +43,8 @@
     // 本地历史
     self.dialogHistoryArr = [[RCIMClient sharedRCIMClient] getLatestMessages:ConversationType_PRIVATE targetId:self.friendId count:20];
     // 远程历史
-    [[RCIMClient sharedRCIMClient] getRemoteHistoryMessages:ConversationType_PRIVATE targetId:self.friendId recordTime:0 count:20 success:^(NSArray *messages) {
-        //        self.dialogHistoryArr =
+    [[RCIMClient sharedRCIMClient] getRemoteHistoryMessages:ConversationType_PRIVATE targetId:self.friendId recordTime:0 count:20 success:^(NSArray *messages, BOOL isRemaining) {
+        
     } error:^(RCErrorCode status) {
         NSLog(@"融云远程历史出错");
     }];

@@ -2661,6 +2661,7 @@
 				CODE_SIGN_ENTITLEMENTS = MeMeDa/MeMeDa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7H226S4K4M;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDKFrameworks/ShareSDK4.1.2/SDK/ShareSDK/Support/Required",
@@ -2727,6 +2728,7 @@
 				CODE_SIGN_ENTITLEMENTS = MeMeDa/MeMeDa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7H226S4K4M;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDKFrameworks/ShareSDK4.1.2/SDK/ShareSDK/Support/Required",

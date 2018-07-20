@@ -175,6 +175,8 @@
                 }
             }
             [listCell.imgView sd_setImageWithURL:[NSURL URLWithString:url]];
+        }else{
+            [listCell.imgView setImage:[UIImage imageNamed:@"Nobody"]];
         }
         return listCell;
     }

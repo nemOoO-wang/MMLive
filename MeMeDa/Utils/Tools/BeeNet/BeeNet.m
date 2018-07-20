@@ -10,7 +10,8 @@
 #import <AFNetworking.h>
 
 // 云端
-#define BASE_URL @"http://192.168.3.124:8999"
+//#define BASE_URL @"http://192.168.3.124:8999"
+#define BASE_URL @"http://119.23.66.37:8999"
 // 本地
 //#define BASE_URL @"http://192.168.3.124:8081/mingya/"
 
