@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SquareSearchVC.h"
+
 
 @interface SquareSearchChooseVC : UIViewController
 
 @property (nonatomic,strong) UIVisualEffectView *coverView;
+@property (nonatomic,strong) NSString *siftKey;
 @property (nonatomic,strong) NSArray *dataArr;
 @property (nonatomic,strong) NSArray *subDataArr;
+@property (nonatomic,weak) SquareSearchVC *vc;
 
 
 @end

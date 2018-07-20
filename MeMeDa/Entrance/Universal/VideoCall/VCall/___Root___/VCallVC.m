@@ -7,13 +7,9 @@
 //
 
 #import "VCallVC.h"
-#import <NIMSDK/NIMSDK.h>
-#import <NIMAVChat/NIMAVChat.h>
 #import "VCallVC+Danmu.h"
 #import "VCallVC+info.h"
 #import "VCallVC+func.h"
-#import "AnchorEndCallVC.h"
-#import "UserEndCallVC.h"
 // view
 #import "NTESGLView.h"
 #import "NMFloatWindow.h"
@@ -41,6 +37,7 @@
     [self updateBalanceScheduled];
     // Dan mu
     [self enterDanmu];
+    self.peopleCount = 0;
     
     [self initLocalCam];
     self.meeting.option = self.netCallOption;
@@ -81,7 +78,11 @@
     //更新会议在线人数
     if (!self.otherManTrId) {
         self.otherManTrId = uid;
+    }else{
+        self.peopleCount++;
+        self.peopleCountLabel.text = [NSString stringWithFormat:@"%ld 人正在偷听",self.peopleCount];
     }
+    
 }
 
 // 用户离开

@@ -10,6 +10,7 @@
 #import "SettingsBtnTblCell.h"
 #import <NIMSDK/NIMSDK.h>
 #import "MiPushSDK.h"
+#import "MessageListTVC.h"
 
 
 @interface SettingTableViewController ()
@@ -34,6 +35,11 @@
     [self.blurView removeFromSuperview];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    if (!self.blurView.superview) {
+        [self.navigationController.view insertSubview:self.blurView atIndex:1];
+    }
+}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row > 19) {
@@ -50,7 +56,7 @@
                 break;
                 
             case 24:
-                
+                [self heimingdan];
                 break;
             case 25:
                 [self quit];
@@ -129,6 +135,12 @@
             break;
     }
     return [NSIndexPath indexPathForRow:row inSection:section];
+}
+
+-(void)heimingdan{
+    MessageListTVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"user list"];
+    vc.listType = MessageTypeLahei;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)quit{

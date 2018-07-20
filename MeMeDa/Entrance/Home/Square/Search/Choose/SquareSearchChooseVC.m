@@ -31,18 +31,50 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     if(component == 0){
-        return self.dataArr.count;
+        return self.dataArr.count+1;
     }else{
-        return self.subDataArr.count;
+        if ([self.siftKey isEqualToString:@"cityName"]) {
+            NSInteger section = [self.pickerView selectedRowInComponent:0];
+            if (section == 0) {
+                return 1;
+            }
+            self.subDataArr = self.dataArr[section-1][@"city"];
+            return self.subDataArr.count+1;
+        }
+        return self.subDataArr.count+1;
     }
 }
 
 # pragma mark - <UIPickerViewDelegate>
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    if(component == 1){
-        return @"!";
+    if (row == 0) {
+        return @"不限";
     }
-    return self.dataArr[row];
+    if ([self.siftKey isEqualToString:@"cityName"]) {
+        if(component == 0){
+            return self.dataArr[row-1][@"name"];
+        }else{
+            NSInteger section = [self.pickerView selectedRowInComponent:0]-1;
+            return self.subDataArr[row-1][@"name"];
+        }
+    }
+    if(component == 1){
+        return self.subDataArr[row-1];
+    }
+    return self.dataArr[row-1];
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    if (self.subDataArr) {
+        if (component == 0) {
+            if (row == 0) {
+                self.subDataArr = @[];
+            }else{
+                self.subDataArr = self.dataArr[row-1][@"city"];
+                [self.pickerView reloadComponent:1];
+            }
+        }
+    }
 }
 
 # pragma mark - Cancel
@@ -56,6 +88,39 @@
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self dismissThis];
+}
+
+- (IBAction)clickConfirm:(id)sender {
+    if ([self.pickerView selectedRowInComponent:0] == 0) {
+        [self.vc.searchDic removeObjectForKey:self.siftKey];
+        UILabel *label = self.vc.labelDic[self.siftKey];
+        label.text = @"不限";
+    }else{
+        // 特殊处理
+        if ([self.siftKey isEqualToString:@"cityName"]) {
+            NSString *value;
+            if ([self.pickerView selectedRowInComponent:1] == 0) {
+                value = self.dataArr[[self.pickerView selectedRowInComponent:0]-1][@"name"];
+            }else{
+                value = self.subDataArr[[self.pickerView selectedRowInComponent:1]-1][@"name"];                
+            }
+            UILabel *label = self.vc.labelDic[@"cityName"];
+            label.text = value;
+            self.vc.searchDic[self.siftKey] = value;
+            [self dismissThis];
+            return;
+        }
+        // 通用处理
+        if (self.subDataArr) {
+            
+        }else{
+            NSString *value = self.dataArr[[self.pickerView selectedRowInComponent:0]-1];
+            self.vc.searchDic[self.siftKey] = value;
+            UILabel *label = self.vc.labelDic[self.siftKey];
+            label.text = value;
+        }
+    }
     [self dismissThis];
 }
 

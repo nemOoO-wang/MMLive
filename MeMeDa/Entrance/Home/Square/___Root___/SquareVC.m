@@ -13,6 +13,7 @@
 #import "SquareListVC.h"
 #import "HittestView.h"
 #import "UserInfoVC.h"
+#import "MeThemeVC.h"
 
 
 @interface SquareVC ()<UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource,UINavigationControllerDelegate>
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionVIew;
 @property (nonatomic,strong) NSArray *urlTupleArr;
 
+@property (nonatomic,strong) NSArray *partyArr;
 
 @property (nonatomic,strong) NSArray *listDataArr;
 
@@ -32,30 +34,53 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // init tuple
-    self.urlTupleArr = @[@[@"关注列表",@"/chat/user/getRecommend"],
-                         @[@"活动主题",@"/chat/user/getActivityList"],
-                         @[@"热门列表",@"/chat/statistical/getlist"],
-                         @[@"素人列表",@"/chat/user/vegetarian"],
-                         @[@"推荐列表",@"/chat/user/getRecommandList"]];
-    // 首页数据
-    [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/getAll" andParam:nil andSuccess:^(id data) {
-        self.listDataArr = data[@"data"];
-        [self.collectionVIew reloadData];
-    }];
-    // 在线状态
     NSDictionary *uDic = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"];
+    // 男用户不显示认证
+    NSString *replaceStr = ([uDic[@"gender"] integerValue] == 1)? @"素人列表": @"男用户列表";
+    // init tuple
+    self.urlTupleArr = @[@[@"关注列表",@"/chat/user/meFollowList"],
+//                             @"关注列表",@"/chat/user/getRecommend"],
+                         @[@"主题活动",@"/chat/user/getActivityList"],
+                         @[@"热门列表",@"/chat/statistical/getlist"],
+                         @[replaceStr,@"/chat/user/vegetarian"],
+                         @[@"推荐列表",@"/chat/user/getRecommandList"]];
+    // 在线状态
     if([uDic[@"imState"] integerValue] == 1){
         // 在线
         [self.onlineBtn setSelected:NO];
     }else{
         [self.onlineBtn setSelected:YES];
     }
+    self.navigationController.delegate = self;
+    // 主题活动
+    [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/getActivityList" andParam:@{@"page":@0, @"size":@10} andSuccess:^(id data) {
+        self.partyArr = data[@"data"][@"content"];
+        NSMutableArray *mArr = [self.partyArr mutableCopy];
+        NSInteger count = self.partyArr.count;
+        while ((count--) > 6) {
+            [mArr removeLastObject];
+        }
+        self.partyArr = [mArr copy];
+        [self.collectionVIew reloadSections:[NSIndexSet indexSetWithIndex:1]];
+    }];
+}
+
+-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+//    navigationController.navigationItem.hidesBackButton = YES;
+//    navigationController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     HittestView *coverView = [[HittestView alloc] initInController:self];
     coverView.views = @[self.momentBtn, self.searchBtn, self.onlineBtn];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    // 首页数据
+    [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/getAll" andParam:nil andSuccess:^(id data) {
+        self.listDataArr = data[@"data"];
+        [self.collectionVIew reloadData];
+    }];
 }
 
 -(NSDictionary *)getUserAtIndexPath:(NSIndexPath *)indexPath{
@@ -81,17 +106,32 @@
 # pragma mark - <UICollectionViewDelegate>
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
-        // list
-        [self performSegueWithIdentifier:@"list" sender:self.urlTupleArr[indexPath.section]];
+        if (indexPath.section == 1) {
+            [self performSegueWithIdentifier:@"party" sender:nil];
+        }else{
+            // list
+            [self performSegueWithIdentifier:@"list" sender:self.urlTupleArr[indexPath.section]];
+        }
     }else{
-        // user detail
-        UserInfoVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"user detail"];
-        NSDictionary *userDic = [self getUserAtIndexPath:indexPath];
-        if (userDic) {
-            vc.dataDic = userDic;
+        if (indexPath.section == 1) {
+            // 主题
+            NSDictionary *dic = self.partyArr[indexPath.row-1];
+            NSDictionary *searchDic = @{@"activityId":dic[@"id"]};
+            SquareListVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"square list"];
+            [vc setTitle:@"活动主题"];
+            vc.searchUrl = @"/chat/user/indexSearch";
+            vc.optSearchDic = searchDic;
             [self.navigationController pushViewController:vc animated:YES];
         }else{
-            [SVProgressHUD showErrorWithStatus:@"用户不存在"];
+            // user detail
+            UserInfoVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"user detail"];
+            NSDictionary *userDic = [self getUserAtIndexPath:indexPath];
+            if (userDic) {
+                vc.dataDic = userDic;
+                [self.navigationController pushViewController:vc animated:YES];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"用户不存在"];
+            }
         }
     }
 }
@@ -152,6 +192,9 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    if (section == 1) {
+        return 1+self.partyArr.count;
+    }
     // 1 header + 4 cell
     return 5;
 }
@@ -208,6 +251,9 @@
         SquareListVC *vc = segue.destinationViewController;
         [vc setTitle:sender[0]];
         vc.searchUrl = sender[1];
+    }
+    if ([segue.identifier isEqualToString:@"party"]) {
+        MeThemeVC *vc = segue.destinationViewController;
     }
 }
 

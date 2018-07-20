@@ -16,6 +16,8 @@
 @interface SquareListVC ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,assign) NSInteger page;
+@property (nonatomic,strong) NSArray *dataArr;
+
 @end
 
 @implementation SquareListVC
@@ -37,7 +39,13 @@
         // 热门
         NSDictionary *paramDic = @{@"type":@5};
         [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:self.searchUrl andParam:paramDic andSuccess:^(id data) {
-            
+            self.dataArr = data[@"data"];
+            [self.collectionView reloadData];
+        }];
+    }else if ([self.title isEqualToString:@"活动主题"]){
+        [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:self.searchUrl andParam:self.optSearchDic andSuccess:^(id data) {
+            self.dataArr = data[@"data"][@"content"];
+            [self.collectionView reloadData];
         }];
     }else{
         // 其他
@@ -52,6 +60,9 @@
         MJRefreshAutoNormalFooter *mjFooter = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(nextPageData)];
         mjFooter.stateLabel.textColor = [UIColor whiteColor];
         self.collectionView.mj_footer = mjFooter;
+        
+        // refresh
+        [self refreshData];
     }
 }
 
@@ -59,7 +70,9 @@
     self.page = 0;
     NSDictionary *paramDic = @{@"page":@0,@"size":@20};
     [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:self.searchUrl andParam:paramDic andSuccess:^(id data) {
+        self.dataArr = data[@"data"];
         [self.collectionView.mj_header endRefreshing];
+        [self.collectionView reloadData];
     }];
 }
 
@@ -73,12 +86,16 @@
 # pragma mark - <UICollectionViewDataSource>
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     SquareListGirlsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    
+    if ([self.title isEqualToString:@"热门列表"]) {
+        cell.uDic = self.dataArr[indexPath.row][@"user"];
+    }else{
+        cell.uDic = self.dataArr[indexPath.row];
+    }
     return cell;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 10;
+    return self.dataArr.count;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -88,6 +105,11 @@
 # pragma mark - <UICollectionViewDelegate>
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     UserInfoVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"user detail"];
+    if ([self.title isEqualToString:@"热门列表"]) {
+        vc.dataDic = self.dataArr[indexPath.row][@"user"];
+    }else{
+        vc.dataDic = self.dataArr[indexPath.row];
+    }
     [self.navigationController pushViewController:vc animated:YES];
 }
 

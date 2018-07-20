@@ -10,6 +10,10 @@
 #import "AVAnchorContainerView.h"
 #import <RongIMLib/RongIMLib.h>
 #import "DMContainerView.h"
+#import <NIMSDK/NIMSDK.h>
+#import <NIMAVChat/NIMAVChat.h>
+#import "AnchorEndCallVC.h"
+#import "UserEndCallVC.h"
 
 typedef NS_ENUM(NSInteger, CallUser) {
     CallUserAnchor,
@@ -29,7 +33,11 @@ typedef NS_ENUM(NSInteger, CallUser) {
 // info data
 @property (nonatomic,strong) NSTimer *timer;
 @property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *peopleCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *myNameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *myHeadImgView;
 @property (nonatomic,assign) BOOL meInBig;
+@property (nonatomic,assign) NSInteger peopleCount;
 // danmu
 @property (weak, nonatomic) IBOutlet DMContainerView *danmuView;
 

@@ -11,6 +11,7 @@
 #import "NMClickVideoView.h"
 #import <QBImagePickerController/QBImagePickerController.h>
 #import "NMPicsBlowser.h"
+#import "NMLongPressButton.h"
 #import <AVKit/AVKit.h>
 
 
@@ -213,78 +214,92 @@
 }
 
 -(void)addPics:(NSArray *)imgArr{
+    // reset
+    [self.imgView1 setImage:nil];
+    [self.imgView2 setImage:nil];
+    [self.imgView3 setImage:nil];
+    [self.imgView4 setImage:nil];
+    [self.imgView5 setImage:nil];
+    [self.imgView6 setImage:nil];
+    [self.imgView7 setImage:nil];
+    [self.imgView8 setImage:nil];
+    [self.imgView9 setImage:nil];
+    // set
     self.imgarr = [self.imgarr arrayByAddingObjectsFromArray:imgArr];
     for (int i=0; i<self.imgarr.count; i++) {
-        switch (i) {
-            case 0:
-//                [self.imgView1 setImage:self.imgarr[i]];
-                [self.imgView1 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
-                    NSLog(@"未设置");
-                } delete:^{
-                    NSLog(@"删除");
-                }];
-                break;
-            case 1:
-//                [self.imgView2 setImage:self.imgarr[i]];
-                [self.imgView2 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
-                    NSLog(@"未设置");
-                } delete:^{
-                    NSLog(@"删除");
-                }];
-                break;
-            case 2:
-                [self.imgView3 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
-                    NSLog(@"未设置");
-                } delete:^{
-                    NSLog(@"删除");
-                }];
-                break;
-            case 3:
-                [self.imgView4 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
-                    NSLog(@"未设置");
-                } delete:^{
-                    NSLog(@"删除");
-                }];
-                break;
-            case 4:
-                [self.imgView5 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
-                    NSLog(@"未设置");
-                } delete:^{
-                    NSLog(@"删除");
-                }];
-                break;
-            case 5:
-                [self.imgView6 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
-                    NSLog(@"未设置");
-                } delete:^{
-                    NSLog(@"删除");
-                }];
-                break;
-            case 6:
-                [self.imgView7 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
-                    NSLog(@"未设置");
-                } delete:^{
-                    NSLog(@"删除");
-                }];
-                break;
-            case 7:
-                [self.imgView8 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
-                    NSLog(@"未设置");
-                } delete:^{
-                    NSLog(@"删除");
-                }];
-                break;
-            case 8:
-                [self.imgView9 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
-                    NSLog(@"未设置");
-                } delete:^{
-                    NSLog(@"删除");
-                }];
-                break;
-                
-            default:
-                break;
+        if (i==0) {
+            [self.imgView1 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                NSLog(@"未设置");
+            } delete:^{
+                [self deletePic:i];
+                NSLog(@"删除");
+            }];
         }
+        if (i==1) {
+            [self.imgView2 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                NSLog(@"未设置");
+            } delete:^{
+                [self deletePic:i];
+                NSLog(@"删除");
+            }];
+        }
+        if (i==2) {
+            [self.imgView3 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                NSLog(@"未设置");
+            } delete:^{
+                [self deletePic:i];
+                NSLog(@"删除");
+            }];
+        }
+        if (i==3) {
+            [self.imgView4 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                NSLog(@"未设置");
+            } delete:^{
+                [self deletePic:i];
+                NSLog(@"删除");
+            }];
+        }
+        if (i==4) {
+            [self.imgView5 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                NSLog(@"未设置");
+            } delete:^{
+                [self deletePic:i];
+                NSLog(@"删除");
+            }];
+        }
+        if (i==5) {
+            [self.imgView6 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                NSLog(@"未设置");
+            } delete:^{
+                [self deletePic:i];
+                NSLog(@"删除");
+            }];
+        }
+        if (i==6) {
+            [self.imgView7 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                NSLog(@"未设置");
+            } delete:^{
+                [self deletePic:i];
+                NSLog(@"删除");
+            }];
+        }
+        if (i==7) {
+            [self.imgView8 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                NSLog(@"未设置");
+            } delete:^{
+                [self deletePic:i];
+                NSLog(@"删除");
+            }];
+        }
+        if (i==8) {
+            [self.imgView9 setRawImg:self.imgarr[i] withBrowser:^(NMPicsBlowser *obj) {
+                NSLog(@"未设置");
+            } delete:^{
+                [self deletePic:i];
+                NSLog(@"删除");
+            }];
+        }
+        
     }
     // set show mode
     NSInteger lineCount = (self.imgarr.count+2)/3;
@@ -528,5 +543,28 @@
     }
     [self.view layoutIfNeeded];
 }
+
+
+-(void)deletePic:(NSInteger)index{
+    if (index<self.imgarr.count) {
+        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"删除图片" message:@"确定删除这张照片吗？" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* confirmAction = [UIAlertAction
+                                        actionWithTitle:@"确定" style:  UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * action) {
+                                            NSMutableArray *tmpArr = [self.imgarr mutableCopy];
+                                            [tmpArr removeObjectAtIndex:index];
+                                            self.imgarr = [tmpArr copy];
+                                            [self addPics:@[]];
+                                        }];
+        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style: UIAlertActionStyleCancel
+                                                             handler:^(UIAlertAction * action) {}];
+        [alertCon addAction:confirmAction];
+        [alertCon addAction:cancelAction];
+        [self presentViewController:alertCon animated:YES completion:^{
+            
+        }];
+    }
+}
+
 
 @end

@@ -9,10 +9,11 @@
 #import "MeCenterViewController.h"
 #import "HittestView.h"
 #import "MyFollowVC.h"
+#import "SetCoinVC.h"
 #import <UIImageView+WebCache.h>
 
 
-@interface MeCenterViewController ()
+@interface MeCenterViewController ()<UINavigationControllerDelegate>
 @property (nonatomic,strong) HittestView *hittestView;
 
 @property (weak, nonatomic) IBOutlet UIButton *ComposeBtn;
@@ -30,8 +31,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.delegate = self;
     // 用户字典
     NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"];
+    // 男用户不显示认证
+    if ([userDic[@"gender"] integerValue] == 1) {
+        self.authState.hidden = YES;
+    }
     // 关注数
     [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/getMeFollowCount" andParam:nil andSuccess:^(id data) {
         self.myFollowCountLabel.text = [NSString stringWithFormat:@"%ld",[data[@"data"] integerValue]];
@@ -69,13 +75,18 @@
     [self.headImg sd_setImageWithURL:[NSURL URLWithString:userDic[@"headImg"]]];
 }
 
--(void)viewDidDisappear:(BOOL)animated{
-    [self.hittestView removeFromSuperview];
+-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    BOOL hidden = [viewController isEqual:self];
+    [navigationController setNavigationBarHidden:hidden animated:YES];
 }
--(void)viewDidAppear:(BOOL)animated{
-    self.hittestView = [[HittestView alloc] initInController:self];
-    self.hittestView.views = @[self.ComposeBtn, self.settingBtn];
-}
+
+//-(void)viewDidDisappear:(BOOL)animated{
+//    [self.hittestView removeFromSuperview];
+//}
+//-(void)viewDidAppear:(BOOL)animated{
+//    self.hittestView = [[HittestView alloc] initInController:self];
+//    self.hittestView.views = @[self.ComposeBtn, self.settingBtn];
+//}
 
 # pragma mark - prepare segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -84,6 +95,9 @@
         NMFollowerType type = [sender integerValue] == 1?NMFollowerTypeMyFollow: NMFollowerTypeFollower;
         vc.type = type;
     }
+//    if ([segue.identifier isEqualToString:@"set coin"]) {
+//        SetCoinVC *vc = segue.destinationViewController;
+//    }
 }
 
 
@@ -98,6 +112,9 @@
             break;
         case 4:
             [self performSegueWithIdentifier:@"new moment" sender:nil];
+            break;
+        case 5:
+            [self performSegueWithIdentifier:@"set coin" sender:nil];
             break;
             
         default:

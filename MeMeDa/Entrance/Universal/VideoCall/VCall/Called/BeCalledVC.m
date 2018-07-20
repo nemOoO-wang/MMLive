@@ -20,7 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSString *json = self.callDataDic[@"message"];
+    NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+    self.nameLabel.text = dataDic[@"userName"];
+    [self.headImg sd_setImageWithURL:[NSURL URLWithString:dataDic[@"img"]]];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -11,5 +11,7 @@
 @interface SquareListVC : UIViewController
 
 @property (nonatomic,strong) NSString *searchUrl;
+@property (nonatomic,strong) NSDictionary *optSearchDic;
+
 
 @end

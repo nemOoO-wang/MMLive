@@ -10,4 +10,8 @@
 
 @interface SquareSearchVC : UIViewController
 
+@property (nonatomic,strong) NSMutableDictionary *searchDic;
+@property (nonatomic,strong) NSDictionary *labelDic;
+
+
 @end

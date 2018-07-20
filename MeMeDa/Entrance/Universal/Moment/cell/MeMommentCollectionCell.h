@@ -10,6 +10,12 @@
 
 @interface MeMommentCollectionCell : UICollectionViewCell
 
+// head
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UITextView *contextField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contextFieldHeightConstraint;
+
 @property (nonatomic,strong) NSArray<NSString *> *imgArr;
 @property (nonatomic,strong) NSString *context;
 @property (nonatomic,strong) NSDictionary *dataDic;

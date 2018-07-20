@@ -44,6 +44,7 @@
 - (IBAction)clickLaHei:(id)sender {
     [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/black" andParam:@{@"userId":self.uid} andSuccess:^(id data) {
         [SVProgressHUD showSuccessWithStatus:@"操作成功"];
+        [self didsmissSelf];
     }];
 }
 
@@ -75,8 +76,8 @@
     [self didsmissSelf];
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self didsmissSelf];
-}
+//-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//    [self didsmissSelf];
+//}
 
 @end

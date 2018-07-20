@@ -77,20 +77,26 @@
     }];
 }
 - (IBAction)clickRandomCall:(id)sender {
-    [[BeeNet sharedInstance] requestWithType:Request_GET url:@"/chat/user/randomRing" param:nil success:^(id data) {
-        NSDictionary *uDic = [data[@"data"] firstObject];
-        [self.homeAddBtn setSelected:NO];
-        [self dismissViewControllerAnimated:NO completion:^{
-            StartCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"start call"];
-            vc.usrDic = uDic;
-//            self.tabVC.selectedViewController
-            [self.tabVC presentViewController:vc animated:YES completion:nil];
-        }];
-    } fail:^(NSString *message) {
-        [SVProgressHUD showErrorWithStatus:@"网络出错"];
-        [self.homeAddBtn setSelected:NO];
-        [self dismissViewControllerAnimated:YES completion:nil];
+    [self.homeAddBtn setSelected:NO];
+    [self dismissViewControllerAnimated:NO completion:^{
+        UIViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"random call"];
+        [self.tabVC presentViewController:vc animated:YES completion:nil];
     }];
+    
+//    [[BeeNet sharedInstance] requestWithType:Request_GET url:@"/chat/user/randomRing" param:nil success:^(id data) {
+//        NSDictionary *uDic = [data[@"data"] firstObject];
+//        [self.homeAddBtn setSelected:NO];
+//        [self dismissViewControllerAnimated:NO completion:^{
+//            StartCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"start call"];
+//            vc.usrDic = uDic;
+////            self.tabVC.selectedViewController
+//            [self.tabVC presentViewController:vc animated:YES completion:nil];
+//        }];
+//    } fail:^(NSString *message) {
+//        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+//        [self.homeAddBtn setSelected:NO];
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }];
 }
 
 - (IBAction)clickEavesdrop:(id)sender {

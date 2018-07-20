@@ -7,12 +7,10 @@
 //
 
 #import "EavesdropVC.h"
+#import "EavesdropVC+show.h"
+
 
 @interface EavesdropVC ()
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-// 10人与您一起偷听
-@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
-@property (weak, nonatomic) IBOutlet UILabel *coinLabel;
 
 @end
 
@@ -20,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setupDanmu];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,14 +34,5 @@
     // 进入
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

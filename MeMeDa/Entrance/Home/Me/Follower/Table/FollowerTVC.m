@@ -26,6 +26,9 @@
     // refresh
 //    self.tableView.header = [mjrefresh]
     
+    // hide line
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     NSString *baseUrl = self.type == NMFollowerTypeMyFollow? @"/chat/user/meFollowList": @"/chat/user/followMeList";
     NSDictionary *paramDic = @{@"page":@(self.page), @"size":@20};
     [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:baseUrl andParam:paramDic andSuccess:^(id data) {

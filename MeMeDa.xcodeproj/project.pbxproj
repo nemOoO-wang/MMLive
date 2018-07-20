@@ -129,7 +129,6 @@
 		BA86CA0F20A1636D00F21980 /* SquareHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA0E20A1636D00F21980 /* SquareHeaderCell.m */; };
 		BA86CA1220A1638B00F21980 /* SquareListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA1120A1638B00F21980 /* SquareListCell.m */; };
 		BA86CA1620A1712600F21980 /* SquareSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BA86CA1520A1712600F21980 /* SquareSearchVC.m */; };
-		BA8818FD20E369A100BCDD17 /* VCCallMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8818FC20E369A100BCDD17 /* VCCallMenuView.m */; };
 		BA88190220E3726D00BCDD17 /* NMFloatView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA88190120E3726D00BCDD17 /* NMFloatView.m */; };
 		BA89D9A820D0F675005B8210 /* SHA1Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89D9A720D0F675005B8210 /* SHA1Utils.m */; };
 		BA89D9AC20D11F21005B8210 /* ChatTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89D9AB20D11F21005B8210 /* ChatTBCell.m */; };
@@ -220,6 +219,12 @@
 		BAF2828C20A96D4900625CF3 /* MessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF2828B20A96D4900625CF3 /* MessageVC.m */; };
 		BAF2829020A96D7600625CF3 /* MessageListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF2828F20A96D7600625CF3 /* MessageListTVC.m */; };
 		BAF2829520A9876800625CF3 /* UserInfoScrollBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF2829420A9876800625CF3 /* UserInfoScrollBannerView.m */; };
+		BAF7E385210061E900B03BF9 /* UIViewController+HideBack.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF7E384210061E900B03BF9 /* UIViewController+HideBack.m */; };
+		BAF7E38921006DBE00B03BF9 /* RandomVCallVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF7E38821006DBE00B03BF9 /* RandomVCallVC.m */; };
+		BAF7E38C21006E5200B03BF9 /* RVBubbleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF7E38B21006E5200B03BF9 /* RVBubbleButton.m */; };
+		BAF7E38F2100AFAF00B03BF9 /* EvsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF7E38E2100AFAF00B03BF9 /* EvsCell.m */; };
+		BAF7E3922100B65A00B03BF9 /* EavesdropVC+show.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF7E3912100B65A00B03BF9 /* EavesdropVC+show.m */; };
+		BAF7E3962100BDAB00B03BF9 /* SetCoinVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF7E3952100BDAB00B03BF9 /* SetCoinVC.m */; };
 		BAFF8E7E20C62E2A0076762F /* ImageOnlyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF8E7D20C62E2A0076762F /* ImageOnlyController.m */; };
 		BAFF8E8420C65E330076762F /* NMClickVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF8E8320C65E330076762F /* NMClickVideoView.m */; };
 /* End PBXBuildFile section */
@@ -468,8 +473,6 @@
 		BA86CA1120A1638B00F21980 /* SquareListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareListCell.m; sourceTree = "<group>"; };
 		BA86CA1420A1712600F21980 /* SquareSearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquareSearchVC.h; sourceTree = "<group>"; };
 		BA86CA1520A1712600F21980 /* SquareSearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquareSearchVC.m; sourceTree = "<group>"; };
-		BA8818FB20E369A100BCDD17 /* VCCallMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCCallMenuView.h; sourceTree = "<group>"; };
-		BA8818FC20E369A100BCDD17 /* VCCallMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCCallMenuView.m; sourceTree = "<group>"; };
 		BA88190020E3726D00BCDD17 /* NMFloatView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMFloatView.h; sourceTree = "<group>"; };
 		BA88190120E3726D00BCDD17 /* NMFloatView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMFloatView.m; sourceTree = "<group>"; };
 		BA89D9A620D0F675005B8210 /* SHA1Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHA1Utils.h; sourceTree = "<group>"; };
@@ -653,6 +656,18 @@
 		BAF2828F20A96D7600625CF3 /* MessageListTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageListTVC.m; sourceTree = "<group>"; };
 		BAF2829320A9876800625CF3 /* UserInfoScrollBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoScrollBannerView.h; sourceTree = "<group>"; };
 		BAF2829420A9876800625CF3 /* UserInfoScrollBannerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoScrollBannerView.m; sourceTree = "<group>"; };
+		BAF7E383210061E900B03BF9 /* UIViewController+HideBack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HideBack.h"; sourceTree = "<group>"; };
+		BAF7E384210061E900B03BF9 /* UIViewController+HideBack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HideBack.m"; sourceTree = "<group>"; };
+		BAF7E38721006DBE00B03BF9 /* RandomVCallVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RandomVCallVC.h; sourceTree = "<group>"; };
+		BAF7E38821006DBE00B03BF9 /* RandomVCallVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RandomVCallVC.m; sourceTree = "<group>"; };
+		BAF7E38A21006E5200B03BF9 /* RVBubbleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RVBubbleButton.h; sourceTree = "<group>"; };
+		BAF7E38B21006E5200B03BF9 /* RVBubbleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RVBubbleButton.m; sourceTree = "<group>"; };
+		BAF7E38D2100AFAF00B03BF9 /* EvsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvsCell.h; sourceTree = "<group>"; };
+		BAF7E38E2100AFAF00B03BF9 /* EvsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvsCell.m; sourceTree = "<group>"; };
+		BAF7E3902100B65A00B03BF9 /* EavesdropVC+show.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EavesdropVC+show.h"; sourceTree = "<group>"; };
+		BAF7E3912100B65A00B03BF9 /* EavesdropVC+show.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "EavesdropVC+show.m"; sourceTree = "<group>"; };
+		BAF7E3942100BDAB00B03BF9 /* SetCoinVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetCoinVC.h; sourceTree = "<group>"; };
+		BAF7E3952100BDAB00B03BF9 /* SetCoinVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetCoinVC.m; sourceTree = "<group>"; };
 		BAFF8E7C20C62E2A0076762F /* ImageOnlyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageOnlyController.h; sourceTree = "<group>"; };
 		BAFF8E7D20C62E2A0076762F /* ImageOnlyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageOnlyController.m; sourceTree = "<group>"; };
 		BAFF8E8220C65E330076762F /* NMClickVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMClickVideoView.h; sourceTree = "<group>"; };
@@ -1030,8 +1045,9 @@
 			isa = PBXGroup;
 			children = (
 				BA8818F920E33BBA00BCDD17 /* VCall */,
+				BAF7E38621006D9800B03BF9 /* Random VCall */,
 				BA41E56120F50227006FCB3B /* Float Window */,
-				BA8818FE20E3725000BCDD17 /* Archive */,
+				BA8818FE20E3725000BCDD17 /* archived */,
 			);
 			path = VideoCall;
 			sourceTree = "<group>";
@@ -1044,6 +1060,7 @@
 				BA1E2CFB20AD5DB50060E91C /* Setting */,
 				BA1E2CF720AD2B730060E91C /* Follower */,
 				BA39ACF220AC22B0001EC158 /* Theme */,
+				BAF7E3932100BD9500B03BF9 /* Coin */,
 				BA39ACEF20AC1FD8001EC158 /* MeCenterViewController.h */,
 				BA39ACF020AC1FD8001EC158 /* MeCenterViewController.m */,
 			);
@@ -1340,6 +1357,8 @@
 				BAB0F78F209B193600E8CCC7 /* UINavigationBar+CustomBar.m */,
 				BA84B1C620CE160700839A6B /* NMLongPressButton.h */,
 				BA84B1C720CE160700839A6B /* NMLongPressButton.m */,
+				BAF7E383210061E900B03BF9 /* UIViewController+HideBack.h */,
+				BAF7E384210061E900B03BF9 /* UIViewController+HideBack.m */,
 			);
 			path = "View Extension";
 			sourceTree = "<group>";
@@ -1404,27 +1423,17 @@
 				BA24A85D20F368EE0035CC31 /* Calling */,
 				BA24A85920F3563F0035CC31 /* Called */,
 				BABDD07D20FED780005A30D9 /* Eavesdrop */,
-				BA8818FA20E3698D00BCDD17 /* menu view */,
 			);
 			path = VCall;
 			sourceTree = "<group>";
 		};
-		BA8818FA20E3698D00BCDD17 /* menu view */ = {
-			isa = PBXGroup;
-			children = (
-				BA8818FB20E369A100BCDD17 /* VCCallMenuView.h */,
-				BA8818FC20E369A100BCDD17 /* VCCallMenuView.m */,
-			);
-			path = "menu view";
-			sourceTree = "<group>";
-		};
-		BA8818FE20E3725000BCDD17 /* Archive */ = {
+		BA8818FE20E3725000BCDD17 /* archived */ = {
 			isa = PBXGroup;
 			children = (
 				BA8818FF20E3725D00BCDD17 /* float view(Deprecated) */,
 				BA5E331220F84FC20084CD1D /* VC */,
 			);
-			path = Archive;
+			path = archived;
 			sourceTree = "<group>";
 		};
 		BA8818FF20E3725D00BCDD17 /* float view(Deprecated) */ = {
@@ -1831,6 +1840,10 @@
 			children = (
 				BABDD07E20FED79F005A30D9 /* EavesdropVC.h */,
 				BABDD07F20FED79F005A30D9 /* EavesdropVC.m */,
+				BAF7E38D2100AFAF00B03BF9 /* EvsCell.h */,
+				BAF7E38E2100AFAF00B03BF9 /* EvsCell.m */,
+				BAF7E3902100B65A00B03BF9 /* EavesdropVC+show.h */,
+				BAF7E3912100B65A00B03BF9 /* EavesdropVC+show.m */,
 			);
 			path = Eavesdrop;
 			sourceTree = "<group>";
@@ -2057,6 +2070,26 @@
 				BAF2829420A9876800625CF3 /* UserInfoScrollBannerView.m */,
 			);
 			path = scrollBanner;
+			sourceTree = "<group>";
+		};
+		BAF7E38621006D9800B03BF9 /* Random VCall */ = {
+			isa = PBXGroup;
+			children = (
+				BAF7E38721006DBE00B03BF9 /* RandomVCallVC.h */,
+				BAF7E38821006DBE00B03BF9 /* RandomVCallVC.m */,
+				BAF7E38A21006E5200B03BF9 /* RVBubbleButton.h */,
+				BAF7E38B21006E5200B03BF9 /* RVBubbleButton.m */,
+			);
+			path = "Random VCall";
+			sourceTree = "<group>";
+		};
+		BAF7E3932100BD9500B03BF9 /* Coin */ = {
+			isa = PBXGroup;
+			children = (
+				BAF7E3942100BDAB00B03BF9 /* SetCoinVC.h */,
+				BAF7E3952100BDAB00B03BF9 /* SetCoinVC.m */,
+			);
+			path = Coin;
 			sourceTree = "<group>";
 		};
 		BAFF8E8020C63EFB0076762F /* browserAndImgOnly */ = {
@@ -2289,7 +2322,6 @@
 				BA1E2D0120AD6CD20060E91C /* HittestView.m in Sources */,
 				BACE61E620BE50DE001BE85D /* NSMutableArray+NMReverse.m in Sources */,
 				BA36519420A43462002B6C62 /* RankPicCollectVC.m in Sources */,
-				BA8818FD20E369A100BCDD17 /* VCCallMenuView.m in Sources */,
 				BA311D3220D8A56800E1A58C /* SettingsBtnTblCell.m in Sources */,
 				BAF2829020A96D7600625CF3 /* MessageListTVC.m in Sources */,
 				BAF2829520A9876800625CF3 /* UserInfoScrollBannerView.m in Sources */,
@@ -2333,6 +2365,7 @@
 				BA54992C20E2FA7500C52FF1 /* IJKSDLGLView.m in Sources */,
 				BAB725A020BCF34700CD9A15 /* NOSUploadOption.m in Sources */,
 				BA47FC0A20E0E304002326D4 /* UIActionSheet+NTESBlock.m in Sources */,
+				BAF7E3922100B65A00B03BF9 /* EavesdropVC+show.m in Sources */,
 				BAB725A520BCF34700CD9A15 /* NOSIPUtils.m in Sources */,
 				BA89D9AF20D26878005B8210 /* ChatContentButton.m in Sources */,
 				BA15FBDC20E2C4490066F0B0 /* AVAnchorContainerView.m in Sources */,
@@ -2381,6 +2414,7 @@
 				BA36518520A41987002B6C62 /* HomeSNSVC.m in Sources */,
 				BAA69EF2209C6D06005138EA /* LoginViewController.m in Sources */,
 				BA86CA0C20A1402600F21980 /* SquareHeaderCarousel.m in Sources */,
+				BAF7E38C21006E5200B03BF9 /* RVBubbleButton.m in Sources */,
 				BAA69EE9209C3FAA005138EA /* FemaleRuleVC.m in Sources */,
 				BA945DA8209AFC70001BE9E1 /* BeeNet.m in Sources */,
 				BA15FBA520E2AD900066F0B0 /* NTESMicConnector.m in Sources */,
@@ -2397,6 +2431,7 @@
 				BA24A86020F368FE0035CC31 /* StartCallVC.m in Sources */,
 				BA5E331620F850470084CD1D /* VCallVC+info.m in Sources */,
 				BA47FC1520E0E304002326D4 /* NTESCADisplayLinkHolder.m in Sources */,
+				BAF7E385210061E900B03BF9 /* UIViewController+HideBack.m in Sources */,
 				BAB725B920BCF34700CD9A15 /* NOSAFURLRequestSerialization.m in Sources */,
 				BA47FC2120E0E304002326D4 /* NTESSpellingCenter.m in Sources */,
 				BA47FC1220E0E304002326D4 /* NTESUserUtil.m in Sources */,
@@ -2409,6 +2444,7 @@
 				BA36519020A43408002B6C62 /* RankPicCollectionCell.m in Sources */,
 				BA54992320E2FA7500C52FF1 /* renderer_yuv420p.c in Sources */,
 				BA89D9A820D0F675005B8210 /* SHA1Utils.m in Sources */,
+				BAF7E3962100BDAB00B03BF9 /* SetCoinVC.m in Sources */,
 				BAEE7FBF20A2D5C5000EA5E4 /* SquareListVC.m in Sources */,
 				BA84B1C820CE160700839A6B /* NMLongPressButton.m in Sources */,
 				BA15FBA020E2AD900066F0B0 /* NTESLikeAttachment.m in Sources */,
@@ -2446,6 +2482,7 @@
 				BAEE7FC620A2D9DF000EA5E4 /* SearchTextField.m in Sources */,
 				BAB725B220BCF34700CD9A15 /* NOSReachability.m in Sources */,
 				BA15FBA120E2AD900066F0B0 /* NTESPresentAttachment.m in Sources */,
+				BAF7E38921006DBE00B03BF9 /* RandomVCallVC.m in Sources */,
 				BA47FC1D20E0E304002326D4 /* NTESTimerHolder.m in Sources */,
 				BAB725A420BCF34700CD9A15 /* GZIP.m in Sources */,
 				BAB725AB20BCF34700CD9A15 /* NOSStatisticsItems.m in Sources */,
@@ -2474,6 +2511,7 @@
 				BA86CA1620A1712600F21980 /* SquareSearchVC.m in Sources */,
 				BA47FBC120E0CA89002326D4 /* NTESNetDetectManger.m in Sources */,
 				BAB725B720BCF34700CD9A15 /* NOSAFURLSessionManager.m in Sources */,
+				BAF7E38F2100AFAF00B03BF9 /* EvsCell.m in Sources */,
 				BA2D847420C0020D0027F905 /* NOSTokenUtils.m in Sources */,
 				BA54992520E2FA7500C52FF1 /* shader.c in Sources */,
 				BAE9EC5520BCF16A006FEC19 /* NetEaseOSS.m in Sources */,

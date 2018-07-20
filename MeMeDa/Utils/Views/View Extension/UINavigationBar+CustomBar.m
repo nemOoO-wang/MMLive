@@ -11,13 +11,15 @@
 @implementation UINavigationBar (CustomBar)
 
 -(void)didMoveToSuperview{
-    self.translucent = YES;
+//    self.translucent = YES;
     self.backgroundColor = [UIColor clearColor];
+//    self.backgroundColor = [UIColor colorWithHexString:@"494949"];
+    [self setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.shadowImage = [UIImage new];
     self.tintColor = [UIColor whiteColor];
     self.barTintColor = [UIColor whiteColor];
     [self setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-    self.shadowImage = [UIImage new];
-    [self setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    
 }
 
 

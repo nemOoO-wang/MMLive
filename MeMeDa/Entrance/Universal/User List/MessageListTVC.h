@@ -13,7 +13,10 @@ typedef NS_ENUM(NSUInteger, MessageType) {
     MessageTypeSearch,
     MessageTypePeepMe,
     MessageTypeCallLog,
-    MessageTypeReservation
+    MessageTypeReservation,
+    MessageTypeFriendMsg,
+    MessageTypeSysInfo,
+    MessageTypeLahei,
 };
 
 @interface MessageListTVC : UITableViewController

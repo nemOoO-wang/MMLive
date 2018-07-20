@@ -13,11 +13,6 @@
 
 
 @interface MeMommentCollectionCell()
-// head
-@property (weak, nonatomic) IBOutlet UIImageView *imgView;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UITextView *contextField;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contextFieldHeightConstraint;
 // video
 @property (nonatomic,strong) NSString *videoImgUrl;
 @property (weak, nonatomic) IBOutlet UIImageView *videoPreviewImgView;

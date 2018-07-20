@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     if (self.listType == MessageTypeSearch) {
         // 搜索
         [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/indexSearch" andParam:self.searchDic andSuccess:^(id data) {
@@ -52,6 +52,47 @@
             [self.tableView reloadData];
         }];
     }
+    if (self.listType == MessageTypeFriendMsg) {
+        // 好友
+        [self setTitle:@"好友消息"];
+//        [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/sub/userAppointmentList" andParam:nil andSuccess:^(id data) {
+//            self.dataArr = data[@"data"];
+//            [self.tableView reloadData];
+//        }];
+    }
+    if (self.listType == MessageTypeSysInfo) {
+        // 通知
+        [self setTitle:@"系统通知"];
+//        [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/sub/userAppointmentList" andParam:nil andSuccess:^(id data) {
+//            self.dataArr = data[@"data"];
+//            [self.tableView reloadData];
+//        }];
+    }
+    if (self.listType == MessageTypeLahei) {
+        // 拉黑
+        [self setTitle:@"黑名单"];
+        [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/getMyBlackList" andParam:nil andSuccess:^(id data) {
+            self.dataArr = data[@"data"];
+            [self.tableView reloadData];
+        }];
+    }
+}
+
+-(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.listType == MessageTypeLahei) {
+        UITableViewRowAction *action = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+            NSDictionary *tmpDic = self.dataArr[indexPath.row];
+            NSDictionary *param = @{@"userId":tmpDic[@"id"]};
+            [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/deleteMyBlack" andParam:param andSuccess:^(id data) {
+                NSMutableArray *tmpArr = [self.dataArr mutableCopy];
+                [tmpArr removeObjectAtIndex:indexPath.row];
+                self.dataArr = [tmpArr copy];
+                [self.tableView reloadData];
+            }];
+        }];
+        return @[action];
+    }
+    return nil;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,12 +120,23 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"log" forIndexPath:indexPath];
         cell.dataDic = self.dataArr[indexPath.row];
     }
+    if (self.listType == MessageTypeCallLog) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"log" forIndexPath:indexPath];
+        cell.dataDic = self.dataArr[indexPath.row];
+    }
+    if (self.listType == MessageTypeLahei) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"lahei" forIndexPath:indexPath];
+        cell.dataDic = self.dataArr[indexPath.row];
+    }
     return cell;
 }
 
 # pragma mark - delegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary *uDic = self.dataArr[indexPath.row];
+    if (self.listType == MessageTypeCallLog) {
+        uDic = uDic[@"fromId"];
+    }
     // user detail
     UserInfoVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"user detail"];
     vc.dataDic = uDic;

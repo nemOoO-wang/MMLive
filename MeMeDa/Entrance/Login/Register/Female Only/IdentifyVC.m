@@ -8,12 +8,14 @@
 
 #import "IdentifyVC.h"
 #import "NMRegTextField.h"
+#import "NetEaseOSS.h"
 
 
 @interface IdentifyVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *myPicImageView;
 @property (weak, nonatomic) IBOutlet NMRegTextField *realNameTextField;
 @property (weak, nonatomic) IBOutlet NMRegTextField *idTextField;
+@property (nonatomic,strong) NSString *imgUrl;
 
 @property (nonatomic,strong) UIImage *meImage;
 
@@ -67,11 +69,22 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     self.meImage = info[UIImagePickerControllerOriginalImage];
     self.myPicImageView.image = self.meImage;
+    [[NetEaseOSS sharedInstance] putImage:self.meImage result:^(NSString *urlPath) {
+        self.imgUrl = urlPath;
+    }];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)clickSubmitBtn:(id)sender {
+    NSDictionary *tmpDic = [[NSUserDefaults standardUserDefaults] objectForKey:@"tmpUserDic"];
+    NSDictionary *param = @{@"userId":tmpDic[@"id"], @"phone":tmpDic[@"phone"], @"name":self.realNameTextField.text, @"idCard":self.idTextField.text, @"img":self.imgUrl};
     // /chat/user/realName
+    [[BeeNet sharedInstance] requestWithType:Request_POST url:@"/chat/user/realName" param:param success:^(id data) {
+        [SVProgressHUD showSuccessWithStatus:@"认证成功"];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    } fail:^(NSString *message) {
+        
+    }];
 }
 
 /*

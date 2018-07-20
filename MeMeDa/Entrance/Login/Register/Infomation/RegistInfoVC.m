@@ -66,6 +66,9 @@
     
     [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/telRegister" andParam:mParamDic andHeader:nil andSuccess:^(id data) {
         [SVProgressHUD showSuccessWithStatus:@"注册成功"];
+        NSDictionary *uDic = data[@"data"];
+        [[NSUserDefaults standardUserDefaults] setObject:uDic forKey:@"tmpUserDic"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         if (self.boyBtn.selected) {
             // 成功才返回
             [self.navigationController popToRootViewControllerAnimated:YES];
