@@ -13,6 +13,7 @@
 // view
 #import "NTESGLView.h"
 #import "NMFloatWindow.h"
+#import "NMRCCallMessage.h"
 
 
 @interface VCallVC ()<NIMNetCallManagerDelegate>
@@ -41,6 +42,20 @@
     
     [self initLocalCam];
     self.meeting.option = self.netCallOption;
+    
+    if (self.userType == CallUserAnchor) {
+        NMRCCallMessage *msg = [[NMRCCallMessage alloc] init];
+        msg.roomName = self.meeting.name;
+        NSDictionary *dic = MDUserDic;
+        msg.nickname = dic[@"nickname"];
+        msg.headImg = dic[@"headImg"];
+        msg.uId = dic[@"id"];
+        [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PUSHSERVICE targetId:self.callerId content:msg pushContent:@"zhubohuiying" pushData:nil success:^(long messageId) {
+            
+        } error:^(RCErrorCode nErrorCode, long messageId) {
+            
+        }];
+    }
     
     //加入会议
     [[NIMAVChatSDK sharedSDK].netCallManager joinMeeting:self.meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
@@ -179,16 +194,18 @@
     return _netCallOption;
 }
 
+
 -(void)beforeEndCall{
     [self.timer invalidate];
     [self quitDamnu];
     [[NIMAVChatSDK sharedSDK].netCallManager leaveMeeting:self.meeting];
-    NSDictionary *paramDic = @{@"trId":self.trId};
-    [[BeeNet sharedInstance] requestWithType:Request_POST url:@"/chat/user/doneHangUp" param:paramDic success:^(id data) {
-        
-    } fail:^(NSString *message) {
-        
-    }];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//    NSDictionary *paramDic = @{@"trId":self.trId};
+//    [[BeeNet sharedInstance] requestWithType:Request_POST url:@"/chat/user/doneHangUp" param:paramDic success:^(id data) {
+//        
+//    } fail:^(NSString *message) {
+//        
+//    }];
 }
 
 -(void)setupUI{

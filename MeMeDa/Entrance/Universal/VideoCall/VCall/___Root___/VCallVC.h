@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AVAnchorContainerView.h"
 #import <RongIMLib/RongIMLib.h>
+#import "BarrageMessage.h"
 #import "DMContainerView.h"
 #import <NIMSDK/NIMSDK.h>
 #import <NIMAVChat/NIMAVChat.h>
@@ -23,8 +24,9 @@ typedef NS_ENUM(NSInteger, CallUser) {
 @interface VCallVC : UIViewController
 
 @property (nonatomic,assign) CallUser userType;
-@property (nonatomic,assign) NSString *callingAnchorId;
-@property (nonatomic,strong) NSString *trId;
+//@property (nonatomic,assign) NSString *callingAnchorId;
+@property (nonatomic,strong) NSString *callerId;
+//@property (nonatomic,strong) NSString *trId;
 @property (nonatomic,strong) NIMNetCallMeeting *meeting;
 @property (weak, nonatomic) IBOutlet AVAnchorContainerView *menuContainerView;
 @property (weak, nonatomic) IBOutlet UIView *smallVideoView;

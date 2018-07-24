@@ -12,6 +12,7 @@
 
 @property (nonatomic,strong) NSDictionary *usrDic;
 @property (nonatomic,strong) NSDictionary *callDataDic;
+@property (nonatomic,strong) NSString *roomName;
 
 -(void)handleResponse;
 

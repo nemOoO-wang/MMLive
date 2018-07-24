@@ -9,6 +9,8 @@
 #import "StartCallVC.h"
 #import "VCallVC.h"
 #import "NMFloatWindow.h"
+#import "NMRCCallMessage.h"
+
 
 @interface StartCallVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *headImgView;
@@ -21,40 +23,49 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.clickEndGstrue.enabled = NO;
+//    self.clickEndGstrue.enabled = NO;
     // Do any additional setup after loading the view.
     // 请求开房
-    NSDictionary *paramDic = @{@"userId":self.usrDic[@"id"], @"type":@2};;
-    [[BeeNet sharedInstance] requestWithType:Request_POST url:@"/chat/user/makeCall" param:paramDic success:^(id data) {
-        self.trId = data[@"data"][@"id"];
-        self.clickEndGstrue.enabled = YES;
-    } fail:^(NSString *message) {
-        [SVProgressHUD showErrorWithStatus:message];
-        [self dismissViewControllerAnimated:YES completion:nil];
+//    NSDictionary *paramDic = @{@"userId":self.usrDic[@"id"], @"type":@2};;
+//    [[BeeNet sharedInstance] requestWithType:Request_POST url:@"/chat/user/makeCall" param:paramDic success:^(id data) {
+//        self.trId = data[@"data"][@"id"];
+//        self.clickEndGstrue.enabled = YES;
+//    } fail:^(NSString *message) {
+//        [SVProgressHUD showErrorWithStatus:message];
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }];
+    // 自定义 RC 消息
+    NMRCCallMessage *message = [[NMRCCallMessage alloc] init];
+    message.roomName = @"";
+    NSDictionary *dic = MDUserDic;
+    message.nickname = dic[@"nickname"];
+    message.headImg = dic[@"headImg"];
+    message.uId = dic[@"id"];
+    NSString *content = [NSString stringWithFormat:@"%@邀请您进行通话",dic[@"nickname"]];
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PUSHSERVICE targetId:[self.usrDic[@"id"] stringValue] content:message pushContent:content pushData:nil success:^(long messageId) {
+        
+    } error:^(RCErrorCode nErrorCode, long messageId) {
+        
     }];
+    
     // init info
     [self.headImgView sd_setImageWithURL:[NSURL URLWithString:self.usrDic[@"headImg"]]];
     self.nameLabel.text = self.usrDic[@"nickname"];
 }
 - (IBAction)clickEndCal:(id)sender {
     NSDictionary *paramDic = @{@"trId":self.trId?self.trId:@"", @"userId":self.usrDic[@"id"]};
-    [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/hangUp" andParam:paramDic andSuccess:nil];
+//    [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/hangUp" andParam:paramDic andSuccess:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)handleResponse{
-    // json
-    NSString *json = self.callDataDic[@"message"];
-    NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
     //初始化会议
     NIMNetCallMeeting *meeting = [[NIMNetCallMeeting alloc] init];
     //指定会议名
-    meeting.name = dataDic[@"roomName"];
-//    meeting.actor = NO;
+    meeting.name = self.roomName;
     meeting.actor = YES;
-    
+
     VCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"calling"];
-    vc.trId = [NSString stringWithFormat:@"%ld", [self.trId integerValue]];
     vc.meeting = meeting;
     vc.userType = CallUserDefault;
     [NMFloatWindow keyFLoatWindow].frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*2);
@@ -63,6 +74,7 @@
     [[NMFloatWindow keyFLoatWindow] show];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

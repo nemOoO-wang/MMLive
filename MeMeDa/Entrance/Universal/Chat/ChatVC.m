@@ -39,7 +39,7 @@
     self.tableView.estimatedRowHeight = 50;
     
     // 设置消息接收监听
-    [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onReceived:) name:@"RCRecieve" object:nil];
     // 本地历史
     self.dialogHistoryArr = [[RCIMClient sharedRCIMClient] getLatestMessages:ConversationType_PRIVATE targetId:self.friendId count:20];
     // 远程历史
@@ -68,12 +68,25 @@
         NSLog(@"创建录音机对象时发生错误，错误信息：%@",err.localizedDescription);
     }
     self.recoder.delegate = self;
+    
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    self.blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    //always fill the view
+    self.blurView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 64);
+    self.blurView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.navigationController.view insertSubview:self.blurView atIndex:1];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [self.blurView removeFromSuperview];
+}
 
 -(void)viewDidAppear:(BOOL)animated{
     if (self.dialogHistoryArr.count>0) {
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.dialogHistoryArr.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
+    if (!self.blurView.superview) {
+        [self.navigationController.view insertSubview:self.blurView atIndex:1];
     }
 }
 
@@ -217,7 +230,9 @@
     self.dialogHistoryArr = [[RCIMClient sharedRCIMClient] getLatestMessages:ConversationType_PRIVATE targetId:self.friendId count:20];
     [self.tableView reloadData];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.dialogHistoryArr.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        if (self.dialogHistoryArr.count>0) {
+            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.dialogHistoryArr.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        }
     });
 }
 
@@ -297,18 +312,9 @@
     return 60;
 }
 
-# pragma mark - <RCIMClientReceiveMessageDelegate>
-/*!
- @param message     当前接收到的消息
- @param nLeft       还剩余的未接收的消息数，left>=0
- @param object      消息监听设置的key值
- 
- @discussion 如果您设置了IMlib消息监听之后，SDK在接收到消息时候会执行此方法。
- 其中，left为还剩余的、还未接收的消息数量。比如刚上线一口气收到多条消息时，通过此方法，您可以获取到每条消息，left会依次递减直到0。
- 您可以根据left数量来优化您的App体验和性能，比如收到大量消息时等待left为0再刷新UI。
- object为您在设置消息接收监听时的key值。
- */
-- (void)onReceived:(RCMessage *)message left:(int)nLeft object:(id)object {
+
+- (void)onReceived:(NSNotification *)notification{
+    RCMessage *message = notification.object;
     if ([message.content isMemberOfClass:[RCTextMessage class]]) {
         RCTextMessage *textMessage = (RCTextMessage *)message.content;
         NSLog(@"消息内容：%@", textMessage.content);
@@ -321,7 +327,6 @@
 //        });
         [self refreshMsg];
     }
-    NSLog(@"还剩余的未接收的消息数：%d", nLeft);
 }
 
 

@@ -9,28 +9,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MeMeDa/Profiles/AppDelegate.m"
-            timestampString = "553780231.569064"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
-            landmarkName = "AppDelegate"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MeMeDa/Entrance/Universal/Chat/ChatVC.m"
-            timestampString = "553788010.385767"
+            timestampString = "554121424.887729"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -57,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MeMeDa/Entrance/Universal/VideoCall/VCall/___Root___/danmu/VCallVC+Danmu.m"
-            timestampString = "553619586.523568"
+            filePath = "MeMeDa/Entrance/Home/Square/List/cells/SquareListGirlsCell.m"
+            timestampString = "553788010.385919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-clickSendMsg:"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "-setUDic:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +57,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MeMeDa/Entrance/Home/Square/List/cells/SquareListGirlsCell.m"
-            timestampString = "553788010.385919"
+            filePath = "MeMeDa/Entrance/Login/LoginViewController.m"
+            timestampString = "554119523.265095"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "-setUDic:"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "-LoginwithData:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

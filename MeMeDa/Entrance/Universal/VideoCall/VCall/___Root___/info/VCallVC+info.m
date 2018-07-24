@@ -22,11 +22,11 @@
 -(void)fireTimer{
     // balance
     if (self.userType == CallUserDefault) {
-        NSDictionary *paramDic = @{@"trId":self.trId};
-        [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/userGetNowBlance" andParam:paramDic andSuccess:^(id data) {
-            NSInteger balance = [data[@"data"][@"balance"] integerValue];
-            self.balanceLabel.text = [NSString stringWithFormat:@"我的余额 %ld", balance];
-        }];
+//        NSDictionary *paramDic = @{@"trId":self.trId};
+//        [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/userGetNowBlance" andParam:paramDic andSuccess:^(id data) {
+//            NSInteger balance = [data[@"data"][@"balance"] integerValue];
+//            self.balanceLabel.text = [NSString stringWithFormat:@"我的余额 %ld", balance];
+//        }];
     }else{
         
     }

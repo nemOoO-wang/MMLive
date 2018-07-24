@@ -9,8 +9,10 @@
 #import "VCallVC.h"
 
 
-@interface VCallVC (Danmu)<RCIMClientReceiveMessageDelegate>
+@interface VCallVC (Danmu)
 
+-(void)refreshMsg;
+-(RCUserInfo *)genMeInfo;
 -(void)enterDanmu;
 -(void)quitDamnu;
 

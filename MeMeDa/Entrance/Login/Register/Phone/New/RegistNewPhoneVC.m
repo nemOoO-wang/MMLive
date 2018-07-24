@@ -60,12 +60,30 @@
 }
 
 - (IBAction)clickSubmitBtn:(id)sender {
-    if ([self.pswTextField.text isEqualToString:self.psw2TextField.text]) {
-        NSDictionary *regParam = @{@"phone":self.phoneTextField.text, @"pwd":[MD5Utils md5WithString:self.pswTextField.text], @"inviteCode":self.inviteCodeTextField.text, @"code":self.vericodeTextField.text};
-        [[NSUserDefaults standardUserDefaults] setObject:regParam forKey:@"regParam"];
-        [self performSegueWithIdentifier:@"goon" sender:nil];
+    if (self.wqParam) {
+        NSMutableDictionary *tmpDic = [self.wqParam mutableCopy];
+        tmpDic[@"phone"] = self.phoneTextField.text;
+        tmpDic[@"pwd"] = [MD5Utils md5WithString:self.pswTextField.text];
+        tmpDic[@"inviteCode"] = self.inviteCodeTextField.text;
+        tmpDic[@"code"] = self.vericodeTextField.text;
+        NSInteger type = [tmpDic[@"loginType"] integerValue];
+        self.wqParam = [tmpDic copy];
+        [[BeeNet sharedInstance] requestWithType:Request_POST url:@"/chat/user/WXQQRegister" param:self.wqParam success:^(id data) {
+            [SVProgressHUD showSuccessWithStatus:@"注册成功"];
+            NSDictionary *uDic = data[@"data"];
+            [[NSUserDefaults standardUserDefaults] setObject:uDic forKey:@"tmpUserDic"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [self performSegueWithIdentifier:@"qwLoginItems" sender:nil];
+        } fail:^(NSString *message) {
+        }];
     }else{
-        [SVProgressHUD showErrorWithStatus:@"密码不一致"];
+        if ([self.pswTextField.text isEqualToString:self.psw2TextField.text]) {
+            NSDictionary *regParam = @{@"phone":self.phoneTextField.text, @"pwd":[MD5Utils md5WithString:self.pswTextField.text], @"inviteCode":self.inviteCodeTextField.text, @"code":self.vericodeTextField.text};
+            [[NSUserDefaults standardUserDefaults] setObject:regParam forKey:@"regParam"];
+            [self performSegueWithIdentifier:@"goon" sender:nil];
+        }else{
+            [SVProgressHUD showErrorWithStatus:@"密码不一致"];
+        }
     }
 }
 

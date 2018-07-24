@@ -187,6 +187,7 @@
 		BAB725F420BD012700CD9A15 /* ResetPswVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB725F320BD012700CD9A15 /* ResetPswVC.m */; };
 		BAB725F820BD3A7F00CD9A15 /* PreLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB725F720BD3A7F00CD9A15 /* PreLoginVC.m */; };
 		BAB725FC20BD5CBF00CD9A15 /* NMFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB725FB20BD5CBF00CD9A15 /* NMFlowLayout.m */; };
+		BABB3ABE2105EF8100C31300 /* NMRCCallMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = BABB3ABD2105EF8100C31300 /* NMRCCallMessage.m */; };
 		BABDD07120FE048B005A30D9 /* AnchorEndCallVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BABDD07020FE048B005A30D9 /* AnchorEndCallVC.m */; };
 		BABDD07420FE0499005A30D9 /* UserEndCallVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BABDD07320FE0499005A30D9 /* UserEndCallVC.m */; };
 		BABDD07920FE13FB005A30D9 /* VCallVC+Danmu.m in Sources */ = {isa = PBXBuildFile; fileRef = BABDD07820FE13FB005A30D9 /* VCallVC+Danmu.m */; };
@@ -202,6 +203,10 @@
 		BAC183A6209AE0ED00209CCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAC183A4209AE0ED00209CCD /* LaunchScreen.storyboard */; };
 		BAC183A9209AE0ED00209CCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC183A8209AE0ED00209CCD /* main.m */; };
 		BACE61E620BE50DE001BE85D /* NSMutableArray+NMReverse.m in Sources */ = {isa = PBXBuildFile; fileRef = BACE61E520BE50DE001BE85D /* NSMutableArray+NMReverse.m */; };
+		BAD0CD3C210702E700D561BD /* BarrageMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD0CD3B210702E700D561BD /* BarrageMessage.m */; };
+		BAD0CD4021070A8400D561BD /* VCSendPresentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD0CD3F21070A8400D561BD /* VCSendPresentVC.m */; };
+		BAD0CD432107122500D561BD /* VCSPView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD0CD422107122500D561BD /* VCSPView.m */; };
+		BAD0CD452107123E00D561BD /* VCSPView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD0CD442107123D00D561BD /* VCSPView.xib */; };
 		BAE9EC5520BCF16A006FEC19 /* NetEaseOSS.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE9EC5420BCF16A006FEC19 /* NetEaseOSS.m */; };
 		BAEE152120BBD6E500B1219B /* RegistPhoneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE152020BBD6E500B1219B /* RegistPhoneVC.m */; };
 		BAEE152520BBE47100B1219B /* RegistNewPhoneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE152420BBE47100B1219B /* RegistNewPhoneVC.m */; };
@@ -597,6 +602,8 @@
 		BAB725F720BD3A7F00CD9A15 /* PreLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreLoginVC.m; sourceTree = "<group>"; };
 		BAB725FA20BD5CBF00CD9A15 /* NMFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMFlowLayout.h; sourceTree = "<group>"; };
 		BAB725FB20BD5CBF00CD9A15 /* NMFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMFlowLayout.m; sourceTree = "<group>"; };
+		BABB3ABC2105EF8100C31300 /* NMRCCallMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMRCCallMessage.h; sourceTree = "<group>"; };
+		BABB3ABD2105EF8100C31300 /* NMRCCallMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMRCCallMessage.m; sourceTree = "<group>"; };
 		BABDD06F20FE048B005A30D9 /* AnchorEndCallVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnchorEndCallVC.h; sourceTree = "<group>"; };
 		BABDD07020FE048B005A30D9 /* AnchorEndCallVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnchorEndCallVC.m; sourceTree = "<group>"; };
 		BABDD07220FE0499005A30D9 /* UserEndCallVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserEndCallVC.h; sourceTree = "<group>"; };
@@ -623,6 +630,13 @@
 		BAC183A8209AE0ED00209CCD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BACE61E420BE50DE001BE85D /* NSMutableArray+NMReverse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+NMReverse.h"; sourceTree = "<group>"; };
 		BACE61E520BE50DE001BE85D /* NSMutableArray+NMReverse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+NMReverse.m"; sourceTree = "<group>"; };
+		BAD0CD3A210702E700D561BD /* BarrageMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarrageMessage.h; sourceTree = "<group>"; };
+		BAD0CD3B210702E700D561BD /* BarrageMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarrageMessage.m; sourceTree = "<group>"; };
+		BAD0CD3E21070A8400D561BD /* VCSendPresentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCSendPresentVC.h; sourceTree = "<group>"; };
+		BAD0CD3F21070A8400D561BD /* VCSendPresentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCSendPresentVC.m; sourceTree = "<group>"; };
+		BAD0CD412107122500D561BD /* VCSPView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCSPView.h; sourceTree = "<group>"; };
+		BAD0CD422107122500D561BD /* VCSPView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCSPView.m; sourceTree = "<group>"; };
+		BAD0CD442107123D00D561BD /* VCSPView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCSPView.xib; sourceTree = "<group>"; };
 		BAE9EC5320BCF16A006FEC19 /* NetEaseOSS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetEaseOSS.h; sourceTree = "<group>"; };
 		BAE9EC5420BCF16A006FEC19 /* NetEaseOSS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetEaseOSS.m; sourceTree = "<group>"; };
 		BAEE151F20BBD6E500B1219B /* RegistPhoneVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistPhoneVC.h; sourceTree = "<group>"; };
@@ -1802,6 +1816,17 @@
 			path = Flow;
 			sourceTree = "<group>";
 		};
+		BABB3ABB2105EF4900C31300 /* RCMessage */ = {
+			isa = PBXGroup;
+			children = (
+				BABB3ABC2105EF8100C31300 /* NMRCCallMessage.h */,
+				BABB3ABD2105EF8100C31300 /* NMRCCallMessage.m */,
+				BAD0CD3A210702E700D561BD /* BarrageMessage.h */,
+				BAD0CD3B210702E700D561BD /* BarrageMessage.m */,
+			);
+			path = RCMessage;
+			sourceTree = "<group>";
+		};
 		BABDD06E20FE046E005A30D9 /* End */ = {
 			isa = PBXGroup;
 			children = (
@@ -1828,6 +1853,7 @@
 		BABDD07620FE13E9005A30D9 /* danmu */ = {
 			isa = PBXGroup;
 			children = (
+				BAD0CD3D21070A4B00D561BD /* Send Presents */,
 				BABDD08220FF398A005A30D9 /* table */,
 				BABDD07720FE13FB005A30D9 /* VCallVC+Danmu.h */,
 				BABDD07820FE13FB005A30D9 /* VCallVC+Danmu.m */,
@@ -1937,9 +1963,22 @@
 			path = "Cal Tools";
 			sourceTree = "<group>";
 		};
+		BAD0CD3D21070A4B00D561BD /* Send Presents */ = {
+			isa = PBXGroup;
+			children = (
+				BAD0CD3E21070A8400D561BD /* VCSendPresentVC.h */,
+				BAD0CD3F21070A8400D561BD /* VCSendPresentVC.m */,
+				BAD0CD412107122500D561BD /* VCSPView.h */,
+				BAD0CD422107122500D561BD /* VCSPView.m */,
+				BAD0CD442107123D00D561BD /* VCSPView.xib */,
+			);
+			path = "Send Presents";
+			sourceTree = "<group>";
+		};
 		BAE9EC5220BCF139006FEC19 /* SDKs */ = {
 			isa = PBXGroup;
 			children = (
+				BABB3ABB2105EF4900C31300 /* RCMessage */,
 				BA2D847120C001FA0027F905 /* NetEase */,
 			);
 			path = SDKs;
@@ -2205,6 +2244,7 @@
 				BAEE152720BBEB8800B1219B /* city.json in Resources */,
 				BA36518820A42705002B6C62 /* Baoli-SC-Regular.ttf in Resources */,
 				BABDD08720FF3A13005A30D9 /* DMTableCell.xib in Resources */,
+				BAD0CD452107123E00D561BD /* VCSPView.xib in Resources */,
 				BAC183A3209AE0ED00209CCD /* Assets.xcassets in Resources */,
 				BAC183A1209AE0EC00209CCD /* Main.storyboard in Resources */,
 				BA47FC1320E0E304002326D4 /* NTESLogViewController.xib in Resources */,
@@ -2363,6 +2403,8 @@
 				BA88190220E3726D00BCDD17 /* NMFloatView.m in Sources */,
 				BAB725A920BCF34700CD9A15 /* NOSConfig.m in Sources */,
 				BA54992C20E2FA7500C52FF1 /* IJKSDLGLView.m in Sources */,
+				BAD0CD4021070A8400D561BD /* VCSendPresentVC.m in Sources */,
+				BABB3ABE2105EF8100C31300 /* NMRCCallMessage.m in Sources */,
 				BAB725A020BCF34700CD9A15 /* NOSUploadOption.m in Sources */,
 				BA47FC0A20E0E304002326D4 /* UIActionSheet+NTESBlock.m in Sources */,
 				BAF7E3922100B65A00B03BF9 /* EavesdropVC+show.m in Sources */,
@@ -2391,6 +2433,7 @@
 				BAB725B420BCF34700CD9A15 /* NOSLbsNetMonitorTask.m in Sources */,
 				BA47FC0E20E0E304002326D4 /* UIAlertView+NTESBlock.m in Sources */,
 				BA945DAB209AFC70001BE9E1 /* FileUtils.m in Sources */,
+				BAD0CD3C210702E700D561BD /* BarrageMessage.m in Sources */,
 				BA47FC1920E0E304002326D4 /* NTESLogManager.m in Sources */,
 				BAB0F790209B193600E8CCC7 /* UINavigationBar+CustomBar.m in Sources */,
 				BAC1839B209AE0EC00209CCD /* AppDelegate.m in Sources */,
@@ -2474,6 +2517,7 @@
 				BA84B1CC20CE4E5D00839A6B /* FollowerTVC.m in Sources */,
 				BA15FBA820E2AD900066F0B0 /* NTESLiveAnchorHandler.m in Sources */,
 				BA39ACF120AC1FD8001EC158 /* MeCenterViewController.m in Sources */,
+				BAD0CD432107122500D561BD /* VCSPView.m in Sources */,
 				BAB725B320BCF34700CD9A15 /* NOSLbsTask.m in Sources */,
 				BA1E2D0420AD6FD90060E91C /* NMTextView.m in Sources */,
 				BA47FC0720E0E304002326D4 /* NSData+NTES.m in Sources */,

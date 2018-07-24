@@ -10,6 +10,7 @@
 #import "VCallVC.h"
 #import "NMFloatWindow.h"
 
+
 @interface BeCalledVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *headImg;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -20,10 +21,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *json = self.callDataDic[@"message"];
-    NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-    self.nameLabel.text = dataDic[@"userName"];
-    [self.headImg sd_setImageWithURL:[NSURL URLWithString:dataDic[@"img"]]];
+//    NSString *json = self.callDataDic[@"message"];
+//    NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+//    self.nameLabel.text = dataDic[@"userName"];
+//    [self.headImg sd_setImageWithURL:[NSURL URLWithString:dataDic[@"img"]]];
+    self.nameLabel.text = self.msg.nickname;
+    [self.headImg sd_setImageWithURL:[NSURL URLWithString:self.msg.headImg]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,38 +52,47 @@
         }
         //预订会议成功
         else {
-            // json
-            NSString *json = self.callDataDic[@"message"];
-            NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-            // post
-            NSDictionary *paramDic = @{@"trId":dataDic[@"trId"], @"accId":dataDic[@"userAccid"], @"roomName":meeting.name};
+            // new vc
+            VCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"calling"];
+            vc.userType = CallUserAnchor;
+            vc.meeting = meeting;
+            vc.callerId = self.msg.uId;
+            [NMFloatWindow keyFLoatWindow].frame = [UIScreen mainScreen].bounds;
+            [NMFloatWindow keyFLoatWindow].fullScreen = YES;
+            [NMFloatWindow keyFLoatWindow].rootViewController = vc;
+            [self dismissViewControllerAnimated:NO completion:nil];
+            [SVProgressHUD dismiss];
             
-            
-            [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/anchorAnswer" andParam:paramDic andSuccess:^(id data) {
-                VCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"calling"];
-                vc.userType = CallUserAnchor;
-                // json
-                NSString *json = self.callDataDic[@"message"];
-                NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-                vc.trId = dataDic[@"trId"];
-                vc.meeting = meeting;
-                [NMFloatWindow keyFLoatWindow].frame = [UIScreen mainScreen].bounds;
-                [NMFloatWindow keyFLoatWindow].fullScreen = YES;
-                [NMFloatWindow keyFLoatWindow].rootViewController = vc;
-                [self dismissViewControllerAnimated:NO completion:nil];
-                [SVProgressHUD dismiss];
-            }];
+//            // json
+//            NSString *json = self.callDataDic[@"message"];
+//            NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+//            // post
+//            NSDictionary *paramDic = @{@"trId":dataDic[@"trId"], @"accId":dataDic[@"userAccid"], @"roomName":meeting.name};
+            //            [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/anchorAnswer" andParam:paramDic andSuccess:^(id data) {
+            //                VCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"calling"];
+            //                vc.userType = CallUserAnchor;
+            //                // json
+            //                NSString *json = self.callDataDic[@"message"];
+            //                NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+            //                vc.trId = dataDic[@"trId"];
+            //                vc.meeting = meeting;
+            //                [NMFloatWindow keyFLoatWindow].frame = [UIScreen mainScreen].bounds;
+            //                [NMFloatWindow keyFLoatWindow].fullScreen = YES;
+            //                [NMFloatWindow keyFLoatWindow].rootViewController = vc;
+            //                [self dismissViewControllerAnimated:NO completion:nil];
+            //                [SVProgressHUD dismiss];
+            //            }];
         }
     }];
 }
 - (IBAction)clickRefuse:(id)sender {
     // json
-    NSString *json = self.callDataDic[@"message"];
-    NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-    [self.headImg sd_setImageWithURL:[NSURL URLWithString:dataDic[@"img"]]];
-    self.nameLabel.text = dataDic[@"userName"];
-    NSDictionary *paramDic = @{@"trId":dataDic[@"trId"]};
-    [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/doneHangUp" andParam:paramDic andSuccess:nil];
+//    NSString *json = self.callDataDic[@"message"];
+//    NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+//    [self.headImg sd_setImageWithURL:[NSURL URLWithString:dataDic[@"img"]]];
+//    self.nameLabel.text = dataDic[@"userName"];
+//    NSDictionary *paramDic = @{@"trId":dataDic[@"trId"]};
+//    [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/doneHangUp" andParam:paramDic andSuccess:nil];
     [[NMFloatWindow keyFLoatWindow] dismiss];
 }
 

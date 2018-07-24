@@ -14,7 +14,7 @@
 # pragma mark - Danmu
 -(void)enterDanmu{
     // 设置消息接收监听
-    [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onReceived:) name:@"RCRecieve" object:nil];
 //    if (self.userType == CallUserAnchor) {
     [[RCIMClient sharedRCIMClient] joinChatRoom:self.meeting.name messageCount:0 success:^{
         
@@ -46,14 +46,25 @@
     UIAlertAction *confirmAct = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSString *text = [txtAlert.textFields firstObject].text;
         if (text && ![text isEqualToString:@""]) {
-            NSString *rmPuthContent = [NSString stringWithFormat:@"%@: %@",MDUserDic[@"nickname"], text];
-            RCTextMessage *mContent = [RCTextMessage messageWithContent:rmPuthContent];
-            mContent.senderUserInfo = [self genMeInfo];
-            [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_CHATROOM targetId:self.meeting.name content:mContent pushContent:nil pushData:nil success:^(long messageId) {
-                
+            BarrageMessage *msg = [[BarrageMessage alloc] init];
+            // msg
+            msg.senderUserInfo = [self genMeInfo];
+            msg.name = MDUserDic[@"nickname"];
+            msg.danmu = text;
+            msg.img = @"";
+            
+            [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_CHATROOM targetId:self.meeting.name content:msg pushContent:nil pushData:nil success:^(long messageId) {
             } error:^(RCErrorCode nErrorCode, long messageId) {
-                
             }];
+            
+//            NSString *rmPuthContent = [NSString stringWithFormat:@"%@: %@",MDUserDic[@"nickname"], text];
+//            RCTextMessage *mContent = [RCTextMessage messageWithContent:rmPuthContent];
+//            mContent.senderUserInfo = [self genMeInfo];
+//            [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_CHATROOM targetId:self.meeting.name content:mContent pushContent:nil pushData:nil success:^(long messageId) {
+//
+//            } error:^(RCErrorCode nErrorCode, long messageId) {
+//
+//            }];
             // 这里插入
             
             [self refreshMsg];
@@ -82,33 +93,14 @@
     return 30;
 }
 
-# pragma mark - <RCIMClientReceiveMessageDelegate>
-/*!
- @param message     当前接收到的消息
- @param nLeft       还剩余的未接收的消息数，left>=0
- @param object      消息监听设置的key值
- 
- @discussion 如果您设置了IMlib消息监听之后，SDK在接收到消息时候会执行此方法。
- 其中，left为还剩余的、还未接收的消息数量。比如刚上线一口气收到多条消息时，通过此方法，您可以获取到每条消息，left会依次递减直到0。
- 您可以根据left数量来优化您的App体验和性能，比如收到大量消息时等待left为0再刷新UI。
- object为您在设置消息接收监听时的key值。
- */
-- (void)onReceived:(RCMessage *)message left:(int)nLeft object:(id)object {
-    if ([message.content isMemberOfClass:[RCTextMessage class]]) {
-        RCTextMessage *textMessage = (RCTextMessage *)message.content;
-        NSLog(@"消息内容：%@", textMessage.content);
-        //        NSMutableArray *tmpArr = [self.dialogHistoryArr mutableCopy];
-        //        [tmpArr addObject:textMessage];
-        //        self.dialogHistoryArr = [tmpArr copy];
-        //        dispatch_sync(dispatch_get_main_queue(), ^{
-        ////            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
-        //            [self.tableView reloadData];
-        //        });
+
+- (void)onReceived:(NSNotification *)notification{
+    RCMessage *message = notification.object;
+    if (message.conversationType == ConversationType_CHATROOM && [message.targetId isEqualToString:self.meeting.name]) {
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self refreshMsg];
         });
     }
-    NSLog(@"还剩余的未接收的消息数：%d", nLeft);
 }
 
 @end

@@ -10,4 +10,6 @@
 
 @interface RegistNewPhoneVC : UIViewController
 
+@property (nonatomic,strong) NSDictionary *wqParam;
+
 @end

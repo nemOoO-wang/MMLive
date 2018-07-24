@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NMRCCallMessage.h"
 
 @interface BeCalledVC : UIViewController
 
 @property (nonatomic,strong) NSDictionary *callDataDic;
+@property (nonatomic,strong) NSString *callerId;
+
+@property (nonatomic,strong) NMRCCallMessage *msg;
+
 
 
 @end

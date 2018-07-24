@@ -11,6 +11,8 @@
 #import <PushKit/PushKit.h>
 // RCCloud
 #import <RongCloudIM/RongIMLib/RongIMLib.h>
+#import "NMRCCallMessage.h"
+#import "BarrageMessage.h"
 // ShareSDK
 #import <ShareSDK/ShareSDK.h>
 //#import <ShareSDKUI/ShareSDK+SSUI.h>
@@ -56,6 +58,8 @@
     }
     // 融云
     [[RCIMClient sharedRCIMClient] initWithAppKey:RCAPPKey];
+    [[RCIMClient sharedRCIMClient]registerMessageType:[NMRCCallMessage class]];
+    [[RCIMClient sharedRCIMClient]registerMessageType:[BarrageMessage class]];
     // RC远程推送的内容
     NSDictionary *remoteNotificationUserInfo = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
     //RC注册推送, iOS 8
@@ -291,9 +295,36 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 - (void)onReceived:(RCMessage *)message left:(int)nLeft object:(id)object {
     if ([message.content isMemberOfClass:[RCTextMessage class]]) {
         RCTextMessage *textMessage = (RCTextMessage *)message.content;
-        NSLog(@"消息内容：%@", textMessage.content);        
+        NSLog(@"消息内容：%@", textMessage.content);
     }
     NSLog(@"还剩余的未接收的消息数：%d", nLeft);
+    // notification
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RCRecieve" object:message userInfo:nil];
+    // 打电话
+    if ([message.objectName isEqualToString:@"NMRCCallMessage"]) {
+        NMRCCallMessage *msg = (NMRCCallMessage *)message.content;
+        if ([msg.roomName isEqualToString:@""]) {
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                // 主播
+                BeCalledVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"be called"];
+                vc.msg = msg;
+                [[NMFloatWindow keyFLoatWindow] setFullScreenWithoutAni:YES];
+                [NMFloatWindow keyFLoatWindow].frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT);
+                [NMFloatWindow keyFLoatWindow].rootViewController = vc;
+                [[NMFloatWindow keyFLoatWindow] show];
+            });
+        }else{
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                // 主叫
+                UIViewController *currentVC = [[[UIApplication sharedApplication]keyWindow]getCurrentViewController];
+                if ([currentVC isKindOfClass:[StartCallVC class]]) {
+                    StartCallVC *vc = (StartCallVC *)currentVC;
+                    vc.roomName = msg.roomName;
+                    [vc handleResponse];
+                }
+            });
+        }
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
