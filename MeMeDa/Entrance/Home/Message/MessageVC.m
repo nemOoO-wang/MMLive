@@ -111,6 +111,10 @@
 
 # pragma mark - prepare segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    // 分辨是否主播（预约接口不同）
+    BOOL anchor = [MDUserDic[@"gender"] integerValue] == 2;
+    
+    // set type
     if ([segue.identifier isEqualToString:@"table"]) {
         MessageListTVC *vc = [segue destinationViewController];
         switch ([sender integerValue]) {
@@ -121,7 +125,7 @@
                 vc.listType = MessageTypeCallLog;
                 break;
             case 4:
-                vc.listType = MessageTypeReservation;
+                vc.listType = anchor? MessageTypeRecall: MessageTypeReservation;
                 break;
             case 5:
                 vc.listType = MessageTypeFriendMsg;

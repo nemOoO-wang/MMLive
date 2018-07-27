@@ -15,6 +15,8 @@
 #import <NIMAVChat/NIMAVChat.h>
 #import "AnchorEndCallVC.h"
 #import "UserEndCallVC.h"
+#import "NMRCCallMessage.h"
+
 
 typedef NS_ENUM(NSInteger, CallUser) {
     CallUserAnchor,
@@ -32,6 +34,8 @@ typedef NS_ENUM(NSInteger, CallUser) {
 @property (weak, nonatomic) IBOutlet UIView *smallVideoView;
 @property (weak, nonatomic) IBOutlet UIView *localVideoView;
 @property (nonatomic,strong) UIView *localPreView;
+@property (nonatomic,strong) NMRCCallMessage *calllMsg;
+
 // info data
 @property (nonatomic,strong) NSTimer *timer;
 @property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
@@ -42,6 +46,9 @@ typedef NS_ENUM(NSInteger, CallUser) {
 @property (nonatomic,assign) NSInteger peopleCount;
 // danmu
 @property (weak, nonatomic) IBOutlet DMContainerView *danmuView;
+
+
+- (IBAction)clickEndCall:(id)sender;
 
 @property (nonatomic,strong) NSArray *danmuArr;
 

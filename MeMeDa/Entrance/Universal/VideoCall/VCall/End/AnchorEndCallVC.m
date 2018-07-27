@@ -26,7 +26,12 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)clickEnd:(id)sender {
-    [[NMFloatWindow keyFLoatWindow] dismiss];
+    if (self.audioCall) {
+//        [self dismissViewControllerAnimated:YES completion:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"End Audio Call" object:nil userInfo:nil];
+    }else{
+        [[NMFloatWindow keyFLoatWindow] dismiss];
+    }
 }
 
 /*

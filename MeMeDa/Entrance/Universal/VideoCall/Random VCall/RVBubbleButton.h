@@ -12,6 +12,8 @@
 
 @property (nonatomic,weak) UIViewController *supVC;
 @property (nonatomic,strong) NSDictionary *userDic;
+@property (nonatomic,strong) UIButton *subBtn;
+
 
 -(void)fire;
 

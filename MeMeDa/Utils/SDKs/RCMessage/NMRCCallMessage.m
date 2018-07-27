@@ -7,14 +7,30 @@
 //
 
 #import "NMRCCallMessage.h"
+#import <NIMSDK/NIMSDK.h>
+
 
 @implementation NMRCCallMessage
+
+-(NSString *)wId{
+    if (!_wId) {
+        _wId = [NIMSDK sharedSDK].loginManager.currentAccount;
+    }
+    return _wId;
+}
+
+-(NSString *)roomName{
+    if (!_roomName) {
+        _roomName = @"";
+    }
+    return _roomName;
+}
 
 -(NSData *)encode{
     if (!self.headImg) {
         self.headImg = @"";
     }
-    NSData *data = [NSJSONSerialization dataWithJSONObject:@{@"roomName":self.roomName, @"nickname":self.nickname, @"headImg":self.headImg, @"id":self.uId} options:NSJSONWritingPrettyPrinted error:nil];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:@{@"roomName":self.roomName, @"nickname":self.nickname, @"headImg":self.headImg, @"id":self.uId, @"wId":self.wId, @"trId":self.trId, @"code":self.code} options:NSJSONWritingPrettyPrinted error:nil];
     return data;
 }
 
@@ -24,10 +40,13 @@
     self.nickname = dic[@"nickname"];
     self.headImg = dic[@"headImg"];
     self.uId = [dic[@"id"] stringValue];
+    self.wId = dic[@"wId"];
+    self.trId = dic[@"trId"];
+    self.code = dic[@"code"];
 }
 
 +(NSString *)getObjectName{
-    return @"NMRCCallMessage";
+    return @"app:NMRCCallMessage";
 }
 
 +(RCMessagePersistent)persistentFlag{

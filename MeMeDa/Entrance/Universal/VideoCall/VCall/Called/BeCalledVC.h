@@ -11,11 +11,10 @@
 
 @interface BeCalledVC : UIViewController
 
-@property (nonatomic,strong) NSDictionary *callDataDic;
 @property (nonatomic,strong) NSString *callerId;
-
 @property (nonatomic,strong) NMRCCallMessage *msg;
+@property (nonatomic,assign) BOOL audioCall;
 
-
+-(void)endCall;
 
 @end

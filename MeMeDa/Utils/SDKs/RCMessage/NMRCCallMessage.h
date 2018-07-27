@@ -14,6 +14,9 @@
 @property (nonatomic,strong) NSString *nickname;
 @property (nonatomic,strong) NSString *headImg;
 @property (nonatomic,strong) NSString *uId;
-
+// 网易云 id
+@property (nonatomic,strong) NSString *wId;
+@property (nonatomic,strong) NSString *trId;
+@property (nonatomic,strong) NSString *code;
 
 @end

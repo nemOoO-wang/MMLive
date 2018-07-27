@@ -230,6 +230,8 @@
 		BAF7E38F2100AFAF00B03BF9 /* EvsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF7E38E2100AFAF00B03BF9 /* EvsCell.m */; };
 		BAF7E3922100B65A00B03BF9 /* EavesdropVC+show.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF7E3912100B65A00B03BF9 /* EavesdropVC+show.m */; };
 		BAF7E3962100BDAB00B03BF9 /* SetCoinVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF7E3952100BDAB00B03BF9 /* SetCoinVC.m */; };
+		BAF919E2210ABF1B005D4DED /* ACallVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF919E1210ABF1B005D4DED /* ACallVC.m */; };
+		BAF919E6210BA34A005D4DED /* UDReserveTimeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF919E5210BA34A005D4DED /* UDReserveTimeVC.m */; };
 		BAFF8E7E20C62E2A0076762F /* ImageOnlyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF8E7D20C62E2A0076762F /* ImageOnlyController.m */; };
 		BAFF8E8420C65E330076762F /* NMClickVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFF8E8320C65E330076762F /* NMClickVideoView.m */; };
 /* End PBXBuildFile section */
@@ -682,6 +684,10 @@
 		BAF7E3912100B65A00B03BF9 /* EavesdropVC+show.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "EavesdropVC+show.m"; sourceTree = "<group>"; };
 		BAF7E3942100BDAB00B03BF9 /* SetCoinVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetCoinVC.h; sourceTree = "<group>"; };
 		BAF7E3952100BDAB00B03BF9 /* SetCoinVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetCoinVC.m; sourceTree = "<group>"; };
+		BAF919E0210ABF1B005D4DED /* ACallVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACallVC.h; sourceTree = "<group>"; };
+		BAF919E1210ABF1B005D4DED /* ACallVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACallVC.m; sourceTree = "<group>"; };
+		BAF919E4210BA34A005D4DED /* UDReserveTimeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UDReserveTimeVC.h; sourceTree = "<group>"; };
+		BAF919E5210BA34A005D4DED /* UDReserveTimeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UDReserveTimeVC.m; sourceTree = "<group>"; };
 		BAFF8E7C20C62E2A0076762F /* ImageOnlyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageOnlyController.h; sourceTree = "<group>"; };
 		BAFF8E7D20C62E2A0076762F /* ImageOnlyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageOnlyController.m; sourceTree = "<group>"; };
 		BAFF8E8220C65E330076762F /* NMClickVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMClickVideoView.h; sourceTree = "<group>"; };
@@ -1058,6 +1064,7 @@
 		BA3780C620DBB81600521EBC /* VideoCall */ = {
 			isa = PBXGroup;
 			children = (
+				BAF919DF210ABF02005D4DED /* ACall */,
 				BA8818F920E33BBA00BCDD17 /* VCall */,
 				BAF7E38621006D9800B03BF9 /* Random VCall */,
 				BA41E56120F50227006FCB3B /* Float Window */,
@@ -2076,6 +2083,7 @@
 		BAF2828220A9306900625CF3 /* User Detail */ = {
 			isa = PBXGroup;
 			children = (
+				BAF919E3210BA317005D4DED /* Set Reserve Time */,
 				BAF2829220A9871A00625CF3 /* scrollBanner */,
 				BAF2829120A9870F00625CF3 /* Group */,
 				BAF2828320A9309100625CF3 /* UserInfoVC.h */,
@@ -2129,6 +2137,24 @@
 				BAF7E3952100BDAB00B03BF9 /* SetCoinVC.m */,
 			);
 			path = Coin;
+			sourceTree = "<group>";
+		};
+		BAF919DF210ABF02005D4DED /* ACall */ = {
+			isa = PBXGroup;
+			children = (
+				BAF919E0210ABF1B005D4DED /* ACallVC.h */,
+				BAF919E1210ABF1B005D4DED /* ACallVC.m */,
+			);
+			path = ACall;
+			sourceTree = "<group>";
+		};
+		BAF919E3210BA317005D4DED /* Set Reserve Time */ = {
+			isa = PBXGroup;
+			children = (
+				BAF919E4210BA34A005D4DED /* UDReserveTimeVC.h */,
+				BAF919E5210BA34A005D4DED /* UDReserveTimeVC.m */,
+			);
+			path = "Set Reserve Time";
 			sourceTree = "<group>";
 		};
 		BAFF8E8020C63EFB0076762F /* browserAndImgOnly */ = {
@@ -2370,6 +2396,7 @@
 				BA1E570520B69C5600C61E21 /* ChatVC.m in Sources */,
 				BA47FC0620E0E304002326D4 /* UIView+NTES.m in Sources */,
 				BAA69EF8209C6DB1005138EA /* DatePickerVC.m in Sources */,
+				BAF919E6210BA34A005D4DED /* UDReserveTimeVC.m in Sources */,
 				BA1E2CF520AD26A50060E91C /* ThemeUserListVC.m in Sources */,
 				BAA69EFB209C6DC2005138EA /* CityPickerVC.m in Sources */,
 				BA1E2D0820AD72FF0060E91C /* ContactUsViewController.m in Sources */,
@@ -2524,6 +2551,7 @@
 				BA47FC1720E0E304002326D4 /* NTESDevice.m in Sources */,
 				BAB725B120BCF34700CD9A15 /* NOSFileRecorder.m in Sources */,
 				BAEE7FC620A2D9DF000EA5E4 /* SearchTextField.m in Sources */,
+				BAF919E2210ABF1B005D4DED /* ACallVC.m in Sources */,
 				BAB725B220BCF34700CD9A15 /* NOSReachability.m in Sources */,
 				BA15FBA120E2AD900066F0B0 /* NTESPresentAttachment.m in Sources */,
 				BAF7E38921006DBE00B03BF9 /* RandomVCallVC.m in Sources */,

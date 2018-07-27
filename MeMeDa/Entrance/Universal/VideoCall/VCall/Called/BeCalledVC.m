@@ -8,6 +8,7 @@
 
 #import "BeCalledVC.h"
 #import "VCallVC.h"
+#import "ACallVC.h"
 #import "NMFloatWindow.h"
 
 
@@ -21,12 +22,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    NSString *json = self.callDataDic[@"message"];
-//    NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-//    self.nameLabel.text = dataDic[@"userName"];
-//    [self.headImg sd_setImageWithURL:[NSURL URLWithString:dataDic[@"img"]]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissNoti:) name:@"End Audio Call" object:nil];
     self.nameLabel.text = self.msg.nickname;
     [self.headImg sd_setImageWithURL:[NSURL URLWithString:self.msg.headImg]];
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)dismissNoti:(NSNotification *)noti{
+    [self dismissViewControllerAnimated:NO completion:^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,56 +52,77 @@
     meeting.name = [NSUUID UUID].UUIDString;
     meeting.actor = YES;
     //预订会议
-    [[NIMAVChatSDK sharedSDK].netCallManager reserveMeeting:meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
-        //预订会议失败
-        if (error) {
-            [SVProgressHUD showErrorWithStatus:@"开房失败"];
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
-        //预订会议成功
-        else {
-            // new vc
-            VCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"calling"];
-            vc.userType = CallUserAnchor;
-            vc.meeting = meeting;
-            vc.callerId = self.msg.uId;
-            [NMFloatWindow keyFLoatWindow].frame = [UIScreen mainScreen].bounds;
-            [NMFloatWindow keyFLoatWindow].fullScreen = YES;
-            [NMFloatWindow keyFLoatWindow].rootViewController = vc;
-            [self dismissViewControllerAnimated:NO completion:nil];
-            [SVProgressHUD dismiss];
-            
-//            // json
-//            NSString *json = self.callDataDic[@"message"];
-//            NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-//            // post
-//            NSDictionary *paramDic = @{@"trId":dataDic[@"trId"], @"accId":dataDic[@"userAccid"], @"roomName":meeting.name};
-            //            [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/anchorAnswer" andParam:paramDic andSuccess:^(id data) {
-            //                VCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"calling"];
-            //                vc.userType = CallUserAnchor;
-            //                // json
-            //                NSString *json = self.callDataDic[@"message"];
-            //                NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-            //                vc.trId = dataDic[@"trId"];
-            //                vc.meeting = meeting;
-            //                [NMFloatWindow keyFLoatWindow].frame = [UIScreen mainScreen].bounds;
-            //                [NMFloatWindow keyFLoatWindow].fullScreen = YES;
-            //                [NMFloatWindow keyFLoatWindow].rootViewController = vc;
-            //                [self dismissViewControllerAnimated:NO completion:nil];
-            //                [SVProgressHUD dismiss];
-            //            }];
-        }
-    }];
+    if (self.audioCall) {
+        // 音频聊天
+//        meeting.type = NIMNetCallMediaTypeAudio;
+        [[NIMAVChatSDK sharedSDK].netCallManager reserveMeeting:meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
+            //预订会议失败
+            if (error) {
+                [SVProgressHUD showErrorWithStatus:@"开房失败"];
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+            //预订会议成功
+            else {
+                // new vc
+                ACallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"audio call"];
+                vc.userType = CallUserAnchor;
+                vc.meeting = meeting;
+                vc.calllMsg = self.msg;
+//                [NMFloatWindow keyFLoatWindow].frame = [UIScreen mainScreen].bounds;
+//                [NMFloatWindow keyFLoatWindow].fullScreen = YES;
+//                [NMFloatWindow keyFLoatWindow].rootViewController = vc;
+                [self presentViewController:vc animated:YES completion:nil];
+//                [self dismissViewControllerAnimated:NO completion:nil];
+                [SVProgressHUD dismiss];
+            }
+        }];
+    }else{
+        // 视频聊天
+        [[NIMAVChatSDK sharedSDK].netCallManager reserveMeeting:meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
+            //预订会议失败
+            if (error) {
+                [SVProgressHUD showErrorWithStatus:@"开房失败"];
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+            //预订会议成功
+            else {
+                // new vc
+                VCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"calling"];
+                vc.userType = CallUserAnchor;
+                vc.meeting = meeting;
+                vc.callerId = self.msg.uId;
+                vc.calllMsg = self.msg;
+                [NMFloatWindow keyFLoatWindow].frame = [UIScreen mainScreen].bounds;
+                [NMFloatWindow keyFLoatWindow].fullScreen = YES;
+                [NMFloatWindow keyFLoatWindow].rootViewController = vc;
+                [self dismissViewControllerAnimated:NO completion:nil];
+                [SVProgressHUD dismiss];
+            }
+        }];
+    }
 }
 - (IBAction)clickRefuse:(id)sender {
-    // json
-//    NSString *json = self.callDataDic[@"message"];
-//    NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
-//    [self.headImg sd_setImageWithURL:[NSURL URLWithString:dataDic[@"img"]]];
-//    self.nameLabel.text = dataDic[@"userName"];
-//    NSDictionary *paramDic = @{@"trId":dataDic[@"trId"]};
-//    [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/doneHangUp" andParam:paramDic andSuccess:nil];
-    [[NMFloatWindow keyFLoatWindow] dismiss];
+    NMRCCallMessage *msg = [[NMRCCallMessage alloc] init];
+    NSDictionary *dic = MDUserDic;
+    msg.nickname = dic[@"nickname"];
+    msg.headImg = dic[@"headImg"];
+    msg.uId = dic[@"id"];
+    msg.trId = self.msg.trId;
+    msg.code = @"4";
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PUSHSERVICE targetId:self.callerId content:msg pushContent:@"用户挂断电话" pushData:nil success:^(long messageId) {
+    } error:^(RCErrorCode nErrorCode, long messageId) {
+    }];
+    NSDictionary *paramDic = @{@"trId":self.msg.trId?self.msg.trId:@"", @"userId":dic[@"id"]};
+    [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/hangUp" andParam:paramDic andSuccess:nil];    
+    [self endCall];
+}
+
+-(void)endCall{
+    if (self.audioCall) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else{
+        [[NMFloatWindow keyFLoatWindow] dismiss];
+    }
 }
 
 /*

@@ -50,7 +50,9 @@
         msg.nickname = dic[@"nickname"];
         msg.headImg = dic[@"headImg"];
         msg.uId = dic[@"id"];
-        [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PUSHSERVICE targetId:self.callerId content:msg pushContent:@"zhubohuiying" pushData:nil success:^(long messageId) {
+        msg.trId = self.calllMsg.trId;
+        msg.code = @"2";
+        [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PUSHSERVICE targetId:self.callerId content:msg pushContent:@"主播回应接听" pushData:nil success:^(long messageId) {
             
         } error:^(RCErrorCode nErrorCode, long messageId) {
             
@@ -200,12 +202,10 @@
     [self quitDamnu];
     [[NIMAVChatSDK sharedSDK].netCallManager leaveMeeting:self.meeting];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-//    NSDictionary *paramDic = @{@"trId":self.trId};
-//    [[BeeNet sharedInstance] requestWithType:Request_POST url:@"/chat/user/doneHangUp" param:paramDic success:^(id data) {
-//        
-//    } fail:^(NSString *message) {
-//        
-//    }];
+    NSDictionary *paramDic = @{@"trId":self.calllMsg.trId};
+    [[BeeNet sharedInstance] requestWithType:Request_POST url:@"/chat/user/doneHangUp" param:paramDic success:^(id data) {
+    } fail:^(NSString *message) {
+    }];
 }
 
 -(void)setupUI{

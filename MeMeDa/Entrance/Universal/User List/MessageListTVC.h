@@ -13,6 +13,7 @@ typedef NS_ENUM(NSUInteger, MessageType) {
     MessageTypeSearch,
     MessageTypePeepMe,
     MessageTypeCallLog,
+    MessageTypeRecall,
     MessageTypeReservation,
     MessageTypeFriendMsg,
     MessageTypeSysInfo,

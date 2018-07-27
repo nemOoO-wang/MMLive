@@ -28,6 +28,7 @@
 #import "StartCallVC.h"
 #import "BeCalledVC.h"
 #import "VCallVC.h"
+#import "ACallVC.h"
 #import "NMFloatWindow.h"
 #import "UIWindow+NMCurrent.h"
 
@@ -36,12 +37,10 @@
 
 @property (nonatomic,strong) UIView *vcallView;
 
-
 @end
 
+
 @implementation AppDelegate
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // IQKeyboard
     [[IQKeyboardManager sharedManager] setEnable:YES];
@@ -161,6 +160,7 @@ didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSe
     // register to receive notifications
     [application registerForRemoteNotifications];
 }
+
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     /**
@@ -236,21 +236,21 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 - ( void )miPushReceiveNotification:( NSDictionary *)data
 {
     // 长连接收到的消息。消息格式跟APNs格式一样
-    if ([data[@"code"]integerValue] == 1) {
-        BeCalledVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"be called"];
-        vc.callDataDic = data;
-        [[NMFloatWindow keyFLoatWindow] setFullScreenWithoutAni:YES];
-        [NMFloatWindow keyFLoatWindow].frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*2);;
-        [NMFloatWindow keyFLoatWindow].rootViewController = vc;
-        [[NMFloatWindow keyFLoatWindow] show];
-    }else if([data[@"code"]integerValue] == 2){
-        UIViewController *currentVC = [[[UIApplication sharedApplication]keyWindow]getCurrentViewController];
-        if ([currentVC isKindOfClass:[StartCallVC class]]) {
-            StartCallVC *vc = (StartCallVC *)currentVC;
-            vc.callDataDic = data;
-            [vc handleResponse];
-        }
-    }
+//    if ([data[@"code"]integerValue] == 1) {
+//        BeCalledVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"be called"];
+//        vc.callDataDic = data;
+//        [[NMFloatWindow keyFLoatWindow] setFullScreenWithoutAni:YES];
+//        [NMFloatWindow keyFLoatWindow].frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*2);;
+//        [NMFloatWindow keyFLoatWindow].rootViewController = vc;
+//        [[NMFloatWindow keyFLoatWindow] show];
+//    }else if([data[@"code"]integerValue] == 2){
+//        UIViewController *currentVC = [[[UIApplication sharedApplication]keyWindow]getCurrentViewController];
+//        if ([currentVC isKindOfClass:[StartCallVC class]]) {
+//            StartCallVC *vc = (StartCallVC *)currentVC;
+//            vc.callDataDic = data;
+//            [vc handleResponse];
+//        }
+//    }
 }
 
 // iOS10新加入的回调方法
@@ -301,11 +301,11 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // notification
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RCRecieve" object:message userInfo:nil];
     // 打电话
-    if ([message.objectName isEqualToString:@"NMRCCallMessage"]) {
+    if ([message.objectName isEqualToString:@"app:NMRCCallMessage"]) {
         NMRCCallMessage *msg = (NMRCCallMessage *)message.content;
-        if ([msg.roomName isEqualToString:@""]) {
+        if ([msg.code isEqualToString:@"1"]) {
+            // 主播收到视频请求
             dispatch_sync(dispatch_get_main_queue(), ^{
-                // 主播
                 BeCalledVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"be called"];
                 vc.msg = msg;
                 [[NMFloatWindow keyFLoatWindow] setFullScreenWithoutAni:YES];
@@ -313,16 +313,59 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
                 [NMFloatWindow keyFLoatWindow].rootViewController = vc;
                 [[NMFloatWindow keyFLoatWindow] show];
             });
-        }else{
+        }else if ([msg.code isEqualToString:@"2"]){
+            // 主叫回应视频请求
             dispatch_sync(dispatch_get_main_queue(), ^{
-                // 主叫
                 UIViewController *currentVC = [[[UIApplication sharedApplication]keyWindow]getCurrentViewController];
                 if ([currentVC isKindOfClass:[StartCallVC class]]) {
                     StartCallVC *vc = (StartCallVC *)currentVC;
                     vc.roomName = msg.roomName;
+                    vc.msg = msg;
                     [vc handleResponse];
                 }
             });
+        }else if ([msg.code isEqualToString:@"3"]){
+            // 主叫挂断视频请求
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                UIViewController *currentVC = [[[UIApplication sharedApplication]keyWindow]getCurrentViewController];
+                if ([currentVC isKindOfClass:[StartCallVC class]]) {
+                    StartCallVC *vc = (StartCallVC *)currentVC;
+                    [vc endCall];
+                }
+            });
+        }else if ([msg.code isEqualToString:@"4"]) {
+            // 主播挂断视频请求
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                UIViewController *currentVC = [[[UIApplication sharedApplication]keyWindow]getCurrentViewController];
+                if ([currentVC isKindOfClass:[BeCalledVC class]]) {
+                    BeCalledVC *vc = (BeCalledVC *)currentVC;
+                    [vc endCall];
+                }else{
+                    VCallVC *vc = (VCallVC *)[[NMFloatWindow keyFLoatWindow] getCurrentViewController];
+                    [vc clickEndCall:nil];
+                }
+            });
+        }else if ([msg.code isEqualToString:@"5"]) {
+            // 主播收到音频请求
+//            dispatch_sync(dispatch_get_main_queue(), ^{
+                BeCalledVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"be called"];
+                vc.msg = msg;
+                vc.audioCall = YES;
+                UIViewController *currentVC = [[[UIApplication sharedApplication]keyWindow]getCurrentViewController];
+                [currentVC presentViewController:vc animated:YES completion:nil];
+//            });
+        }else if ([msg.code isEqualToString:@"6"]) {
+            // 主叫收到音频请求
+//            dispatch_sync(dispatch_get_main_queue(), ^{
+                UIViewController *currentVC = [[[UIApplication sharedApplication]keyWindow]getCurrentViewController];
+                if ([currentVC isKindOfClass:[StartCallVC class]]) {
+                    StartCallVC *vc = (StartCallVC *)currentVC;
+                    vc.roomName = msg.roomName;
+                    vc.msg = msg;
+                    [vc handleAudioResponse];
+//                    [[[[UIApplication sharedApplication] keyWindow] getCurrentViewController] presentViewController:vc animated:YES completion:nil];
+                }
+//            });
         }
     }
 }

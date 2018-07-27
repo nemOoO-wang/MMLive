@@ -73,14 +73,14 @@
 -(void)viewDidAppear:(BOOL)animated{
     HittestView *coverView = [[HittestView alloc] initInController:self];
     coverView.views = @[self.momentBtn, self.searchBtn, self.onlineBtn];
-}
-
--(void)viewWillAppear:(BOOL)animated{
     // 首页数据
     [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/getAll" andParam:nil andSuccess:^(id data) {
         self.listDataArr = data[@"data"];
         [self.collectionVIew reloadData];
     }];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
 }
 
 -(NSDictionary *)getUserAtIndexPath:(NSIndexPath *)indexPath{

@@ -13,6 +13,7 @@
 #import "StartCallVC.h"
 #import "BorderAndTransLabel.h"
 #import "NMLoginButton.h"
+#import "UDReserveTimeVC.h"
 #import "ChatVC.h"
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
@@ -141,6 +142,10 @@
         ChatVC *vc = [segue destinationViewController];
         vc.friendUserDic = self.dataDic;
     }
+    if ([segue.identifier isEqualToString:@"reserve time"]) {
+        UDReserveTimeVC *vc = [segue destinationViewController];
+        vc.usrDic = self.dataDic;
+    }
 }
 
 # pragma mark - click
@@ -176,6 +181,20 @@
         vc.usrDic = self.dataDic;
         [self presentViewController:vc animated:YES completion:nil];        
     }
+}
+
+- (IBAction)clickAudioCall:(id)sender {
+    if ([self.usrDtlDic[@"anchorState"] integerValue] != 2) {
+        [SVProgressHUD showWithStatus:@"主播未认证"];
+    }else{
+        StartCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"start call"];
+        vc.audioCall = YES;
+        vc.usrDic = self.dataDic;
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+}
+- (IBAction)clickReserve:(id)sender {
+    [self performSegueWithIdentifier:@"reserve time" sender:nil];
 }
 
 @end

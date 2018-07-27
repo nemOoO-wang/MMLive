@@ -44,6 +44,15 @@
     }
 }
 
+- (IBAction)clickCancelReserve:(id)sender {
+    NSDictionary *param = @{@"subId":self.dataDic[@"id"]};
+    [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/sub/deleteAppoint" andParam:param andSuccess:^(id data) {
+        [SVProgressHUD showSuccessWithStatus:@"操作成功"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Message Need Refresh" object:nil];
+    }];
+}
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

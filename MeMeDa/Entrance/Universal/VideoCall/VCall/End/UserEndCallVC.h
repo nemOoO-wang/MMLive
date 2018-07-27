@@ -10,4 +10,6 @@
 
 @interface UserEndCallVC : UIViewController
 
+@property (nonatomic,assign) BOOL audioCall;
+
 @end

@@ -23,7 +23,7 @@
 }
 
 +(NSString *)getObjectName{
-    return @"BarrageMessage";
+    return @"app:BarrageMessage";
 }
 
 +(RCMessagePersistent)persistentFlag{
