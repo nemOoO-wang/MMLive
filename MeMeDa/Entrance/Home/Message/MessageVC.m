@@ -12,13 +12,16 @@
 //#import <NIMSDK/NIMSDK.h>
 #import <RongIMLib/RongIMLib.h>
 #import "UserListTableViewCell.h"
+#import "NMLoginButton.h"
 
 
 @interface MessageVC ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSArray *idArr;
 @property (nonatomic,strong) NSArray *dataArr;
-
+// bubble
+@property (weak, nonatomic) IBOutlet NMLoginButton *friendBubble;
+@property (weak, nonatomic) IBOutlet NMLoginButton *anonymyBubble;
 
 @end
 
@@ -28,6 +31,18 @@
     [super viewDidLoad];
     [self setUpRootTable];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    // Bubbles
+    self.anonymyBubble.hidden = YES;
+    NSInteger count = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Friend Unread"] integerValue];
+    if (count>0) {
+        if (count>99) {
+            [self.friendBubble setTitle:@"99+" forState:UIControlStateNormal];
+        }else{
+            [self.friendBubble setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
+        }
+    }else{
+        self.friendBubble.hidden = YES;
+    }
 }
 
 -(void)setUpRootTable{
@@ -37,7 +52,7 @@
     //    opt.limit = 20;
     NSDictionary *paramDic = @{@"page":@0, @"size":@20};
     [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/meFollowList" andParam:paramDic andSuccess:^(id data) {
-        // origin
+        // origin id s
         NSArray *tmpArr = data[@"data"];
         NSMutableArray *originIdArr = [[NSMutableArray alloc] init];
         [originIdArr addObject:MDUserDic[@"id"]];
@@ -86,6 +101,7 @@
 # pragma mark - click
 // 好友消息
 - (IBAction)clickFriends:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:@"Friend Unread"];
     [self performSegueWithIdentifier:@"table" sender:@5];
 }
 

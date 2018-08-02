@@ -34,16 +34,20 @@
 }
 
 - (IBAction)clickGetVeriBtn:(id)sender {
-    if ([self.veriCodeBtn.currentTitle isEqualToString:@"获取验证码"]) {
-        self.countDown = 60;
-        self.countDownTimmer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDownTimmer:) userInfo:nil repeats:YES];
-        [self.countDownTimmer fire];
-        NSDictionary *paramDic = @{@"phone":self.phoneTextField.text};
-        [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/getVerification" andParam:paramDic andHeader:nil andSuccess:^(id data) {
-            [SVProgressHUD showSuccessWithStatus:@"已发送"];
-        } andFailed:^(NSString *str) {
-            NSLog(@"%@", str);
-        }];
+    if (!(self.phoneTextField.text.length == 11)) {
+        [SVProgressHUD showErrorWithStatus:@"手机号码格式不正确"];
+    }else{
+        if ([self.veriCodeBtn.currentTitle isEqualToString:@"获取验证码"]) {
+            self.countDown = 60;
+            self.countDownTimmer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDownTimmer:) userInfo:nil repeats:YES];
+            [self.countDownTimmer fire];
+            NSDictionary *paramDic = @{@"phone":self.phoneTextField.text};
+            [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/getVerification" andParam:paramDic andHeader:nil andSuccess:^(id data) {
+                [SVProgressHUD showSuccessWithStatus:@"已发送"];
+            } andFailed:^(NSString *str) {
+                NSLog(@"%@", str);
+            }];
+        }
     }
 }
 
@@ -56,7 +60,15 @@
 }
 
 - (IBAction)clickSubmitBtn:(id)sender {
-    
+    if (self.changePhoneFunc) {
+        NSDictionary *parm = @{@"phone":self.phoneTextField.text, @"code":self.vericodeTextField.text};
+        [[BeeNet sharedInstance] requestWithType:Request_POST url:@"/chat/user/changeBind" param:parm success:^(id data) {
+            [SVProgressHUD showSuccessWithStatus:@"更改成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        } fail:^(NSString *message) {
+            [SVProgressHUD showErrorWithStatus:@"请确认您的输入"];
+        }];
+    }
 }
 
 /*

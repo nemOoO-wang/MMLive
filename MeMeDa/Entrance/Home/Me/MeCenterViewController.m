@@ -95,6 +95,9 @@
         NMFollowerType type = [sender integerValue] == 1?NMFollowerTypeMyFollow: NMFollowerTypeFollower;
         vc.type = type;
     }
+//    if ([segue.identifier isEqualToString:@"Theme"]) {
+//        
+//    }
 //    if ([segue.identifier isEqualToString:@"set coin"]) {
 //        SetCoinVC *vc = segue.destinationViewController;
 //    }

@@ -17,8 +17,7 @@
 @property (nonatomic,strong) NSString *videoImgUrl;
 @property (weak, nonatomic) IBOutlet UIImageView *videoPreviewImgView;
 @property (weak, nonatomic) IBOutlet NMClickVideoView *clickVideoView;
-// like btn
-@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
+
 
 // 9 pics
 @property (weak, nonatomic) IBOutlet NMPicsBlowser *pic1;

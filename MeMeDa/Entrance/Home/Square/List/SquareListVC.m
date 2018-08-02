@@ -34,6 +34,8 @@
         return width*1.5;
     }];
     [self.collectionView setCollectionViewLayout:flow];
+    // page
+    self.page = 0;
     // request
     if ([self.title isEqualToString:@"热门列表"]) {
         // 热门
@@ -42,11 +44,21 @@
             self.dataArr = data[@"data"];
             [self.collectionView reloadData];
         }];
-    }else if ([self.title isEqualToString:@"活动主题"]){
+    }else if ([self.title isEqualToString:@"活动主播列表"]){
         [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:self.searchUrl andParam:self.optSearchDic andSuccess:^(id data) {
             self.dataArr = data[@"data"][@"content"];
             [self.collectionView reloadData];
         }];
+        MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self refreshData];
+        }];
+        header.stateLabel.textColor = [UIColor whiteColor];
+        [self.collectionView setMj_header:header];
+        MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [self nextPageData];
+        }];
+        footer.stateLabel.textColor = [UIColor whiteColor];
+        [self.collectionView setMj_footer:footer];
     }else{
         // 其他
         self.page = 0;
@@ -64,26 +76,41 @@
         // refresh
         [self refreshData];
     }
+    
 }
 
 -(void)refreshData{
     self.page = 0;
-    NSDictionary *paramDic = @{@"page":@0,@"size":@20};
+    NSDictionary *paramDic = @{@"page":@0,@"size":@10};
     [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:self.searchUrl andParam:paramDic andSuccess:^(id data) {
         if ([self.title isEqualToString:@"素人列表"]) {
+            self.dataArr = data[@"data"][@"content"];
+        }else if ([self.title isEqualToString:@"活动主播列表"]) {
             self.dataArr = data[@"data"][@"content"];
         }else{
             self.dataArr = data[@"data"];
         }
         [self.collectionView.mj_header endRefreshing];
+        [self.collectionView.mj_footer resetNoMoreData];
         [self.collectionView reloadData];
     }];
 }
 
 -(void)nextPageData{
-    NSDictionary *paramDic = @{@"page":@(++self.page),@"size":@20};
+    NSDictionary *paramDic = @{@"page":@(++self.page),@"size":@10};
     [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:self.searchUrl andParam:paramDic andSuccess:^(id data) {
-        [self.collectionView.mj_footer endRefreshing];
+        if ([self.title isEqualToString:@"活动主播列表"]) {
+            NSArray *dataAr = data[@"data"][@"content"];
+            if (dataAr.count<=0) {
+                [self.collectionView.mj_footer endRefreshingWithNoMoreData];
+            }else{
+                NSMutableArray *arr = [self.dataArr mutableCopy];
+                [arr addObjectsFromArray:dataAr];
+                self.dataArr = [arr copy];
+                [self.collectionView.mj_footer endRefreshing];
+                [self.collectionView reloadData];
+            }
+        }
     }];
 }
 

@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *info1Label;
 @property (weak, nonatomic) IBOutlet UILabel *info2Label;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *resetTapGesture;
+// 0/10
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *labelBottomCenter;
 
 
 @end
@@ -40,6 +42,7 @@
 -(void)refreshData{
     [[BeeNet sharedInstance] requestWithType:Request_GET url:@"/chat/user/randomRing" param:nil success:^(id data) {
         self.dataArr = [data[@"data"] mutableCopy];
+        self.labelBottomCenter.constant = 0;
         self.info1Label.text = [NSString stringWithFormat:@"已为你匹配%ld个对象",self.dataArr.count];
         self.info2Label.hidden = NO;
         self.resetTapGesture.enabled = NO;
@@ -80,6 +83,7 @@
         [self.fireBtnTimer invalidate];
         // change view
         self.info1Label.text = @"换一组用户";
+        self.labelBottomCenter.constant = 10;
         self.info2Label.hidden = YES;
         self.resetTapGesture.enabled = YES;
     }

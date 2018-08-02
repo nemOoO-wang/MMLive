@@ -42,8 +42,22 @@
     NSDictionary *paramDic = @{@"phone":self.phoneTF.text, @"pwd":[MD5Utils md5WithString:self.pswTF.text], @"loginType":@3};
     [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/login" andParam:paramDic andHeader:nil andSuccess:^(id data) {
         [self LoginwithData:data];
+        // 维护好友列表
+        [self initFriendList];
     } andFailed:^(NSString *str) {
         NSLog(@"str");
+    }];
+}
+
+-(void)initFriendList{
+    [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/friendMsg" andParam:nil andSuccess:^(id data) {
+        NSArray *friendArr = data[@"data"];
+        NSMutableArray *orderedChat = [[NSMutableArray alloc] init];
+        [friendArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [orderedChat addObject:@[obj, @""]];
+        }];
+        [[NSUserDefaults standardUserDefaults] setObject:[orderedChat copy] forKey:@"Friend Chat"];
+        [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:@"Friend Unread"];
     }];
 }
 

@@ -26,11 +26,18 @@
     return _roomName;
 }
 
+-(NSString *)trId{
+    if (!_trId) {
+        _trId = @"";
+    }
+    return _trId;
+}
+
 -(NSData *)encode{
     if (!self.headImg) {
         self.headImg = @"";
     }
-    NSData *data = [NSJSONSerialization dataWithJSONObject:@{@"roomName":self.roomName, @"nickname":self.nickname, @"headImg":self.headImg, @"id":self.uId, @"wId":self.wId, @"trId":self.trId, @"code":self.code} options:NSJSONWritingPrettyPrinted error:nil];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:@{@"roomName":self.roomName, @"nickname":self.nickname, @"headImg":self.headImg, @"uId":self.uId, @"wId":self.wId, @"trId":self.trId, @"code":self.code} options:NSJSONWritingPrettyPrinted error:nil];
     return data;
 }
 
@@ -39,7 +46,11 @@
     self.roomName = dic[@"roomName"];
     self.nickname = dic[@"nickname"];
     self.headImg = dic[@"headImg"];
-    self.uId = [dic[@"id"] stringValue];
+    if ([dic[@"uId"] isKindOfClass:[NSString class]]) {
+        self.uId = dic[@"uId"];
+    }else{
+        self.uId = [dic[@"uId"] stringValue];
+    }
     self.wId = dic[@"wId"];
     self.trId = dic[@"trId"];
     self.code = dic[@"code"];

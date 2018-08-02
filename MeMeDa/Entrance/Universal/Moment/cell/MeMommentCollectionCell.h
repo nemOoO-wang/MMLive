@@ -15,6 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *contextField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contextFieldHeightConstraint;
+// like btn
+@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *infoLabel;
 
 @property (nonatomic,strong) NSArray<NSString *> *imgArr;
 @property (nonatomic,strong) NSString *context;

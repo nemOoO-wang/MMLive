@@ -15,7 +15,11 @@
 @interface StartCallVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *headImgView;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *clickEndGstrue;
+@property (weak, nonatomic) IBOutlet UIView *progressView;
+@property (weak, nonatomic) IBOutlet UIView *progressBg;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endCallLabel;
+@property (nonatomic,assign) BOOL RecallState;
 @property (nonatomic,strong) NSString *trId;
 @end
 
@@ -24,6 +28,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissNoti:) name:@"End Audio Call" object:nil];
+    [self requestRoom];
+    // init info
+    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:self.usrDic[@"headImg"]]];
+    self.nameLabel.text = self.usrDic[@"nickname"];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    // count down
+    [self CountDown];
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)dismissNoti:(NSNotification *)noti{
+    [self dismissViewControllerAnimated:NO completion:^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+}
+
+-(void)requestRoom{
     self.clickEndGstrue.enabled = NO;
     // 请求开房
     if (self.audioCall) {
@@ -58,10 +84,10 @@
             // 发送自定义 RC 消息
             NMRCCallMessage *message = [[NMRCCallMessage alloc] init];
             message.roomName = @"";
-            NSDictionary *dic = MDUserDic;
+            NSDictionary *dic = MDUserDic; 
             message.nickname = dic[@"nickname"];
             message.headImg = dic[@"headImg"];
-            message.uId = dic[@"id"];
+            message.uId = [dic[@"id"] stringValue];
             message.trId = self.trId;
             message.code = @"1";
             NSString *content = [NSString stringWithFormat:@"%@邀请您进行通话",dic[@"nickname"]];
@@ -73,41 +99,50 @@
             [self dismissViewControllerAnimated:YES completion:nil];
         }];
     }
-    
-    // init info
-    [self.headImgView sd_setImageWithURL:[NSURL URLWithString:self.usrDic[@"headImg"]]];
-    self.nameLabel.text = self.usrDic[@"nickname"];
-}
-
--(void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
--(void)dismissNoti:(NSNotification *)noti{
-    [self dismissViewControllerAnimated:NO completion:^{
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
 }
 
 - (IBAction)clickEndCal:(id)sender {
-    NSDictionary *paramDic = @{@"trId":self.trId?self.trId:@"", @"userId":self.usrDic[@"id"]};
-    [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/hangUp" andParam:paramDic andSuccess:nil];
-    NMRCCallMessage *msg = [[NMRCCallMessage alloc] init];
-    NSDictionary *dic = MDUserDic;
-    msg.nickname = dic[@"nickname"];
-    msg.headImg = dic[@"headImg"]? dic[@"headImg"]: @"";
-    msg.uId = dic[@"id"];
-    msg.trId = self.trId;
-    msg.code = @"3";
-    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PUSHSERVICE targetId:[self.usrDic[@"id"] stringValue] content:msg pushContent:@"用户挂断电话" pushData:nil success:^(long messageId) {
-    } error:^(RCErrorCode nErrorCode, long messageId) {
-    }];
-    [self endCall];
+    if (self.RecallState) {
+        [self requestRoom];
+        self.RecallState = NO;
+        self.endCallLabel.text = @"挂断";
+        [self CountDown];
+    }else{
+        NSDictionary *paramDic = @{@"trId":self.trId?self.trId:@"", @"userId":self.usrDic[@"id"]};
+        [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/hangUp" andParam:paramDic andSuccess:nil];
+        NMRCCallMessage *msg = [[NMRCCallMessage alloc] init];
+        NSDictionary *dic = MDUserDic;
+        msg.nickname = dic[@"nickname"];
+        msg.headImg = dic[@"headImg"]? dic[@"headImg"]: @"";
+        msg.uId = dic[@"id"];
+        msg.trId = self.trId;
+        msg.code = @"3";
+        [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PUSHSERVICE targetId:[self.usrDic[@"id"] stringValue] content:msg pushContent:@"用户挂断电话" pushData:nil success:^(long messageId) {
+        } error:^(RCErrorCode nErrorCode, long messageId) {
+        }];
+        [self endCall];
+    }
 }
 
 -(void)endCall{
     [self dismissViewControllerAnimated:YES completion:nil];
-    
+}
+
+-(void)CountDown{
+    CGRect origin = self.progressView.frame;
+    CGSize full = self.progressBg.bounds.size;
+    origin.size.width = full.width;
+    [UIView animateWithDuration:30 animations:^{
+        self.progressView.frame = origin;
+    } completion:^(BOOL finished) {
+        if (finished) {
+            self.endCallLabel.text = @"重拨";
+            self.RecallState = YES;
+            CGRect origin = self.progressView.frame;
+            origin.size.width = 0;
+            self.progressView.frame = origin;
+        }
+    }];
 }
 
 -(void)handleResponse{

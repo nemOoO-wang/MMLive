@@ -50,9 +50,11 @@
         msg.nickname = dic[@"nickname"];
         msg.headImg = dic[@"headImg"];
         msg.uId = dic[@"id"];
-        msg.trId = self.calllMsg.trId;
-        msg.code = @"2";
-        [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PUSHSERVICE targetId:self.callerId content:msg pushContent:@"主播回应接听" pushData:nil success:^(long messageId) {
+        msg.trId = self.directRingBack? self.trId: self.calllMsg.trId;
+        msg.code = self.directRingBack? @"7": @"2";
+        self.calllMsg = self.directRingBack? msg: self.calllMsg;
+        NSString *content = self.directRingBack? @"主播回拨预约": @"主播回应接听";
+        [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PUSHSERVICE targetId:self.callerId content:msg pushContent:content pushData:nil success:^(long messageId) {
             
         } error:^(RCErrorCode nErrorCode, long messageId) {
             
@@ -95,6 +97,12 @@
     //更新会议在线人数
     if (!self.otherManTrId) {
         self.otherManTrId = uid;
+        if (self.directRingBack) {
+            NSDictionary *param = @{@"subId":self.subId, @"state":@2};
+            [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/sub/changeState" andParam:param andSuccess:^(id data) {
+                
+            }];
+        }
     }else{
         self.peopleCount++;
         self.peopleCountLabel.text = [NSString stringWithFormat:@"%ld 人正在偷听",self.peopleCount];
@@ -228,6 +236,13 @@
         AnchorEndCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"anchor end"];
         [NMFloatWindow keyFLoatWindow].rootViewController = vc;
         
+    }
+    if (self.directRingBack && !self.otherManTrId) {
+        // 对方未接通
+        NSDictionary *param = @{@"subId":self.subId, @"state":@3};
+        [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/sub/changeState" andParam:param andSuccess:^(id data) {
+            
+        }];
     }
 //    [[NMFloatWindow keyFLoatWindow] dismiss];
 }

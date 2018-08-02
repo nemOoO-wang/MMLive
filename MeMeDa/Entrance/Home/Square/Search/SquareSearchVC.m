@@ -158,7 +158,7 @@
 
 - (IBAction)clickCoin:(id)sender {
     NSMutableArray *tmpArr = [[NSMutableArray alloc] init];
-    for (int i=100; i<1000; i+=100) {
+    for (int i=0; i<1000; i+=200) {
         [tmpArr addObject:[@(i) stringValue]];
     }
     [self performSegueWithIdentifier:@"choose" sender:@{@"dataArr":[tmpArr copy], @"key":@"price"}];
@@ -172,7 +172,7 @@
 
 
 - (IBAction)clickOnlineTime:(id)sender {
-    NSArray *dataArr = @[@"一小时",@"二小时",@"三小时",@"四小时"];
+    NSArray *dataArr = @[@"一小时",@"二小时",@"三小时",@"四小时",@"五小时及以上"];
     [self performSegueWithIdentifier:@"choose" sender:@{@"dataArr":dataArr, @"key":@"time"}];
 }
 

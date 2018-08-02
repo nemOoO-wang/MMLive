@@ -9,22 +9,50 @@
 #import "MeThemeVC.h"
 #import "MeMommentCollectionCell.h"
 #import "SquareListVC.h"
+#import <MJRefresh.h>
 
 
 @interface MeThemeVC ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,strong) NSArray *dataArr;
-
+@property (nonatomic,strong) NSString *partyId;
+@property (nonatomic,assign) NSInteger page;
 @end
 
 @implementation MeThemeVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self reFreshData];
+    // mj
+    [self.collectionView setMj_header:[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self reFreshData];
+    }]];
+    [self.collectionView setMj_footer:[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/getActivityList" andParam:@{@"page":@(++self.page), @"size":@10} andSuccess:^(id data) {
+            NSArray *content = data[@"data"][@"content"];
+            if (content.count<=0) {
+                [self.collectionView.mj_footer endRefreshingWithNoMoreData];
+            }else{
+                NSMutableArray *tmpArr = [self.dataArr mutableCopy];
+                [tmpArr addObjectsFromArray:content];
+                self.dataArr = [tmpArr copy];
+                [self.collectionView reloadData];
+            }
+        }];
+    }]];
+}
+
+-(void)reFreshData{
+    self.page = 0;
     [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/getActivityList" andParam:@{@"page":@0, @"size":@10} andSuccess:^(id data) {
         self.dataArr = data[@"data"][@"content"];
         [self.collectionView reloadData];
+        [self.collectionView.mj_header endRefreshing];
+        [self.collectionView.mj_footer resetNoMoreData];
     }];
+    NSDictionary *dic = MDUserDic;
+    self.partyId = [dic[@"activityId"] stringValue];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,9 +72,25 @@
 
 # pragma mark - delegate
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary *dic = self.dataArr[indexPath.row];
-    NSDictionary *searchDic = @{@"activityId":dic[@"id"]};
-    [self performSegueWithIdentifier:@"show" sender:searchDic];
+    if (MDIsAnchor) {
+        NSDictionary *dic = self.dataArr[indexPath.row];
+        NSString *selectedId = [dic[@"id"] stringValue];
+        if ([selectedId isEqualToString:self.partyId]) {
+            [SVProgressHUD showInfoWithStatus:@"已经参加过了哦"];
+        }else{
+            [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/activity/joinActivity" andParam:@{@"id":selectedId} andSuccess:^(id data) {
+                [SVProgressHUD showInfoWithStatus:@"参加成功"];
+                NSMutableDictionary *mDic = [MDUserDic mutableCopy];
+                [mDic setObject:dic[@"id"] forKey:@"activityId"];
+                [[NSUserDefaults standardUserDefaults] setObject:[mDic copy] forKey:@"UserData"];
+                [self reFreshData];
+            }];
+        }
+    }else{
+        NSDictionary *dic = self.dataArr[indexPath.row];
+        NSDictionary *searchDic = @{@"activityId":dic[@"id"]};
+        [self performSegueWithIdentifier:@"show" sender:searchDic];
+    }
 }
 
 # pragma mark - <UICollectionViewDataSource>
@@ -55,6 +99,13 @@
     NSDictionary *dic = self.dataArr[indexPath.row];
     cell.nameLabel.text = dic[@"title"];
     cell.contextField.text = dic[@"content"];
+    if (MDIsAnchor) {
+        if ([[dic[@"id"] stringValue] isEqualToString:self.partyId]) {
+            [cell.infoLabel setTitle:@"已加入" forState:UIControlStateNormal];
+        }else{
+            [cell.infoLabel setTitle:@"加入活动" forState:UIControlStateNormal];
+        }
+    }
     return cell;
 }
 
@@ -90,7 +141,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"show"]) {
         SquareListVC *vc = segue.destinationViewController;
-        [vc setTitle:@"活动主题"];
+        [vc setTitle:@"活动主播列表"];
         vc.searchUrl = @"/chat/user/indexSearch";
         vc.optSearchDic = sender;
     }

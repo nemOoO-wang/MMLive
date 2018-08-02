@@ -17,7 +17,6 @@
 @property (nonatomic,assign) NSInteger requestDayIndex;
 @property (nonatomic,assign) NSInteger requestWeekIndex;
 @property (nonatomic,assign) BOOL weeklyType;
-
 @end
 
 @implementation RankPicCollectVC

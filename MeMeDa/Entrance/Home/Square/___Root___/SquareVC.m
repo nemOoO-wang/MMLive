@@ -48,6 +48,7 @@
     if([uDic[@"imState"] integerValue] == 1){
         // 在线
         [self.onlineBtn setSelected:NO];
+        [self clickOnline:nil];
     }else{
         [self.onlineBtn setSelected:YES];
     }
@@ -118,7 +119,7 @@
             NSDictionary *dic = self.partyArr[indexPath.row-1];
             NSDictionary *searchDic = @{@"activityId":dic[@"id"]};
             SquareListVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"square list"];
-            [vc setTitle:@"活动主题"];
+            [vc setTitle:@"活动主播列表"];
             vc.searchUrl = @"/chat/user/indexSearch";
             vc.optSearchDic = searchDic;
             [self.navigationController pushViewController:vc animated:YES];

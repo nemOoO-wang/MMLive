@@ -15,6 +15,7 @@
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 /// user info
 #define MDUserDic ([[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"])
+#define MDIsAnchor ([MDUserDic[@"gender"] integerValue] == 2)
 /// 融云
 #define RCAPPKey @"cpj2xarlc78zn"
 #define RCAPPSecret @"HXsxYcwy88"

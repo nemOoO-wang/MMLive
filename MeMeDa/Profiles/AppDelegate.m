@@ -300,6 +300,40 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"还剩余的未接收的消息数：%d", nLeft);
     // notification
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RCRecieve" object:message userInfo:nil];
+    // 记录到未读数
+    if ([message.objectName hasPrefix:@"RC"]) {
+        // 非自定义消息
+        NSMutableArray *arr = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Friend Chat"] mutableCopy];
+        NSString *senderId = message.senderUserId;
+        if (arr) {
+            [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSArray *tmpArr = obj;
+                NSDictionary *uDic = tmpArr[0];
+                NSString *tmpId;
+                if ([uDic[@"id"] isMemberOfClass:[NSString class]]) {
+                    tmpId = uDic[@"id"];
+                }else{
+                    tmpId = [uDic[@"id"] stringValue];
+                }
+                if ([tmpId isEqualToString:senderId]) {
+                    [arr removeObject:obj];
+                    // string
+                    NSString *content;
+                    if ([message.objectName isEqualToString:@"RC:TxtMsg"]) {
+                        RCTextMessage *textMessage = (RCTextMessage *)message.content;
+                        content = textMessage.content;
+                    }else{
+                        content = @"媒体消息";
+                    }
+                    [arr insertObject:@[uDic, content] atIndex:0];
+                    NSInteger count = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Friend Unread"] integerValue];
+                    count++;
+                    [[NSUserDefaults standardUserDefaults] setObject:@(count) forKey:@"Friend Unread"];
+                }
+            }];
+            [[NSUserDefaults standardUserDefaults] setObject:[arr copy] forKey:@"Friend Chat"];
+        }
+    }
     // 打电话
     if ([message.objectName isEqualToString:@"app:NMRCCallMessage"]) {
         NMRCCallMessage *msg = (NMRCCallMessage *)message.content;
@@ -366,6 +400,23 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 //                    [[[[UIApplication sharedApplication] keyWindow] getCurrentViewController] presentViewController:vc animated:YES completion:nil];
                 }
 //            });
+        }else if ([msg.code isEqualToString:@"7"]) {
+            // 用户收到主播回拨
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                VCallVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"calling"];
+                vc.calllMsg = msg;
+                //初始化会议
+                NIMNetCallMeeting *meeting = [[NIMNetCallMeeting alloc] init];
+                //指定会议名
+                meeting.name = msg.roomName;
+                meeting.actor = YES;
+                vc.meeting = meeting;
+                vc.userType = CallUserDefault;
+                [[NMFloatWindow keyFLoatWindow] setFullScreenWithoutAni:YES];
+                [NMFloatWindow keyFLoatWindow].frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT);
+                [NMFloatWindow keyFLoatWindow].rootViewController = vc;
+                [[NMFloatWindow keyFLoatWindow] show];
+            });
         }
     }
 }

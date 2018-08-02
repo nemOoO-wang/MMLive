@@ -26,9 +26,12 @@ typedef NS_ENUM(NSInteger, CallUser) {
 @interface VCallVC : UIViewController
 
 @property (nonatomic,assign) CallUser userType;
+// 主播回拨用户使用的属性
+@property (nonatomic, assign) BOOL directRingBack;
+@property (nonatomic,strong) NSString *subId;
+@property (nonatomic,strong) NSString *trId;
 //@property (nonatomic,assign) NSString *callingAnchorId;
 @property (nonatomic,strong) NSString *callerId;
-//@property (nonatomic,strong) NSString *trId;
 @property (nonatomic,strong) NIMNetCallMeeting *meeting;
 @property (weak, nonatomic) IBOutlet AVAnchorContainerView *menuContainerView;
 @property (weak, nonatomic) IBOutlet UIView *smallVideoView;

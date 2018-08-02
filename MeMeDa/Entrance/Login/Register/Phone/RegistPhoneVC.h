@@ -10,4 +10,6 @@
 
 @interface RegistPhoneVC : UIViewController
 
+@property (nonatomic,assign) BOOL changePhoneFunc;
+
 @end

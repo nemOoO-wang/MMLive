@@ -58,6 +58,12 @@
             return self.subDataArr[row-1][@"name"];
         }
     }
+    if ([self.siftKey isEqualToString:@"price"]) {
+        // 选择金币改为范围
+        NSInteger value = [self.dataArr[row - 1] integerValue];
+        NSString *result = [NSString stringWithFormat:@"%ld ~ %ld", value, value+199];
+        return result;
+    }
     if(component == 1){
         return self.subDataArr[row-1];
     }

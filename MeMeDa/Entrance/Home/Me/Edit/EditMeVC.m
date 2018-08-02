@@ -130,9 +130,13 @@
 
 # pragma mark - upload
 -(void)uploadData{
-     NSDictionary *userDic = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserData"];
-    [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/saveEdit" andParam:userDic andSuccess:^(id data) {
+    NSMutableDictionary *tmpDic = [MDUserDic mutableCopy];
+    [tmpDic removeObjectForKey:@"level"];
+    NSDictionary *userDic = [tmpDic copy];    
+    [[BeeNet sharedInstance] requestWithType:Request_POST url:@"/chat/user/saveEdit" param:userDic success:^(id data) {
         [SVProgressHUD showSuccessWithStatus:@"更改成功"];
+    } fail:^(NSString *message) {
+        
     }];
 }
 

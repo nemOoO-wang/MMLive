@@ -24,6 +24,9 @@ typedef NS_ENUM(NSUInteger, MessageType) {
 
 @property (nonatomic,assign) MessageType listType;
 @property (nonatomic,strong) NSDictionary *searchDic;
-
+// paging
+@property (nonatomic,assign) BOOL paging;
+@property (nonatomic,assign) NSInteger page;
+//@property (nonatomic,strong) NSString *url;
 
 @end

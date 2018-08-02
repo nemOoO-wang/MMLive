@@ -9,6 +9,8 @@
 #import "MessageListTVC.h"
 #import "UserListTableViewCell.h"
 #import "UserInfoVC.h"
+#import <MJRefresh.h>
+#import "ChatVC.h"
 
 
 @interface MessageListTVC ()
@@ -24,6 +26,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self refresData];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needRefresh:) name:@"Message Need Refresh" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needChat:) name:@"Want To Call" object:nil];
     // blur
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     self.blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
@@ -39,6 +42,13 @@
 
 -(void)needRefresh:(NSNotification *)noti{
     [self refresData];
+}
+
+-(void)needChat:(NSNotification *)noti{
+    NSDictionary *dic = noti.object;
+    ChatVC *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Chat"];
+    vc.friendUserDic = dic;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -70,16 +80,37 @@
     if (self.listType == MessageTypeCallLog) {
         // 通话记录
         [self setTitle:@"通话记录"];
-        [SVProgressHUD showWithStatus:@"数据好多，疯狂攫取中。。。"];
-        [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/inOut" andParam:nil andSuccess:^(id data) {
-            [SVProgressHUD dismiss];
+        NSDictionary *dic = @{@"page":@(self.page++)};
+        [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/inOut" andParam:dic andSuccess:^(id data) {
             self.dataArr = data[@"data"];
             [self.tableView reloadData];
         }];
+        // footer
+        [self.tableView setMj_footer:[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            NSDictionary *dic2 = @{@"page":@(self.page++)};
+            [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/user/inOut" andParam:dic2 andSuccess:^(id data) {
+                if ([data[@"data"] count] <= 0) {
+                    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+                }else{
+                    NSMutableArray *arr = [self.dataArr copy];
+                    [arr arrayByAddingObjectsFromArray:data[@"data"]];
+                    self.dataArr = [arr copy];
+                    //                [self.tableView reloadRowsAtIndexPaths:[NSIndexPath indexPathForRow:<#(NSInteger)#> inSection:<#(NSInteger)#>] withRowAnimation:<#(UITableViewRowAnimation)#>];
+                    [self.tableView reloadData];
+                }
+            }];
+        }]];
+        // header
+        [self.tableView setMj_header:[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            self.page = 0;
+            [self.tableView.mj_footer resetNoMoreData];
+            [self refresData];
+        }]];
     }
     if (self.listType == MessageTypeReservation) {
         // 预约
         [self setTitle:@"我的预约"];
+        // man
         [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/sub/userAppointmentList" andParam:nil andSuccess:^(id data) {
             self.dataArr = data[@"data"];
             [self.tableView reloadData];
@@ -158,7 +189,11 @@
         cell.dataDic = self.dataArr[indexPath.row];
     }
     if (self.listType == MessageTypePeepMe) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"log" forIndexPath:indexPath];
+        if (MDIsAnchor) {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"chat" forIndexPath:indexPath];
+        }else{
+            cell = [tableView dequeueReusableCellWithIdentifier:@"log" forIndexPath:indexPath];
+        }
         cell.dataDic = self.dataArr[indexPath.row];
     }
     if (self.listType == MessageTypeCallLog) {
@@ -172,11 +207,15 @@
     }
     if (self.listType == MessageTypeReservation) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"reserve" forIndexPath:indexPath];
-        cell.dataDic = self.dataArr[indexPath.row][@"fromId"];
+//        if ([MDUserDic[@"gender"] integerValue] == 1) {
+//        else{
+//            cell = [tableView dequeueReusableCellWithIdentifier:@"recall" forIndexPath:indexPath];
+//        }
+        cell.magaDic = self.dataArr[indexPath.row];
     }
     if (self.listType == MessageTypeRecall) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"recall" forIndexPath:indexPath];
-        cell.dataDic = self.dataArr[indexPath.row][@"fromId"];
+        cell.magaDic = self.dataArr[indexPath.row];
     }
     if (self.listType == MessageTypeFriendMsg) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"chat log" forIndexPath:indexPath];

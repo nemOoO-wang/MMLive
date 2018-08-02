@@ -19,7 +19,9 @@
     [super viewDidLoad];
     // request
     NSDictionary *paramDic = @{@"type":@6};
-    [[BeeNet sharedInstance] requestWithType:Request_GET andUrl:@"/chat/statistical/getlist" andParam:paramDic andSuccess:^(id data) {
+    [[BeeNet sharedInstance] requestWithType:Request_GET url:@"/chat/statistical/getlist" param:paramDic success:^(id data) {
+        
+    } fail:^(NSString *message) {
         
     }];
 }
@@ -38,7 +40,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 
 # pragma mark - <UITableViewDataSource>
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

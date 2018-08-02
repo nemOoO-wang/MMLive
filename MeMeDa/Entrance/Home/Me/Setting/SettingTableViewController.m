@@ -11,6 +11,7 @@
 #import <NIMSDK/NIMSDK.h>
 #import "MiPushSDK.h"
 #import "MessageListTVC.h"
+#import "RegistPhoneVC.h"
 
 
 @interface SettingTableViewController ()
@@ -54,11 +55,13 @@
             case 22:
                 
                 break;
-                
-            case 24:
-                [self heimingdan];
+            case 23:
+                [self performSegueWithIdentifier:@"regist phone" sender:nil];
                 break;
             case 25:
+                [self heimingdan];
+                break;
+            case 26:
                 [self quit];
                 break;
                 
@@ -151,6 +154,8 @@
     [self.tabBarController dismissViewControllerAnimated:YES completion:^{}];
     
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"UserData"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Friend Chat"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Friend Unread"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"token"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"RCToken"];
     //                [[BeeNet sharedInstance] requestWithType:Request_POST andUrl:@"/chat/user/logout" andParam:nil andSuccess:^(id data) {
@@ -160,14 +165,14 @@
     }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"regist phone"]) {
+        RegistPhoneVC *vc = segue.destinationViewController;
+        vc.changePhoneFunc = YES;
+    }
 }
-*/
+
 
 @end

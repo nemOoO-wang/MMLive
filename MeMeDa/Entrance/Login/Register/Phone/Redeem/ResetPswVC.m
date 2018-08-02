@@ -37,15 +37,19 @@
 
 
 - (IBAction)clickGetVeriBtn:(id)sender {
-    if ([self.veriCodeBtn.currentTitle isEqualToString:@"获取验证码"]) {
-        self.countDown = 60;
-        self.countDownTimmer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDownTimmer:) userInfo:nil repeats:YES];
-        [self.countDownTimmer fire];
-        NSDictionary *paramDic = @{@"phone":self.phoneTextField.text};
-        [[BeeNet sharedInstance] requestWithType:Request_POST
-          andUrl:@"/chat/user/getVerification" andParam:paramDic andHeader:nil andSuccess:^(id data) {
-            [SVProgressHUD showSuccessWithStatus:@"已发送"];
-        } andFailed:nil];
+    if (!(self.phoneTextField.text.length == 11)) {
+        [SVProgressHUD showErrorWithStatus:@"手机号码格式不正确"];
+    }else{
+        if ([self.veriCodeBtn.currentTitle isEqualToString:@"获取验证码"]) {
+            self.countDown = 60;
+            self.countDownTimmer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDownTimmer:) userInfo:nil repeats:YES];
+            [self.countDownTimmer fire];
+            NSDictionary *paramDic = @{@"phone":self.phoneTextField.text};
+            [[BeeNet sharedInstance] requestWithType:Request_POST
+              andUrl:@"/chat/user/getVerification" andParam:paramDic andHeader:nil andSuccess:^(id data) {
+                [SVProgressHUD showSuccessWithStatus:@"已发送"];
+            } andFailed:nil];
+        }
     }
 }
 

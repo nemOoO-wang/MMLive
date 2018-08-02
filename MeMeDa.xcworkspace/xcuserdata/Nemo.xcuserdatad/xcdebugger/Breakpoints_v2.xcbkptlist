@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MeMeDa/Entrance/Universal/Chat/ChatVC.m"
-            timestampString = "554121424.887729"
+            timestampString = "554894775.440357"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "247"
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MeMeDa/Entrance/Login/LoginViewController.m"
-            timestampString = "554290634.2061419"
+            timestampString = "554908998.783802"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "-LoginwithData:"
             landmarkType = "7">
          </BreakpointContent>
