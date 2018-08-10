@@ -1,0 +1,137 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - AGAsyncTestHelper/Core (1.0)
+  - AGAsyncTestHelper/Shorthand (1.0):
+    - AGAsyncTestHelper/Core
+  - CocoaLumberjack (3.4.2):
+    - CocoaLumberjack/Default (= 3.4.2)
+    - CocoaLumberjack/Extensions (= 3.4.2)
+  - CocoaLumberjack/Default (3.4.2)
+  - CocoaLumberjack/Extensions (3.4.2):
+    - CocoaLumberjack/Default
+  - IQKeyboardManager (6.1.1)
+  - M80AttributedLabel (1.3.3)
+  - Masonry (1.1.0)
+  - MJRefresh (3.1.15.3)
+  - mob_sharesdk (4.1.3):
+    - mob_sharesdk/ShareSDK (= 4.1.3)
+    - MOBFoundation
+  - mob_sharesdk/ShareSDK (4.1.3):
+    - MOBFoundation
+  - mob_sharesdk/ShareSDKPlatforms/QQ (4.1.3):
+    - mob_sharesdk/ShareSDK
+    - MOBFoundation
+  - mob_sharesdk/ShareSDKPlatforms/WeChatFull (4.1.3):
+    - mob_sharesdk/ShareSDK
+    - MOBFoundation
+  - MOBFoundation (3.1.6)
+  - NELivePlayer (1.7.0)
+  - NIMSDK (5.4.0)
+  - NMCLiveStreaming (3.1.0)
+  - QBImagePickerController (3.4.0)
+  - Reachability (3.1.1)
+  - RongCloudIM (2.9.2):
+    - RongCloudIM/IMKit (= 2.9.2)
+    - RongCloudIM/IMLib (= 2.9.2)
+    - RongCloudIM/RedPacket (= 2.9.2)
+    - RongCloudIM/Sticker (= 2.9.2)
+  - RongCloudIM/IMKit (2.9.2):
+    - RongCloudIM/IMLib
+  - RongCloudIM/IMLib (2.9.2)
+  - RongCloudIM/RedPacket (2.9.2):
+    - RongCloudIM/IMKit
+  - RongCloudIM/Sticker (2.9.2):
+    - RongCloudIM/IMKit
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
+  - SSZipArchive (1.8.1)
+  - SVProgressHUD (2.2.5)
+  - Toast (2.4)
+  - UICollectionViewLeftAlignedLayout (1.0.2)
+
+DEPENDENCIES:
+  - AFNetworking
+  - AGAsyncTestHelper/Shorthand
+  - CocoaLumberjack
+  - IQKeyboardManager
+  - M80AttributedLabel (~> 1.3.1)
+  - Masonry
+  - MJRefresh
+  - mob_sharesdk
+  - mob_sharesdk/ShareSDKPlatforms/QQ
+  - mob_sharesdk/ShareSDKPlatforms/WeChatFull
+  - NELivePlayer (~> 1.7.0)
+  - NIMSDK
+  - NMCLiveStreaming
+  - QBImagePickerController
+  - Reachability (~> 3.1.1)
+  - RongCloudIM (~> 2.9.0)
+  - SDWebImage
+  - SSZipArchive (~> 1.2)
+  - SVProgressHUD
+  - Toast (~> 2.4)
+  - UICollectionViewLeftAlignedLayout
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - AGAsyncTestHelper
+    - CocoaLumberjack
+    - IQKeyboardManager
+    - M80AttributedLabel
+    - Masonry
+    - MJRefresh
+    - mob_sharesdk
+    - MOBFoundation
+    - NELivePlayer
+    - NIMSDK
+    - NMCLiveStreaming
+    - QBImagePickerController
+    - Reachability
+    - RongCloudIM
+    - SDWebImage
+    - SSZipArchive
+    - SVProgressHUD
+    - Toast
+    - UICollectionViewLeftAlignedLayout
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AGAsyncTestHelper: b1399096574bab94f2c94e9be3e8d88e7cefbc17
+  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
+  IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
+  M80AttributedLabel: 3bcacb2d85e6c66e32fb930aac2f04eca3974106
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  mob_sharesdk: 78acada345f61bd1c9d6a4a85a7eb9f19bc1c345
+  MOBFoundation: a87c5f11fb87f873337189c3ec0add4d3ec6221a
+  NELivePlayer: b48dbed884391fbd878e780b0863a68e8ca166fa
+  NIMSDK: b96577d4f892a606e644eeba55837ab5cf5de071
+  NMCLiveStreaming: 165d705c2f4dbf37e3c89cc6946eba8c8194d4eb
+  QBImagePickerController: d54cf93db6decf26baf6ed3472f336ef35cae022
+  Reachability: dd9aa4fb6667b9f787690a74f53cb7634ce99893
+  RongCloudIM: fdfa42630aec09c92d6054753ea3e7a7db75bec2
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  SSZipArchive: 04547dfa448be5ed7ecbaf7eaf8a6e9eb9b42997
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  Toast: 0773b8fc0e97352ca6054517bec7ebdd4110029d
+  UICollectionViewLeftAlignedLayout: 830bf6fa5bab9f9b464f62e3384f9d2e00b3c0f6
+
+PODFILE CHECKSUM: fb163aef354e85a9d2cd06b5cbd636d15368ff97
+
+COCOAPODS: 1.5.3

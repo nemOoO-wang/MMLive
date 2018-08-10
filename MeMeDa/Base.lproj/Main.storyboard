@@ -7809,7 +7809,7 @@
                                                     <rect key="frame" x="7" y="83" width="71" height="61"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeE-rL-xnX">
-                                                    <rect key="frame" x="28.5" y="70.5" width="28" height="70"/>
+                                                    <rect key="frame" x="28.5" y="71" width="28" height="70"/>
                                                     <fontDescription key="fontDescription" name="STBaoli-SC-Regular" family="Baoli SC" pointSize="50"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -11768,7 +11768,7 @@
         <segue reference="7ig-Ym-jFs"/>
         <segue reference="vNV-Bg-kar"/>
         <segue reference="7Y0-TE-7p8"/>
-        <segue reference="HFr-mm-gdo"/>
+        <segue reference="sKF-o8-DUt"/>
         <segue reference="Mzg-wE-Rnn"/>
         <segue reference="1rl-Ny-3mG"/>
         <segue reference="K0W-e5-WTP"/>
